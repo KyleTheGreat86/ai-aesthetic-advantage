@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -93,9 +96,90 @@
 @layer base {
   * {
     @apply border-border;
+    scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-eagle-dark text-white font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-semibold;
+  }
+}
+
+@layer components {
+  .eagle-btn-primary {
+    @apply bg-eagle-blue text-white px-6 py-3 rounded-md font-semibold transition-all hover:bg-eagle-blue/90 hover:shadow-lg hover:shadow-eagle-blue/20 hover:-translate-y-0.5;
+  }
+  
+  .eagle-btn-secondary {
+    @apply bg-eagle-orange text-white px-6 py-3 rounded-md font-semibold transition-all hover:bg-eagle-orange/90 hover:shadow-lg hover:shadow-eagle-orange/20 hover:-translate-y-0.5;
+  }
+
+  .eagle-btn-outline {
+    @apply border-2 border-white text-white px-6 py-3 rounded-md font-semibold transition-all hover:bg-white/10 hover:-translate-y-0.5;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20;
+  }
+
+  .gradient-text-blue {
+    @apply bg-gradient-to-r from-eagle-blue to-blue-300 inline-block text-transparent bg-clip-text;
+  }
+
+  .gradient-text-orange {
+    @apply bg-gradient-to-r from-eagle-orange to-amber-300 inline-block text-transparent bg-clip-text;
+  }
+
+  .card-glow {
+    @apply relative overflow-hidden;
+  }
+
+  .card-glow::before {
+    @apply content-[''] absolute -inset-0.5 bg-gradient-to-r from-eagle-blue to-eagle-orange opacity-30 blur-sm transition-all duration-1000;
+  }
+
+  .card-glow:hover::before {
+    @apply opacity-50 blur;
+  }
+
+  .floating-shapes {
+    @apply absolute w-full h-full overflow-hidden pointer-events-none z-0;
+  }
+  
+  .floating-shape {
+    @apply absolute opacity-10 animate-float;
+  }
+  
+  .bg-grid {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+  
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .animate-delay-600 {
+    animation-delay: 600ms;
   }
 }
