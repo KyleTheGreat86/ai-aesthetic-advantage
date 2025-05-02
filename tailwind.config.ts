@@ -149,6 +149,9 @@ export default {
 						'counter-increment': 'count var(--num)',
 					},
 				},
+				'scroll': {
+					to: { transform: 'translateX(calc(-50% - var(--gap)/2))' }
+				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -159,6 +162,7 @@ export default {
 				'float': 'float 6s ease-in-out infinite',
 				'typewriter': 'typewriter 2s steps(40) forwards',
 				'counter': 'counter 2s ease-out forwards',
+				'scroll': 'scroll linear infinite'
 			}
 		}
 	},
