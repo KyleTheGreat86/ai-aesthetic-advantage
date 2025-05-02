@@ -73,7 +73,7 @@ const Navbar = () => {
           </div>
           <div className="hidden md:block">
             <a
-              href="https://youtube.com"
+              href="https://youtu.be/NpB49c8D-UE"
               target="_blank"
               rel="noopener noreferrer"
               className="eagle-btn-primary inline-flex items-center gap-2 relative group overflow-hidden"
@@ -134,7 +134,7 @@ const Navbar = () => {
               Contact
             </a>
             <a
-              href="https://youtube.com"
+              href="https://youtu.be/NpB49c8D-UE"
               target="_blank"
               rel="noopener noreferrer"
               className="block px-3 py-2 text-eagle-blue font-semibold hover:bg-eagle-blue/10 rounded-md"
