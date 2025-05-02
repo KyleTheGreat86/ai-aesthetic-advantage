@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import LoadingScreen from "../components/LoadingScreen";
 import Navbar from "../components/Navbar";
-import { HeroSection } from "../components/ui/hero-section";
+import Hero from "../components/Hero";
 import ProblemStatement from "../components/ProblemStatement";
 import Solution from "../components/Solution";
 import HowItWorks from "../components/HowItWorks";
@@ -44,7 +44,7 @@ const Index = () => {
     <div className="min-h-screen bg-eagle-dark text-white">
       <LoadingScreen />
       <Navbar />
-      <HeroSection />
+      <Hero />
       <ProblemStatement />
       <Solution />
       <HowItWorks />
