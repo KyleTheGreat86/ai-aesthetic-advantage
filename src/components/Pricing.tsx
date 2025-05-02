@@ -81,7 +81,7 @@ const Pricing = () => {
                 </div>
 
                 <div className="mb-4 py-2 border-t border-b border-white/10">
-                  <span className="text-xl font-medium">£997</span>
+                  <span className="text-xl font-medium">£497</span>
                   <span className="text-gray-400">/month after trial</span>
                   <p className="text-sm text-gray-400">Cancel Anytime</p>
                 </div>
