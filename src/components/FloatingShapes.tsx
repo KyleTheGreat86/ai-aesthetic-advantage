@@ -17,9 +17,9 @@ const FloatingShapes = () => {
         let backgroundClass;
         
         if (index % 2 === 0) {
-          backgroundClass = 'bg-eagle-blue/10';
+          backgroundClass = 'bg-eagle-blue/20 backdrop-blur-sm';
         } else {
-          backgroundClass = 'bg-eagle-orange/10';
+          backgroundClass = 'bg-eagle-orange/20 backdrop-blur-sm';
         }
         
         return (

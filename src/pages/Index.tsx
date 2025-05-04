@@ -13,6 +13,7 @@ import About from "../components/About";
 import Contact from "../components/Contact";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
+import BackgroundGrid from "../components/BackgroundGrid";
 
 const Index = () => {
   // Smooth scrolling for anchor links
@@ -42,6 +43,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-eagle-dark text-white">
+      <BackgroundGrid />
       <LoadingScreen />
       <Navbar />
       <Hero />
