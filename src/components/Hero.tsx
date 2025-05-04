@@ -73,6 +73,10 @@ const Hero = () => {
             <span className="gradient-text-orange block">Hair Transplant Clinics</span>
           </h1>
           
+          <p className="text-xl font-semibold text-eagle-blue mb-4 opacity-0 animate-fade-in">
+            Typical Free Trial Results
+          </p>
+          
           <div className="mb-8 flex flex-col md:flex-row justify-center gap-6">
             {showStats && (
               <>
