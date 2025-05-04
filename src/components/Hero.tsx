@@ -70,7 +70,7 @@ const Hero = () => {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 overflow-hidden">
             <span className="block">The</span>
             <span className="gradient-text-blue">AI Advantage</span> for
-            <span className="gradient-text-orange block">UK Aesthetic Clinics</span>
+            <span className="gradient-text-orange block">US Hair Transplant Clinics</span>
           </h1>
           
           <div className="mb-8 flex flex-col md:flex-row justify-center gap-6">
