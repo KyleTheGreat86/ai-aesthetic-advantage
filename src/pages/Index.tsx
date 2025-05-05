@@ -10,7 +10,6 @@ import Results from "../components/Results";
 import Pricing from "../components/Pricing";
 import Guarantee from "../components/Guarantee";
 import About from "../components/About";
-import Contact from "../components/Contact";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
 import BackgroundGrid from "../components/BackgroundGrid";
@@ -54,7 +53,6 @@ const Index = () => {
       <Pricing />
       <Guarantee />
       <About />
-      <Contact />
       <FAQ />
       <Footer />
     </div>
