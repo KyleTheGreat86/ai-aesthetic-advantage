@@ -40,7 +40,7 @@ const About = () => {
     },
     {
       title: "Industry Expertise",
-      description: "We understand the unique challenges of aesthetic clinics",
+      description: "We understand the unique challenges of audiologist clinics",
     },
     {
       title: "Continuous Improvement",
