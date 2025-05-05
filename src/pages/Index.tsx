@@ -9,6 +9,7 @@ import HowItWorks from "../components/HowItWorks";
 import Results from "../components/Results";
 import Pricing from "../components/Pricing";
 import Guarantee from "../components/Guarantee";
+import TeamExperts from "../components/TeamExperts";
 import About from "../components/About";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
@@ -85,6 +86,7 @@ const Index = () => {
       <Results />
       <Pricing />
       <Guarantee />
+      <TeamExperts />
       <About />
       <FAQ />
       <Footer />
