@@ -1,6 +1,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
+import { AudiologistLogosDemo } from "./ui/audiologist-logos-demo";
 
 const resultsData = [
   {
@@ -65,9 +66,23 @@ const Results = () => {
     >
       <div className="section-container relative z-10">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
             Why These Audiologists Switched to Eagle Eye AI
           </h2>
+          
+          {/* Testimonial logos animation section */}
+          <div
+            className={`transition-all duration-700 transform ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
+            style={{ transitionDelay: "200ms" }}
+          >
+            <AudiologistLogosDemo />
+          </div>
+
+          <h3 className="text-2xl md:text-3xl font-bold mb-8 text-center mt-8">
+            Their Results Speak For Themselves
+          </h3>
 
           <div className="overflow-x-auto">
             <table className="w-full border-collapse">
@@ -88,7 +103,7 @@ const Results = () => {
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-10"
                     }`}
-                    style={{ transitionDelay: `${index * 200}ms` }}
+                    style={{ transitionDelay: `${index * 200 + 400}ms` }}
                   >
                     <td className="p-4 font-medium">{row.clinic}</td>
                     <td className="p-4">
@@ -125,7 +140,7 @@ const Results = () => {
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}
-            style={{ transitionDelay: "600ms" }}
+            style={{ transitionDelay: "800ms" }}
           >
             <div className="flex flex-col md:flex-row items-center">
               <div className="relative mb-4 md:mb-0 md:mr-8">
@@ -152,7 +167,7 @@ const Results = () => {
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
               }`}
-              style={{ transitionDelay: "800ms" }}
+              style={{ transitionDelay: "1000ms" }}
             >
               <span>See Pricing & Start Free Trial</span>
               <ArrowRight 
