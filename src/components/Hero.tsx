@@ -77,7 +77,7 @@ const Hero = () => {
           </div>
           
           <p className="text-xl font-semibold text-eagle-blue mb-4 opacity-0 animate-fade-in">
-            Typical Free Trial Results
+            Typical Client Results
           </p>
           
           <div className="mb-8 flex flex-col md:flex-row justify-center gap-6">
@@ -92,7 +92,7 @@ const Hero = () => {
                   <p className="text-gray-400">Conversion Rate</p>
                 </div>
                 <div className="opacity-0 animate-fade-in animate-delay-400">
-                  <p className="text-2xl md:text-3xl font-bold">$5,200</p>
+                  <p className="text-2xl md:text-3xl font-bold">$5,200+</p>
                   <p className="text-gray-400">Net Profit/Month</p>
                 </div>
               </>
