@@ -1,22 +1,27 @@
+
 import React, { useState, useEffect } from "react";
 import eagleLogo from "/lovable-uploads/b797bc22-5a08-4a8e-a9e5-b0a065bd73a4.png";
 import FloatingShapes from "./FloatingShapes";
+import { EagleButton, EagleSecondaryButton } from "./ui/eagle-button";
 
 const Hero = () => {
   const [isVideoVisible, setIsVideoVisible] = useState(false);
   const [showStats, setShowStats] = useState(false);
   const [showTagline, setShowTagline] = useState(false);
   const [showButtons, setShowButtons] = useState(false);
+  const [showLimitedBanner, setShowLimitedBanner] = useState(false);
 
   useEffect(() => {
     const timer1 = setTimeout(() => setShowStats(true), 1000);
     const timer2 = setTimeout(() => setShowTagline(true), 2000);
     const timer3 = setTimeout(() => setShowButtons(true), 2800);
+    const timer4 = setTimeout(() => setShowLimitedBanner(true), 1500);
 
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
       clearTimeout(timer3);
+      clearTimeout(timer4);
     };
   }, []);
 
@@ -33,6 +38,17 @@ const Hero = () => {
             Add 15-25 High Value Appointments & <span className="text-eagle-orange font-bold">${"5,200+"}</span> Monthly Net Profit After Our Fee To Your Clinic Every Month Or You Pay NOTHING.
           </p>
         </div>
+        
+        {/* Limited Availability Banner */}
+        {showLimitedBanner && (
+          <div className="mb-6 text-center opacity-0 animate-fade-in">
+            <div className="inline-block bg-eagle-blue/20 backdrop-blur-sm rounded-lg px-6 py-3 border border-eagle-blue/50">
+              <p className="text-xl font-semibold text-white">Limited Availability</p>
+              <p className="text-lg font-medium text-eagle-orange">Only 3 Clinics Left Being Accepted This Month</p>
+              <p className="text-sm mt-1 text-gray-300">Limited spots remaining. Apply now.</p>
+            </div>
+          </div>
+        )}
         
         {!isVideoVisible && (
           <div className="mb-10 mx-auto w-full max-w-3xl relative">
@@ -69,11 +85,15 @@ const Hero = () => {
         {/* Call-to-action buttons moved directly below the video */}
         {showButtons && (
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 opacity-0 animate-fade-in">
-            <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer" className="eagle-btn-primary">
-              BOOK FREE STRATEGY CALL
+            <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer">
+              <EagleButton className="uppercase font-bold text-base">
+                BOOK FREE STRATEGY CALL
+              </EagleButton>
             </a>
-            <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer" className="eagle-btn-secondary">
-              START 14-DAY FREE TRIAL
+            <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer">
+              <EagleSecondaryButton className="uppercase font-bold text-base">
+                START 14-DAY FREE TRIAL
+              </EagleSecondaryButton>
             </a>
           </div>
         )}
