@@ -116,11 +116,9 @@ const ProblemStatement = () => {
               } transition-opacity duration-500`}
               style={{ transitionDelay: "200ms" }}
             >
-              <span className="absolute -top-4 text-sm font-normal text-white opacity-70">
-                Monthly
-              </span>
               <span className="text-eagle-orange font-bold animate-pulse-slow">{dollarAmount}</span>
             </span>
+            <span className="ml-2">Monthly</span>
             Due To:
           </h2>
 
