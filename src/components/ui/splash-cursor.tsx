@@ -1,9 +1,9 @@
 
 "use client";
 import { useEffect, useRef } from "react";
+import { useIsMobile } from "../../hooks/use-mobile";
 
 function SplashCursor({
-  // Add whatever props you like for customization
   SIM_RESOLUTION = 128,
   DYE_RESOLUTION = 1440,
   CAPTURE_RESOLUTION = 512,
@@ -12,16 +12,20 @@ function SplashCursor({
   PRESSURE = 0.1,
   PRESSURE_ITERATIONS = 20,
   CURL = 3,
-  SPLAT_RADIUS = 0.2,
+  SPLAT_RADIUS = 0.25,
   SPLAT_FORCE = 6000,
   SHADING = true,
-  COLOR_UPDATE_SPEED = 10,
-  BACK_COLOR = { r: 0.5, g: 0, b: 0 },
+  COLOR_UPDATE_SPEED = 5,
+  BACK_COLOR = { r: 0.075, g: 0.15, b: 0.3 },
   TRANSPARENT = true,
 }) {
-  const canvasRef = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
+    // Skip effect on mobile devices
+    if (isMobile) return;
+    
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -56,8 +60,10 @@ function SplashCursor({
       TRANSPARENT,
     };
 
-    let pointers = [new pointerPrototype()];
+    // Use any type for pointers to avoid TypeScript errors with constructor
+    let pointers = [new (pointerPrototype as any)()];
 
+    // Get WebGL context
     const { gl, ext } = getWebGLContext(canvas);
     if (!ext.supportLinearFiltering) {
       config.DYE_RESOLUTION = 256;
@@ -172,14 +178,19 @@ function SplashCursor({
       return status === gl.FRAMEBUFFER_COMPLETE;
     }
 
+    // Define Material class with constructor that handles properties
     class Material {
+      vertexShader;
+      fragmentShaderSource;
+      programs = [];
+      activeProgram = null;
+      uniforms = [];
+
       constructor(vertexShader, fragmentShaderSource) {
         this.vertexShader = vertexShader;
         this.fragmentShaderSource = fragmentShaderSource;
-        this.programs = [];
-        this.activeProgram = null;
-        this.uniforms = [];
       }
+      
       setKeywords(keywords) {
         let hash = 0;
         for (let i = 0; i < keywords.length; i++) hash += hashCode(keywords[i]);
@@ -197,17 +208,22 @@ function SplashCursor({
         this.uniforms = getUniforms(program);
         this.activeProgram = program;
       }
+      
       bind() {
         gl.useProgram(this.activeProgram);
       }
     }
 
+    // Define Program class with constructor that handles properties
     class Program {
+      uniforms = {};
+      program;
+
       constructor(vertexShader, fragmentShader) {
-        this.uniforms = {};
         this.program = createProgram(vertexShader, fragmentShader);
         this.uniforms = getUniforms(this.program);
       }
+      
       bind() {
         gl.useProgram(this.program);
       }
@@ -224,16 +240,19 @@ function SplashCursor({
     }
 
     function getUniforms(program) {
-      let uniforms = [];
+      let uniforms = {};
       let uniformCount = gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS);
       for (let i = 0; i < uniformCount; i++) {
-        let uniformName = gl.getActiveUniform(program, i).name;
-        uniforms[uniformName] = gl.getUniformLocation(program, uniformName);
+        let uniformInfo = gl.getActiveUniform(program, i);
+        if (uniformInfo) {
+          let uniformName = uniformInfo.name;
+          uniforms[uniformName] = gl.getUniformLocation(program, uniformName);
+        }
       }
       return uniforms;
     }
 
-    function compileShader(type, source, keywords) {
+    function compileShader(type, source, keywords = null) {
       source = addKeywords(source, keywords);
       const shader = gl.createShader(type);
       gl.shaderSource(shader, source);
@@ -286,7 +305,8 @@ function SplashCursor({
         void main () {
             gl_FragColor = texture2D(uTexture, vUv);
         }
-      `
+      `,
+      null
     );
 
     const clearShader = compileShader(
@@ -301,7 +321,8 @@ function SplashCursor({
         void main () {
             gl_FragColor = value * texture2D(uTexture, vUv);
         }
-     `
+     `,
+     null
     );
 
     const displayShaderSource = `
@@ -364,7 +385,8 @@ function SplashCursor({
             vec3 base = texture2D(uTarget, vUv).xyz;
             gl_FragColor = vec4(base + splat, 1.0);
         }
-      `
+      `,
+      null
     );
 
     const advectionShader = compileShader(
@@ -435,7 +457,8 @@ function SplashCursor({
             float div = 0.5 * (R - L + T - B);
             gl_FragColor = vec4(div, 0.0, 0.0, 1.0);
         }
-      `
+      `,
+      null
     );
 
     const curlShader = compileShader(
@@ -458,7 +481,8 @@ function SplashCursor({
             float vorticity = R - L - T + B;
             gl_FragColor = vec4(0.5 * vorticity, 0.0, 0.0, 1.0);
         }
-      `
+      `,
+      null
     );
 
     const vorticityShader = compileShader(
@@ -493,7 +517,8 @@ function SplashCursor({
             velocity = min(max(velocity, -1000.0), 1000.0);
             gl_FragColor = vec4(velocity, 0.0, 1.0);
         }
-      `
+      `,
+      null
     );
 
     const pressureShader = compileShader(
@@ -519,7 +544,8 @@ function SplashCursor({
             float pressure = (L + R + B + T - divergence) * 0.25;
             gl_FragColor = vec4(pressure, 0.0, 0.0, 1.0);
         }
-      `
+      `,
+      null
     );
 
     const gradientSubtractShader = compileShader(
@@ -544,7 +570,8 @@ function SplashCursor({
             velocity.xy -= vec2(R - L, T - B);
             gl_FragColor = vec4(velocity, 0.0, 1.0);
         }
-      `
+      `,
+      null
     );
 
     const blit = (() => {
@@ -790,8 +817,11 @@ function SplashCursor({
 
     updateKeywords();
     initFramebuffers();
+    
+    // Performance optimization
     let lastUpdateTime = Date.now();
     let colorUpdateTimer = 0.0;
+    let animationFrameId;
 
     function updateFrame() {
       const dt = calcDeltaTime();
@@ -800,13 +830,13 @@ function SplashCursor({
       applyInputs();
       step(dt);
       render(null);
-      requestAnimationFrame(updateFrame);
+      animationFrameId = requestAnimationFrame(updateFrame);
     }
 
     function calcDeltaTime() {
       let now = Date.now();
       let dt = (now - lastUpdateTime) / 1000;
-      dt = Math.min(dt, 0.016666);
+      dt = Math.min(dt, 0.016666); // Cap at 60fps
       lastUpdateTime = now;
       return dt;
     }
@@ -1156,6 +1186,7 @@ function SplashCursor({
       return hash;
     }
 
+    // Event listeners for mouse interactions
     window.addEventListener("mousedown", (e) => {
       let pointer = pointers[0];
       let posX = scaleByPixelRatio(e.clientX);
@@ -1185,6 +1216,7 @@ function SplashCursor({
       updatePointerMoveData(pointer, posX, posY, color);
     });
 
+    // Event listeners for touch interactions
     document.body.addEventListener(
       "touchstart",
       function handleFirstTouchStart(e) {
@@ -1221,7 +1253,7 @@ function SplashCursor({
           updatePointerMoveData(pointer, posX, posY, pointer.color);
         }
       },
-      false
+      { passive: true } // Performance optimization for touch events
     );
 
     window.addEventListener("touchend", (e) => {
@@ -1232,28 +1264,31 @@ function SplashCursor({
       }
     });
 
+    // Start the animation loop
     updateFrame();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
-    SIM_RESOLUTION,
-    DYE_RESOLUTION,
-    CAPTURE_RESOLUTION,
-    DENSITY_DISSIPATION,
-    VELOCITY_DISSIPATION,
-    PRESSURE,
-    PRESSURE_ITERATIONS,
-    CURL,
-    SPLAT_RADIUS,
-    SPLAT_FORCE,
-    SHADING,
-    COLOR_UPDATE_SPEED,
-    BACK_COLOR,
-    TRANSPARENT,
-  ]);
+
+    // Cleanup function
+    return () => {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+      // Remove event listeners
+      window.removeEventListener("mousedown", () => {});
+      window.removeEventListener("mousemove", () => {});
+      window.removeEventListener("touchstart", () => {});
+      window.removeEventListener("touchmove", () => {});
+      window.removeEventListener("touchend", () => {});
+    };
+  }, [isMobile, SIM_RESOLUTION, DYE_RESOLUTION, CAPTURE_RESOLUTION, 
+      DENSITY_DISSIPATION, VELOCITY_DISSIPATION, PRESSURE, PRESSURE_ITERATIONS, 
+      CURL, SPLAT_RADIUS, SPLAT_FORCE, SHADING, COLOR_UPDATE_SPEED, BACK_COLOR, 
+      TRANSPARENT]);
 
   return (
     <div className="fixed top-0 left-0 z-50 pointer-events-none">
-      <canvas ref={canvasRef} id="fluid" className="w-screen h-screen" />
+      {!isMobile && (
+        <canvas ref={canvasRef} id="fluid" className="w-screen h-screen" />
+      )}
     </div>
   );
 }
