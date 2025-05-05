@@ -22,13 +22,26 @@ export const AnimatedTestimonials = ({
   autoplay?: boolean;
   className?: string;
 }) => {
+  // Initialize active state only if testimonials exist
   const [active, setActive] = useState(0);
+  
+  // Ensure we have valid testimonials
+  const hasTestimonials = Array.isArray(testimonials) && testimonials.length > 0;
+  
+  // Safety check to ensure active index is valid
+  useEffect(() => {
+    if (hasTestimonials && active >= testimonials.length) {
+      setActive(0);
+    }
+  }, [testimonials, active, hasTestimonials]);
 
   const handleNext = () => {
+    if (!hasTestimonials) return;
     setActive((prev) => (prev + 1) % testimonials.length);
   };
 
   const handlePrev = () => {
+    if (!hasTestimonials) return;
     setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
@@ -37,15 +50,23 @@ export const AnimatedTestimonials = ({
   };
 
   useEffect(() => {
-    if (autoplay) {
+    if (autoplay && hasTestimonials) {
       const interval = setInterval(handleNext, 5000);
       return () => clearInterval(interval);
     }
-  }, [autoplay]);
+  }, [autoplay, hasTestimonials]);
 
   const randomRotateY = () => {
     return Math.floor(Math.random() * 21) - 10;
   };
+  
+  // If there are no testimonials, return nothing or a fallback UI
+  if (!hasTestimonials) {
+    return <div className={className}>No testimonials available</div>;
+  }
+
+  // Get the current active testimonial safely
+  const activeTestimonial = testimonials[active] || testimonials[0];
 
   return (
     <div className={cn("max-w-sm md:max-w-4xl mx-auto px-4 md:px-8 lg:px-12 py-20", className)}>
@@ -116,13 +137,13 @@ export const AnimatedTestimonials = ({
             }}
           >
             <h3 className="text-2xl font-bold text-foreground">
-              {testimonials[active].name}
+              {activeTestimonial.name}
             </h3>
             <p className="text-sm text-muted-foreground">
-              {testimonials[active].designation}
+              {activeTestimonial.designation}
             </p>
             <motion.p className="text-lg text-muted-foreground mt-8">
-              {testimonials[active].quote.split(" ").map((word, index) => (
+              {activeTestimonial.quote.split(" ").map((word, index) => (
                 <motion.span
                   key={index}
                   initial={{
