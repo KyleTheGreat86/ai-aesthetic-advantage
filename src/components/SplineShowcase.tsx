@@ -14,8 +14,9 @@ export function SplineShowcase() {
       <div className="section-container">
         <Card className="w-full h-[500px] bg-gradient-to-b from-black/90 to-eagle-dark/90 relative overflow-hidden border-white/10">
           <Spotlight
-            className="-top-40 left-0 md:left-60 md:-top-20"
-            fill="rgba(26, 155, 215, 0.3)" // eagle-blue with opacity
+            className="absolute inset-0"
+            fill="rgba(26, 155, 215, 0.5)" // eagle-blue with higher opacity
+            size={800} // Increased light size
           />
           
           <div className="flex h-full flex-col md:flex-row">

@@ -34,7 +34,7 @@ export function Spotlight({
   };
 
   const handleMouseLeave = () => {
-    setOpacity(0);
+    setOpacity(0.3); // Keep some minimal spotlight visibility even when not hovering
   };
 
   useEffect(() => {
@@ -43,6 +43,17 @@ export function Spotlight({
       div.addEventListener("mousemove", handleMouseMove);
       div.addEventListener("mouseenter", handleMouseEnter);
       div.addEventListener("mouseleave", handleMouseLeave);
+      
+      // Initialize with default position in center
+      const rect = div.getBoundingClientRect();
+      setPosition({
+        x: rect.width / 2,
+        y: rect.height / 2,
+      });
+      
+      // Show spotlight by default with lower opacity
+      setOpacity(0.5);
+      
       return () => {
         div.removeEventListener("mousemove", handleMouseMove);
         div.removeEventListener("mouseenter", handleMouseEnter);
@@ -58,7 +69,7 @@ export function Spotlight({
       {...props}
     >
       <div
-        className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-500"
+        className="pointer-events-none absolute -inset-px transition-opacity duration-300"
         style={{
           opacity,
           background: `radial-gradient(${size}px circle at ${position.x}px ${position.y}px, ${fill}, transparent 80%)`,
