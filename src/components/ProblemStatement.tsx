@@ -71,7 +71,7 @@ const ProblemStatement = () => {
               <span className="absolute -top-4 text-sm font-normal text-white opacity-70">
                 Monthly
               </span>
-              <span className="animate-pulse-slow">{dollarAmount}</span>
+              <span className="text-eagle-orange font-bold animate-pulse-slow">{dollarAmount}</span>
             </span>
             Due To:
           </h2>
