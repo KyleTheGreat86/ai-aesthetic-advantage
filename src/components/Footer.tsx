@@ -1,5 +1,5 @@
 
-import { Instagram, Facebook, Linkedin, Twitter, ArrowUp } from "lucide-react";
+import { Facebook, Linkedin, ArrowUp } from "lucide-react";
 import { useState } from "react";
 
 const Footer = () => {
@@ -21,8 +21,6 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <SocialIcon icon={<Facebook size={20} />} href="https://facebook.com" />
-              <SocialIcon icon={<Instagram size={20} />} href="https://instagram.com" />
-              <SocialIcon icon={<Twitter size={20} />} href="https://twitter.com" />
               <SocialIcon icon={<Linkedin size={20} />} href="https://linkedin.com" />
             </div>
           </div>
