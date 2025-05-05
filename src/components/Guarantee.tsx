@@ -111,8 +111,8 @@ const Guarantee = () => {
                   Limited Availability
                 </h3>
                 <p className="text-lg">
-                  Only <span className="font-bold text-white">5 Clinics</span>{" "}
-                  Accepted This Month
+                  Only <span className="font-bold text-white">3 Clinics</span>{" "}
+                  Left Being Accepted This Month
                 </p>
                 <div className="mt-6 flex items-center">
                   <div ref={clockRef} className="mr-3">
