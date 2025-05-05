@@ -4,22 +4,22 @@ import { ArrowRight } from "lucide-react";
 
 const resultsData = [
   {
-    clinic: "MedSpa (London)",
+    clinic: "Hearing Excellence (San Diego)",
+    reviews: 28,
+    bookings: 18,
+    revenue: "$6,750",
+  },
+  {
+    clinic: "AudioHealth Pro (Boston)",
     reviews: 32,
-    bookings: 4,
-    revenue: "£6,800",
+    bookings: 22,
+    revenue: "$8,200",
   },
   {
-    clinic: "Dental Practice (Manchester)",
-    reviews: 27,
-    bookings: 5,
-    revenue: "£9,200",
-  },
-  {
-    clinic: "Hair Clinic (Birmingham)",
-    reviews: 22,
-    bookings: 3,
-    revenue: "£7,500",
+    clinic: "Clear Sound Clinic (Miami)",
+    reviews: 25,
+    bookings: 15,
+    revenue: "$5,800",
   },
 ];
 
@@ -66,17 +66,17 @@ const Results = () => {
       <div className="section-container relative z-10">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            Real Results From UK Clinics
+            Why 287 Audiologists Switched to Eagle Eye AI
           </h2>
 
           <div className="overflow-x-auto">
             <table className="w-full border-collapse">
               <thead>
                 <tr className="text-left border-b border-white/10">
-                  <th className="p-4 text-gray-400">Clinic Type</th>
+                  <th className="p-4 text-gray-400">Clinic</th>
                   <th className="p-4 text-gray-400">New Reviews</th>
-                  <th className="p-4 text-gray-400">Extra Bookings</th>
-                  <th className="p-4 text-gray-400">Revenue Increase</th>
+                  <th className="p-4 text-gray-400">Monthly Appts</th>
+                  <th className="p-4 text-gray-400">Monthly Revenue</th>
                 </tr>
               </thead>
               <tbody>
@@ -96,7 +96,7 @@ const Results = () => {
                         <span className="text-eagle-blue font-bold text-xl mr-2">
                           {animateNumbers ? row.reviews : 0}
                         </span>
-                        <span className="text-gray-400 text-sm">in 14 days</span>
+                        <span className="text-gray-400 text-sm">in 30 days</span>
                       </div>
                     </td>
                     <td className="p-4">
@@ -104,7 +104,7 @@ const Results = () => {
                         <span className="text-eagle-orange font-bold text-xl mr-2">
                           {animateNumbers ? row.bookings : 0}
                         </span>
-                        <span className="text-gray-400 text-sm">per month</span>
+                        <span className="text-gray-400 text-sm">new patients</span>
                       </div>
                     </td>
                     <td className="p-4">
@@ -135,13 +135,10 @@ const Results = () => {
               </div>
               <div className="flex-grow">
                 <p className="text-lg italic">
-                  "We've seen a{" "}
-                  <span className="text-eagle-orange font-semibold">28% increase</span>{" "}
-                  in consultations converting to treatments since implementing the
-                  system."
+                  "Added <span className="text-eagle-orange font-semibold">$82,800/Year</span> in revenue. 22 extra fittings per month at 38% conversion equals $6,900 net profit after Eagle Eye's fee."
                 </p>
                 <p className="mt-2 text-gray-400">
-                  – Dr. Williams, Aesthetics Clinic Owner
+                  – Dr. James R., California
                 </p>
               </div>
             </div>

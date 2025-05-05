@@ -39,9 +39,12 @@ const Pricing = () => {
   const includedItems = [
     "Complete AI Lead Response System",
     "Automated Review Generation",
-    "Consultation Script Optimisation",
+    "Audiology-Specific Scripts",
     "Weekly Performance Reports",
     "Dedicated Account Manager",
+    "No Setup Fee ($2,500 value)",
+    "5-10 Guaranteed Appointments in Trial",
+    "25+ Reviews in First Month",
   ];
 
   return (
@@ -52,9 +55,10 @@ const Pricing = () => {
     >
       <div className="section-container relative z-10">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            Simple, Transparent Pricing
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+            Limited-Time Offer for Founding Clinics
           </h2>
+          <p className="text-center text-eagle-orange font-medium mb-12">Only 3 Spots Left</p>
 
           <div
             className={`card-glow max-w-lg mx-auto transform transition-all duration-700 ${
@@ -65,14 +69,14 @@ const Pricing = () => {
           >
             <div className="relative bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-white/10">
               <div className="absolute top-0 right-0 bg-eagle-blue px-4 py-2 rounded-bl-lg rounded-tr-lg font-medium">
-                Most Popular
+                Founding Member
               </div>
 
               <div className="text-center mb-8">
                 <div className="flex flex-col items-center justify-center mb-4">
                   <span className="text-xl text-gray-400">Starting at</span>
                   <div className="flex items-baseline">
-                    <span className="text-3xl">£</span>
+                    <span className="text-3xl">$</span>
                     <span className="text-5xl font-bold">0</span>
                   </div>
                   <span className="text-eagle-orange font-medium mt-2">
@@ -81,8 +85,9 @@ const Pricing = () => {
                 </div>
 
                 <div className="mb-4 py-2 border-t border-b border-white/10">
-                  <span className="text-xl font-medium">£497</span>
+                  <span className="text-xl font-medium">$1,297</span>
                   <span className="text-gray-400">/month after trial</span>
+                  <p className="text-sm text-gray-400"><s>Normally $1,997</s></p>
                   <p className="text-sm text-gray-400">Cancel Anytime</p>
                 </div>
               </div>
@@ -113,7 +118,7 @@ const Pricing = () => {
                   href="#contact"
                   className="eagle-btn-secondary w-full flex justify-center items-center group relative overflow-hidden"
                 >
-                  <span className="relative z-10">START YOUR FREE TRIAL</span>
+                  <span className="relative z-10">LOCK IN YOUR FOUNDING RATE NOW</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-eagle-orange to-eagle-orange/70 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </a>
               </div>

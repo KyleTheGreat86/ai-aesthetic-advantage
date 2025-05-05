@@ -5,7 +5,7 @@ const Solution = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const [typedText, setTypedText] = useState("");
-  const fullText = "AI-Powered. Fully Managed. Proven Results.";
+  const fullText = "AI-Powered. Fully Managed. $5,200+ Net Profit.";
   const typingSpeed = 50;
 
   useEffect(() => {
@@ -60,7 +60,7 @@ const Solution = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Introducing <br />
               <span className="text-4xl md:text-5xl lg:text-6xl gradient-text-blue block mt-2 perspective-card">
-                The Clinic Growth System™
+                The Audiology Growth System™
               </span>
             </h2>
           </div>
