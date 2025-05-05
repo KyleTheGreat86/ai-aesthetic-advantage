@@ -15,6 +15,9 @@ import Footer from "../components/Footer";
 import BackgroundGrid from "../components/BackgroundGrid";
 import { useIsMobile } from "../hooks/use-mobile";
 
+// Import the RainbowButton CSS styles
+import "../rainbow-button-styles.css";
+
 const Index = () => {
   const isMobile = useIsMobile();
   
@@ -36,10 +39,37 @@ const Index = () => {
       }
     };
 
+    // Enhance all buttons with rainbow effect via CSS
+    const applyRainbowEffect = () => {
+      // Apply CSS class to standard buttons
+      document.querySelectorAll('button').forEach(button => {
+        if (!button.classList.contains('rainbow-enhanced') && 
+            !button.classList.contains('no-rainbow')) {
+          button.classList.add('rainbow-enhanced');
+        }
+      });
+    };
+
     document.addEventListener('click', handleAnchorClick);
+    
+    // Initial application and setup a mutation observer to catch dynamically added buttons
+    applyRainbowEffect();
+    const observer = new MutationObserver(mutations => {
+      mutations.forEach(mutation => {
+        if (mutation.addedNodes.length > 0) {
+          applyRainbowEffect();
+        }
+      });
+    });
+    
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
     
     return () => {
       document.removeEventListener('click', handleAnchorClick);
+      observer.disconnect();
     };
   }, []);
 

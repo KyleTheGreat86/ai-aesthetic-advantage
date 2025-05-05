@@ -149,6 +149,17 @@ export default {
 						'counter-increment': 'count var(--num)',
 					},
 				},
+				'rainbow': {
+					'0%': {
+						'background-position': '0% 50%'
+					},
+					'50%': {
+						'background-position': '100% 50%'
+					},
+					'100%': {
+						'background-position': '0% 50%'
+					}
+				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -159,6 +170,7 @@ export default {
 				'float': 'float 6s ease-in-out infinite',
 				'typewriter': 'typewriter 2s steps(40) forwards',
 				'counter': 'counter 2s ease-out forwards',
+				'rainbow': 'rainbow 4s linear infinite',
 			}
 		}
 	},

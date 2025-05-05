@@ -52,6 +52,13 @@
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* Rainbow button color variables */
+    --color-1: 0 85% 60%;
+    --color-2: 30 85% 60%;
+    --color-3: 120 85% 60%;
+    --color-4: 200 85% 60%;
+    --color-5: 270 85% 60%;
   }
 
   .dark {
@@ -90,6 +97,13 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* Rainbow button color variables - adjust for dark mode if needed */
+    --color-1: 0 85% 60%;
+    --color-2: 30 85% 60%;
+    --color-3: 120 85% 60%;
+    --color-4: 200 85% 60%;
+    --color-5: 270 85% 60%;
   }
 }
 
@@ -183,3 +197,4 @@
     animation-delay: 600ms;
   }
 }
+
