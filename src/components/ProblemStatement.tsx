@@ -5,6 +5,7 @@ import { X } from "lucide-react";
 const ProblemStatement = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [animationStarted, setAnimationStarted] = useState(false);
+  const [dollarAmount, setDollarAmount] = useState("$5,000+");
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -35,6 +36,21 @@ const ProblemStatement = () => {
     }
   }, [isVisible, animationStarted]);
 
+  // Dollar amount rotation effect
+  useEffect(() => {
+    if (!isVisible) return;
+    
+    const amounts = ["$5,000+", "$6,000+", "$7,000+", "$8,000+", "$9,000+", "$10,000+", "$15,000+"];
+    let index = 0;
+    
+    const interval = setInterval(() => {
+      index = (index + 1) % amounts.length;
+      setDollarAmount(amounts[index]);
+    }, 2000); // Change every 2 seconds
+    
+    return () => clearInterval(interval);
+  }, [isVisible]);
+
   return (
     <section
       ref={sectionRef}
@@ -55,7 +71,7 @@ const ProblemStatement = () => {
               <span className="absolute -top-4 text-sm font-normal text-white opacity-70">
                 Monthly
               </span>
-              $15,000+
+              <span className="animate-pulse-slow">{dollarAmount}</span>
             </span>
             Due To:
           </h2>
