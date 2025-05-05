@@ -81,7 +81,7 @@ const HowItWorks = () => {
       id="how-it-works"
       className="py-24 relative overflow-hidden"
     >
-      {/* Add SplineShowcase above the steps */}
+      {/* SplineShowcase is positioned here, above the steps heading */}
       <SplineShowcase />
       
       <div className="section-container relative z-10">
