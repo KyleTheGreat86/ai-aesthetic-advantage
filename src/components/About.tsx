@@ -87,18 +87,19 @@ const About = () => {
             }`}
           >
             <p className="text-lg mb-6">
-              Agency Eagle Eye was founded with a simple mission: help premium UK
-              aesthetic clinics stop losing money through fixable operational gaps.
+              Agency Eagle Eye was founded with a simple mission: help premium US
+              audiology clinics stop losing money through fixable operational gaps
+              utilizing state of the art AI.
             </p>
             <p className="text-lg mb-6">
-              Our founder saw how even the most prestigious clinics were
+              Our founder Kyle Holland saw how even the most prestigious clinics were
               hemorrhaging potential revenue through slow lead response,
               insufficient reviews, and suboptimal consultation techniques.
             </p>
             <p className="text-lg">
               By combining cutting-edge AI technology with deep expertise in the
-              aesthetic industry, we've created systems that deliver measurable,
-              consistent results for UK clinics seeking sustainable growth.
+              audiology industry, we've created systems that deliver measurable,
+              consistent results for US clinics seeking sustainable growth.
             </p>
           </div>
 
@@ -145,7 +146,7 @@ const About = () => {
               }`}
               style={{ transitionDelay: "600ms" }}
             >
-              To help UK aesthetic clinics achieve their full revenue potential
+              To help US audiology clinics achieve their full revenue potential
               through intelligent automation, without adding to their team's
               workload.
             </p>
