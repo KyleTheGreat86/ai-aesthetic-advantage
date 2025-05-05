@@ -115,7 +115,9 @@ const Pricing = () => {
 
               <div className="text-center">
                 <a
-                  href="#contact"
+                  href="https://calendly.com/weareagencyeagleeye/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="eagle-btn-secondary w-full flex justify-center items-center group relative overflow-hidden"
                 >
                   <span className="relative z-10">LOCK IN YOUR FOUNDING RATE NOW</span>
