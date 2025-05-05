@@ -27,27 +27,6 @@ const About = () => {
     };
   }, []);
 
-  const teamMembers = [
-    {
-      name: "John Smith",
-      position: "Founder & CEO",
-      bio: "10+ years in digital marketing and AI implementation for medical businesses",
-      image: "https://placehold.co/200x200/1A9BD7/FFFFFF.png?text=JS",
-    },
-    {
-      name: "Sarah Johnson",
-      position: "Head of Client Success",
-      bio: "Former clinic manager with expertise in patient journey optimization",
-      image: "https://placehold.co/200x200/FF8024/FFFFFF.png?text=SJ",
-    },
-    {
-      name: "David Thompson",
-      position: "AI Implementation Specialist",
-      bio: "Expert in voice AI and automated communication systems",
-      image: "https://placehold.co/200x200/1A9BD7/FFFFFF.png?text=DT",
-    },
-  ];
-
   const values = [
     {
       title: "Results First",
@@ -101,39 +80,6 @@ const About = () => {
               audiology industry, we've created systems that deliver measurable,
               consistent results for US clinics seeking sustainable growth.
             </p>
-          </div>
-
-          <div className="mb-16">
-            <h3 className="text-2xl font-bold mb-8 text-center">
-              Meet Our Team of Experts
-            </h3>
-            <div className="grid md:grid-cols-3 gap-8">
-              {teamMembers.map((member, index) => (
-                <div
-                  key={index}
-                  className={`bg-white/5 backdrop-blur-sm rounded-lg overflow-hidden transform transition-all duration-500 ${
-                    isVisible
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-10"
-                  } group`}
-                  style={{ transitionDelay: `${index * 200}ms` }}
-                >
-                  <div className="relative h-64 overflow-hidden">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-eagle-dark to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </div>
-                  <div className="p-6">
-                    <h4 className="text-xl font-semibold">{member.name}</h4>
-                    <p className="text-eagle-blue mb-2">{member.position}</p>
-                    <p className="text-gray-300 text-sm">{member.bio}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
 
           <div>
