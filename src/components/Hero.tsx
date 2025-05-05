@@ -67,6 +67,18 @@ const Hero = () => {
           </div>
         )}
         
+        {/* Call-to-action buttons moved directly below the video */}
+        {showButtons && (
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 opacity-0 animate-fade-in">
+            <a href="#contact" className="eagle-btn-primary">
+              BOOK FREE STRATEGY CALL
+            </a>
+            <a href="#pricing" className="eagle-btn-secondary">
+              START 14-DAY FREE TRIAL
+            </a>
+          </div>
+        )}
+        
         <div className="text-center max-w-4xl mx-auto">
           <div className="mb-8">
             <img 
@@ -105,17 +117,6 @@ const Hero = () => {
               <span className="mx-2 text-eagle-blue">Fully Managed.</span>
               <span className="text-eagle-orange font-medium">$5,200+ Minimum Net Profit.</span>
             </p>
-          )}
-          
-          {showButtons && (
-            <div className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-in">
-              <a href="#contact" className="eagle-btn-primary">
-                BOOK FREE STRATEGY CALL
-              </a>
-              <a href="#pricing" className="eagle-btn-secondary">
-                START 14-DAY FREE TRIAL
-              </a>
-            </div>
           )}
         </div>
       </div>
