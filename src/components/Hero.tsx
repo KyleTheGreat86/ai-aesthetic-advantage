@@ -72,7 +72,7 @@ const Hero = () => {
             <div className="aspect-video">
               <iframe
                 className="w-full h-full rounded-lg shadow-2xl"
-                src="https://www.youtube.com/embed/NpB49c8D-UE"
+                src="https://www.youtube.com/embed/sm5QGrA7oeU"
                 title="Eagle Eye AI Demo Video"
                 frameBorder="0"
                 allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
