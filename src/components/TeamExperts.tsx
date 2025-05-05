@@ -1,6 +1,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import { AnimatedTestimonialsDemo } from "./ui/animated-testimonials-demo";
+import { EagleButton } from "./ui/eagle-button";
 
 const TeamExperts = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -39,9 +40,20 @@ const TeamExperts = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Meet Our Team of Experts
           </h2>
-          <p className="text-lg text-gray-300 mb-12">
+          <p className="text-lg text-gray-300 mb-8">
             Our team of dedicated specialists brings decades of combined experience in audiology practice management and growth strategies.
           </p>
+          
+          {/* Adding the Book Your Free Strategy Call button */}
+          <div className="mb-10">
+            <a
+              href="https://calendly.com/weareagencyeagleeye/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <EagleButton>BOOK YOUR FREE STRATEGY CALL</EagleButton>
+            </a>
+          </div>
           
           <div
             className={`transition-all duration-700 transform ${
