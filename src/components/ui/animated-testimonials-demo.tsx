@@ -6,7 +6,7 @@ export function AnimatedTestimonialsDemo() {
   const testimonials = [
     {
       quote:
-        "With over 8 years of experience in digital marketing for healthcare professionals, I've helped hundreds of audiology clinics grow their practices with innovative AI-powered solutions. My mission is to transform how audiology clinics attract and retain high-value patients through cutting-edge technology.",
+        "With over 5 years of experience as a Robotic Process Automation Consultant, I founded Agency Eagle Eye to bridge the gap between AI technology and business implementation. Based in Glasgow but serving clients worldwide, I help audiology clinics unlock new levels of growth through intelligent automation solutions.",
       name: "Kyle Holland",
       designation: "Agency Eagle Eye Founder",
       src: founderImage,
