@@ -89,8 +89,7 @@ const Logos3 = ({
             plugins={[
               AutoScroll({ 
                 playOnInit: true,
-                speed: 0.5, // Slower speed (default is 1.0)
-                delay: 0 // No delay between scrolls
+                speed: 0.5 // Slower speed (default is 1.0)
               })
             ]}
           >
