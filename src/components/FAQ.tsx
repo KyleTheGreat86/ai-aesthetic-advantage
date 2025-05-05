@@ -57,7 +57,7 @@ const FAQ = () => {
     {
       question: "What happens after the 14-day trial?",
       answer:
-        "If you're satisfied with the results (and we're confident you will be), you'll be billed £997 monthly with no minimum term. Cancel anytime with 30 days' notice.",
+        "If you're satisfied with the results (and we're confident you will be), you'll be billed $1,297 monthly with no minimum term. Cancel anytime with 30 days' notice.",
     },
     {
       question: "Is there any setup fee?",
