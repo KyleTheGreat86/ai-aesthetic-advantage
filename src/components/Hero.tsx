@@ -70,10 +70,10 @@ const Hero = () => {
         {/* Call-to-action buttons moved directly below the video */}
         {showButtons && (
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 opacity-0 animate-fade-in">
-            <a href="#contact" className="eagle-btn-primary">
+            <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer" className="eagle-btn-primary">
               BOOK FREE STRATEGY CALL
             </a>
-            <a href="#pricing" className="eagle-btn-secondary">
+            <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer" className="eagle-btn-secondary">
               START 14-DAY FREE TRIAL
             </a>
           </div>

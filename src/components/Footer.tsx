@@ -34,7 +34,7 @@ const Footer = () => {
               <FooterLink href="#services">Services</FooterLink>
               <FooterLink href="#case-studies">Case Studies</FooterLink>
               <FooterLink href="#about">About</FooterLink>
-              <FooterLink href="#contact">Contact</FooterLink>
+              <FooterLink href="https://calendly.com/weareagencyeagleeye/30min" target="_blank">Book a Call</FooterLink>
             </ul>
           </div>
         </div>
@@ -80,14 +80,17 @@ const SocialIcon = ({ icon, href }: SocialIconProps) => {
 interface FooterLinkProps {
   href: string;
   children: React.ReactNode;
+  target?: string;
 }
 
-const FooterLink = ({ href, children }: FooterLinkProps) => {
+const FooterLink = ({ href, children, target }: FooterLinkProps) => {
   return (
     <li>
       <a
         href={href}
         className="text-gray-400 hover:text-white transition-colors"
+        target={target}
+        rel={target === "_blank" ? "noopener noreferrer" : undefined}
       >
         {children}
       </a>
