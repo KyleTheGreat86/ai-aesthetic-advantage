@@ -20,8 +20,8 @@ const Footer = () => {
               The AI Advantage for US Audiology Clinics. Automated reviews, lead recovery, and consultation conversion boost for premium audiology clinics.
             </p>
             <div className="flex space-x-4">
-              <SocialIcon icon={<Facebook size={20} />} href="https://facebook.com" />
-              <SocialIcon icon={<Linkedin size={20} />} href="https://linkedin.com" />
+              <SocialIcon icon={<Facebook size={20} />} href="https://www.facebook.com/profile.php?id=61575035972691" />
+              <SocialIcon icon={<Linkedin size={20} />} href="https://www.linkedin.com/in/kyle-holland-agencyeagleeye/" />
             </div>
           </div>
 
