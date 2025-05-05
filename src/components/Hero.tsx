@@ -4,7 +4,7 @@ import eagleLogo from "/lovable-uploads/b797bc22-5a08-4a8e-a9e5-b0a065bd73a4.png
 import FloatingShapes from "./FloatingShapes";
 
 const Hero = () => {
-  const [isVideoVisible, setIsVideoVisible] = useState(false);
+  const [isVideoVisible, setIsVideoVisible] = useState(true);
   const [showStats, setShowStats] = useState(false);
   const [showTagline, setShowTagline] = useState(false);
   const [showButtons, setShowButtons] = useState(false);
@@ -57,10 +57,10 @@ const Hero = () => {
             <div className="aspect-video">
               <iframe
                 className="w-full h-full rounded-lg shadow-2xl"
-                src="https://www.youtube.com/embed/NpB49c8D-UE"
+                src="https://www.youtube.com/embed/NpB49c8D-UE?autoplay=1"
                 title="Eagle Eye AI Demo Video"
                 frameBorder="0"
-                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
             </div>

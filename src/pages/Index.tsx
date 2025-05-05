@@ -13,8 +13,12 @@ import About from "../components/About";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
 import BackgroundGrid from "../components/BackgroundGrid";
+import { SplashCursor } from "../components/ui/splash-cursor";
+import { useIsMobile } from "../hooks/use-mobile";
 
 const Index = () => {
+  const isMobile = useIsMobile();
+  
   // Smooth scrolling for anchor links
   useEffect(() => {
     const handleAnchorClick = (e: MouseEvent) => {
@@ -42,6 +46,15 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-eagle-dark text-white">
+      {!isMobile && (
+        <SplashCursor 
+          SPLAT_RADIUS={0.25}
+          COLOR_UPDATE_SPEED={5}
+          TRANSPARENT={true}
+          BACK_COLOR={{ r: 0.075, g: 0.15, b: 0.3 }}
+          SIM_RESOLUTION={isMobile ? 64 : 128} // Lower resolution on tablets
+        />
+      )}
       <BackgroundGrid />
       <LoadingScreen />
       <Navbar />

@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -180,20 +181,5 @@
 
   .animate-delay-600 {
     animation-delay: 600ms;
-  }
-  
-  /* Loader for Spline component */
-  .loader {
-    width: 48px;
-    height: 48px;
-    border: 5px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    border-top-color: #1a9bd7; /* eagle-blue */
-    animation: spin 1s linear infinite;
-  }
-
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
   }
 }

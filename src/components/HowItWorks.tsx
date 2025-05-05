@@ -1,6 +1,5 @@
 
 import { useState, useEffect, useRef } from "react";
-import { SplineShowcase } from "./SplineShowcase";
 
 const steps = [
   {
@@ -81,9 +80,6 @@ const HowItWorks = () => {
       id="how-it-works"
       className="py-24 relative overflow-hidden"
     >
-      {/* SplineShowcase is positioned here, above the steps heading */}
-      <SplineShowcase />
-      
       <div className="section-container relative z-10">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
