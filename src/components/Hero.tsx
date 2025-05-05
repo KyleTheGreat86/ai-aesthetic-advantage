@@ -31,7 +31,7 @@ const Hero = () => {
             <span className="gradient-text-blue">Eagle Eye AI:</span> The #1 Growth System for Audiology Clinics
           </h1>
           <p className="text-xl md:text-2xl font-medium">
-            Get 15-20 Extra Appointments/Month & <span className="text-eagle-orange font-bold">${"5,200+"}</span> in Net Profit <span className="font-bold">In 87 Days</span> Guaranteed Or You Pay Nothing.
+            Add 15-20 High Value Appointments & <span className="text-eagle-orange font-bold">${"5,200+"}</span> Monthly Net Profit After Our Fee To Your Clinic Every Month Or You Pay NOTHING.
           </p>
         </div>
         
