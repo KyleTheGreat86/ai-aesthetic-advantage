@@ -4,7 +4,7 @@ import eagleLogo from "/lovable-uploads/b797bc22-5a08-4a8e-a9e5-b0a065bd73a4.png
 import FloatingShapes from "./FloatingShapes";
 
 const Hero = () => {
-  const [isVideoVisible, setIsVideoVisible] = useState(true);
+  const [isVideoVisible, setIsVideoVisible] = useState(false);
   const [showStats, setShowStats] = useState(false);
   const [showTagline, setShowTagline] = useState(false);
   const [showButtons, setShowButtons] = useState(false);
@@ -36,7 +36,7 @@ const Hero = () => {
         </div>
         
         {!isVideoVisible && (
-          <div className="mb-10 mx-auto w-full max-w-5xl relative">
+          <div className="mb-10 mx-auto w-full max-w-3xl relative">
             <div 
               className="aspect-video bg-gray-900/50 rounded-lg flex items-center justify-center cursor-pointer group overflow-hidden"
               onClick={() => setIsVideoVisible(true)}
@@ -46,21 +46,21 @@ const Hero = () => {
                 <div className="w-20 h-20 mx-auto bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <div className="w-0 h-0 border-t-8 border-t-transparent border-l-16 border-l-white border-b-8 border-b-transparent ml-1"></div>
                 </div>
-                <p className="text-xl font-medium">Watch Our 90-Second Demo</p>
+                <p className="text-xl font-medium">Click To Watch Our 90-Second Demo</p>
               </div>
             </div>
           </div>
         )}
         
         {isVideoVisible && (
-          <div className="mb-10 mx-auto w-full max-w-5xl">
+          <div className="mb-10 mx-auto w-full max-w-3xl">
             <div className="aspect-video">
               <iframe
                 className="w-full h-full rounded-lg shadow-2xl"
-                src="https://www.youtube.com/embed/NpB49c8D-UE?autoplay=1"
+                src="https://www.youtube.com/embed/NpB49c8D-UE"
                 title="Eagle Eye AI Demo Video"
                 frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
             </div>
