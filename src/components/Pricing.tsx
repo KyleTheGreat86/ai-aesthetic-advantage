@@ -40,8 +40,6 @@ const Pricing = () => {
     "Complete AI Lead Response System",
     "Automated Review Generation",
     "Audiology-Specific Scripts",
-    "Weekly Performance Reports",
-    "Dedicated Account Manager",
     "No Setup Fee ($2,500 value)",
     "5-10 Guaranteed Appointments in Trial",
     "25+ Reviews in First Month",
