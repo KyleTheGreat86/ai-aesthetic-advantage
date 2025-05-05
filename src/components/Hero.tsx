@@ -26,6 +26,15 @@ const Hero = () => {
       <FloatingShapes />
       
       <div className="section-container relative z-10">
+        <div className="text-center mb-8 max-w-5xl mx-auto">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            <span className="gradient-text-blue">Eagle Eye AI:</span> The #1 Growth System for Audiology Clinics
+          </h1>
+          <p className="text-xl md:text-2xl font-medium">
+            Get 15-20 Extra Appointments/Month & <span className="text-eagle-orange font-bold">${"5,200+"}</span> in Net Profit <span className="font-bold">In 87 Days</span> Guaranteed Or You Pay Nothing.
+          </p>
+        </div>
+        
         {!isVideoVisible && (
           <div className="mb-10 mx-auto w-full max-w-5xl relative">
             <div 
@@ -66,12 +75,6 @@ const Hero = () => {
               className="h-24 mx-auto animate-pulse-slow" 
             />
           </div>
-          
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 overflow-hidden">
-            <span className="block">The</span>
-            <span className="gradient-text-blue">AI Advantage</span> for
-            <span className="gradient-text-orange block">Audiology Clinics</span>
-          </h1>
           
           <p className="text-xl font-semibold text-eagle-blue mb-4 opacity-0 animate-fade-in">
             Typical Free Trial Results
