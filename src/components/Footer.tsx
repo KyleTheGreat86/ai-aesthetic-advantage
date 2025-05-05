@@ -1,21 +1,8 @@
 
-import { Instagram, Facebook, Linkedin, Twitter, ArrowUp, Mail } from "lucide-react";
+import { Instagram, Facebook, Linkedin, Twitter, ArrowUp } from "lucide-react";
 import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
 
 const Footer = () => {
-  const [email, setEmail] = useState("");
-  const { toast } = useToast();
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Newsletter subscription successful!",
-      description: "Thank you for subscribing to our newsletter.",
-    });
-    setEmail("");
-  };
-
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -26,11 +13,11 @@ const Footer = () => {
   return (
     <footer className="bg-eagle-dark/90 border-t border-white/10 pt-12 pb-6 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-xl font-bold mb-4">Agency Eagle Eye</h3>
             <p className="text-gray-400 mb-6 max-w-md">
-              The AI Advantage for UK Aesthetic Clinics. Automated reviews, lead recovery, and consultation conversion boost for premium aesthetic clinics.
+              The AI Advantage for US Audiology Clinics. Automated reviews, lead recovery, and consultation conversion boost for premium audiology clinics.
             </p>
             <div className="flex space-x-4">
               <SocialIcon icon={<Facebook size={20} />} href="https://facebook.com" />
@@ -49,30 +36,6 @@ const Footer = () => {
               <FooterLink href="#about">About</FooterLink>
               <FooterLink href="#contact">Contact</FooterLink>
             </ul>
-          </div>
-
-          <div>
-            <h4 className="font-semibold mb-4">Newsletter</h4>
-            <p className="text-sm text-gray-400 mb-4">
-              Subscribe to receive updates and growth tips for your clinic
-            </p>
-            <form onSubmit={handleSubmit} className="flex">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your email"
-                required
-                className="px-3 py-2 bg-white/5 border border-white/10 rounded-l-md focus:outline-none focus:ring-1 focus:ring-eagle-blue text-white flex-grow"
-              />
-              <button
-                type="submit"
-                className="bg-eagle-blue px-4 py-2 rounded-r-md hover:bg-eagle-blue/90 transition-colors"
-                aria-label="Subscribe"
-              >
-                <Mail size={20} />
-              </button>
-            </form>
           </div>
         </div>
 
