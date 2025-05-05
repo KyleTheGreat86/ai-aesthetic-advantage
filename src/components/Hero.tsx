@@ -101,9 +101,9 @@ const Hero = () => {
           
           {showTagline && (
             <p className="text-xl md:text-2xl mb-10 opacity-0 animate-fade-in">
-              <span className="text-white font-medium">Guaranteed Results.</span>
-              <span className="mx-2 text-eagle-blue">Zero Staff Time.</span>
-              <span className="text-eagle-orange font-medium">Or You Pay Nothing.</span>
+              <span className="text-white font-medium">AI-Powered.</span>
+              <span className="mx-2 text-eagle-blue">Fully Managed.</span>
+              <span className="text-eagle-orange font-medium">$5,200+ Minimum Net Profit.</span>
             </p>
           )}
           
