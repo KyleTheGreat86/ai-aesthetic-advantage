@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import eagleLogo from "/lovable-uploads/b797bc22-5a08-4a8e-a9e5-b0a065bd73a4.png";
 import FloatingShapes from "./FloatingShapes";
@@ -31,7 +30,7 @@ const Hero = () => {
             <span className="gradient-text-blue">Eagle Eye AI:</span> The #1 Growth System for Audiology Clinics
           </h1>
           <p className="text-xl md:text-2xl font-medium">
-            Add 15-20 High Value Appointments & <span className="text-eagle-orange font-bold">${"5,200+"}</span> Monthly Net Profit After Our Fee To Your Clinic Every Month Or You Pay NOTHING.
+            Add 15-25 High Value Appointments & <span className="text-eagle-orange font-bold">${"5,200+"}</span> Monthly Net Profit After Our Fee To Your Clinic Every Month Or You Pay NOTHING.
           </p>
         </div>
         
