@@ -1,23 +1,32 @@
 
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import LoadingScreen from "../components/LoadingScreen";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
-import ProblemStatement from "../components/ProblemStatement";
-import Solution from "../components/Solution";
-import HowItWorks from "../components/HowItWorks";
-import Results from "../components/Results";
-import Pricing from "../components/Pricing";
-import Guarantee from "../components/Guarantee";
-import TeamExperts from "../components/TeamExperts";
-import About from "../components/About";
-import FAQ from "../components/FAQ";
-import Footer from "../components/Footer";
-import BackgroundGrid from "../components/BackgroundGrid";
 import { useIsMobile } from "../hooks/use-mobile";
 
 // Import the RainbowButton CSS styles
 import "../rainbow-button-styles.css";
+
+// Lazy load components to improve initial page load
+const ProblemStatement = lazy(() => import("../components/ProblemStatement"));
+const Solution = lazy(() => import("../components/Solution"));
+const HowItWorks = lazy(() => import("../components/HowItWorks"));
+const Results = lazy(() => import("../components/Results"));
+const Pricing = lazy(() => import("../components/Pricing"));
+const Guarantee = lazy(() => import("../components/Guarantee"));
+const TeamExperts = lazy(() => import("../components/TeamExperts"));
+const About = lazy(() => import("../components/About"));
+const FAQ = lazy(() => import("../components/FAQ"));
+const Footer = lazy(() => import("../components/Footer"));
+const BackgroundGrid = lazy(() => import("../components/BackgroundGrid"));
+
+// Loading fallback component
+const SectionLoader = () => (
+  <div className="py-24 flex justify-center items-center">
+    <div className="w-8 h-8 border-4 border-eagle-blue border-t-transparent rounded-full animate-spin"></div>
+  </div>
+);
 
 const Index = () => {
   const isMobile = useIsMobile();
@@ -76,20 +85,42 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-eagle-dark text-white">
-      <BackgroundGrid />
+      <Suspense fallback={<div className="fixed inset-0 bg-eagle-dark z-50"></div>}>
+        <BackgroundGrid />
+      </Suspense>
       <LoadingScreen />
       <Navbar />
       <Hero />
-      <ProblemStatement />
-      <Solution />
-      <HowItWorks />
-      <Results />
-      <Pricing />
-      <Guarantee />
-      <TeamExperts />
-      <About />
-      <FAQ />
-      <Footer />
+      <Suspense fallback={<SectionLoader />}>
+        <ProblemStatement />
+      </Suspense>
+      <Suspense fallback={<SectionLoader />}>
+        <Solution />
+      </Suspense>
+      <Suspense fallback={<SectionLoader />}>
+        <HowItWorks />
+      </Suspense>
+      <Suspense fallback={<SectionLoader />}>
+        <Results />
+      </Suspense>
+      <Suspense fallback={<SectionLoader />}>
+        <Pricing />
+      </Suspense>
+      <Suspense fallback={<SectionLoader />}>
+        <Guarantee />
+      </Suspense>
+      <Suspense fallback={<SectionLoader />}>
+        <TeamExperts />
+      </Suspense>
+      <Suspense fallback={<SectionLoader />}>
+        <About />
+      </Suspense>
+      <Suspense fallback={<SectionLoader />}>
+        <FAQ />
+      </Suspense>
+      <Suspense fallback={<SectionLoader />}>
+        <Footer />
+      </Suspense>
     </div>
   );
 };

@@ -1,6 +1,33 @@
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, memo } from "react";
 import { X } from "lucide-react";
+
+const ProblemItem = memo(({ number, problem, detail, delay, isVisible }: {
+  number: number;
+  problem: string;
+  detail: string;
+  delay: number;
+  isVisible: boolean;
+}) => {
+  return (
+    <div
+      className={`bg-white/5 backdrop-blur-sm rounded-lg p-5 flex items-center gap-4 transform transition-all duration-500 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      <div className="flex-shrink-0">
+        <div className="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center">
+          <X size={24} className="text-red-500" />
+        </div>
+      </div>
+      <div className="flex-grow text-left">
+        <h3 className="text-xl font-medium">{problem}</h3>
+        <p className="text-gray-400">{detail}</p>
+      </div>
+    </div>
+  );
+});
 
 const ProblemStatement = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -36,7 +63,7 @@ const ProblemStatement = () => {
     }
   }, [isVisible, animationStarted]);
 
-  // Dollar amount rotation effect
+  // Dollar amount rotation effect - optimized with reduced interval checks
   useEffect(() => {
     if (!isVisible) return;
     
@@ -46,10 +73,31 @@ const ProblemStatement = () => {
     const interval = setInterval(() => {
       index = (index + 1) % amounts.length;
       setDollarAmount(amounts[index]);
-    }, 2000); // Change every 2 seconds
+    }, 3000); // Changed from 2000ms to 3000ms to reduce re-renders
     
     return () => clearInterval(interval);
   }, [isVisible]);
+
+  const problemItems = [
+    {
+      number: 1,
+      problem: "Missed Lead Calls",
+      detail: "Costing $4,500+ per lost booking",
+      delay: 0
+    },
+    {
+      number: 2,
+      problem: "Too Few Google Reviews",
+      detail: "Making patients choose competitors",
+      delay: 200
+    },
+    {
+      number: 3,
+      problem: "Unfilled Cancellations",
+      detail: "Running at just 65% capacity",
+      delay: 400
+    }
+  ];
 
   return (
     <section
@@ -77,27 +125,16 @@ const ProblemStatement = () => {
           </h2>
 
           <div className="mt-12 space-y-8">
-            <ProblemItem
-              number={1}
-              problem="Missed Lead Calls"
-              detail="Costing $4,500+ per lost booking"
-              delay={0}
-              isVisible={animationStarted}
-            />
-            <ProblemItem
-              number={2}
-              problem="Too Few Google Reviews"
-              detail="Making patients choose competitors"
-              delay={200}
-              isVisible={animationStarted}
-            />
-            <ProblemItem
-              number={3}
-              problem="Unfilled Cancellations"
-              detail="Running at just 65% capacity"
-              delay={400}
-              isVisible={animationStarted}
-            />
+            {problemItems.map(item => (
+              <ProblemItem
+                key={item.number}
+                number={item.number}
+                problem={item.problem}
+                detail={item.detail}
+                delay={item.delay}
+                isVisible={animationStarted}
+              />
+            ))}
           </div>
 
           <p
@@ -124,33 +161,4 @@ const ProblemStatement = () => {
   );
 };
 
-interface ProblemItemProps {
-  number: number;
-  problem: string;
-  detail: string;
-  delay: number;
-  isVisible: boolean;
-}
-
-const ProblemItem = ({ number, problem, detail, delay, isVisible }: ProblemItemProps) => {
-  return (
-    <div
-      className={`bg-white/5 backdrop-blur-sm rounded-lg p-5 flex items-center gap-4 transform transition-all duration-500 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      <div className="flex-shrink-0">
-        <div className="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center">
-          <X size={24} className="text-red-500" />
-        </div>
-      </div>
-      <div className="flex-grow text-left">
-        <h3 className="text-xl font-medium">{problem}</h3>
-        <p className="text-gray-400">{detail}</p>
-      </div>
-    </div>
-  );
-};
-
-export default ProblemStatement;
+export default memo(ProblemStatement);

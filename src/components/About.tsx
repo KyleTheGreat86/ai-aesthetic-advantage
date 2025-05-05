@@ -1,5 +1,7 @@
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, memo } from "react";
+import { AudiologistLogosDemo } from "./ui/audiologist-logos-demo";
+import { AnimatedTestimonialsDemo } from "./ui/animated-testimonials-demo";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -125,4 +127,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default memo(About);

@@ -3,7 +3,7 @@
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, memo } from "react";
 import { cn } from "@/lib/utils";
 
 type Testimonial = {
@@ -13,7 +13,7 @@ type Testimonial = {
   src: string;
 };
 
-export const AnimatedTestimonials = ({
+export const AnimatedTestimonials = memo(({
   testimonials,
   autoplay = false,
   className,
@@ -35,30 +35,30 @@ export const AnimatedTestimonials = ({
     }
   }, [testimonials, active, hasTestimonials]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     if (!hasTestimonials) return;
     setActive((prev) => (prev + 1) % testimonials.length);
-  };
+  }, [hasTestimonials, testimonials?.length]);
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     if (!hasTestimonials) return;
     setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
+  }, [hasTestimonials, testimonials?.length]);
 
-  const isActive = (index: number) => {
+  const isActive = useCallback((index: number) => {
     return index === active;
-  };
+  }, [active]);
 
   useEffect(() => {
     if (autoplay && hasTestimonials) {
       const interval = setInterval(handleNext, 5000);
       return () => clearInterval(interval);
     }
-  }, [autoplay, hasTestimonials]);
+  }, [autoplay, hasTestimonials, handleNext]);
 
-  const randomRotateY = () => {
+  const randomRotateY = useCallback(() => {
     return Math.floor(Math.random() * 21) - 10;
-  };
+  }, []);
   
   // If there are no testimonials, return nothing or a fallback UI
   if (!hasTestimonials) {
@@ -110,6 +110,9 @@ export const AnimatedTestimonials = ({
                     alt={testimonial.name}
                     draggable={false}
                     className="h-full w-full rounded-3xl object-cover object-center"
+                    loading="lazy" 
+                    width="400"
+                    height="300"
                   />
                 </motion.div>
               ))}
@@ -186,4 +189,6 @@ export const AnimatedTestimonials = ({
       </div>
     </div>
   );
-};
+});
+
+AnimatedTestimonials.displayName = "AnimatedTestimonials";

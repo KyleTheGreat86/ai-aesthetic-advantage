@@ -1,5 +1,5 @@
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, memo } from "react";
 
 const Solution = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -102,4 +102,4 @@ const Solution = () => {
   );
 };
 
-export default Solution;
+export default memo(Solution);
