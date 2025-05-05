@@ -1,28 +1,15 @@
 
 import { AnimatedTestimonials } from "./animated-testimonials";
+import founderImage from "/lovable-uploads/8a04c2df-822d-4040-abad-6db5c13bb1c3.png";
 
 export function AnimatedTestimonialsDemo() {
   const testimonials = [
     {
       quote:
-        "The AI Lead Response System has helped us capture 40% more leads that would have otherwise gone to competitors. It's like having an extra front desk staff member.",
-      name: "Dr. Sarah Chen",
-      designation: "Audiologist at HearWell Clinic",
-      src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      quote:
-        "Implementation was seamless and we're now booking 5-7 more appointments each week. The automated review system has helped us gain 30+ new Google reviews in just two months.",
-      name: "Michael Rodriguez",
-      designation: "Clinic Director at ClearSound Audiology",
-      src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      quote:
-        "The Audiology Growth System has significantly improved our patient retention. The personalized follow-ups have received wonderful feedback from our clients.",
-      name: "Emily Watson",
-      designation: "Practice Manager at BetterHearing Solutions",
-      src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "With over 8 years of experience in digital marketing for healthcare professionals, I've helped hundreds of audiology clinics grow their practices with innovative AI-powered solutions. My mission is to transform how audiology clinics attract and retain high-value patients through cutting-edge technology.",
+      name: "Kyle Holland",
+      designation: "Agency Eagle Eye Founder",
+      src: founderImage,
     },
     {
       quote:

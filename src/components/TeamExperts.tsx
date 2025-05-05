@@ -38,10 +38,10 @@ const TeamExperts = () => {
       <div className="section-container relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Meet Our Team of Experts
+            Meet The Team
           </h2>
           <p className="text-lg text-gray-300 mb-8">
-            Our team of dedicated specialists brings decades of combined experience in audiology practice management and growth strategies.
+            Led by our founder Kyle Holland, we bring decades of experience in audiology practice management and digital growth strategies.
           </p>
           
           {/* Adding the Book Your Free Strategy Call button */}
