@@ -1,21 +1,22 @@
+
 import { useState, useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 
 const resultsData = [
   {
-    clinic: "Hearing Excellence (San Diego)",
+    clinic: "Coastal Audiology Clinic",
     reviews: 28,
     bookings: 18,
     revenue: "$6,750",
   },
   {
-    clinic: "AudioHealth Pro (Boston)",
+    clinic: "Tobias Clinic",
     reviews: 32,
     bookings: 22,
     revenue: "$8,200",
   },
   {
-    clinic: "Clear Sound Clinic (Miami)",
+    clinic: "New Gen Hearing Services",
     reviews: 25,
     bookings: 15,
     revenue: "$5,800",
