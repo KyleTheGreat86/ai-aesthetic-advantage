@@ -46,7 +46,7 @@ const Hero = () => {
                 <div className="w-20 h-20 mx-auto bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <div className="w-0 h-0 border-t-8 border-t-transparent border-l-16 border-l-white border-b-8 border-b-transparent ml-1"></div>
                 </div>
-                <p className="text-xl font-medium">Click To Watch Our 90-Second Demo</p>
+                <p className="text-xl font-medium">Click Here For Our 3 Minute Demo</p>
               </div>
             </div>
           </div>
