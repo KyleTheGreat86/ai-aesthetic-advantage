@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { Check } from "lucide-react";
 
@@ -58,7 +57,7 @@ const Pricing = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
             Limited-Time Offer for Founding Clinics
           </h2>
-          <p className="text-center text-eagle-orange font-medium mb-12">Only 3 Spots Left</p>
+          <p className="text-center text-eagle-orange font-medium mb-12">Only 3 Clinics Currently Accepted This Month</p>
 
           <div
             className={`card-glow max-w-lg mx-auto transform transition-all duration-700 ${
