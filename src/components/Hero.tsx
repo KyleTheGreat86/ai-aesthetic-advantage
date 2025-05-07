@@ -14,8 +14,8 @@ const Hero = () => {
   const [showButtons, setShowButtons] = useState(false);
   const [showLimitedBanner, setShowLimitedBanner] = useState(false);
   
-  // YouTube video ID for embedding
-  const videoId = "sm5QGrA7oeU";
+  // Updated YouTube video ID for embedding
+  const videoId = "hLvm2JHzOF4";
 
   useEffect(() => {
     // Use more efficient timing with requestAnimationFrame
@@ -126,7 +126,7 @@ const Hero = () => {
             <div className="aspect-video">
               <iframe
                 className="w-full h-full rounded-lg shadow-2xl"
-                src="https://www.youtube.com/embed/sm5QGrA7oeU?autoplay=1"
+                src="https://www.youtube.com/embed/hLvm2JHzOF4?autoplay=1"
                 title="Eagle Eye AI Demo Video"
                 frameBorder="0"
                 loading="lazy"

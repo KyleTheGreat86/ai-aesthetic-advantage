@@ -79,7 +79,7 @@ const Navbar = () => {
               Log In
             </a>
             <a
-              href="https://youtu.be/sm5QGrA7oeU"
+              href="https://youtu.be/hLvm2JHzOF4"
               target="_blank"
               rel="noopener noreferrer"
               className="eagle-btn-primary inline-flex items-center gap-2 relative group overflow-hidden"
@@ -149,7 +149,7 @@ const Navbar = () => {
                 Log In
               </a>
               <a
-                href="https://youtu.be/sm5QGrA7oeU"
+                href="https://youtu.be/hLvm2JHzOF4"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block px-3 py-2 text-eagle-blue font-semibold hover:bg-eagle-blue/10 rounded-md"
