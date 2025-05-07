@@ -1,7 +1,8 @@
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { WorldMap } from "./ui/world-map";
 import { Globe } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const WorldMapHero = () => {
   const mapConnections = [
@@ -30,6 +31,51 @@ const WorldMapHero = () => {
       end: { lat: -1.2921, lng: 36.8219 }, // Nairobi
     },
   ];
+
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [isTyping, setIsTyping] = useState(false);
+  const [typedText, setTypedText] = useState("");
+  
+  const conversionTypes = [
+    "Customers",
+    "Appointments",
+    "Leads", 
+    "Sales",
+    "Phone Calls",
+    "Local Traffic",
+    "Repeat Business",
+    "Local Domination",
+    "Area Domination"
+  ];
+  
+  const typewriterText = "The Numbers That Matter";
+  
+  // Typewriter effect
+  useEffect(() => {
+    if (!isTyping) {
+      setIsTyping(true);
+      let i = 0;
+      const typingInterval = setInterval(() => {
+        if (i < typewriterText.length) {
+          setTypedText(prev => prev + typewriterText.charAt(i));
+          i++;
+        } else {
+          clearInterval(typingInterval);
+        }
+      }, 100);
+      
+      return () => clearInterval(typingInterval);
+    }
+  }, []);
+  
+  // Word rotation effect
+  useEffect(() => {
+    const wordInterval = setInterval(() => {
+      setCurrentWordIndex(prevIndex => (prevIndex + 1) % conversionTypes.length);
+    }, 1000);
+    
+    return () => clearInterval(wordInterval);
+  }, []);
 
   return (
     <div className="relative py-16 w-full overflow-hidden">
@@ -63,14 +109,37 @@ const WorldMapHero = () => {
           <span className="gradient-text-orange">With 5-Star Google Reviews</span>
         </motion.h1>
         
-        <motion.p 
+        <motion.div 
           className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto mb-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          The #1 Review Management Platform Helping Local Businesses Worldwide Rank Higher & Convert More Customers
-        </motion.p>
+          <p className="flex flex-wrap justify-center">
+            <span>The #1 Review Management Platform Helping Local Businesses Worldwide Rank Higher & Convert More </span>
+            <span className="relative inline-block min-w-[160px] text-eagle-orange font-semibold">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={currentWordIndex}
+                  className="absolute left-0"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {conversionTypes[currentWordIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </span>
+          </p>
+          
+          <div className="mt-4">
+            <span className="font-semibold text-eagle-blue">Google Reviews: </span>
+            <span className="font-medium inline-block overflow-hidden border-r-2 border-eagle-orange pr-1 animate-pulse">
+              {typedText}
+            </span>
+          </div>
+        </motion.div>
         
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
