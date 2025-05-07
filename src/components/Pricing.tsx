@@ -49,8 +49,8 @@ const Pricing = () => {
     "Only Pay For 4-5 Star Reviews",
   ];
 
-  // Calendly booking URL
-  const calendlyUrl = "https://calendly.com/eagleeye-reviews/free-30-day-trial";
+  // Updated Calendly booking URL
+  const calendlyUrl = "https://calendly.com/weareagencyeagleeye/30min";
 
   return (
     <section
