@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { WorldMap } from "./ui/world-map";
 import { Globe } from "lucide-react";
 import { useState, useEffect } from "react";
-import { GlowingBox } from "./ui/glowing-box";
 
 const WorldMapHero = () => {
   const [isShaking, setIsShaking] = useState(true);
@@ -59,7 +58,7 @@ const WorldMapHero = () => {
       
       {/* Content overlay */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <GlowingBox className="inline-block mb-6 rounded-full p-4">
+        <div className="inline-block mb-6 rounded-full p-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -67,7 +66,7 @@ const WorldMapHero = () => {
           >
             <Globe size={48} className="text-eagle-blue" />
           </motion.div>
-        </GlowingBox>
+        </div>
         
         <motion.h1 
           className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
@@ -80,7 +79,7 @@ const WorldMapHero = () => {
           <span className="gradient-text-orange">With 5-Star Google Reviews</span>
         </motion.h1>
         
-        <GlowingBox className="inline-block p-2 rounded-lg max-w-3xl">
+        <div className="inline-block p-2 rounded-lg max-w-3xl bg-white/5 backdrop-blur-sm border border-white/10">
           <motion.p 
             className="text-xl md:text-2xl opacity-90 mx-auto"
             initial={{ opacity: 0 }}
@@ -89,7 +88,7 @@ const WorldMapHero = () => {
           >
             The #1 Review Management Platform Helping Local Businesses Worldwide Rank Higher & Convert More Customers
           </motion.p>
-        </GlowingBox>
+        </div>
       </div>
     </div>
   );

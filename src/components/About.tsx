@@ -2,7 +2,6 @@
 import { useState, useEffect, useRef, memo } from "react";
 import { AudiologistLogosDemo } from "./ui/audiologist-logos-demo";
 import { AnimatedTestimonialsDemo } from "./ui/animated-testimonials-demo";
-import { GlowingBox } from "./ui/glowing-box";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -61,8 +60,8 @@ const About = () => {
             The Agency Eagle Eye Story
           </h2>
 
-          <GlowingBox
-            className={`mb-16 rounded-lg p-6 transition-all duration-500 transform ${
+          <div 
+            className={`mb-16 rounded-lg p-6 bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-500 transform ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
@@ -79,12 +78,12 @@ const About = () => {
                 By combining cutting-edge AI technology with deep expertise in digital marketing, we've created systems that deliver measurable, consistent results for local businesses worldwide seeking sustainable growth through Google reviews.
               </p>
             </div>
-          </GlowingBox>
+          </div>
 
           <div>
             <h3 className="text-2xl font-bold mb-6 text-center">Our Mission</h3>
-            <GlowingBox
-              className={`mb-12 rounded-lg p-4 transform transition-all duration-500 ${
+            <div
+              className={`mb-12 rounded-lg p-4 bg-white/5 backdrop-blur-sm border border-white/10 transform transition-all duration-500 ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
@@ -94,27 +93,27 @@ const About = () => {
               <p className="text-lg text-center max-w-3xl mx-auto">
                 To help local businesses achieve their full revenue potential through intelligent review management, without adding to their team's workload.
               </p>
-            </GlowingBox>
+            </div>
 
             <h3 className="text-2xl font-bold mb-6 text-center">Our Values</h3>
             <div className="grid md:grid-cols-2 gap-6">
               {values.map((value, index) => (
-                <GlowingBox
+                <div
                   key={index}
-                  className={`rounded-lg transform transition-all duration-500 ${
+                  className={`rounded-lg bg-white/5 backdrop-blur-sm p-6 border border-white/10 transform transition-all duration-500 ${
                     isVisible
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-10"
                   }`}
                   style={{ transitionDelay: `${(index + 4) * 150}ms` }}
                 >
-                  <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg">
+                  <div className="rounded-lg">
                     <h4 className="text-xl font-semibold mb-2 text-eagle-orange">
                       {value.title}
                     </h4>
                     <p className="text-gray-300">{value.description}</p>
                   </div>
-                </GlowingBox>
+                </div>
               ))}
             </div>
           </div>

@@ -2,7 +2,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Check, Clock, TrendingUp, Eye, BarChart3, MessageSquare } from "lucide-react";
 import { EagleButton } from "./ui/eagle-button";
-import { GlowingBox } from "./ui/glowing-box";
 
 const steps = [
   {
@@ -86,7 +85,7 @@ const HowItWorks = () => {
 
           <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step, index) => (
-              <GlowingBox
+              <div
                 key={step.number}
                 className={`rounded-lg transition-all duration-500 transform ${
                   isVisible
@@ -130,7 +129,7 @@ const HowItWorks = () => {
                     <div className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-eagle-blue to-eagle-orange"></div>
                   )}
                 </div>
-              </GlowingBox>
+              </div>
             ))}
           </div>
 

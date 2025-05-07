@@ -1,7 +1,6 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Shield, Clock, Star } from "lucide-react";
-import { GlowingBox } from "./ui/glowing-box";
 
 const Guarantee = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -80,7 +79,7 @@ const Guarantee = () => {
 
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             {guarantees.map((guarantee, index) => (
-              <GlowingBox
+              <div
                 key={index}
                 className={`rounded-lg transition-all duration-500 transform ${
                   isVisible
@@ -96,11 +95,11 @@ const Guarantee = () => {
                   <h3 className="text-xl font-semibold mb-4">{guarantee.title}</h3>
                   <p className="text-gray-300">{guarantee.description}</p>
                 </div>
-              </GlowingBox>
+              </div>
             ))}
           </div>
 
-          <GlowingBox
+          <div
             className={`mt-16 rounded-lg transform transition-all duration-700 ${
               isVisible
                 ? "opacity-100 translate-y-0"
@@ -137,7 +136,7 @@ const Guarantee = () => {
                 </div>
               </div>
             </div>
-          </GlowingBox>
+          </div>
         </div>
       </div>
     </section>

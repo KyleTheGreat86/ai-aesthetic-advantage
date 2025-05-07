@@ -2,7 +2,6 @@
 import { useRef, useState, useEffect } from "react";
 import { AnimatedTestimonialsDemo } from "./ui/animated-testimonials-demo";
 import { EagleButton } from "./ui/eagle-button";
-import { GlowingBox } from "./ui/glowing-box";
 
 const TeamExperts = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -46,7 +45,7 @@ const TeamExperts = () => {
           </p>
           
           {/* Adding the START YOUR FREE 30-DAY TRIAL button */}
-          <GlowingBox className="inline-block mb-10 rounded-lg">
+          <div className="inline-block mb-10 rounded-lg">
             <a
               href="https://calendly.com/weareagencyeagleeye/30min"
               target="_blank"
@@ -54,7 +53,7 @@ const TeamExperts = () => {
             >
               <EagleButton>START YOUR FREE 30-DAY TRIAL</EagleButton>
             </a>
-          </GlowingBox>
+          </div>
           
           <div
             className={`transition-all duration-700 transform ${

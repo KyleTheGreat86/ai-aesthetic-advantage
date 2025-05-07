@@ -7,7 +7,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useIsMobile } from "../hooks/use-mobile";
-import { GlowingBox } from "./ui/glowing-box";
 
 const FAQ = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -97,7 +96,7 @@ const FAQ = () => {
             className="w-full space-y-2 sm:space-y-4"
           >
             {faqs.map((faq, index) => (
-              <GlowingBox
+              <div
                 key={`faq-${index}`}
                 className={`rounded-lg transition-all duration-300 transform ${
                   isVisible
@@ -117,12 +116,12 @@ const FAQ = () => {
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
-              </GlowingBox>
+              </div>
             ))}
           </Accordion>
 
-          <GlowingBox
-            className={`mt-8 sm:mt-10 md:mt-12 text-center transform transition-all duration-300 rounded-lg p-4 ${
+          <div
+            className={`mt-8 sm:mt-10 md:mt-12 text-center transform transition-all duration-300 rounded-lg p-4 bg-white/5 backdrop-blur-sm border border-white/10 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
@@ -137,7 +136,7 @@ const FAQ = () => {
                 Contact Us
               </a>
             </div>
-          </GlowingBox>
+          </div>
         </div>
       </div>
     </section>
