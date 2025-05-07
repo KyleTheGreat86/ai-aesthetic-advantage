@@ -3,6 +3,7 @@ import { useEffect, lazy, Suspense } from "react";
 import LoadingScreen from "../components/LoadingScreen";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import WorldMapHero from "../components/WorldMapHero";
 import { useIsMobile } from "../hooks/use-mobile";
 
 // Import the RainbowButton CSS styles
@@ -95,6 +96,7 @@ const Index = () => {
       </Suspense>
       <LoadingScreen />
       <Navbar />
+      <WorldMapHero />
       <Hero />
       <Suspense fallback={<SectionLoader />}>
         <ProblemStatement />
