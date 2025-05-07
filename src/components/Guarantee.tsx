@@ -1,6 +1,7 @@
 
 import { useState, useEffect, useRef, memo } from "react";
 import { Shield, Clock, Star } from "lucide-react";
+import { CountdownTimer } from "./ui/countdown-timer";
 
 const guarantees = [
   {
@@ -27,6 +28,15 @@ const Guarantee = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const clockRef = useRef<HTMLDivElement>(null);
+  
+  // Set target date to August 1st of the current year
+  const currentYear = new Date().getFullYear();
+  const targetDate = new Date(currentYear, 7, 1); // Month is 0-indexed (7 = August)
+  
+  // If the current date is past August 1st of the current year, set the target to next year
+  if (new Date() > targetDate) {
+    targetDate.setFullYear(currentYear + 1);
+  }
 
   useEffect(() => {
     // Create observer outside the callback to avoid recreation
@@ -111,8 +121,8 @@ const Guarantee = () => {
                   <h3 className="text-2xl font-semibold mb-3 text-eagle-orange">
                     Limited Time Offer
                   </h3>
-                  <p className="text-lg">
-                    Only <span className="font-bold text-white">7</span> days remaining for this special pricing
+                  <p className="text-lg mb-2">
+                    Only <CountdownTimer targetDate={targetDate} className="inline-flex text-eagle-orange font-medium" /> remaining for this special pricing
                   </p>
                   <div className="mt-4 flex items-center">
                     <div ref={clockRef} className="mr-3">
