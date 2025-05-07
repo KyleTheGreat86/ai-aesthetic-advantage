@@ -6,9 +6,11 @@ const LoadingScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // Shorter timeout to ensure the app becomes visible
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2500);
+      console.log("Loading screen complete");
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, []);
