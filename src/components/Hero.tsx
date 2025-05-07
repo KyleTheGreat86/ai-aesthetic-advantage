@@ -2,7 +2,7 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
 import eagleLogo from "/lovable-uploads/b797bc22-5a08-4a8e-a9e5-b0a065bd73a4.png";
 import { EagleButton, EagleSecondaryButton } from "./ui/eagle-button";
-import { Eye, Star, TrendingUp, BarChart3 } from "lucide-react";
+import { Eye, Star, TrendingUp, BarChart3, Play } from "lucide-react";
 import { PartnerLogosMarquee } from "./ui/partner-logos-marquee";
 
 // Lazy load non-critical components
@@ -14,6 +14,9 @@ const Hero = () => {
   const [showTagline, setShowTagline] = useState(false);
   const [showButtons, setShowButtons] = useState(false);
   const [showLimitedBanner, setShowLimitedBanner] = useState(false);
+  
+  // YouTube video ID for embedding
+  const videoId = "sm5QGrA7oeU";
 
   useEffect(() => {
     // Use more efficient timing with requestAnimationFrame
@@ -103,15 +106,19 @@ const Hero = () => {
         {!isVideoVisible ? (
           <div className="mb-10 mx-auto w-full max-w-3xl relative">
             <div 
-              className="aspect-video bg-gray-900/50 rounded-lg flex items-center justify-center cursor-pointer group overflow-hidden"
+              className="aspect-video rounded-lg flex items-center justify-center cursor-pointer group overflow-hidden relative"
               onClick={() => setIsVideoVisible(true)}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-eagle-blue/20 to-eagle-orange/20 group-hover:opacity-70 transition-opacity"></div>
-              <div className="text-center">
-                <div className="w-20 h-20 mx-auto bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <div className="w-0 h-0 border-t-8 border-t-transparent border-l-16 border-l-white border-b-8 border-b-transparent ml-1"></div>
+              {/* YouTube thumbnail with play button overlay */}
+              <img 
+                src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`} 
+                alt="Video thumbnail" 
+                className="w-full h-full object-cover transition-transform group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                <div className="w-20 h-20 bg-eagle-blue/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Play size={36} className="text-white ml-2" fill="white" />
                 </div>
-                <p className="text-xl font-medium">See How Google Reviews Transform Your Business</p>
               </div>
             </div>
           </div>
@@ -120,11 +127,11 @@ const Hero = () => {
             <div className="aspect-video">
               <iframe
                 className="w-full h-full rounded-lg shadow-2xl"
-                src="https://www.youtube.com/embed/sm5QGrA7oeU"
+                src="https://www.youtube.com/embed/sm5QGrA7oeU?autoplay=1"
                 title="Eagle Eye AI Demo Video"
                 frameBorder="0"
                 loading="lazy"
-                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
             </div>
