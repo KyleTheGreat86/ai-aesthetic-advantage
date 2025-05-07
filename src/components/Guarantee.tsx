@@ -111,17 +111,17 @@ const Guarantee = () => {
               <div className="flex flex-col md:flex-row items-center justify-between">
                 <div className="mb-8 md:mb-0">
                   <h3 className="text-2xl font-semibold mb-4 text-eagle-orange">
-                    Limited Availability
+                    Limited Time Offer
                   </h3>
                   <p className="text-lg">
-                    Only <span className="font-bold text-white">50</span> spots remaining out of 50
+                    Only <span className="font-bold text-white">7</span> days remaining for this special pricing
                   </p>
                   <div className="mt-6 flex items-center">
                     <div ref={clockRef} className="mr-3">
                       <Clock className="h-6 w-6 text-eagle-orange" />
                     </div>
                     <p className="text-sm text-gray-300">
-                      First 50 businesses only. Start your trial now.
+                      Special launch pricing ends soon. Claim your spot today.
                     </p>
                   </div>
                 </div>
@@ -130,7 +130,7 @@ const Guarantee = () => {
                     href="#contact"
                     className="eagle-btn-primary inline-block relative group overflow-hidden"
                   >
-                    <span className="relative z-10">START YOUR FREE 30-DAY TRIAL</span>
+                    <span className="relative z-10">CLAIM YOUR SPECIAL OFFER NOW</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-eagle-blue/0 via-white/20 to-eagle-blue/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                   </a>
                 </div>
