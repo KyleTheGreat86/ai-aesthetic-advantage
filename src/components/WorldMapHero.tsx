@@ -1,7 +1,8 @@
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { WorldMap } from "./ui/world-map";
 import { Globe } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const WorldMapHero = () => {
   const mapConnections = [
@@ -30,6 +31,31 @@ const WorldMapHero = () => {
       end: { lat: -1.2921, lng: 36.8219 }, // Nairobi
     },
   ];
+
+  // Array of phrases to rotate
+  const rotatingPhrases = [
+    "Customers",
+    "Appointments",
+    "Leads",
+    "Sales",
+    "Phone Calls",
+    "Local Traffic",
+    "Repeat Business",
+    "Local Domination"
+  ];
+
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+
+  // Effect to rotate through phrases every 1.5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPhraseIndex(prevIndex => 
+        prevIndex === rotatingPhrases.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 1500);
+    
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="relative py-16 w-full overflow-hidden">
@@ -78,7 +104,22 @@ const WorldMapHero = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <div className="inline-block bg-eagle-blue/20 backdrop-blur-sm rounded-lg px-6 py-3 border border-eagle-blue/50">
-            <p className="text-lg font-medium text-eagle-blue">100 Customers • 400 Spaces Left • Google Reviews: The Numbers That Matter</p>
+            <p className="text-lg font-medium text-eagle-blue whitespace-nowrap">
+              100 {" "}
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={currentPhraseIndex}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                  className="inline-block"
+                >
+                  {rotatingPhrases[currentPhraseIndex]}
+                </motion.span>
+              </AnimatePresence>
+              {" • 400 Spaces Left • Google Reviews: The Numbers That Matter"}
+            </p>
           </div>
         </motion.div>
       </div>
