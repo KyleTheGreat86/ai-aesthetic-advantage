@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect, lazy, Suspense } from "react";
 import eagleLogo from "/lovable-uploads/b797bc22-5a08-4a8e-a9e5-b0a065bd73a4.png";
 import { EagleButton, EagleSecondaryButton } from "./ui/eagle-button";
-import { Eye, Star, TrendingUp, BarChart3, Play, WhatsApp } from "lucide-react";
+import { Eye, Star, TrendingUp, BarChart3, Play, MessageCircle } from "lucide-react";
 import { PartnerLogosMarquee } from "./ui/partner-logos-marquee";
 
 // Lazy load non-critical components
@@ -148,7 +147,7 @@ const Hero = () => {
             </a>
             <a href="https://wa.me/447886073693" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <EagleSecondaryButton className="uppercase font-bold text-base w-full sm:w-auto bg-[#25D366] hover:bg-[#128C7E] flex items-center justify-center">
-                <WhatsApp className="mr-2" size={18} />
+                <MessageCircle className="mr-2" size={18} />
                 WHATSAPP FREE TRIAL
               </EagleSecondaryButton>
             </a>
@@ -195,4 +194,3 @@ const Hero = () => {
 };
 
 export default React.memo(Hero);
-
