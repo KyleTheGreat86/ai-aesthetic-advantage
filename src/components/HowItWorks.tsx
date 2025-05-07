@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Check, Clock, TrendingUp, Eye, BarChart3, MessageSquare } from "lucide-react";
 import { EagleButton } from "./ui/eagle-button";
+import { GlowingBox } from "./ui/glowing-box";
 
 const steps = [
   {
@@ -85,43 +86,51 @@ const HowItWorks = () => {
 
           <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step, index) => (
-              <div
+              <GlowingBox
                 key={step.number}
-                className={`relative p-8 rounded-lg transition-all duration-500 transform ${
+                className={`rounded-lg transition-all duration-500 transform ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-10"
                 } ${
                   activeStep === index
-                    ? "bg-white/10 shadow-lg scale-105"
-                    : "bg-white/5 hover:bg-white/10"
+                    ? "scale-105"
+                    : ""
                 }`}
                 style={{
                   transitionDelay: `${index * 200}ms`,
                 }}
-                onClick={() => setActiveStep(index)}
               >
-                <div className="mb-4">
-                  <span className={`text-4xl font-bold ${index % 2 === 1 ? 'text-eagle-orange' : 'text-eagle-blue'}`}>
-                    {step.number}
-                  </span>
+                <div 
+                  className={`relative p-8 rounded-lg transition-all duration-500 ${
+                    activeStep === index
+                      ? "bg-white/10 shadow-lg"
+                      : "bg-white/5 hover:bg-white/10"
+                  }`}
+                  onClick={() => setActiveStep(index)}
+                >
+                  <div className="mb-4">
+                    <span className={`text-4xl font-bold ${index % 2 === 1 ? 'text-eagle-orange' : 'text-eagle-blue'}`}>
+                      {step.number}
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold mb-4">{step.title}</h3>
+                  <p className="text-gray-300 mb-6">{step.details}</p>
+                  
+                  {index === 0 && (
+                    <a href="#pricing" className="inline-block">
+                      <EagleButton size="sm">
+                        Start Free
+                      </EagleButton>
+                    </a>
+                  )}
+                  
+                  {activeStep === index && (
+                    <div className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-eagle-blue to-eagle-orange"></div>
+                  )}
                 </div>
-                
-                <h3 className="text-xl font-bold mb-4">{step.title}</h3>
-                <p className="text-gray-300 mb-6">{step.details}</p>
-                
-                {index === 0 && (
-                  <a href="#pricing" className="inline-block">
-                    <EagleButton size="sm">
-                      Start Free
-                    </EagleButton>
-                  </a>
-                )}
-                
-                {activeStep === index && (
-                  <div className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-eagle-blue to-eagle-orange"></div>
-                )}
-              </div>
+              </GlowingBox>
             ))}
           </div>
 

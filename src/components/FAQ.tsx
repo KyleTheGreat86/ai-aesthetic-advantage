@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useIsMobile } from "../hooks/use-mobile";
+import { GlowingBox } from "./ui/glowing-box";
 
 const FAQ = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -96,41 +97,47 @@ const FAQ = () => {
             className="w-full space-y-2 sm:space-y-4"
           >
             {faqs.map((faq, index) => (
-              <AccordionItem
+              <GlowingBox
                 key={`faq-${index}`}
-                value={`faq-${index}`}
-                className={`bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 overflow-hidden transition-all duration-300 transform ${
+                className={`rounded-lg transition-all duration-300 transform ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: getAnimationDelay(index) }}
               >
-                <AccordionTrigger className="px-4 sm:px-6 py-3 sm:py-4 hover:no-underline hover:bg-white/5">
-                  <span className="text-left text-sm sm:text-base font-medium">{faq.question}</span>
-                </AccordionTrigger>
-                <AccordionContent className="px-4 sm:px-6 pb-3 sm:pb-4 pt-1 sm:pt-2 text-sm sm:text-base text-gray-300">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
+                <AccordionItem
+                  value={`faq-${index}`}
+                  className="bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 overflow-hidden"
+                >
+                  <AccordionTrigger className="px-4 sm:px-6 py-3 sm:py-4 hover:no-underline hover:bg-white/5">
+                    <span className="text-left text-sm sm:text-base font-medium">{faq.question}</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-4 sm:px-6 pb-3 sm:pb-4 pt-1 sm:pt-2 text-sm sm:text-base text-gray-300">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              </GlowingBox>
             ))}
           </Accordion>
 
-          <div
-            className={`mt-8 sm:mt-10 md:mt-12 text-center transform transition-all duration-300 ${
+          <GlowingBox
+            className={`mt-8 sm:mt-10 md:mt-12 text-center transform transition-all duration-300 rounded-lg p-4 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}
             style={{ transitionDelay: getAnimationDelay(faqs.length) }}
           >
-            <p className="mb-4 sm:mb-6 text-base sm:text-lg">
-              Have more questions about boosting your Google reviews? We're here to help.
-            </p>
-            <a href="#contact" className="eagle-btn-outline text-sm sm:text-base">
-              Contact Us
-            </a>
-          </div>
+            <div>
+              <p className="mb-4 sm:mb-6 text-base sm:text-lg">
+                Have more questions about boosting your Google reviews? We're here to help.
+              </p>
+              <a href="#contact" className="eagle-btn-outline text-sm sm:text-base">
+                Contact Us
+              </a>
+            </div>
+          </GlowingBox>
         </div>
       </div>
     </section>

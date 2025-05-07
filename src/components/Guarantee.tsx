@@ -1,6 +1,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Shield, Clock, Star } from "lucide-react";
+import { GlowingBox } from "./ui/glowing-box";
 
 const Guarantee = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -79,60 +80,64 @@ const Guarantee = () => {
 
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             {guarantees.map((guarantee, index) => (
-              <div
+              <GlowingBox
                 key={index}
-                className={`bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-white/10 transition-all duration-500 transform ${
+                className={`rounded-lg transition-all duration-500 transform ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: `${index * 200}ms` }}
               >
-                <div className="flex justify-center mb-4 text-eagle-orange">
-                  {guarantee.icon}
+                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-white/10">
+                  <div className="flex justify-center mb-4 text-eagle-orange">
+                    {guarantee.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-4">{guarantee.title}</h3>
+                  <p className="text-gray-300">{guarantee.description}</p>
                 </div>
-                <h3 className="text-xl font-semibold mb-4">{guarantee.title}</h3>
-                <p className="text-gray-300">{guarantee.description}</p>
-              </div>
+              </GlowingBox>
             ))}
           </div>
 
-          <div
-            className={`mt-16 p-8 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 max-w-3xl mx-auto transform transition-all duration-700 ${
+          <GlowingBox
+            className={`mt-16 rounded-lg transform transition-all duration-700 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}
             style={{ transitionDelay: "600ms" }}
           >
-            <div className="flex flex-col md:flex-row items-center justify-between">
-              <div className="mb-8 md:mb-0">
-                <h3 className="text-2xl font-semibold mb-4 text-eagle-orange">
-                  Limited Availability
-                </h3>
-                <p className="text-lg">
-                  Only <span className="font-bold text-white">563</span> spots remaining out of 1,000
-                </p>
-                <div className="mt-6 flex items-center">
-                  <div ref={clockRef} className="mr-3">
-                    <Clock className="h-6 w-6 text-eagle-orange" />
-                  </div>
-                  <p className="text-sm text-gray-300">
-                    First 1,000 businesses only. Start your trial now.
+            <div className="p-8 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 max-w-3xl mx-auto">
+              <div className="flex flex-col md:flex-row items-center justify-between">
+                <div className="mb-8 md:mb-0">
+                  <h3 className="text-2xl font-semibold mb-4 text-eagle-orange">
+                    Limited Availability
+                  </h3>
+                  <p className="text-lg">
+                    Only <span className="font-bold text-white">563</span> spots remaining out of 1,000
                   </p>
+                  <div className="mt-6 flex items-center">
+                    <div ref={clockRef} className="mr-3">
+                      <Clock className="h-6 w-6 text-eagle-orange" />
+                    </div>
+                    <p className="text-sm text-gray-300">
+                      First 1,000 businesses only. Start your trial now.
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <a
+                    href="#contact"
+                    className="eagle-btn-primary inline-block relative group overflow-hidden"
+                  >
+                    <span className="relative z-10">START YOUR FREE 30-DAY TRIAL</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-eagle-blue/0 via-white/20 to-eagle-blue/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                  </a>
                 </div>
               </div>
-              <div>
-                <a
-                  href="#contact"
-                  className="eagle-btn-primary inline-block relative group overflow-hidden"
-                >
-                  <span className="relative z-10">START YOUR FREE 30-DAY TRIAL</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-eagle-blue/0 via-white/20 to-eagle-blue/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                </a>
-              </div>
             </div>
-          </div>
+          </GlowingBox>
         </div>
       </div>
     </section>

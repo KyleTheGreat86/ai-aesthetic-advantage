@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { WorldMap } from "./ui/world-map";
 import { Globe } from "lucide-react";
 import { useState, useEffect } from "react";
+import { GlowingBox } from "./ui/glowing-box";
 
 const WorldMapHero = () => {
   const [isShaking, setIsShaking] = useState(true);
@@ -58,14 +59,15 @@ const WorldMapHero = () => {
       
       {/* Content overlay */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-6"
-        >
-          <Globe size={48} className="mx-auto text-eagle-blue mb-4" />
-        </motion.div>
+        <GlowingBox className="inline-block mb-6 rounded-full p-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <Globe size={48} className="text-eagle-blue" />
+          </motion.div>
+        </GlowingBox>
         
         <motion.h1 
           className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
@@ -78,14 +80,16 @@ const WorldMapHero = () => {
           <span className="gradient-text-orange">With 5-Star Google Reviews</span>
         </motion.h1>
         
-        <motion.p 
-          className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto mb-10"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          The #1 Review Management Platform Helping Local Businesses Worldwide Rank Higher & Convert More Customers
-        </motion.p>
+        <GlowingBox className="inline-block p-2 rounded-lg max-w-3xl">
+          <motion.p 
+            className="text-xl md:text-2xl opacity-90 mx-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            The #1 Review Management Platform Helping Local Businesses Worldwide Rank Higher & Convert More Customers
+          </motion.p>
+        </GlowingBox>
       </div>
     </div>
   );
