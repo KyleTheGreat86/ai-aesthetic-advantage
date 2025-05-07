@@ -1,6 +1,5 @@
 
-import { useEffect, lazy, Suspense, useState } from "react";
-import LoadingScreen from "../components/LoadingScreen";
+import { useEffect, lazy, Suspense, useState, memo } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import { useIsMobile } from "../hooks/use-mobile";
@@ -8,39 +7,106 @@ import { useIsMobile } from "../hooks/use-mobile";
 // Import the RainbowButton CSS styles
 import "../rainbow-button-styles.css";
 
-// Lazy load components to improve initial page load
-const WorldMapHero = lazy(() => import("../components/WorldMapHero"));
-const ProblemStatement = lazy(() => import("../components/ProblemStatement"));
-const Solution = lazy(() => import("../components/Solution"));
-const HowItWorks = lazy(() => import("../components/HowItWorks"));
-const Results = lazy(() => import("../components/Results"));
-const Pricing = lazy(() => import("../components/Pricing"));
-const Guarantee = lazy(() => import("../components/Guarantee"));
-const TeamExperts = lazy(() => import("../components/TeamExperts"));
-const About = lazy(() => import("../components/About"));
-const FAQ = lazy(() => import("../components/FAQ"));
-const Footer = lazy(() => import("../components/Footer"));
-const BackgroundGrid = lazy(() => import("../components/BackgroundGrid"));
-
-// Loading fallback component
+// Simple loading component to avoid layout shift
 const SectionLoader = () => (
-  <div className="py-24 flex justify-center items-center">
-    <div className="w-8 h-8 border-4 border-eagle-blue border-t-transparent rounded-full animate-spin"></div>
+  <div className="py-12 flex justify-center items-center min-h-[200px]">
+    <div className="w-6 h-6 border-2 border-eagle-blue border-t-transparent rounded-full animate-spin"></div>
   </div>
 );
 
+// Lazy load components with higher loading priority
+const LoadingScreen = lazy(() => 
+  import("../components/LoadingScreen")
+    .then(module => ({ default: memo(module.default) }))
+);
+
+const WorldMapHero = lazy(() => 
+  import("../components/WorldMapHero")
+    .then(module => ({ default: memo(module.default) }))
+);
+
+// Lazy load components with lower loading priority
+const ProblemStatement = lazy(() => 
+  import("../components/ProblemStatement")
+    .then(module => ({ default: memo(module.default) }))
+);
+
+const Solution = lazy(() => 
+  import("../components/Solution")
+    .then(module => ({ default: memo(module.default) }))
+);
+
+const HowItWorks = lazy(() => 
+  import("../components/HowItWorks")
+    .then(module => ({ default: memo(module.default) }))
+);
+
+const Results = lazy(() => 
+  import("../components/Results")
+    .then(module => ({ default: memo(module.default) }))
+);
+
+const Pricing = lazy(() => 
+  import("../components/Pricing")
+    .then(module => ({ default: memo(module.default) }))
+);
+
+const Guarantee = lazy(() => 
+  import("../components/Guarantee")
+    .then(module => ({ default: memo(module.default) }))
+);
+
+const TeamExperts = lazy(() => 
+  import("../components/TeamExperts")
+    .then(module => ({ default: memo(module.default) }))
+);
+
+const About = lazy(() => 
+  import("../components/About")
+    .then(module => ({ default: memo(module.default) }))
+);
+
+const FAQ = lazy(() => 
+  import("../components/FAQ")
+    .then(module => ({ default: memo(module.default) }))
+);
+
+const Footer = lazy(() => 
+  import("../components/Footer")
+    .then(module => ({ default: memo(module.default) }))
+);
+
+const BackgroundGrid = lazy(() => 
+  import("../components/BackgroundGrid")
+    .then(module => ({ default: memo(module.default) }))
+);
+
+// Optimized Index component
 const Index = () => {
   const isMobile = useIsMobile();
   const [hasLoaded, setHasLoaded] = useState(false);
+  const [visibleSections, setVisibleSections] = useState({
+    worldMap: false,
+    problem: false,
+    solution: false,
+    howItWorks: false,
+    results: false,
+    pricing: false,
+    guarantee: false,
+    team: false,
+    about: false,
+    faq: false,
+    footer: false
+  });
   
   useEffect(() => {
     // Mark as loaded
     setHasLoaded(true);
     
-    // Update page title to match new positioning
+    // Update page title
     document.title = "Eagle Eye | #1 Google Review Management for Local Businesses";
     
-    // Smooth scrolling for anchor links - use passive event listeners for better performance
+    // Smooth scrolling with passive event listeners for performance
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (target.tagName === 'A' && target.getAttribute('href')?.startsWith('#')) {
@@ -50,56 +116,66 @@ const Index = () => {
           if (element) {
             e.preventDefault();
             element.scrollIntoView({
-              behavior: 'smooth'
+              behavior: 'smooth',
+              block: 'start'
             });
           }
         }
       }
     };
-
-    // Enhance all buttons with rainbow effect via CSS - using IntersectionObserver for performance
-    const applyRainbowEffect = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const container = entry.target;
-          // Apply CSS class to standard buttons
-          container.querySelectorAll('button').forEach((button: HTMLButtonElement) => {
-            if (!button.classList.contains('rainbow-enhanced') && 
-                !button.classList.contains('no-rainbow')) {
-              button.classList.add('rainbow-enhanced');
-            }
-          });
-        }
-      });
-    };
-
+    
     document.addEventListener('click', handleAnchorClick, { passive: false });
     
-    // Use IntersectionObserver to apply effects only when elements are visible
-    const observer = new IntersectionObserver(applyRainbowEffect, {
-      threshold: 0.1,
-      rootMargin: '200px'
-    });
+    // Use IntersectionObserver to load sections as they become visible
+    const setupIntersectionObserver = () => {
+      const observerOptions = {
+        rootMargin: '200px 0px', // Load when within 200px of viewport
+        threshold: 0.01
+      };
+      
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            if (id) {
+              setVisibleSections(prev => ({ ...prev, [id]: true }));
+            }
+            sectionObserver.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+      
+      // Observe each section to load it only when needed
+      const sections = document.querySelectorAll('section[id]');
+      sections.forEach(section => {
+        sectionObserver.observe(section);
+      });
+      
+      return () => {
+        sections.forEach(section => {
+          sectionObserver.unobserve(section);
+        });
+      };
+    };
     
-    // Observe sections that might contain buttons
-    document.querySelectorAll('section').forEach(section => {
-      observer.observe(section);
-    });
+    // Setup after initial render
+    const timer = setTimeout(setupIntersectionObserver, 500);
     
     return () => {
       document.removeEventListener('click', handleAnchorClick);
-      observer.disconnect();
+      clearTimeout(timer);
     };
   }, []);
 
   return (
     <div className="min-h-screen bg-eagle-dark text-white">
-      {/* Load critical components first */}
-      <LoadingScreen />
+      <Suspense fallback={<div className="fixed inset-0 bg-eagle-dark z-50"></div>}>
+        <LoadingScreen />
+      </Suspense>
+      
       <Navbar />
       
-      {/* Defer non-critical components */}
-      <Suspense fallback={<div className="fixed inset-0 bg-eagle-dark z-50"></div>}>
+      <Suspense fallback={null}>
         <BackgroundGrid />
       </Suspense>
       
@@ -109,44 +185,62 @@ const Index = () => {
       
       <Hero />
       
-      {/* Use Intersection Observer API to load components as they become visible */}
-      <Suspense fallback={<SectionLoader />}>
-        <ProblemStatement />
-      </Suspense>
+      {/* Load remaining components progressively as user scrolls */}
+      <section id="problem">
+        <Suspense fallback={<SectionLoader />}>
+          {(visibleSections.problem || isMobile) && <ProblemStatement />}
+        </Suspense>
+      </section>
       
-      <Suspense fallback={<SectionLoader />}>
-        <Solution />
-      </Suspense>
+      <section id="solution">
+        <Suspense fallback={<SectionLoader />}>
+          {(visibleSections.solution || isMobile) && <Solution />}
+        </Suspense>
+      </section>
       
-      <Suspense fallback={<SectionLoader />}>
-        <HowItWorks />
-      </Suspense>
+      <section id="howItWorks">
+        <Suspense fallback={<SectionLoader />}>
+          {(visibleSections.howItWorks || isMobile) && <HowItWorks />}
+        </Suspense>
+      </section>
       
-      <Suspense fallback={<SectionLoader />}>
-        <Results />
-      </Suspense>
+      <section id="results">
+        <Suspense fallback={<SectionLoader />}>
+          {(visibleSections.results || isMobile) && <Results />}
+        </Suspense>
+      </section>
       
-      <Suspense fallback={<SectionLoader />}>
-        <Pricing />
-      </Suspense>
+      <section id="pricing">
+        <Suspense fallback={<SectionLoader />}>
+          {(visibleSections.pricing || isMobile) && <Pricing />}
+        </Suspense>
+      </section>
       
-      <Suspense fallback={<SectionLoader />}>
-        <Guarantee />
-      </Suspense>
+      <section id="guarantee">
+        <Suspense fallback={<SectionLoader />}>
+          {(visibleSections.guarantee || isMobile) && <Guarantee />}
+        </Suspense>
+      </section>
       
-      <Suspense fallback={<SectionLoader />}>
-        <TeamExperts />
-      </Suspense>
+      <section id="team">
+        <Suspense fallback={<SectionLoader />}>
+          {(visibleSections.team || isMobile) && <TeamExperts />}
+        </Suspense>
+      </section>
       
-      <Suspense fallback={<SectionLoader />}>
-        <About />
-      </Suspense>
+      <section id="about">
+        <Suspense fallback={<SectionLoader />}>
+          {(visibleSections.about || isMobile) && <About />}
+        </Suspense>
+      </section>
       
-      <Suspense fallback={<SectionLoader />}>
-        <FAQ />
-      </Suspense>
+      <section id="faq">
+        <Suspense fallback={<SectionLoader />}>
+          {(visibleSections.faq || isMobile) && <FAQ />}
+        </Suspense>
+      </section>
       
-      <Suspense fallback={<SectionLoader />}>
+      <Suspense fallback={<div className="h-20"></div>}>
         <Footer />
       </Suspense>
     </div>

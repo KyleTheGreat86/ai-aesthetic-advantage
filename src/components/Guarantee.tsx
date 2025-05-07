@@ -1,22 +1,44 @@
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, memo } from "react";
 import { Shield, Clock, Star } from "lucide-react";
+
+const guarantees = [
+  {
+    title: "Google Review Guarantee",
+    description:
+      "Minimum 15 new Google reviews during your trial or we'll extend it free.",
+    icon: <Star className="h-10 w-10" fill="currentColor" />,
+  },
+  {
+    title: "Service Guarantee",
+    description:
+      "24-hour response to any support request or we credit your next month 25%.",
+    icon: <Shield className="h-10 w-10" />,
+  },
+  {
+    title: "ROI Guarantee",
+    description:
+      "Generate at least 3X your investment in new revenue or we'll refund your first paid month.",
+    icon: <Shield className="h-10 w-10" />,
+  },
+];
 
 const Guarantee = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [daysRemaining, setDaysRemaining] = useState(7);
   const sectionRef = useRef<HTMLElement>(null);
   const clockRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Create observer outside the callback to avoid recreation
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting && !isVisible) {
           setIsVisible(true);
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.1, rootMargin: '100px' } // Reduced threshold for earlier trigger
     );
 
     if (sectionRef.current) {
@@ -28,8 +50,9 @@ const Guarantee = () => {
         observer.unobserve(sectionRef.current);
       }
     };
-  }, []);
+  }, [isVisible]);
 
+  // More efficient clock animation with reduced frequency
   useEffect(() => {
     if (isVisible && clockRef.current) {
       const interval = setInterval(() => {
@@ -37,32 +60,11 @@ const Guarantee = () => {
         setTimeout(() => {
           clockRef.current?.classList.remove("animate-pulse");
         }, 1000);
-      }, 3000);
+      }, 5000); // Reduced frequency from 3s to 5s
 
       return () => clearInterval(interval);
     }
   }, [isVisible]);
-
-  const guarantees = [
-    {
-      title: "Google Review Guarantee",
-      description:
-        "Minimum 15 new Google reviews during your trial or we'll extend it free.",
-      icon: <Star className="h-10 w-10" fill="currentColor" />,
-    },
-    {
-      title: "Service Guarantee",
-      description:
-        "24-hour response to any support request or we credit your next month 25%.",
-      icon: <Shield className="h-10 w-10" />,
-    },
-    {
-      title: "ROI Guarantee",
-      description:
-        "Generate at least 3X your investment in new revenue or we'll refund your first paid month.",
-      icon: <Shield className="h-10 w-10" />,
-    },
-  ];
 
   return (
     <section
@@ -81,12 +83,10 @@ const Guarantee = () => {
             {guarantees.map((guarantee, index) => (
               <div
                 key={index}
-                className={`rounded-lg transition-all duration-500 transform ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
+                className={`rounded-lg transition-opacity duration-300 ${
+                  isVisible ? "opacity-100" : "opacity-0"
                 }`}
-                style={{ transitionDelay: `${index * 200}ms` }}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-white/10">
                   <div className="flex justify-center mb-4 text-eagle-orange">
@@ -100,12 +100,10 @@ const Guarantee = () => {
           </div>
 
           <div
-            className={`mt-16 rounded-lg transform transition-all duration-700 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
+            className={`mt-16 rounded-lg transition-opacity duration-300 ${
+              isVisible ? "opacity-100" : "opacity-0"
             }`}
-            style={{ transitionDelay: "600ms" }}
+            style={{ transitionDelay: "300ms" }}
           >
             <div className="p-8 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 max-w-3xl mx-auto">
               <div className="flex flex-col md:flex-row items-center justify-between">
@@ -143,4 +141,4 @@ const Guarantee = () => {
   );
 };
 
-export default Guarantee;
+export default memo(Guarantee);

@@ -1,36 +1,41 @@
 
-import React, { memo } from 'react';
-
-// Define shapes outside component to prevent recreation on each render
-const shapes = [
-  { shape: 'circle', size: 'w-24 h-24 rounded-full', position: 'top-[10%] left-[5%]', delay: 'animation-delay-100' },
-  { shape: 'square', size: 'w-32 h-32 rounded-lg rotate-45', position: 'top-[30%] right-[8%]', delay: 'animation-delay-300' },
-  { shape: 'triangle', size: 'w-40 h-40', position: 'bottom-[15%] left-[15%]', delay: 'animation-delay-200' },
-  { shape: 'rect', size: 'w-64 h-16 rounded-lg', position: 'top-[50%] left-[70%]', delay: 'animation-delay-400' },
-  { shape: 'circle', size: 'w-16 h-16 rounded-full', position: 'bottom-[30%] right-[20%]', delay: 'animation-delay-500' },
-];
+import React, { memo, useMemo } from 'react';
 
 const FloatingShapes = () => {
+  // Use useMemo to avoid recreating the shapes array on re-renders
+  const shapesElements = useMemo(() => {
+    // Reduced number of shapes and simplified animation
+    const shapes = [
+      { shape: 'circle', size: 'w-24 h-24 rounded-full', position: 'top-[10%] left-[5%]', animation: 'animate-float-slow' },
+      { shape: 'square', size: 'w-32 h-32 rounded-lg rotate-45', position: 'top-[30%] right-[8%]', animation: 'animate-float-slower' },
+      { shape: 'triangle', size: 'w-40 h-40', position: 'bottom-[15%] left-[15%]', animation: 'animate-float-slow' },
+    ];
+    
+    return shapes.map((shape, index) => {
+      const backgroundClass = index % 2 === 0 
+        ? 'bg-eagle-blue/15 backdrop-blur-sm' 
+        : 'bg-eagle-orange/15 backdrop-blur-sm';
+      
+      return (
+        <div 
+          key={`shape-${index}`}
+          className={`absolute ${shape.size} ${shape.position} ${backgroundClass} ${shape.animation}`}
+          style={{
+            transform: 'translate3d(0,0,0)', // Hardware acceleration
+            willChange: 'transform',
+            animationDuration: `${5 + index}s`,
+            animationTimingFunction: 'ease-in-out',
+            animationIterationCount: 'infinite',
+            animationDirection: 'alternate'
+          }}
+        />
+      );
+    });
+  }, []);
+
   return (
-    <div className="floating-shapes will-change-opacity">
-      {shapes.map((shape, index) => {
-        const backgroundClass = index % 2 === 0 
-          ? 'bg-eagle-blue/20 backdrop-blur-sm' 
-          : 'bg-eagle-orange/20 backdrop-blur-sm';
-        
-        return (
-          <div 
-            key={`shape-${index}`}
-            className={`floating-shape ${shape.size} ${shape.position} ${shape.delay} ${backgroundClass}`}
-            style={{
-              animationDuration: `${5 + index}s`,
-              // Use hardware acceleration
-              transform: 'translate3d(0,0,0)',
-              willChange: 'transform'
-            }}
-          />
-        );
-      })}
+    <div className="floating-shapes fixed inset-0 pointer-events-none overflow-hidden z-0">
+      {shapesElements}
     </div>
   );
 };

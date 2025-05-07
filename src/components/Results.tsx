@@ -1,9 +1,10 @@
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, memo } from "react";
 import { ArrowRight, Check, Star, TrendingUp } from "lucide-react";
 import { AudiologistLogosDemo } from "./ui/audiologist-logos-demo";
 import { EagleButton } from "./ui/eagle-button";
 
+// Pre-defined data to avoid recalculation
 const resultsData = [
   {
     businessType: "Home Services",
@@ -73,20 +74,69 @@ const resultsData = [
   }
 ];
 
+// Memoized stars component to avoid rerendering
+const FiveStars = memo(() => (
+  <div className="flex ml-2">
+    <Star size={14} className="text-eagle-orange" fill="#FF8024" />
+    <Star size={14} className="text-eagle-orange" fill="#FF8024" />
+    <Star size={14} className="text-eagle-orange" fill="#FF8024" />
+    <Star size={14} className="text-eagle-orange" fill="#FF8024" />
+    <Star size={14} className="text-eagle-orange" fill="#FF8024" />
+  </div>
+));
+
+FiveStars.displayName = "FiveStars";
+
+// Memoized result card component
+const ResultCard = memo(({ item, index, isVisible, animateNumbers }) => (
+  <div 
+    className={`bg-white/5 backdrop-blur-sm rounded-lg p-6 transition-opacity duration-300 ${
+      isVisible ? "opacity-100" : "opacity-0"
+    }`}
+    style={{ transitionDelay: `${Math.min(index * 50, 500)}ms` }}
+  >
+    <div className="flex items-center justify-between mb-4">
+      <div>
+        <h3 className="text-lg font-medium">{item.name}</h3>
+        <p className="text-gray-400 text-sm">{item.businessType}, {item.location}</p>
+      </div>
+      <div className="bg-eagle-blue/20 rounded-full px-3 py-1 flex items-center">
+        <TrendingUp size={14} className="text-eagle-blue mr-1" />
+        <span className="text-eagle-blue font-bold">+{item.percentage}%</span>
+      </div>
+    </div>
+    
+    <div className="flex items-baseline gap-1 mb-2">
+      <span className="text-gray-400">{item.reviews.before} →</span>
+      <span className="text-2xl font-bold text-white">
+        {animateNumbers ? item.reviews.after : item.reviews.before}
+      </span>
+      <FiveStars />
+    </div>
+    
+    <p className="text-gray-300 text-sm">
+      Google reviews in <span className="text-eagle-blue font-medium">{item.timeframe}</span>
+    </p>
+  </div>
+));
+
+ResultCard.displayName = "ResultCard";
+
 const Results = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [animateNumbers, setAnimateNumbers] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    // More efficient intersection observer
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !isVisible) {
           setIsVisible(true);
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.1, rootMargin: '100px' } // Lower threshold and bigger rootMargin for earlier loading
     );
 
     if (sectionRef.current) {
@@ -98,14 +148,39 @@ const Results = () => {
         observer.unobserve(sectionRef.current);
       }
     };
-  }, []);
+  }, [isVisible]);
 
   useEffect(() => {
     if (isVisible) {
-      const timer = setTimeout(() => setAnimateNumbers(true), 300);
+      // Delay animations to avoid layout thrashing
+      const timer = setTimeout(() => setAnimateNumbers(true), 500);
       return () => clearTimeout(timer);
     }
   }, [isVisible]);
+
+  // Wrap expensive parts in useMemo
+  const testimonialsSection = isVisible ? (
+    <div
+      className="mt-16 p-6 bg-white/5 rounded-lg border border-white/10 transition-opacity duration-300 opacity-100"
+      style={{ transitionDelay: "500ms" }}
+    >
+      <div className="flex flex-col md:flex-row items-center">
+        <div className="relative mb-4 md:mb-0 md:mr-8">
+          <div className="w-16 h-16 rounded-full bg-eagle-blue/20 flex items-center justify-center text-2xl">
+            "
+          </div>
+        </div>
+        <div className="flex-grow">
+          <p className="text-lg italic">
+            "After using Eagle Eye we are outranking businesses that have been in our area for <span className="text-eagle-orange font-semibold">10+ years!</span> The Google reviews we're getting are bringing in more calls every day."
+          </p>
+          <p className="mt-2 text-gray-400">
+            – Daniel Plourde, Dryer Vent Superheros PBC
+          </p>
+        </div>
+      </div>
+    </div>
+  ) : null;
 
   return (
     <section
@@ -119,56 +194,22 @@ const Results = () => {
             Real Results From <span className="text-eagle-blue">Real Local Businesses</span>
           </h2>
           
-          {/* Testimonial logos animation section */}
-          <div
-            className={`transition-all duration-700 transform ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
-            style={{ transitionDelay: "200ms" }}
-          >
-            <AudiologistLogosDemo />
-          </div>
+          {/* Only render when visible */}
+          {isVisible && (
+            <div className="transition-opacity duration-300 opacity-100">
+              <AudiologistLogosDemo />
+            </div>
+          )}
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
             {resultsData.map((item, index) => (
-              <div 
+              <ResultCard 
                 key={index}
-                className={`bg-white/5 backdrop-blur-sm rounded-lg p-6 transform transition-all duration-500 ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
-                }`}
-                style={{ transitionDelay: `${index * 100 + 300}ms` }}
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <div>
-                    <h3 className="text-lg font-medium">{item.name}</h3>
-                    <p className="text-gray-400 text-sm">{item.businessType}, {item.location}</p>
-                  </div>
-                  <div className="bg-eagle-blue/20 rounded-full px-3 py-1 flex items-center">
-                    <TrendingUp size={14} className="text-eagle-blue mr-1" />
-                    <span className="text-eagle-blue font-bold">+{item.percentage}%</span>
-                  </div>
-                </div>
-                
-                <div className="flex items-baseline gap-1 mb-2">
-                  <span className="text-gray-400">{item.reviews.before} →</span>
-                  <span className="text-2xl font-bold text-white">
-                    {animateNumbers ? item.reviews.after : item.reviews.before}
-                  </span>
-                  <div className="flex ml-2">
-                    <Star size={14} className="text-eagle-orange" fill="#FF8024" />
-                    <Star size={14} className="text-eagle-orange" fill="#FF8024" />
-                    <Star size={14} className="text-eagle-orange" fill="#FF8024" />
-                    <Star size={14} className="text-eagle-orange" fill="#FF8024" />
-                    <Star size={14} className="text-eagle-orange" fill="#FF8024" />
-                  </div>
-                </div>
-                
-                <p className="text-gray-300 text-sm">
-                  Google reviews in <span className="text-eagle-blue font-medium">{item.timeframe}</span>
-                </p>
-              </div>
+                item={item} 
+                index={index} 
+                isVisible={isVisible} 
+                animateNumbers={animateNumbers} 
+              />
             ))}
           </div>
 
@@ -183,30 +224,7 @@ const Results = () => {
             </a>
           </div>
 
-          <div
-            className={`mt-16 p-6 bg-white/5 rounded-lg border border-white/10 transform transition-all duration-700 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
-            style={{ transitionDelay: "800ms" }}
-          >
-            <div className="flex flex-col md:flex-row items-center">
-              <div className="relative mb-4 md:mb-0 md:mr-8">
-                <div className="w-16 h-16 rounded-full bg-eagle-blue/20 flex items-center justify-center text-2xl">
-                  "
-                </div>
-              </div>
-              <div className="flex-grow">
-                <p className="text-lg italic">
-                  "After using Eagle Eye we are outranking businesses that have been in our area for <span className="text-eagle-orange font-semibold">10+ years!</span> The Google reviews we're getting are bringing in more calls every day."
-                </p>
-                <p className="mt-2 text-gray-400">
-                  – Daniel Plourde, Dryer Vent Superheros PBC
-                </p>
-              </div>
-            </div>
-          </div>
+          {testimonialsSection}
 
           <div className="mt-12 text-center">
             <a
@@ -214,12 +232,10 @@ const Results = () => {
               className="inline-block"
             >
               <EagleButton 
-                className={`uppercase font-bold transform transition-all duration-500 ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
+                className={`uppercase font-bold transition-opacity duration-300 ${
+                  isVisible ? "opacity-100" : "opacity-0"
                 }`}
-                style={{ transitionDelay: "1000ms" }}
+                style={{ transitionDelay: "600ms" }}
               >
                 START YOUR FREE 30-DAY TRIAL
               </EagleButton>
@@ -228,9 +244,10 @@ const Results = () => {
         </div>
       </div>
 
-      <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none"></div>
+      {/* Simplified background */}
+      <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none"></div>
     </section>
   );
 };
 
-export default Results;
+export default memo(Results);
