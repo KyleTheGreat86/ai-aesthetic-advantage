@@ -102,7 +102,7 @@ const ProblemStatement = () => {
   const benefits = [
     {
       title: "Sharp Focus on Reviews Makes Your Business The Clear Choice",
-      description: "With the best reviews you become the "Safe" option. Not only will more people see your business at the top of Google, but more people will pick your business.",
+      description: 'With the best reviews you become the "Safe" option. Not only will more people see your business at the top of Google, but more people will pick your business.',
       icon: Eye,
       delay: 0
     },
