@@ -82,18 +82,18 @@ const FAQ = () => {
     <section
       ref={sectionRef}
       id="faq"
-      className="py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden bg-gradient-to-b from-eagle-dark/90 to-eagle-dark"
+      className="py-10 sm:py-12 md:py-16 relative overflow-hidden bg-gradient-to-b from-eagle-dark/90 to-eagle-dark"
     >
       <div className="section-container relative z-10">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-center">
             Frequently Asked Questions
           </h2>
 
           <Accordion
             type="single"
             collapsible
-            className="w-full space-y-2 sm:space-y-4"
+            className="w-full space-y-2 sm:space-y-3"
           >
             {faqs.map((faq, index) => (
               <div
@@ -109,10 +109,10 @@ const FAQ = () => {
                   value={`faq-${index}`}
                   className="bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 overflow-hidden"
                 >
-                  <AccordionTrigger className="px-4 sm:px-6 py-3 sm:py-4 hover:no-underline hover:bg-white/5">
+                  <AccordionTrigger className="px-4 sm:px-6 py-3 hover:no-underline hover:bg-white/5">
                     <span className="text-left text-sm sm:text-base font-medium">{faq.question}</span>
                   </AccordionTrigger>
-                  <AccordionContent className="px-4 sm:px-6 pb-3 sm:pb-4 pt-1 sm:pt-2 text-sm sm:text-base text-gray-300">
+                  <AccordionContent className="px-4 sm:px-6 pb-3 pt-1 text-sm sm:text-base text-gray-300">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -121,7 +121,7 @@ const FAQ = () => {
           </Accordion>
 
           <div
-            className={`mt-8 sm:mt-10 md:mt-12 text-center transform transition-all duration-300 rounded-lg p-4 bg-white/5 backdrop-blur-sm border border-white/10 ${
+            className={`mt-6 sm:mt-8 text-center transform transition-all duration-300 rounded-lg p-4 bg-white/5 backdrop-blur-sm border border-white/10 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
@@ -129,7 +129,7 @@ const FAQ = () => {
             style={{ transitionDelay: getAnimationDelay(faqs.length) }}
           >
             <div>
-              <p className="mb-4 sm:mb-6 text-base sm:text-lg">
+              <p className="mb-3 sm:mb-4 text-base sm:text-lg">
                 Have more questions about boosting your Google reviews? We're here to help.
               </p>
               <a href="#contact" className="eagle-btn-outline text-sm sm:text-base">

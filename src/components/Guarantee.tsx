@@ -70,16 +70,16 @@ const Guarantee = () => {
     <section
       ref={sectionRef}
       id="guarantee"
-      className="py-24 relative overflow-hidden bg-gradient-to-b from-eagle-dark to-eagle-dark/90"
+      className="py-16 relative overflow-hidden bg-gradient-to-b from-eagle-dark to-eagle-dark/90"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-eagle-blue/10 to-eagle-orange/10"></div>
       <div className="section-container relative z-10">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8">
             Our Triple Guarantee
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
             {guarantees.map((guarantee, index) => (
               <div
                 key={index}
@@ -100,21 +100,21 @@ const Guarantee = () => {
           </div>
 
           <div
-            className={`mt-16 rounded-lg transition-opacity duration-300 ${
+            className={`mt-12 rounded-lg transition-opacity duration-300 ${
               isVisible ? "opacity-100" : "opacity-0"
             }`}
             style={{ transitionDelay: "300ms" }}
           >
-            <div className="p-8 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 max-w-3xl mx-auto">
+            <div className="p-6 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 max-w-3xl mx-auto">
               <div className="flex flex-col md:flex-row items-center justify-between">
-                <div className="mb-8 md:mb-0">
-                  <h3 className="text-2xl font-semibold mb-4 text-eagle-orange">
+                <div className="mb-6 md:mb-0">
+                  <h3 className="text-2xl font-semibold mb-3 text-eagle-orange">
                     Limited Time Offer
                   </h3>
                   <p className="text-lg">
                     Only <span className="font-bold text-white">7</span> days remaining for this special pricing
                   </p>
-                  <div className="mt-6 flex items-center">
+                  <div className="mt-4 flex items-center">
                     <div ref={clockRef} className="mr-3">
                       <Clock className="h-6 w-6 text-eagle-orange" />
                     </div>

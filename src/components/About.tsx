@@ -55,26 +55,26 @@ const About = () => {
     <section
       ref={sectionRef}
       id="about"
-      className="py-24 relative overflow-hidden"
+      className="py-16 relative overflow-hidden"
     >
       <div className="section-container relative z-10">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
             The Agency Eagle Eye Story
           </h2>
 
           <div 
-            className={`mb-16 rounded-lg p-6 bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-500 transform ${
+            className={`mb-12 rounded-lg p-6 bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-500 transform ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}
           >
             <div>
-              <p className="text-lg mb-6">
+              <p className="text-lg mb-4">
                 Agency Eagle Eye was founded with a simple mission: help local businesses worldwide stop losing potential customers through insufficient online reviews and suboptimal Google visibility.
               </p>
-              <p className="text-lg mb-6">
+              <p className="text-lg mb-4">
                 Our founder Kyle Holland saw how even well-established businesses were missing out on significant revenue due to poor review management, weak online presence, and inability to capitalize on Google's local search algorithms.
               </p>
               <p className="text-lg">
@@ -84,9 +84,9 @@ const About = () => {
           </div>
 
           <div>
-            <h3 className="text-2xl font-bold mb-6 text-center">Our Mission</h3>
+            <h3 className="text-2xl font-bold mb-4 text-center">Our Mission</h3>
             <div
-              className={`mb-12 rounded-lg p-4 bg-white/5 backdrop-blur-sm border border-white/10 transform transition-all duration-500 ${
+              className={`mb-8 rounded-lg p-4 bg-white/5 backdrop-blur-sm border border-white/10 transform transition-all duration-500 ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
@@ -98,7 +98,7 @@ const About = () => {
               </p>
             </div>
 
-            <h3 className="text-2xl font-bold mb-6 text-center">Our Values</h3>
+            <h3 className="text-2xl font-bold mb-4 text-center">Our Values</h3>
             <div className="grid md:grid-cols-2 gap-6">
               {values.map((value, index) => (
                 <div
