@@ -68,6 +68,9 @@ export const CountdownTimer = ({ targetDate, className = '' }: CountdownTimerPro
       <span className="countdown-unit">
         <span className="font-bold">{timeLeft.minutes}</span> {timeLeft.minutes === 1 ? 'min' : 'mins'}
       </span>
+      <span className="countdown-unit">
+        <span className="font-bold">{timeLeft.seconds}</span> {timeLeft.seconds === 1 ? 'sec' : 'secs'}
+      </span>
     </div>
   );
 };

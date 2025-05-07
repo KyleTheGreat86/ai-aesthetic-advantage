@@ -135,7 +135,9 @@ const Guarantee = () => {
                 </div>
                 <div>
                   <a
-                    href="#contact"
+                    href="https://calendly.com/weareagencyeagleeye/30min"
+                    target="_blank" 
+                    rel="noopener noreferrer"
                     className="eagle-btn-primary inline-block relative group overflow-hidden"
                   >
                     <span className="relative z-10">CLAIM YOUR SPECIAL OFFER NOW</span>
