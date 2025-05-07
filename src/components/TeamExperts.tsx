@@ -42,17 +42,17 @@ const TeamExperts = () => {
             Meet The Team
           </h2>
           <p className="text-lg text-gray-300 mb-8">
-            Led by our founder Kyle Holland, we bring decades of experience in audiology practice management and digital growth strategies.
+            Led by our founder Kyle Holland, we bring decades of experience in digital marketing and review management strategies for local businesses worldwide.
           </p>
           
-          {/* Adding the Book Your Free Strategy Call button */}
+          {/* Adding the START YOUR FREE 30-DAY TRIAL button */}
           <GlowingBox className="inline-block mb-10 rounded-lg">
             <a
               href="https://calendly.com/weareagencyeagleeye/30min"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <EagleButton>BOOK YOUR FREE STRATEGY CALL</EagleButton>
+              <EagleButton>START YOUR FREE 30-DAY TRIAL</EagleButton>
             </a>
           </GlowingBox>
           

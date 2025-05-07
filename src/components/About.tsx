@@ -40,8 +40,8 @@ const About = () => {
       description: "Our systems work seamlessly in the background",
     },
     {
-      title: "Industry Expertise",
-      description: "We understand the unique challenges of audiologist clinics",
+      title: "Local Business Expertise",
+      description: "We understand the unique challenges local businesses face in different markets",
     },
     {
       title: "Continuous Improvement",
@@ -70,19 +70,13 @@ const About = () => {
           >
             <div>
               <p className="text-lg mb-6">
-                Agency Eagle Eye was founded with a simple mission: help premium US
-                audiology clinics stop losing money through fixable operational gaps
-                utilizing state of the art AI.
+                Agency Eagle Eye was founded with a simple mission: help local businesses worldwide stop losing potential customers through insufficient online reviews and suboptimal Google visibility.
               </p>
               <p className="text-lg mb-6">
-                Our founder Kyle Holland saw how even the most prestigious clinics were
-                hemorrhaging potential revenue through slow lead response,
-                insufficient reviews, and suboptimal consultation techniques.
+                Our founder Kyle Holland saw how even well-established businesses were missing out on significant revenue due to poor review management, weak online presence, and inability to capitalize on Google's local search algorithms.
               </p>
               <p className="text-lg">
-                By combining cutting-edge AI technology with deep expertise in the
-                audiology industry, we've created systems that deliver measurable,
-                consistent results for US clinics seeking sustainable growth.
+                By combining cutting-edge AI technology with deep expertise in digital marketing, we've created systems that deliver measurable, consistent results for local businesses worldwide seeking sustainable growth through Google reviews.
               </p>
             </div>
           </GlowingBox>
@@ -98,9 +92,7 @@ const About = () => {
               style={{ transitionDelay: "600ms" }}
             >
               <p className="text-lg text-center max-w-3xl mx-auto">
-                To help US audiology clinics achieve their full revenue potential
-                through intelligent automation, without adding to their team's
-                workload.
+                To help local businesses achieve their full revenue potential through intelligent review management, without adding to their team's workload.
               </p>
             </GlowingBox>
 
