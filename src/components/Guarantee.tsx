@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef, memo } from "react";
 import { Shield, Clock, Star } from "lucide-react";
 import { CountdownTimer } from "./ui/countdown-timer";
+import { useDeviceType } from "../hooks/use-mobile";
 
 const guarantees = [
   {
@@ -28,6 +29,7 @@ const Guarantee = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const clockRef = useRef<HTMLDivElement>(null);
+  const deviceType = useDeviceType();
   
   // Set target date to August 1st of the current year
   const currentYear = new Date().getFullYear();
@@ -83,7 +85,7 @@ const Guarantee = () => {
       className="py-16 relative overflow-hidden bg-gradient-to-b from-eagle-dark to-eagle-dark/90 w-full"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-eagle-blue/10 to-eagle-orange/10"></div>
-      <div className="section-container relative z-10 w-full px-4 sm:px-6">
+      <div className="section-container relative z-10">
         <div className="mx-auto text-center w-full">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">
             Our Triple Guarantee

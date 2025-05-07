@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from 'react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface CountdownTimerProps {
   targetDate: Date;
@@ -7,6 +8,7 @@ interface CountdownTimerProps {
 }
 
 export const CountdownTimer = ({ targetDate, className = '' }: CountdownTimerProps) => {
+  const isMobile = useIsMobile();
   const [timeLeft, setTimeLeft] = useState({
     months: 0,
     days: 0,
@@ -53,7 +55,7 @@ export const CountdownTimer = ({ targetDate, className = '' }: CountdownTimerPro
   }, [targetDate]);
   
   return (
-    <div className={`flex flex-wrap gap-2 justify-center md:justify-start ${className}`}>
+    <div className={`flex flex-wrap gap-2 justify-center ${isMobile ? 'w-full' : ''} ${className}`}>
       {timeLeft.months > 0 && (
         <span className="countdown-unit">
           <span className="font-bold text-eagle-orange">{timeLeft.months}</span> {timeLeft.months === 1 ? 'month' : 'months'}

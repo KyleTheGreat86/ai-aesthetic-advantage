@@ -139,3 +139,33 @@ export function useOrientation() {
   
   return isLandscape
 }
+
+// Add viewport size hook for responsive design
+export function useViewportSize() {
+  const [viewport, setViewport] = React.useState({
+    width: typeof window !== 'undefined' ? window.innerWidth : 0,
+    height: typeof window !== 'undefined' ? window.innerHeight : 0
+  })
+  
+  React.useEffect(() => {
+    const handleResize = () => {
+      setViewport({
+        width: window.innerWidth,
+        height: window.innerHeight
+      })
+    }
+    
+    // Add event listener with passive option for better performance
+    window.addEventListener('resize', handleResize, { passive: true })
+    
+    // Initial check
+    handleResize()
+    
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+  
+  return viewport
+}
