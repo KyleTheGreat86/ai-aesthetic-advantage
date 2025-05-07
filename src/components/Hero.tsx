@@ -1,8 +1,9 @@
+
 import React, { useState, useEffect, lazy, Suspense } from "react";
 import eagleLogo from "/lovable-uploads/b797bc22-5a08-4a8e-a9e5-b0a065bd73a4.png";
 import { EagleButton, EagleSecondaryButton } from "./ui/eagle-button";
 import { Eye, Star, TrendingUp, BarChart3, Play, MessageCircle } from "lucide-react";
-import { PartnerLogosMarquee } from "./ui/partner-logos-marquee";
+import { ClientLogosCarousel } from "./ui/client-logos-carousel";
 
 // Lazy load non-critical components
 const FloatingShapes = lazy(() => import("./FloatingShapes"));
@@ -137,7 +138,7 @@ const Hero = () => {
           </div>
         )}
         
-        {/* Call-to-action buttons - Updated as requested */}
+        {/* Call-to-action buttons */}
         {showButtons && (
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 opacity-0 animate-fade-in">
             <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
@@ -170,8 +171,8 @@ const Hero = () => {
               Trusted By Local Businesses Across 16+ Countries
             </p>
             
-            {/* Partner Logos Marquee */}
-            <PartnerLogosMarquee />
+            {/* New Client Logos Carousel */}
+            <ClientLogosCarousel />
           </div>
           
           {showTagline && (
