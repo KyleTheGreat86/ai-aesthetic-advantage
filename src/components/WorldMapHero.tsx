@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { WorldMap } from "./ui/world-map";
 import { Globe, ArrowRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const WorldMapHero = () => {
   const [isShaking, setIsShaking] = useState(true);
@@ -41,7 +41,7 @@ const WorldMapHero = () => {
   };
 
   // Start the animation loop
-  useState(() => {
+  useEffect(() => {
     const interval = setInterval(restartShaking, 5000);
     return () => clearInterval(interval);
   }, []);
