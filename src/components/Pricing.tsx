@@ -92,7 +92,7 @@ const Pricing = () => {
               </div>
 
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold mb-2">Pay-Per-Review</h3>
+                <h3 className="text-2xl font-bold mb-2">Unlimited-Reviews</h3>
                 <p className="text-gray-300 mb-4">For Local Businesses Worldwide</p>
                 
                 <div className="flex flex-col items-center justify-center mb-2">
@@ -105,9 +105,9 @@ const Pricing = () => {
                   </span>
                 </div>
                 
-                {/* Added price increase urgency notice */}
+                {/* Updated price increase urgency notice */}
                 <div className="flex items-center justify-center text-sm">
-                  <span className="text-gray-300 mr-2">By June:</span>
+                  <span className="text-gray-300 mr-2">By August:</span>
                   <span className="line-through text-red-400 font-medium">$199</span>
                 </div>
               </div>
@@ -143,11 +143,6 @@ const Pricing = () => {
                     START YOUR FREE 30-DAY TRIAL
                   </EagleButton>
                 </a>
-              </div>
-
-              <div className="mt-4 text-center flex items-center justify-center text-sm text-gray-400">
-                <Shield size={14} className="mr-1" />
-                <span>No credit card required • 15-minute setup</span>
               </div>
               
               <div className="mt-3 text-center text-sm text-gray-400">
