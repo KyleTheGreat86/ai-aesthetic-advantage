@@ -114,14 +114,14 @@ const Guarantee = () => {
                     Limited Availability
                   </h3>
                   <p className="text-lg">
-                    Only <span className="font-bold text-white">563</span> spots remaining out of 1,000
+                    Only <span className="font-bold text-white">50</span> spots remaining out of 50
                   </p>
                   <div className="mt-6 flex items-center">
                     <div ref={clockRef} className="mr-3">
                       <Clock className="h-6 w-6 text-eagle-orange" />
                     </div>
                     <p className="text-sm text-gray-300">
-                      First 1,000 businesses only. Start your trial now.
+                      First 50 businesses only. Start your trial now.
                     </p>
                   </div>
                 </div>
