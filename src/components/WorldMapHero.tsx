@@ -79,7 +79,7 @@ const WorldMapHero = () => {
         >
           <div className="inline-block bg-eagle-blue/20 backdrop-blur-sm rounded-lg px-6 py-3 border border-eagle-blue/50">
             <p className="text-xl font-semibold text-white">Serving clients from London to Sydney</p>
-            <p className="text-lg font-medium text-eagle-orange">Trusted by aesthetic clinics worldwide</p>
+            <p className="text-lg font-medium text-eagle-orange">Trusted by local businesses worldwide</p>
           </div>
         </motion.div>
       </div>
