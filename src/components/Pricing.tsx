@@ -38,12 +38,14 @@ const Pricing = () => {
   }, [isVisible]);
 
   const includedItems = [
-    "Get 4x More Reviews & Referrals",
-    "Automated Text & Email Requests",
-    "Personalized Image Requests",
-    "Automated AI Review Responses",
-    "Done For You Custom Integration",
-    "Complimentary Onboarding Call",
+    "Unlimited Review Requests",
+    "Personalized Text & Email Campaigns",
+    "Custom Image & Video Review Requests",
+    "AI-Powered Response Management",
+    "Google Business Profile Optimization",
+    "Multi-Location Management",
+    "Competitor Review Monitoring",
+    "Monthly Performance Reports",
     "Only Pay For 4-5 Star Reviews",
   ];
 
@@ -56,9 +58,9 @@ const Pricing = () => {
       <div className="section-container relative z-10">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            Pricing
+            Simple, Results-Based Pricing
           </h2>
-          <p className="text-center text-eagle-orange font-medium mb-6">This is a limited time offer, for our first 1,000 users!</p>
+          <p className="text-center text-eagle-orange font-medium mb-6">Only Pay For Successful 4-5 Star Google Reviews</p>
           
           {/* Adding the Book Your Free Strategy Call button */}
           <div className="text-center mb-8">
@@ -67,7 +69,7 @@ const Pricing = () => {
               className="inline-block"
             >
               <EagleButton className="uppercase font-bold">
-                START FREE
+                START YOUR FREE 30-DAY TRIAL
               </EagleButton>
             </a>
           </div>
@@ -86,7 +88,7 @@ const Pricing = () => {
 
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold mb-2">Pay-Per-Review</h3>
-                <p className="text-gray-300 mb-4">Unlimited Review Requests</p>
+                <p className="text-gray-300 mb-4">For Local Businesses Worldwide</p>
                 
                 <div className="flex flex-col items-center justify-center mb-4">
                   <div className="flex items-baseline">
@@ -94,7 +96,7 @@ const Pricing = () => {
                     <span className="text-5xl font-bold">149</span>
                   </div>
                   <span className="text-gray-400 font-medium mt-2">
-                    A Month
+                    /Month
                   </span>
                 </div>
               </div>
@@ -125,14 +127,18 @@ const Pricing = () => {
                   className="inline-block w-full"
                 >
                   <EagleButton className="w-full uppercase font-bold">
-                    START FREE
+                    START YOUR FREE 30-DAY TRIAL
                   </EagleButton>
                 </a>
               </div>
 
               <div className="mt-4 text-center flex items-center justify-center text-sm text-gray-400">
                 <Shield size={14} className="mr-1" />
-                <span>No credit card required</span>
+                <span>No credit card required • 15-minute setup</span>
+              </div>
+              
+              <div className="mt-3 text-center text-sm text-gray-400">
+                <span>*No long-term contracts - Cancel anytime</span>
               </div>
 
               <div className="absolute -inset-1 bg-gradient-to-r from-eagle-blue to-eagle-orange opacity-30 blur-lg -z-10 group-hover:opacity-50 transition-opacity"></div>

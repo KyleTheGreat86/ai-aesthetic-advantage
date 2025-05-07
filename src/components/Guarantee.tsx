@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useRef } from "react";
-import { Shield, Clock } from "lucide-react";
+import { Shield, Clock, Star } from "lucide-react";
 
 const Guarantee = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -45,10 +45,10 @@ const Guarantee = () => {
 
   const guarantees = [
     {
-      title: "Results Guarantee",
+      title: "Google Review Guarantee",
       description:
-        "Minimum 15 new reviews and 3 extra bookings during your trial or we'll extend it free.",
-      icon: <Shield className="h-10 w-10" />,
+        "Minimum 15 new Google reviews during your trial or we'll extend it free.",
+      icon: <Star className="h-10 w-10" fill="currentColor" />,
     },
     {
       title: "Service Guarantee",
@@ -111,15 +111,14 @@ const Guarantee = () => {
                   Limited Availability
                 </h3>
                 <p className="text-lg">
-                  Only <span className="font-bold text-white">3 Clinics</span>{" "}
-                  Left Being Accepted This Month
+                  Only <span className="font-bold text-white">563</span> spots remaining out of 1,000
                 </p>
                 <div className="mt-6 flex items-center">
                   <div ref={clockRef} className="mr-3">
                     <Clock className="h-6 w-6 text-eagle-orange" />
                   </div>
                   <p className="text-sm text-gray-300">
-                    Limited spots remaining. Apply now.
+                    First 1,000 businesses only. Start your trial now.
                   </p>
                 </div>
               </div>
@@ -128,7 +127,7 @@ const Guarantee = () => {
                   href="#contact"
                   className="eagle-btn-primary inline-block relative group overflow-hidden"
                 >
-                  <span className="relative z-10">BOOK YOUR FREE STRATEGY CALL</span>
+                  <span className="relative z-10">START YOUR FREE 30-DAY TRIAL</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-eagle-blue/0 via-white/20 to-eagle-blue/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                 </a>
               </div>

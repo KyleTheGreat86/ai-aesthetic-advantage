@@ -41,34 +41,34 @@ const FAQ = () => {
   // FAQ data
   const faqs = [
     {
-      question: "Do I need to change my existing systems?",
+      question: "How quickly will I see my Google review count increase?",
       answer:
-        "No. Our technology integrates with your existing booking system, website, and phone system. Implementation is seamless with no disruption to your operations.",
+        "Most businesses see a 30-50% increase in their first 30 days. Factors like customer volume and industry can influence results, but our system is designed to maximize response rates from day one.",
     },
     {
-      question: "How quickly will I see results?",
+      question: "Will these be authentic reviews from real customers?",
       answer:
-        "Most clinics see their first new reviews within 48 hours and additional bookings within the first week. The full impact is typically visible within 14 days.",
+        "Absolutely. We NEVER use fake reviews or questionable tactics. Our system only reaches out to your actual customers and makes it easier for them to leave genuine feedback. This ensures Google compliance and builds sustainable trust.",
     },
     {
-      question: "Does this require staff training?",
+      question: "How does this improve my Google ranking?",
       answer:
-        "Minimal. The AI systems operate independently, and we provide a 30-minute training session for your team on the consultation framework.",
+        "Google's local algorithm heavily weighs review quantity, quality, and recency. Our system optimizes all three factors, which typically results in ranking increases within 45-60 days as your review profile strengthens.",
     },
     {
-      question: "Will the AI caller sound robotic?",
+      question: "Can I use this for multiple business locations?",
       answer:
-        "No. Our AI uses natural voice technology that patients cannot distinguish from a human receptionist. We can even match accents and speech patterns.",
+        "Yes! Our platform is designed to handle everything from single location businesses to enterprises with hundreds of locations. Each location can have customized settings while being managed from a single dashboard.",
     },
     {
-      question: "What happens after the 14-day trial?",
+      question: "What makes Eagle Eye different from other review platforms?",
       answer:
-        "If you're satisfied with the results (and we're confident you will be), you'll be billed $1,297 monthly with no minimum term. Cancel anytime with 30 days' notice.",
+        "Unlike general reputation management tools, we specialize exclusively in Google reviews for local businesses. Our pay-for-performance model, specialized AI request timing, and local search optimization focus consistently outperform generic solutions by 2-3X.",
     },
     {
       question: "Is there any setup fee?",
       answer:
-        "None. The 14-day trial is completely free, including implementation.",
+        "None. The 30-day trial is completely free, including implementation.",
     },
   ];
 
@@ -125,7 +125,7 @@ const FAQ = () => {
             style={{ transitionDelay: getAnimationDelay(faqs.length) }}
           >
             <p className="mb-4 sm:mb-6 text-base sm:text-lg">
-              Have more questions? We're here to help.
+              Have more questions about boosting your Google reviews? We're here to help.
             </p>
             <a href="#contact" className="eagle-btn-outline text-sm sm:text-base">
               Contact Us

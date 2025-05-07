@@ -58,9 +58,9 @@ const WorldMapHero = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <span className="gradient-text-blue">Global Visibility</span>
+          <span className="gradient-text-blue">Dominate Local Search</span>
           <br />
-          <span className="gradient-text-orange">Leads to Local Growth</span>
+          <span className="gradient-text-orange">With 5-Star Google Reviews</span>
         </motion.h1>
         
         <motion.p 
@@ -69,7 +69,7 @@ const WorldMapHero = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Connect with customers worldwide and turn positive reviews into powerful business growth
+          The #1 Review Management Platform Helping Local Businesses Worldwide Rank Higher & Convert More Customers
         </motion.p>
         
         <motion.div

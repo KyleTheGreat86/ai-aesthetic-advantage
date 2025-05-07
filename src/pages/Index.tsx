@@ -80,6 +80,9 @@ const Index = () => {
       subtree: true
     });
     
+    // Update page title to match new positioning
+    document.title = "Eagle Eye | #1 Google Review Management for Local Businesses";
+    
     return () => {
       document.removeEventListener('click', handleAnchorClick);
       observer.disconnect();

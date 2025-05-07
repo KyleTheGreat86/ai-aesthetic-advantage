@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import eagleLogo from "/lovable-uploads/b797bc22-5a08-4a8e-a9e5-b0a065bd73a4.png";
 import FloatingShapes from "./FloatingShapes";
 import { EagleButton, EagleSecondaryButton } from "./ui/eagle-button";
-import { Eye } from "lucide-react";
+import { Eye, Star, TrendingUp, BarChart3 } from "lucide-react";
 
 const Hero = () => {
   const [isVideoVisible, setIsVideoVisible] = useState(false);
@@ -33,11 +33,24 @@ const Hero = () => {
       <div className="section-container relative z-10">
         <div className="text-center mb-8 max-w-5xl mx-auto">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="gradient-text-blue">Gain Razor-Sharp Visibility Through Reviews</span>
+            <span className="gradient-text-blue">Transform Your Google Reviews</span>
+            <br />
+            <span className="gradient-text-orange">Into Your #1 Marketing Asset</span>
           </h1>
-          <p className="text-xl md:text-2xl font-medium">
-            Soar Above Your Competitors On Google and Increase Sales
-          </p>
+          <div className="grid md:grid-cols-3 gap-4 mt-8 max-w-4xl mx-auto">
+            <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 flex flex-col items-center">
+              <TrendingUp size={28} className="text-eagle-blue mb-2" />
+              <p className="font-semibold">Rank Higher in Local Search</p>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 flex flex-col items-center">
+              <BarChart3 size={28} className="text-eagle-orange mb-2" />
+              <p className="font-semibold">Convert 70% More Visitors</p>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 flex flex-col items-center">
+              <Star size={28} className="text-eagle-blue mb-2" fill="currentColor" />
+              <p className="font-semibold">Each 0.1 Star = 5-9% More Clicks</p>
+            </div>
+          </div>
         </div>
         
         {/* Limited Availability Banner */}
@@ -46,7 +59,7 @@ const Hero = () => {
             <div className="inline-block bg-eagle-blue/20 backdrop-blur-sm rounded-lg px-6 py-3 border border-eagle-blue/50">
               <p className="text-xl font-semibold text-white">Limited Time Offer</p>
               <p className="text-lg font-medium text-eagle-orange">Only Pay for 4-5 Star Reviews</p>
-              <p className="text-sm mt-1 text-gray-300">First 1,000 users only!</p>
+              <p className="text-sm mt-1 text-gray-300">First 1,000 businesses worldwide - <span className="font-bold">437</span> spots remaining!</p>
             </div>
           </div>
         )}
@@ -62,7 +75,7 @@ const Hero = () => {
                 <div className="w-20 h-20 mx-auto bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <div className="w-0 h-0 border-t-8 border-t-transparent border-l-16 border-l-white border-b-8 border-b-transparent ml-1"></div>
                 </div>
-                <p className="text-xl font-medium">Click to Watch How It Works</p>
+                <p className="text-xl font-medium">See How Google Reviews Transform Your Business</p>
               </div>
             </div>
           </div>
@@ -88,7 +101,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 opacity-0 animate-fade-in">
             <a href="#pricing" className="w-full sm:w-auto">
               <EagleButton className="uppercase font-bold text-base w-full sm:w-auto">
-                START FREE
+                GET STARTED FREE
               </EagleButton>
             </a>
             <a href="#results" className="w-full sm:w-auto">
@@ -110,7 +123,7 @@ const Hero = () => {
           
           <div className="mb-8">
             <p className="text-xl font-semibold text-eagle-blue mb-4 opacity-0 animate-fade-in">
-              Great brands are using Eagle Eye
+              Trusted By Local Businesses Across 16+ Countries
             </p>
             
             <div className="flex flex-wrap justify-center gap-8 items-center">
@@ -132,11 +145,11 @@ const Hero = () => {
           
           {showTagline && (
             <p className="text-xl md:text-2xl mb-10 opacity-0 animate-fade-in">
-              <span className="text-white font-medium">Get More Reviews than your competition with our</span>
-              <span className="mx-2 text-eagle-blue">personalized</span>
-              <span className="text-white">requests.</span>
+              <span className="text-white font-medium">Get </span>
+              <span className="mx-2 text-eagle-blue">4X More Google Reviews</span>
+              <span className="text-white">Than Your Local Competitors</span>
               <br />
-              <span className="text-eagle-orange font-medium">Only pay Once You Get Reviews.</span>
+              <span className="text-eagle-orange font-medium">Our Proven System Works While You Focus On Running Your Business</span>
             </p>
           )}
           
@@ -144,17 +157,17 @@ const Hero = () => {
             <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 w-64 text-center transform hover:-translate-y-1 transition-transform">
               <Eye size={32} className="mx-auto mb-3 text-eagle-blue" />
               <h3 className="text-xl font-semibold mb-2">Personalized</h3>
-              <p className="text-gray-300">Tailored review requests designed specifically for your business</p>
+              <p className="text-gray-300">Customized messages that get 64% higher response rates than generic requests</p>
             </div>
             <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 w-64 text-center transform hover:-translate-y-1 transition-transform">
               <Eye size={32} className="mx-auto mb-3 text-eagle-orange" />
               <h3 className="text-xl font-semibold mb-2">Automated</h3>
-              <p className="text-gray-300">Set it once and let our systems work for you 24/7</p>
+              <p className="text-gray-300">Smart timing algorithms deliver requests when customers are most likely to respond</p>
             </div>
             <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 w-64 text-center transform hover:-translate-y-1 transition-transform">
               <Eye size={32} className="mx-auto mb-3 text-eagle-blue" />
-              <h3 className="text-xl font-semibold mb-2">Risk Free</h3>
-              <p className="text-gray-300">Start with a free trial and only pay for results</p>
+              <h3 className="text-xl font-semibold mb-2">Results-Based</h3>
+              <p className="text-gray-300">You only pay for successful 4-5 star reviews we help you generate</p>
             </div>
           </div>
         </div>

@@ -1,30 +1,37 @@
 
 import { useState, useEffect, useRef } from "react";
-import { Check, Clock, TrendingUp, Eye } from "lucide-react";
+import { Check, Clock, TrendingUp, Eye, BarChart3, MessageSquare } from "lucide-react";
 import { EagleButton } from "./ui/eagle-button";
 
 const steps = [
   {
     number: "01",
-    title: "Onboard in Minutes",
-    details: "Onboarding couldn't be easier. We built Eagle Eye with owners who aren't tech savvy in mind.",
+    title: "Quick 15-Minute Setup",
+    details: "We connect to your customer database and customize your review request templates that match your brand voice.",
     icon: Clock,
     iconColor: "text-eagle-blue",
   },
   {
     number: "02",
-    title: "Start Getting Reviews For Free",
-    details: "30 days after signing up you will be billed $149 for 4-5 star reviews we have gotten you! Building your brand month by month.",
-    icon: Check,
+    title: "Smart Review Collection Begins",
+    details: "Our AI timing system identifies the perfect moment to request reviews from satisfied customers, using proven psychological triggers.",
+    icon: MessageSquare,
     iconColor: "text-eagle-orange",
   },
   {
     number: "03",
-    title: "Outrank Your Competitors",
-    details: "While the reviews start pouring in so will inbound calls and leads from Google.",
+    title: "Review Growth & Leverage",
+    details: "As your ratings climb and review count grows, we help you showcase these assets across your website, social media, and Google Business Profile.",
     icon: TrendingUp,
     iconColor: "text-eagle-blue",
   },
+  {
+    number: "04",
+    title: "Analytics & Optimization",
+    details: "Track your growth against local competitors with our dashboard, while our system continuously improves based on response patterns.",
+    icon: BarChart3,
+    iconColor: "text-eagle-orange",
+  }
 ];
 
 const HowItWorks = () => {
@@ -73,10 +80,10 @@ const HowItWorks = () => {
       <div className="section-container relative z-10">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">
-            How It Works <Eye className="inline-block text-eagle-blue mb-1" size={30} />
+            How Our Google Review System Works <Eye className="inline-block text-eagle-blue mb-1" size={30} />
           </h2>
 
-          <div className="mt-16 grid md:grid-cols-3 gap-8">
+          <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step, index) => (
               <div
                 key={step.number}
@@ -95,7 +102,7 @@ const HowItWorks = () => {
                 onClick={() => setActiveStep(index)}
               >
                 <div className="mb-4">
-                  <span className={`text-4xl font-bold ${index === 1 ? 'text-eagle-orange' : 'text-eagle-blue'}`}>
+                  <span className={`text-4xl font-bold ${index % 2 === 1 ? 'text-eagle-orange' : 'text-eagle-blue'}`}>
                     {step.number}
                   </span>
                 </div>
@@ -103,14 +110,13 @@ const HowItWorks = () => {
                 <h3 className="text-xl font-bold mb-4">{step.title}</h3>
                 <p className="text-gray-300 mb-6">{step.details}</p>
                 
-                <a href="#pricing" className="inline-block">
-                  <EagleButton 
-                    size="sm" 
-                    className={index === 1 ? "bg-[linear-gradient(var(--eagle-button-bg,#FF8024),var(--eagle-button-bg,#FF8024)),linear-gradient(var(--eagle-button-bg,#FF8024)_50%,rgba(255,128,36,0.6)_80%,rgba(255,128,36,0)),linear-gradient(90deg,hsl(var(--color-1)),hsl(var(--color-5)),hsl(var(--color-3)),hsl(var(--color-4)),hsl(var(--color-2)))]" : ""}
-                  >
-                    Start Free
-                  </EagleButton>
-                </a>
+                {index === 0 && (
+                  <a href="#pricing" className="inline-block">
+                    <EagleButton size="sm">
+                      Start Free
+                    </EagleButton>
+                  </a>
+                )}
                 
                 {activeStep === index && (
                   <div className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-eagle-blue to-eagle-orange"></div>
@@ -119,13 +125,13 @@ const HowItWorks = () => {
             ))}
           </div>
 
-          {/* Flow diagram connecting steps */}
-          <div className="hidden md:block relative h-20 my-12">
-            <div className="absolute top-1/2 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-eagle-blue to-eagle-orange transform -translate-y-1/2"></div>
-            <div className="absolute top-1/2 left-1/4 w-0.5 h-4 bg-eagle-blue transform -translate-x-1/2 -translate-y-1/2"></div>
-            <div className="absolute top-1/2 right-1/4 w-0.5 h-4 bg-eagle-orange transform translate-x-1/2 -translate-y-1/2"></div>
-            <div className="absolute top-1/2 left-1/2 w-0.5 h-4 bg-white/50 transform -translate-x-1/2 -translate-y-1/2"></div>
-            <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-white/10 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
+          {/* Flow diagram connecting steps - simplify for 4 steps */}
+          <div className="hidden lg:block relative h-20 my-12">
+            <div className="absolute top-1/2 left-[12.5%] right-[12.5%] h-0.5 bg-gradient-to-r from-eagle-blue via-eagle-orange to-eagle-blue transform -translate-y-1/2"></div>
+            <div className="absolute top-1/2 left-[12.5%] w-0.5 h-4 bg-eagle-blue transform -translate-x-1/2 -translate-y-1/2"></div>
+            <div className="absolute top-1/2 left-[37.5%] w-0.5 h-4 bg-eagle-orange transform -translate-x-1/2 -translate-y-1/2"></div>
+            <div className="absolute top-1/2 left-[62.5%] w-0.5 h-4 bg-eagle-blue transform -translate-x-1/2 -translate-y-1/2"></div>
+            <div className="absolute top-1/2 right-[12.5%] w-0.5 h-4 bg-eagle-orange transform translate-x-1/2 -translate-y-1/2"></div>
           </div>
         </div>
       </div>
