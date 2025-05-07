@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, lazy, Suspense } from "react";
 import eagleLogo from "/lovable-uploads/b797bc22-5a08-4a8e-a9e5-b0a065bd73a4.png";
 import { EagleButton, EagleSecondaryButton } from "./ui/eagle-button";
@@ -95,7 +94,7 @@ const Hero = () => {
             <div className="inline-block bg-eagle-blue/20 backdrop-blur-sm rounded-lg px-6 py-3 border border-eagle-blue/50">
               <p className="text-xl font-semibold text-white">Limited Time Offer</p>
               <p className="text-lg font-medium text-eagle-orange">Only Pay for 4-5 Star Reviews</p>
-              <p className="text-sm mt-1 text-gray-300">First 1,000 businesses worldwide - <span className="font-bold">437</span> spots remaining!</p>
+              <p className="text-sm mt-1 text-gray-300">First 50 businesses worldwide - <span className="font-bold">23</span> spots remaining!</p>
             </div>
           </div>
         )}
