@@ -1,15 +1,15 @@
 
-import { useEffect, lazy, Suspense } from "react";
+import { useEffect, lazy, Suspense, useState } from "react";
 import LoadingScreen from "../components/LoadingScreen";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
-import WorldMapHero from "../components/WorldMapHero";
 import { useIsMobile } from "../hooks/use-mobile";
 
 // Import the RainbowButton CSS styles
 import "../rainbow-button-styles.css";
 
 // Lazy load components to improve initial page load
+const WorldMapHero = lazy(() => import("../components/WorldMapHero"));
 const ProblemStatement = lazy(() => import("../components/ProblemStatement"));
 const Solution = lazy(() => import("../components/Solution"));
 const HowItWorks = lazy(() => import("../components/HowItWorks"));
@@ -31,11 +31,16 @@ const SectionLoader = () => (
 
 const Index = () => {
   const isMobile = useIsMobile();
+  const [hasLoaded, setHasLoaded] = useState(false);
   
   useEffect(() => {
-    console.log("Index component mounted");
+    // Mark as loaded
+    setHasLoaded(true);
     
-    // Smooth scrolling for anchor links
+    // Update page title to match new positioning
+    document.title = "Eagle Eye | #1 Google Review Management for Local Businesses";
+    
+    // Smooth scrolling for anchor links - use passive event listeners for better performance
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (target.tagName === 'A' && target.getAttribute('href')?.startsWith('#')) {
@@ -52,36 +57,34 @@ const Index = () => {
       }
     };
 
-    // Enhance all buttons with rainbow effect via CSS
-    const applyRainbowEffect = () => {
-      // Apply CSS class to standard buttons
-      document.querySelectorAll('button').forEach(button => {
-        if (!button.classList.contains('rainbow-enhanced') && 
-            !button.classList.contains('no-rainbow')) {
-          button.classList.add('rainbow-enhanced');
+    // Enhance all buttons with rainbow effect via CSS - using IntersectionObserver for performance
+    const applyRainbowEffect = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const container = entry.target;
+          // Apply CSS class to standard buttons
+          container.querySelectorAll('button').forEach((button: HTMLButtonElement) => {
+            if (!button.classList.contains('rainbow-enhanced') && 
+                !button.classList.contains('no-rainbow')) {
+              button.classList.add('rainbow-enhanced');
+            }
+          });
         }
       });
     };
 
-    document.addEventListener('click', handleAnchorClick);
+    document.addEventListener('click', handleAnchorClick, { passive: false });
     
-    // Initial application and setup a mutation observer to catch dynamically added buttons
-    applyRainbowEffect();
-    const observer = new MutationObserver(mutations => {
-      mutations.forEach(mutation => {
-        if (mutation.addedNodes.length > 0) {
-          applyRainbowEffect();
-        }
-      });
+    // Use IntersectionObserver to apply effects only when elements are visible
+    const observer = new IntersectionObserver(applyRainbowEffect, {
+      threshold: 0.1,
+      rootMargin: '200px'
     });
     
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true
+    // Observe sections that might contain buttons
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
     });
-    
-    // Update page title to match new positioning
-    document.title = "Eagle Eye | #1 Google Review Management for Local Businesses";
     
     return () => {
       document.removeEventListener('click', handleAnchorClick);
@@ -91,40 +94,58 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-eagle-dark text-white">
+      {/* Load critical components first */}
+      <LoadingScreen />
+      <Navbar />
+      
+      {/* Defer non-critical components */}
       <Suspense fallback={<div className="fixed inset-0 bg-eagle-dark z-50"></div>}>
         <BackgroundGrid />
       </Suspense>
-      <LoadingScreen />
-      <Navbar />
-      <WorldMapHero />
+      
+      <Suspense fallback={<SectionLoader />}>
+        <WorldMapHero />
+      </Suspense>
+      
       <Hero />
+      
+      {/* Use Intersection Observer API to load components as they become visible */}
       <Suspense fallback={<SectionLoader />}>
         <ProblemStatement />
       </Suspense>
+      
       <Suspense fallback={<SectionLoader />}>
         <Solution />
       </Suspense>
+      
       <Suspense fallback={<SectionLoader />}>
         <HowItWorks />
       </Suspense>
+      
       <Suspense fallback={<SectionLoader />}>
         <Results />
       </Suspense>
+      
       <Suspense fallback={<SectionLoader />}>
         <Pricing />
       </Suspense>
+      
       <Suspense fallback={<SectionLoader />}>
         <Guarantee />
       </Suspense>
+      
       <Suspense fallback={<SectionLoader />}>
         <TeamExperts />
       </Suspense>
+      
       <Suspense fallback={<SectionLoader />}>
         <About />
       </Suspense>
+      
       <Suspense fallback={<SectionLoader />}>
         <FAQ />
       </Suspense>
+      
       <Suspense fallback={<SectionLoader />}>
         <Footer />
       </Suspense>

@@ -2,59 +2,93 @@
 import { motion } from "framer-motion";
 import { WorldMap } from "./ui/world-map";
 import { Globe } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
+
+const mapConnections = [
+  {
+    start: { lat: 64.2008, lng: -149.4937 }, // Alaska
+    end: { lat: 34.0522, lng: -118.2437 }, // Los Angeles
+  },
+  {
+    start: { lat: 64.2008, lng: -149.4937 }, // Alaska
+    end: { lat: -15.7975, lng: -47.8919 }, // Brazil
+  },
+  {
+    start: { lat: -15.7975, lng: -47.8919 }, // Brazil
+    end: { lat: 38.7223, lng: -9.1393 }, // Lisbon
+  },
+  {
+    start: { lat: 51.5074, lng: -0.1278 }, // London
+    end: { lat: 28.6139, lng: 77.209 }, // New Delhi
+  },
+  {
+    start: { lat: 28.6139, lng: 77.209 }, // New Delhi
+    end: { lat: 43.1332, lng: 131.9113 }, // Vladivostok
+  },
+  {
+    start: { lat: 28.6139, lng: 77.209 }, // New Delhi
+    end: { lat: -1.2921, lng: 36.8219 }, // Nairobi
+  },
+];
 
 const WorldMapHero = () => {
   const [isShaking, setIsShaking] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
   
-  const mapConnections = [
-    {
-      start: { lat: 64.2008, lng: -149.4937 }, // Alaska
-      end: { lat: 34.0522, lng: -118.2437 }, // Los Angeles
-    },
-    {
-      start: { lat: 64.2008, lng: -149.4937 }, // Alaska
-      end: { lat: -15.7975, lng: -47.8919 }, // Brazil
-    },
-    {
-      start: { lat: -15.7975, lng: -47.8919 }, // Brazil
-      end: { lat: 38.7223, lng: -9.1393 }, // Lisbon
-    },
-    {
-      start: { lat: 51.5074, lng: -0.1278 }, // London
-      end: { lat: 28.6139, lng: 77.209 }, // New Delhi
-    },
-    {
-      start: { lat: 28.6139, lng: 77.209 }, // New Delhi
-      end: { lat: 43.1332, lng: 131.9113 }, // Vladivostok
-    },
-    {
-      start: { lat: 28.6139, lng: 77.209 }, // New Delhi
-      end: { lat: -1.2921, lng: 36.8219 }, // Nairobi
-    },
-  ];
-
-  // Restart shaking animation every 5 seconds
-  const restartShaking = () => {
-    setIsShaking(false);
-    setTimeout(() => setIsShaking(true), 100);
-  };
-
-  // Start the animation loop
+  // Performance optimized animation loop
   useEffect(() => {
-    const interval = setInterval(restartShaking, 5000);
-    return () => clearInterval(interval);
-  }, []);
+    // Only start animations when component is in viewport
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    
+    observer.observe(document.getElementById('mapSection') || document.body);
+    
+    // Use requestAnimationFrame for smoother animations
+    let animationFrame: number;
+    let interval: number;
+    
+    if (isVisible) {
+      // Restart shaking animation with better timing
+      const restartShaking = () => {
+        setIsShaking(false);
+        animationFrame = window.requestAnimationFrame(() => {
+          window.requestAnimationFrame(() => {
+            setIsShaking(true);
+          });
+        });
+      };
+      
+      // Start the animation loop
+      interval = window.setInterval(restartShaking, 5000);
+    }
+    
+    return () => {
+      observer.disconnect();
+      clearInterval(interval);
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+      }
+    };
+  }, [isVisible]);
 
   return (
-    <div className="relative py-16 w-full overflow-hidden">
-      {/* Background map with connections */}
-      <div className="absolute inset-0 z-0 opacity-80">
-        <WorldMap
-          dots={mapConnections}
-          lineColor="#1A9BD7" // eagle-blue
-        />
-      </div>
+    <div id="mapSection" className="relative py-16 w-full overflow-hidden">
+      {/* Background map with connections - only render if visible */}
+      {isVisible && (
+        <div className="absolute inset-0 z-0 opacity-80">
+          <WorldMap
+            dots={mapConnections}
+            lineColor="#1A9BD7" // eagle-blue
+          />
+        </div>
+      )}
       
       {/* Content overlay */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -64,7 +98,7 @@ const WorldMapHero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <Globe size={48} className="text-eagle-blue" />
+            <Globe size={48} className="text-eagle-blue" strokeWidth={1.5} />
           </motion.div>
         </div>
         
@@ -94,4 +128,4 @@ const WorldMapHero = () => {
   );
 };
 
-export default WorldMapHero;
+export default memo(WorldMapHero);

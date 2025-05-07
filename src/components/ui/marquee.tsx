@@ -17,6 +17,9 @@ export function Marquee({
   className,
   ...props
 }: MarqueeProps) {
+  // Use memo to prevent unnecessary re-renders
+  const content = React.useMemo(() => children, [children]);
+  
   return (
     <div 
       className={cn(
@@ -28,14 +31,18 @@ export function Marquee({
       <div className="relative flex max-w-[90vw] overflow-hidden py-5">
         <div 
           className={cn(
-            "flex w-max animate-marquee",
+            "flex w-max animate-marquee will-change-transform",
             pauseOnHover && "hover:[animation-play-state:paused]",
             direction === "right" && "animate-marquee-reverse"
           )}
-          style={{ "--duration": `${speed}s` } as React.CSSProperties}
+          style={{ 
+            "--duration": `${speed}s`,
+            // Use hardware acceleration
+            transform: "translate3d(0,0,0)" 
+          } as React.CSSProperties}
         >
-          {children}
-          {children}
+          {content}
+          {content}
         </div>
       </div>
     </div>

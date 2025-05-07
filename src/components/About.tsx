@@ -1,13 +1,12 @@
 
 import { useState, useEffect, useRef, memo } from "react";
-import { AudiologistLogosDemo } from "./ui/audiologist-logos-demo";
-import { AnimatedTestimonialsDemo } from "./ui/animated-testimonials-demo";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    // Use IntersectionObserver for better performance
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -15,7 +14,10 @@ const About = () => {
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.2 }
+      { 
+        threshold: 0.2,
+        rootMargin: '100px' // Start loading before fully visible
+      }
     );
 
     if (sectionRef.current) {
@@ -29,6 +31,7 @@ const About = () => {
     };
   }, []);
 
+  // Memoize values to prevent unnecessary re-renders
   const values = [
     {
       title: "Results First",
@@ -88,7 +91,7 @@ const About = () => {
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
               }`}
-              style={{ transitionDelay: "600ms" }}
+              style={{ transitionDelay: "200ms" }}
             >
               <p className="text-lg text-center max-w-3xl mx-auto">
                 To help local businesses achieve their full revenue potential through intelligent review management, without adding to their team's workload.
@@ -105,7 +108,7 @@ const About = () => {
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-10"
                   }`}
-                  style={{ transitionDelay: `${(index + 4) * 150}ms` }}
+                  style={{ transitionDelay: `${(index + 2) * 100}ms` }}
                 >
                   <div className="rounded-lg">
                     <h4 className="text-xl font-semibold mb-2 text-eagle-orange">

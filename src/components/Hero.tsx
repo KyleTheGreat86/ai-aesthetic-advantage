@@ -1,10 +1,12 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import eagleLogo from "/lovable-uploads/b797bc22-5a08-4a8e-a9e5-b0a065bd73a4.png";
-import FloatingShapes from "./FloatingShapes";
 import { EagleButton, EagleSecondaryButton } from "./ui/eagle-button";
 import { Eye, Star, TrendingUp, BarChart3 } from "lucide-react";
 import { PartnerLogosMarquee } from "./ui/partner-logos-marquee";
+
+// Lazy load non-critical components
+const FloatingShapes = lazy(() => import("./FloatingShapes"));
 
 const Hero = () => {
   const [isVideoVisible, setIsVideoVisible] = useState(false);
@@ -14,10 +16,16 @@ const Hero = () => {
   const [showLimitedBanner, setShowLimitedBanner] = useState(false);
 
   useEffect(() => {
-    const timer1 = setTimeout(() => setShowStats(true), 1000);
-    const timer2 = setTimeout(() => setShowTagline(true), 2000);
-    const timer3 = setTimeout(() => setShowButtons(true), 2800);
-    const timer4 = setTimeout(() => setShowLimitedBanner(true), 1500);
+    // Use more efficient timing with requestAnimationFrame
+    let timer1, timer2, timer3, timer4;
+    
+    // Schedule animations to run after first paint
+    requestAnimationFrame(() => {
+      timer1 = setTimeout(() => setShowStats(true), 1000);
+      timer2 = setTimeout(() => setShowTagline(true), 2000);
+      timer3 = setTimeout(() => setShowButtons(true), 2800);
+      timer4 = setTimeout(() => setShowLimitedBanner(true), 1500);
+    });
 
     return () => {
       clearTimeout(timer1);
@@ -27,9 +35,49 @@ const Hero = () => {
     };
   }, []);
 
+  // Memoize static content to prevent re-renders
+  const heroStats = React.useMemo(() => (
+    <div className="grid md:grid-cols-3 gap-4 mt-8 max-w-4xl mx-auto">
+      <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 flex flex-col items-center">
+        <TrendingUp size={28} className="text-eagle-blue mb-2" strokeWidth={1.5} />
+        <p className="font-semibold">Rank Higher in Local Search</p>
+      </div>
+      <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 flex flex-col items-center">
+        <BarChart3 size={28} className="text-eagle-orange mb-2" strokeWidth={1.5} />
+        <p className="font-semibold">Convert 70% More Visitors</p>
+      </div>
+      <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 flex flex-col items-center">
+        <Star size={28} className="text-eagle-blue mb-2" fill="currentColor" strokeWidth={1.5} />
+        <p className="font-semibold">Each 0.1 Star = 5-9% More Clicks</p>
+      </div>
+    </div>
+  ), []);
+
+  const features = React.useMemo(() => (
+    <div className="flex flex-wrap justify-center gap-8 mb-12">
+      <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 w-64 text-center transform hover:-translate-y-1 transition-transform">
+        <Eye size={32} className="mx-auto mb-3 text-eagle-blue" strokeWidth={1.5} />
+        <h3 className="text-xl font-semibold mb-2">Personalized</h3>
+        <p className="text-gray-300">Customized messages that get 64% higher response rates than generic requests</p>
+      </div>
+      <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 w-64 text-center transform hover:-translate-y-1 transition-transform">
+        <Eye size={32} className="mx-auto mb-3 text-eagle-orange" strokeWidth={1.5} />
+        <h3 className="text-xl font-semibold mb-2">Automated</h3>
+        <p className="text-gray-300">Smart timing algorithms deliver requests when customers are most likely to respond</p>
+      </div>
+      <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 w-64 text-center transform hover:-translate-y-1 transition-transform">
+        <Eye size={32} className="mx-auto mb-3 text-eagle-blue" strokeWidth={1.5} />
+        <h3 className="text-xl font-semibold mb-2">Results-Based</h3>
+        <p className="text-gray-300">You only pay for successful 4-5 star reviews we help you generate</p>
+      </div>
+    </div>
+  ), []);
+
   return (
     <section id="home" className="relative min-h-screen pt-24 flex items-center">
-      <FloatingShapes />
+      <Suspense fallback={null}>
+        <FloatingShapes />
+      </Suspense>
       
       <div className="section-container relative z-10">
         <div className="text-center mb-8 max-w-5xl mx-auto">
@@ -38,20 +86,7 @@ const Hero = () => {
             <br />
             <span className="gradient-text-orange">Into Your #1 Marketing Asset</span>
           </h1>
-          <div className="grid md:grid-cols-3 gap-4 mt-8 max-w-4xl mx-auto">
-            <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 flex flex-col items-center">
-              <TrendingUp size={28} className="text-eagle-blue mb-2" />
-              <p className="font-semibold">Rank Higher in Local Search</p>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 flex flex-col items-center">
-              <BarChart3 size={28} className="text-eagle-orange mb-2" />
-              <p className="font-semibold">Convert 70% More Visitors</p>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 flex flex-col items-center">
-              <Star size={28} className="text-eagle-blue mb-2" fill="currentColor" />
-              <p className="font-semibold">Each 0.1 Star = 5-9% More Clicks</p>
-            </div>
-          </div>
+          {heroStats}
         </div>
         
         {/* Limited Availability Banner */}
@@ -65,7 +100,7 @@ const Hero = () => {
           </div>
         )}
         
-        {!isVideoVisible && (
+        {!isVideoVisible ? (
           <div className="mb-10 mx-auto w-full max-w-3xl relative">
             <div 
               className="aspect-video bg-gray-900/50 rounded-lg flex items-center justify-center cursor-pointer group overflow-hidden"
@@ -80,9 +115,7 @@ const Hero = () => {
               </div>
             </div>
           </div>
-        )}
-        
-        {isVideoVisible && (
+        ) : (
           <div className="mb-10 mx-auto w-full max-w-3xl">
             <div className="aspect-video">
               <iframe
@@ -90,6 +123,7 @@ const Hero = () => {
                 src="https://www.youtube.com/embed/sm5QGrA7oeU"
                 title="Eagle Eye AI Demo Video"
                 frameBorder="0"
+                loading="lazy"
                 allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
@@ -97,7 +131,7 @@ const Hero = () => {
           </div>
         )}
         
-        {/* Call-to-action buttons moved directly below the video */}
+        {/* Call-to-action buttons */}
         {showButtons && (
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 opacity-0 animate-fade-in">
             <a href="#pricing" className="w-full sm:w-auto">
@@ -118,7 +152,9 @@ const Hero = () => {
             <img 
               src={eagleLogo} 
               alt="Eagle Eye Logo" 
-              className="h-24 mx-auto animate-pulse-slow" 
+              className="h-24 mx-auto animate-pulse-slow"
+              width="96"
+              height="96" 
             />
           </div>
           
@@ -127,9 +163,8 @@ const Hero = () => {
               Trusted By Local Businesses Across 16+ Countries
             </p>
             
-            {/* Added Partner Logos Marquee */}
+            {/* Partner Logos Marquee */}
             <PartnerLogosMarquee />
-
           </div>
           
           {showTagline && (
@@ -142,29 +177,13 @@ const Hero = () => {
             </p>
           )}
           
-          <div className="flex flex-wrap justify-center gap-8 mb-12">
-            <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 w-64 text-center transform hover:-translate-y-1 transition-transform">
-              <Eye size={32} className="mx-auto mb-3 text-eagle-blue" />
-              <h3 className="text-xl font-semibold mb-2">Personalized</h3>
-              <p className="text-gray-300">Customized messages that get 64% higher response rates than generic requests</p>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 w-64 text-center transform hover:-translate-y-1 transition-transform">
-              <Eye size={32} className="mx-auto mb-3 text-eagle-orange" />
-              <h3 className="text-xl font-semibold mb-2">Automated</h3>
-              <p className="text-gray-300">Smart timing algorithms deliver requests when customers are most likely to respond</p>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 w-64 text-center transform hover:-translate-y-1 transition-transform">
-              <Eye size={32} className="mx-auto mb-3 text-eagle-blue" />
-              <h3 className="text-xl font-semibold mb-2">Results-Based</h3>
-              <p className="text-gray-300">You only pay for successful 4-5 star reviews we help you generate</p>
-            </div>
-          </div>
+          {features}
         </div>
       </div>
       
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-eagle-dark to-transparent"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-eagle-dark to-transparent pointer-events-none"></div>
     </section>
   );
 };
 
-export default Hero;
+export default React.memo(Hero);

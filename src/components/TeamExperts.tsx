@@ -1,5 +1,5 @@
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, memo } from "react";
 import { AnimatedTestimonialsDemo } from "./ui/animated-testimonials-demo";
 import { EagleButton } from "./ui/eagle-button";
 
@@ -8,6 +8,7 @@ const TeamExperts = () => {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    // Use IntersectionObserver for better performance
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -15,7 +16,10 @@ const TeamExperts = () => {
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.2 }
+      { 
+        threshold: 0.2,
+        rootMargin: '100px' // Load before fully visible
+      }
     );
 
     if (sectionRef.current) {
@@ -55,13 +59,14 @@ const TeamExperts = () => {
             </a>
           </div>
           
-          <div
-            className={`transition-all duration-700 transform ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
-          >
-            <AnimatedTestimonialsDemo />
-          </div>
+          {/* Only load testimonials when section is visible */}
+          {isVisible && (
+            <div
+              className="transition-all duration-700 transform opacity-100 translate-y-0"
+            >
+              <AnimatedTestimonialsDemo />
+            </div>
+          )}
         </div>
       </div>
 
@@ -75,4 +80,4 @@ const TeamExperts = () => {
   );
 };
 
-export default TeamExperts;
+export default memo(TeamExperts);
