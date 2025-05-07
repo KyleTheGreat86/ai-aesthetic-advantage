@@ -90,14 +90,20 @@ const Pricing = () => {
                 <h3 className="text-2xl font-bold mb-2">Pay-Per-Review</h3>
                 <p className="text-gray-300 mb-4">For Local Businesses Worldwide</p>
                 
-                <div className="flex flex-col items-center justify-center mb-4">
+                <div className="flex flex-col items-center justify-center mb-2">
                   <div className="flex items-baseline">
                     <span className="text-3xl">$</span>
-                    <span className="text-5xl font-bold">149</span>
+                    <span className="text-5xl font-bold">129</span>
                   </div>
-                  <span className="text-gray-400 font-medium mt-2">
+                  <span className="text-gray-400 font-medium mt-1">
                     /Month
                   </span>
+                </div>
+                
+                {/* Added price increase urgency notice */}
+                <div className="flex items-center justify-center text-sm">
+                  <span className="text-gray-300 mr-2">By June:</span>
+                  <span className="line-through text-red-400 font-medium">$199</span>
                 </div>
               </div>
 
