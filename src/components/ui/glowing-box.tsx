@@ -1,5 +1,5 @@
 
-import { lazy, Suspense, useState, useEffect, ReactNode } from "react";
+import { lazy, Suspense, useState, useEffect, ReactNode, CSSProperties } from "react";
 import { cn } from "@/lib/utils";
 
 // Lazy load the GlowingEffect component
@@ -9,9 +9,10 @@ interface GlowingBoxProps {
   children: ReactNode;
   className?: string;
   enableOnIntersection?: boolean;
+  style?: CSSProperties;
 }
 
-export function GlowingBox({ children, className, enableOnIntersection = true }: GlowingBoxProps) {
+export function GlowingBox({ children, className, enableOnIntersection = true, style }: GlowingBoxProps) {
   const [isInView, setIsInView] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
@@ -41,7 +42,7 @@ export function GlowingBox({ children, className, enableOnIntersection = true }:
   }, [enableOnIntersection]);
 
   return (
-    <div className={cn("relative glowing-box-container", className)}>
+    <div className={cn("relative glowing-box-container", className)} style={style}>
       {isClient && isInView && (
         <Suspense fallback={null}>
           <GlowingEffect 
