@@ -49,6 +49,9 @@ const Pricing = () => {
     "Only Pay For 4-5 Star Reviews",
   ];
 
+  // Calendly booking URL
+  const calendlyUrl = "https://calendly.com/eagleeye-reviews/free-30-day-trial";
+
   return (
     <section
       ref={sectionRef}
@@ -65,7 +68,9 @@ const Pricing = () => {
           {/* Adding the Book Your Free Strategy Call button */}
           <div className="text-center mb-8">
             <a
-              href="#pricing"
+              href={calendlyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block"
             >
               <EagleButton className="uppercase font-bold">
@@ -129,7 +134,9 @@ const Pricing = () => {
 
               <div className="text-center">
                 <a
-                  href="#start-free"
+                  href={calendlyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-block w-full"
                 >
                   <EagleButton className="w-full uppercase font-bold">
