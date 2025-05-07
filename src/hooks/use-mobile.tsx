@@ -1,17 +1,23 @@
 
 import * as React from "react"
 
-// Constants for different device breakpoints
+// Constants for different device breakpoints - adjusted for modern devices
 const MOBILE_BREAKPOINT = 768
 const TABLET_BREAKPOINT = 1024
 
 type DeviceType = 'mobile' | 'tablet' | 'desktop'
 
 export function useIsMobile() {
-  const [isMobile, setIsMobile] = React.useState<boolean | undefined>(undefined)
+  const [isMobile, setIsMobile] = React.useState<boolean>(() => {
+    // Initialize with check if window is available (SSR safe)
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < MOBILE_BREAKPOINT
+    }
+    return false
+  })
 
   React.useEffect(() => {
-    // Handler function
+    // Handler function with performance optimizations
     const updateDevice = () => {
       setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
     }
@@ -19,21 +25,46 @@ export function useIsMobile() {
     // Initial check
     updateDevice()
     
+    // Use a more efficient debounced resize handler
+    let timeoutId: ReturnType<typeof setTimeout>
+    const handleResize = () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId)
+      }
+      timeoutId = setTimeout(updateDevice, 100)
+    }
+    
     // Add event listener with passive option for better performance
-    window.addEventListener('resize', updateDevice, { passive: true })
+    window.addEventListener('resize', handleResize, { passive: true })
     
     // Cleanup
-    return () => window.removeEventListener('resize', updateDevice)
+    return () => {
+      window.removeEventListener('resize', handleResize)
+      if (timeoutId) {
+        clearTimeout(timeoutId)
+      }
+    }
   }, [])
 
-  return !!isMobile
+  return isMobile
 }
 
 export function useDeviceType() {
-  const [deviceType, setDeviceType] = React.useState<DeviceType>('desktop')
+  const [deviceType, setDeviceType] = React.useState<DeviceType>(() => {
+    // Initialize with check if window is available (SSR safe)
+    if (typeof window !== 'undefined') {
+      const width = window.innerWidth
+      if (width < MOBILE_BREAKPOINT) {
+        return 'mobile'
+      } else if (width < TABLET_BREAKPOINT) {
+        return 'tablet'
+      }
+    }
+    return 'desktop'
+  })
 
   React.useEffect(() => {
-    // Handler function
+    // Handler function with optimizations
     const updateDeviceType = () => {
       const width = window.innerWidth
       if (width < MOBILE_BREAKPOINT) {
@@ -51,7 +82,9 @@ export function useDeviceType() {
     // Debounce resize events for better performance
     let timeoutId: ReturnType<typeof setTimeout>
     const handleResize = () => {
-      clearTimeout(timeoutId)
+      if (timeoutId) {
+        clearTimeout(timeoutId)
+      }
       timeoutId = setTimeout(updateDeviceType, 100)
     }
     
@@ -61,9 +94,48 @@ export function useDeviceType() {
     // Cleanup
     return () => {
       window.removeEventListener('resize', handleResize)
-      clearTimeout(timeoutId)
+      if (timeoutId) {
+        clearTimeout(timeoutId)
+      }
     }
   }, [])
 
   return deviceType
+}
+
+// Add helper hook for orientation changes
+export function useOrientation() {
+  const [isLandscape, setIsLandscape] = React.useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      return window.matchMedia("(orientation: landscape)").matches
+    }
+    return false
+  })
+  
+  React.useEffect(() => {
+    const mediaQuery = window.matchMedia("(orientation: landscape)")
+    
+    const handleOrientationChange = (e: MediaQueryListEvent) => {
+      setIsLandscape(e.matches)
+    }
+    
+    // Modern way to add listener
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', handleOrientationChange)
+    } else {
+      // Fallback for older browsers
+      mediaQuery.addListener(handleOrientationChange)
+    }
+    
+    return () => {
+      if (mediaQuery.removeEventListener) {
+        mediaQuery.removeEventListener('change', handleOrientationChange)
+      } else {
+        // Fallback for older browsers
+        mediaQuery.removeListener(handleOrientationChange)
+      }
+    }
+  }, [])
+  
+  return isLandscape
 }

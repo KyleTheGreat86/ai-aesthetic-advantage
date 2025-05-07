@@ -53,23 +53,23 @@ export const CountdownTimer = ({ targetDate, className = '' }: CountdownTimerPro
   }, [targetDate]);
   
   return (
-    <div className={`flex gap-2 ${className}`}>
+    <div className={`flex flex-wrap gap-2 justify-center md:justify-start ${className}`}>
       {timeLeft.months > 0 && (
         <span className="countdown-unit">
-          <span className="font-bold">{timeLeft.months}</span> {timeLeft.months === 1 ? 'month' : 'months'}
+          <span className="font-bold text-eagle-orange">{timeLeft.months}</span> {timeLeft.months === 1 ? 'month' : 'months'}
         </span>
       )}
       <span className="countdown-unit">
-        <span className="font-bold">{timeLeft.days}</span> {timeLeft.days === 1 ? 'day' : 'days'}
+        <span className="font-bold text-eagle-orange">{timeLeft.days}</span> {timeLeft.days === 1 ? 'day' : 'days'}
       </span>
       <span className="countdown-unit">
-        <span className="font-bold">{timeLeft.hours}</span> {timeLeft.hours === 1 ? 'hr' : 'hrs'}
+        <span className="font-bold text-eagle-orange">{timeLeft.hours}</span> {timeLeft.hours === 1 ? 'hr' : 'hrs'}
       </span>
       <span className="countdown-unit">
-        <span className="font-bold">{timeLeft.minutes}</span> {timeLeft.minutes === 1 ? 'min' : 'mins'}
+        <span className="font-bold text-eagle-orange">{timeLeft.minutes}</span> {timeLeft.minutes === 1 ? 'min' : 'mins'}
       </span>
       <span className="countdown-unit">
-        <span className="font-bold">{timeLeft.seconds}</span> {timeLeft.seconds === 1 ? 'sec' : 'secs'}
+        <span className="font-bold text-eagle-orange">{timeLeft.seconds}</span> {timeLeft.seconds === 1 ? 'sec' : 'secs'}
       </span>
     </div>
   );
