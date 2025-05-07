@@ -2,7 +2,7 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
 import eagleLogo from "/lovable-uploads/b797bc22-5a08-4a8e-a9e5-b0a065bd73a4.png";
 import { EagleButton, EagleSecondaryButton } from "./ui/eagle-button";
-import { Eye, Star, TrendingUp, BarChart3, Play } from "lucide-react";
+import { Eye, Star, TrendingUp, BarChart3, Play, WhatsApp } from "lucide-react";
 import { PartnerLogosMarquee } from "./ui/partner-logos-marquee";
 
 // Lazy load non-critical components
@@ -138,17 +138,18 @@ const Hero = () => {
           </div>
         )}
         
-        {/* Call-to-action buttons */}
+        {/* Call-to-action buttons - Updated as requested */}
         {showButtons && (
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 opacity-0 animate-fade-in">
-            <a href="#pricing" className="w-full sm:w-auto">
+            <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <EagleButton className="uppercase font-bold text-base w-full sm:w-auto">
-                GET STARTED FREE
+                BOOK YOUR FREE TRIAL NOW
               </EagleButton>
             </a>
-            <a href="#results" className="w-full sm:w-auto">
-              <EagleSecondaryButton className="uppercase font-bold text-base w-full sm:w-auto">
-                SEE RESULTS
+            <a href="https://wa.me/447886073693" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <EagleSecondaryButton className="uppercase font-bold text-base w-full sm:w-auto bg-[#25D366] hover:bg-[#128C7E] flex items-center justify-center">
+                <WhatsApp className="mr-2" size={18} />
+                WHATSAPP FREE TRIAL
               </EagleSecondaryButton>
             </a>
           </div>
@@ -194,3 +195,4 @@ const Hero = () => {
 };
 
 export default React.memo(Hero);
+
