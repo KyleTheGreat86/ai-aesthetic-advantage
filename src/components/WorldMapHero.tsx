@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
 import { WorldMap } from "./ui/world-map";
-import { Globe, ArrowRight } from "lucide-react";
+import { Globe } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const WorldMapHero = () => {
@@ -46,14 +46,6 @@ const WorldMapHero = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleButtonClick = () => {
-    // Scroll to how it works section (can be replaced with video trigger)
-    const howItWorksSection = document.getElementById('how-it-works');
-    if (howItWorksSection) {
-      howItWorksSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <div className="relative py-16 w-full overflow-hidden">
       {/* Background map with connections */}
@@ -94,22 +86,6 @@ const WorldMapHero = () => {
         >
           The #1 Review Management Platform Helping Local Businesses Worldwide Rank Higher & Convert More Customers
         </motion.p>
-        
-        {/* Call to action button with shaking animation */}
-        <motion.button
-          onClick={handleButtonClick}
-          className="eagle-btn-primary mt-6 group relative flex items-center justify-center px-8 py-4 text-lg font-bold shadow-lg"
-          animate={isShaking ? {
-            x: [0, -5, 5, -5, 5, 0],
-            transition: { duration: 0.5 }
-          } : {}}
-        >
-          <span>See How Google Reviews Transform Your Business</span>
-          <ArrowRight className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
-          <div className="absolute -top-2 -right-2 bg-eagle-orange text-white text-xs font-bold px-2 py-1 rounded-full animate-pulse">
-            CLICK HERE
-          </div>
-        </motion.button>
       </div>
     </div>
   );
