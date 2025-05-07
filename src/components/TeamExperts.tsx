@@ -44,7 +44,7 @@ const TeamExperts = () => {
             Led by our founder Kyle Holland, we bring decades of experience in digital marketing and review management strategies for local businesses worldwide.
           </p>
           
-          {/* Adding the START YOUR FREE 30-DAY TRIAL button */}
+          {/* START YOUR FREE 30-DAY TRIAL button */}
           <div className="inline-block mb-10 rounded-lg">
             <a
               href="https://calendly.com/weareagencyeagleeye/30min"

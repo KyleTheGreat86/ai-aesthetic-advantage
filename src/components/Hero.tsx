@@ -4,6 +4,7 @@ import eagleLogo from "/lovable-uploads/b797bc22-5a08-4a8e-a9e5-b0a065bd73a4.png
 import FloatingShapes from "./FloatingShapes";
 import { EagleButton, EagleSecondaryButton } from "./ui/eagle-button";
 import { Eye, Star, TrendingUp, BarChart3 } from "lucide-react";
+import { PartnerLogosMarquee } from "./ui/partner-logos-marquee";
 
 const Hero = () => {
   const [isVideoVisible, setIsVideoVisible] = useState(false);
@@ -126,21 +127,9 @@ const Hero = () => {
               Trusted By Local Businesses Across 16+ Countries
             </p>
             
-            <div className="flex flex-wrap justify-center gap-8 items-center">
-              <div className="bg-white/5 p-3 rounded-lg w-24 h-16 flex items-center justify-center opacity-0 animate-fade-in">
-                <div className="w-full h-4 bg-white/30 rounded"></div>
-              </div>
-              <div className="bg-white/5 p-3 rounded-lg w-24 h-16 flex items-center justify-center opacity-0 animate-fade-in animate-delay-100">
-                <div className="w-full h-4 bg-white/30 rounded"></div>
-              </div>
-              <div className="bg-white/5 p-3 rounded-lg w-24 h-16 flex items-center justify-center opacity-0 animate-fade-in animate-delay-200">
-                <div className="w-full h-4 bg-white/30 rounded"></div>
-              </div>
-              <div className="bg-white/5 p-3 rounded-lg w-24 h-16 flex items-center justify-center opacity-0 animate-fade-in animate-delay-300">
-                <div className="w-full h-4 bg-white/30 rounded"></div>
-              </div>
-              <p className="text-gray-400 opacity-0 animate-fade-in animate-delay-400">+ many more</p>
-            </div>
+            {/* Added Partner Logos Marquee */}
+            <PartnerLogosMarquee />
+
           </div>
           
           {showTagline && (

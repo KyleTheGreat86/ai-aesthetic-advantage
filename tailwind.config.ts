@@ -159,6 +159,9 @@ export default {
 					'100%': {
 						'background-position': '0% 50%'
 					}
+				},
+				'marquee': {
+					to: { transform: 'translateX(-50%)' }
 				}
 			},
 			animation: {
@@ -171,6 +174,7 @@ export default {
 				'typewriter': 'typewriter 2s steps(40) forwards',
 				'counter': 'counter 2s ease-out forwards',
 				'rainbow': 'rainbow 4s linear infinite',
+				'marquee': 'marquee var(--duration, 30s) linear infinite',
 			}
 		}
 	},
