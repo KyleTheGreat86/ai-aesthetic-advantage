@@ -88,9 +88,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-eagle-dark text-white">
-      <div id="content-visible-marker" className="fixed top-0 left-0 p-2 bg-green-500 text-white text-xs z-[9999]">
-        Content visible
-      </div>
       <Suspense fallback={<div className="fixed inset-0 bg-eagle-dark z-50"></div>}>
         <BackgroundGrid />
       </Suspense>
