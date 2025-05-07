@@ -1,27 +1,70 @@
 
 import { useState, useEffect, useRef } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check, Star, TrendingUp } from "lucide-react";
 import { AudiologistLogosDemo } from "./ui/audiologist-logos-demo";
+import { EagleButton } from "./ui/eagle-button";
 
 const resultsData = [
   {
-    clinic: "Coastal Audiology Clinic",
-    reviews: 28,
-    bookings: 18,
-    revenue: "$6,750",
+    clinic: "Dryer Vent Superheros of PBC",
+    name: "Daniel",
+    reviews: {
+      before: 40,
+      after: 145
+    },
+    timeframe: "4 months",
+    percentage: 263
   },
   {
-    clinic: "Tobias Clinic",
-    reviews: 32,
-    bookings: 22,
-    revenue: "$8,200",
+    clinic: "30A Blaze Beach Bonfires",
+    name: "Davin",
+    reviews: {
+      before: 23,
+      after: 685
+    },
+    timeframe: "22 months",
+    percentage: 2878
   },
   {
-    clinic: "New Gen Hearing Services",
-    reviews: 25,
-    bookings: 15,
-    revenue: "$5,800",
+    clinic: "Region Scoopers",
+    name: "John",
+    reviews: {
+      before: 157,
+      after: 288
+    },
+    timeframe: "2 months",
+    percentage: 83
   },
+  {
+    clinic: "Junk Punks Tampa",
+    name: "Logan S.",
+    reviews: {
+      before: 127,
+      after: 357
+    },
+    timeframe: "4 months",
+    percentage: 181
+  },
+  {
+    clinic: "BeAbstrakt Photography",
+    name: "Jarell",
+    reviews: {
+      before: 55,
+      after: 122
+    },
+    timeframe: "1 month",
+    percentage: 121
+  },
+  {
+    clinic: "DDS Pediatric Dentist",
+    name: "Dr. Lawrence",
+    reviews: {
+      before: 39,
+      after: 428
+    },
+    timeframe: "2 months",
+    percentage: 997
+  }
 ];
 
 const Results = () => {
@@ -67,7 +110,7 @@ const Results = () => {
       <div className="section-container relative z-10">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
-            Why These Audiologists Switched to Eagle Eye AI
+            Our Clients <span className="text-eagle-blue">See</span> Remarkable Results
           </h2>
           
           {/* Testimonial logos animation section */}
@@ -80,58 +123,54 @@ const Results = () => {
             <AudiologistLogosDemo />
           </div>
 
-          <h3 className="text-2xl md:text-3xl font-bold mb-8 text-center mt-8">
-            Their Results Speak For Themselves
-          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+            {resultsData.map((item, index) => (
+              <div 
+                key={index}
+                className={`bg-white/5 backdrop-blur-sm rounded-lg p-6 transform transition-all duration-500 ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
+                }`}
+                style={{ transitionDelay: `${index * 100 + 300}ms` }}
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <h3 className="text-lg font-medium">{item.name}</h3>
+                    <p className="text-gray-400 text-sm">{item.clinic}</p>
+                  </div>
+                  <div className="bg-eagle-blue/20 rounded-full px-3 py-1 flex items-center">
+                    <TrendingUp size={14} className="text-eagle-blue mr-1" />
+                    <span className="text-eagle-blue font-bold">+{item.percentage}%</span>
+                  </div>
+                </div>
+                
+                <div className="flex items-baseline gap-1 mb-2">
+                  <span className="text-gray-400">{item.reviews.before} →</span>
+                  <span className="text-2xl font-bold text-white">
+                    {animateNumbers ? item.reviews.after : item.reviews.before}
+                  </span>
+                  <div className="flex ml-2">
+                    <Star size={14} className="text-eagle-orange" fill="#FF8024" />
+                    <Star size={14} className="text-eagle-orange" fill="#FF8024" />
+                    <Star size={14} className="text-eagle-orange" fill="#FF8024" />
+                    <Star size={14} className="text-eagle-orange" fill="#FF8024" />
+                    <Star size={14} className="text-eagle-orange" fill="#FF8024" />
+                  </div>
+                </div>
+                
+                <p className="text-gray-300 text-sm">
+                  Reviews in <span className="text-eagle-blue font-medium">{item.timeframe}</span>
+                </p>
+              </div>
+            ))}
+          </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse">
-              <thead>
-                <tr className="text-left border-b border-white/10">
-                  <th className="p-4 text-gray-400">Clinic</th>
-                  <th className="p-4 text-gray-400">New Reviews</th>
-                  <th className="p-4 text-gray-400">Monthly Appts</th>
-                  <th className="p-4 text-gray-400">Monthly Revenue</th>
-                </tr>
-              </thead>
-              <tbody>
-                {resultsData.map((row, index) => (
-                  <tr
-                    key={index}
-                    className={`border-b border-white/5 transition-all duration-500 transform ${
-                      isVisible
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-10"
-                    }`}
-                    style={{ transitionDelay: `${index * 200 + 400}ms` }}
-                  >
-                    <td className="p-4 font-medium">{row.clinic}</td>
-                    <td className="p-4">
-                      <div className="flex items-center">
-                        <span className="text-eagle-blue font-bold text-xl mr-2">
-                          {animateNumbers ? row.reviews : 0}
-                        </span>
-                        <span className="text-gray-400 text-sm">in 30 days</span>
-                      </div>
-                    </td>
-                    <td className="p-4">
-                      <div className="flex items-center">
-                        <span className="text-eagle-orange font-bold text-xl mr-2">
-                          {animateNumbers ? row.bookings : 0}
-                        </span>
-                        <span className="text-gray-400 text-sm">new patients</span>
-                      </div>
-                    </td>
-                    <td className="p-4">
-                      <span className="font-bold text-xl text-green-400">
-                        {row.revenue}
-                      </span>
-                      <span className="text-gray-400 text-sm">/month</span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="text-center mt-10">
+            <a href="#testimonials" className="inline-flex items-center text-eagle-blue hover:text-eagle-blue/80 transition-colors">
+              <span className="font-semibold">See 50+ Other Happy Customers</span>
+              <ArrowRight size={16} className="ml-2" />
+            </a>
           </div>
 
           <div
@@ -144,16 +183,16 @@ const Results = () => {
           >
             <div className="flex flex-col md:flex-row items-center">
               <div className="relative mb-4 md:mb-0 md:mr-8">
-                <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center text-2xl">
+                <div className="w-16 h-16 rounded-full bg-eagle-blue/20 flex items-center justify-center text-2xl">
                   "
                 </div>
               </div>
               <div className="flex-grow">
                 <p className="text-lg italic">
-                  "Added <span className="text-eagle-orange font-semibold">$82,800/Year</span> in revenue. 22 extra fittings per month at 38% conversion equals $6,900 net profit after Eagle Eye's fee."
+                  "After using Eagle Eye we are out ranking businesses that have been in our area for <span className="text-eagle-orange font-semibold">10+ years!</span>"
                 </p>
                 <p className="mt-2 text-gray-400">
-                  – Dr. James R., California
+                  – Daniel Plourde, Dryer Vent Superheros PBC
                 </p>
               </div>
             </div>
@@ -162,17 +201,18 @@ const Results = () => {
           <div className="mt-12 text-center">
             <a
               href="#pricing"
-              className={`eagle-btn-secondary inline-flex items-center group transform transition-all duration-500 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              }`}
-              style={{ transitionDelay: "1000ms" }}
+              className="inline-block"
             >
-              <span>See Pricing & Start Free Trial</span>
-              <ArrowRight 
-                className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform" 
-              />
+              <EagleButton 
+                className={`uppercase font-bold transform transition-all duration-500 ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
+                }`}
+                style={{ transitionDelay: "1000ms" }}
+              >
+                START FREE
+              </EagleButton>
             </a>
           </div>
         </div>

@@ -1,38 +1,28 @@
 
 import { useState, useEffect, useRef } from "react";
+import { Check, Clock, TrendingUp, Eye } from "lucide-react";
+import { EagleButton } from "./ui/eagle-button";
 
 const steps = [
   {
-    number: 1,
-    title: "AI Captures Leads in 30 Seconds",
-    details: [
-      "Texts/calls every inquiry instantly",
-      "No more 24-hour delays on responses",
-      "Available 24/7, never misses a potential patient",
-    ],
-    iconPath: "M5 13l4 4L19 7",
+    number: "01",
+    title: "Onboard in Minutes",
+    details: "Onboarding couldn't be easier. We built Eagle Eye with owners who aren't tech savvy in mind.",
+    icon: Clock,
     iconColor: "text-eagle-blue",
   },
   {
-    number: 2,
-    title: "Automated Review Generation",
-    details: [
-      "Post-appointment AI requests reviews",
-      "25+ new Google reviews per month guaranteed",
-      "Smart filtering prevents negative reviews from going public",
-    ],
-    iconPath: "M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z",
+    number: "02",
+    title: "Start Getting Reviews For Free",
+    details: "30 days after signing up you will be billed $149 for 4-5 star reviews we have gotten you! Building your brand month by month.",
+    icon: Check,
     iconColor: "text-eagle-orange",
   },
   {
-    number: 3,
-    title: "Conversion-Optimized Follow-Ups",
-    details: [
-      "Nurtures leads with audiology-specific scripts",
-      "40% average booking rate",
-      "Automatically fills cancellation slots",
-    ],
-    iconPath: "M13 10V3L4 14h7v7l9-11h-7z",
+    number: "03",
+    title: "Outrank Your Competitors",
+    details: "While the reviews start pouring in so will inbound calls and leads from Google.",
+    icon: TrendingUp,
     iconColor: "text-eagle-blue",
   },
 ];
@@ -82,16 +72,15 @@ const HowItWorks = () => {
     >
       <div className="section-container relative z-10">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            The 3-Step AI System That Delivers Results
+          <h2 className="text-3xl md:text-4xl font-bold mb-8">
+            How It Works <Eye className="inline-block text-eagle-blue mb-1" size={30} />
           </h2>
-          <p className="text-xl text-eagle-orange mb-12">In Just 14 Days</p>
 
-          <div className="mt-16 grid md:grid-cols-3 gap-6">
+          <div className="mt-16 grid md:grid-cols-3 gap-8">
             {steps.map((step, index) => (
               <div
                 key={step.number}
-                className={`relative p-6 rounded-lg transition-all duration-500 transform ${
+                className={`relative p-8 rounded-lg transition-all duration-500 transform ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-10"
@@ -105,37 +94,24 @@ const HowItWorks = () => {
                 }}
                 onClick={() => setActiveStep(index)}
               >
-                <div
-                  className={`w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-4 ${
-                    step.iconColor
-                  }`}
-                >
-                  <span className="text-xl font-bold">{step.number}</span>
+                <div className="mb-4">
+                  <span className={`text-4xl font-bold ${index === 1 ? 'text-eagle-orange' : 'text-eagle-blue'}`}>
+                    {step.number}
+                  </span>
                 </div>
+                
                 <h3 className="text-xl font-bold mb-4">{step.title}</h3>
-                <ul className="space-y-3 text-left">
-                  {step.details.map((detail, detailIndex) => (
-                    <li
-                      key={detailIndex}
-                      className="flex items-start gap-2 text-gray-300"
-                    >
-                      <svg
-                        className={`h-5 w-5 mt-0.5 flex-shrink-0 ${step.iconColor}`}
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d={step.iconPath}
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                        />
-                      </svg>
-                      <span>{detail}</span>
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-gray-300 mb-6">{step.details}</p>
+                
+                <a href="#pricing" className="inline-block">
+                  <EagleButton 
+                    size="sm" 
+                    className={index === 1 ? "bg-[linear-gradient(var(--eagle-button-bg,#FF8024),var(--eagle-button-bg,#FF8024)),linear-gradient(var(--eagle-button-bg,#FF8024)_50%,rgba(255,128,36,0.6)_80%,rgba(255,128,36,0)),linear-gradient(90deg,hsl(var(--color-1)),hsl(var(--color-5)),hsl(var(--color-3)),hsl(var(--color-4)),hsl(var(--color-2)))]" : ""}
+                  >
+                    Start Free
+                  </EagleButton>
+                </a>
+                
                 {activeStep === index && (
                   <div className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-eagle-blue to-eagle-orange"></div>
                 )}
@@ -150,17 +126,6 @@ const HowItWorks = () => {
             <div className="absolute top-1/2 right-1/4 w-0.5 h-4 bg-eagle-orange transform translate-x-1/2 -translate-y-1/2"></div>
             <div className="absolute top-1/2 left-1/2 w-0.5 h-4 bg-white/50 transform -translate-x-1/2 -translate-y-1/2"></div>
             <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-white/10 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
-          </div>
-
-          <div
-            className={`mt-12 transition-all duration-700 transform ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
-            style={{ transitionDelay: "600ms" }}
-          >
-            <a href="#results" className="eagle-btn-primary">
-              See Real Results
-            </a>
           </div>
         </div>
       </div>

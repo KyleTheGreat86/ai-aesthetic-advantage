@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Eye } from "lucide-react";
 import eagleLogo from "/lovable-uploads/b797bc22-5a08-4a8e-a9e5-b0a065bd73a4.png";
 
 const Navbar = () => {
@@ -45,16 +45,16 @@ const Navbar = () => {
                   Home
                 </a>
                 <a
-                  href="#services"
+                  href="#results"
                   className="text-white hover:text-eagle-blue transition-colors"
                 >
-                  Services
+                  Results
                 </a>
                 <a
-                  href="#case-studies"
+                  href="#pricing"
                   className="text-white hover:text-eagle-blue transition-colors"
                 >
-                  Case Studies
+                  Pricing
                 </a>
                 <a
                   href="#about"
@@ -71,14 +71,21 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center space-x-4">
+            <a
+              href="#login"
+              className="text-white hover:text-eagle-blue transition-colors font-medium"
+            >
+              Log In
+            </a>
             <a
               href="https://youtu.be/sm5QGrA7oeU"
               target="_blank"
               rel="noopener noreferrer"
               className="eagle-btn-primary inline-flex items-center gap-2 relative group overflow-hidden"
             >
-              <span>Watch VSL</span>
+              <span>START FREE</span>
+              <Eye size={16} className="text-white" />
               <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
               <div className="absolute -inset-1 bg-eagle-blue/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </a>
@@ -106,18 +113,18 @@ const Navbar = () => {
               Home
             </a>
             <a
-              href="#services"
+              href="#results"
               className="block px-3 py-2 text-white hover:bg-eagle-blue/10 rounded-md"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Services
+              Results
             </a>
             <a
-              href="#case-studies"
+              href="#pricing"
               className="block px-3 py-2 text-white hover:bg-eagle-blue/10 rounded-md"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Case Studies
+              Pricing
             </a>
             <a
               href="#about"
@@ -133,15 +140,24 @@ const Navbar = () => {
             >
               Contact
             </a>
-            <a
-              href="https://youtu.be/sm5QGrA7oeU"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block px-3 py-2 text-eagle-blue font-semibold hover:bg-eagle-blue/10 rounded-md"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Watch VSL
-            </a>
+            <div className="border-t border-white/10 my-2 pt-2">
+              <a
+                href="#login"
+                className="block px-3 py-2 text-white hover:bg-eagle-blue/10 rounded-md"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Log In
+              </a>
+              <a
+                href="https://youtu.be/sm5QGrA7oeU"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block px-3 py-2 text-eagle-blue font-semibold hover:bg-eagle-blue/10 rounded-md"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                START FREE
+              </a>
+            </div>
           </div>
         </div>
       )}

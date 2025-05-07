@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import eagleLogo from "/lovable-uploads/b797bc22-5a08-4a8e-a9e5-b0a065bd73a4.png";
 import FloatingShapes from "./FloatingShapes";
 import { EagleButton, EagleSecondaryButton } from "./ui/eagle-button";
+import { Eye } from "lucide-react";
 
 const Hero = () => {
   const [isVideoVisible, setIsVideoVisible] = useState(false);
@@ -32,10 +33,10 @@ const Hero = () => {
       <div className="section-container relative z-10">
         <div className="text-center mb-8 max-w-5xl mx-auto">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="gradient-text-blue">Eagle Eye AI:</span> The #1 Growth System for Audiology Clinics
+            <span className="gradient-text-blue">Gain Razor-Sharp Visibility Through Reviews</span>
           </h1>
           <p className="text-xl md:text-2xl font-medium">
-            Add 15-25 High Value Appointments & <span className="text-eagle-orange font-bold">${"5,200+"}</span> Monthly Net Profit After Our Fee To Your Clinic Every Month Or You Pay NOTHING.
+            Soar Above Your Competitors On Google and Increase Sales
           </p>
         </div>
         
@@ -43,9 +44,9 @@ const Hero = () => {
         {showLimitedBanner && (
           <div className="mb-6 text-center opacity-0 animate-fade-in">
             <div className="inline-block bg-eagle-blue/20 backdrop-blur-sm rounded-lg px-6 py-3 border border-eagle-blue/50">
-              <p className="text-xl font-semibold text-white">Limited Availability</p>
-              <p className="text-lg font-medium text-eagle-orange">Only 3 Clinics Left Being Accepted This Month</p>
-              <p className="text-sm mt-1 text-gray-300">Limited spots remaining. Apply now.</p>
+              <p className="text-xl font-semibold text-white">Limited Time Offer</p>
+              <p className="text-lg font-medium text-eagle-orange">Only Pay for 4-5 Star Reviews</p>
+              <p className="text-sm mt-1 text-gray-300">First 1,000 users only!</p>
             </div>
           </div>
         )}
@@ -61,7 +62,7 @@ const Hero = () => {
                 <div className="w-20 h-20 mx-auto bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <div className="w-0 h-0 border-t-8 border-t-transparent border-l-16 border-l-white border-b-8 border-b-transparent ml-1"></div>
                 </div>
-                <p className="text-xl font-medium">Click Here For Our 3 Minute Demo</p>
+                <p className="text-xl font-medium">Click to Watch How It Works</p>
               </div>
             </div>
           </div>
@@ -85,14 +86,14 @@ const Hero = () => {
         {/* Call-to-action buttons moved directly below the video */}
         {showButtons && (
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 opacity-0 animate-fade-in">
-            <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer">
-              <EagleButton className="uppercase font-bold text-base">
-                BOOK FREE STRATEGY CALL
+            <a href="#pricing" className="w-full sm:w-auto">
+              <EagleButton className="uppercase font-bold text-base w-full sm:w-auto">
+                START FREE
               </EagleButton>
             </a>
-            <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer">
-              <EagleSecondaryButton className="uppercase font-bold text-base">
-                START 14-DAY FREE TRIAL
+            <a href="#results" className="w-full sm:w-auto">
+              <EagleSecondaryButton className="uppercase font-bold text-base w-full sm:w-auto">
+                SEE RESULTS
               </EagleSecondaryButton>
             </a>
           </div>
@@ -107,36 +108,55 @@ const Hero = () => {
             />
           </div>
           
-          <p className="text-xl font-semibold text-eagle-blue mb-4 opacity-0 animate-fade-in">
-            Typical Client Results
-          </p>
-          
-          <div className="mb-8 flex flex-col md:flex-row justify-center gap-6">
-            {showStats && (
-              <>
-                <div className="opacity-0 animate-fade-in">
-                  <p className="text-2xl md:text-3xl font-bold">18+</p>
-                  <p className="text-gray-400">Extra Appointments</p>
-                </div>
-                <div className="opacity-0 animate-fade-in animate-delay-200">
-                  <p className="text-2xl md:text-3xl font-bold">40%</p>
-                  <p className="text-gray-400">Conversion Rate</p>
-                </div>
-                <div className="opacity-0 animate-fade-in animate-delay-400">
-                  <p className="text-2xl md:text-3xl font-bold">$5,200+</p>
-                  <p className="text-gray-400">Net Profit/Month</p>
-                </div>
-              </>
-            )}
+          <div className="mb-8">
+            <p className="text-xl font-semibold text-eagle-blue mb-4 opacity-0 animate-fade-in">
+              Great brands are using Eagle Eye
+            </p>
+            
+            <div className="flex flex-wrap justify-center gap-8 items-center">
+              <div className="bg-white/5 p-3 rounded-lg w-24 h-16 flex items-center justify-center opacity-0 animate-fade-in">
+                <div className="w-full h-4 bg-white/30 rounded"></div>
+              </div>
+              <div className="bg-white/5 p-3 rounded-lg w-24 h-16 flex items-center justify-center opacity-0 animate-fade-in animate-delay-100">
+                <div className="w-full h-4 bg-white/30 rounded"></div>
+              </div>
+              <div className="bg-white/5 p-3 rounded-lg w-24 h-16 flex items-center justify-center opacity-0 animate-fade-in animate-delay-200">
+                <div className="w-full h-4 bg-white/30 rounded"></div>
+              </div>
+              <div className="bg-white/5 p-3 rounded-lg w-24 h-16 flex items-center justify-center opacity-0 animate-fade-in animate-delay-300">
+                <div className="w-full h-4 bg-white/30 rounded"></div>
+              </div>
+              <p className="text-gray-400 opacity-0 animate-fade-in animate-delay-400">+ many more</p>
+            </div>
           </div>
           
           {showTagline && (
             <p className="text-xl md:text-2xl mb-10 opacity-0 animate-fade-in">
-              <span className="text-white font-medium">AI-Powered.</span>
-              <span className="mx-2 text-eagle-blue">Fully Managed.</span>
-              <span className="text-eagle-orange font-medium">$5,200+ Minimum Net Profit.</span>
+              <span className="text-white font-medium">Get More Reviews than your competition with our</span>
+              <span className="mx-2 text-eagle-blue">personalized</span>
+              <span className="text-white">requests.</span>
+              <br />
+              <span className="text-eagle-orange font-medium">Only pay Once You Get Reviews.</span>
             </p>
           )}
+          
+          <div className="flex flex-wrap justify-center gap-8 mb-12">
+            <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 w-64 text-center transform hover:-translate-y-1 transition-transform">
+              <Eye size={32} className="mx-auto mb-3 text-eagle-blue" />
+              <h3 className="text-xl font-semibold mb-2">Personalized</h3>
+              <p className="text-gray-300">Tailored review requests designed specifically for your business</p>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 w-64 text-center transform hover:-translate-y-1 transition-transform">
+              <Eye size={32} className="mx-auto mb-3 text-eagle-orange" />
+              <h3 className="text-xl font-semibold mb-2">Automated</h3>
+              <p className="text-gray-300">Set it once and let our systems work for you 24/7</p>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 w-64 text-center transform hover:-translate-y-1 transition-transform">
+              <Eye size={32} className="mx-auto mb-3 text-eagle-blue" />
+              <h3 className="text-xl font-semibold mb-2">Risk Free</h3>
+              <p className="text-gray-300">Start with a free trial and only pay for results</p>
+            </div>
+          </div>
         </div>
       </div>
       

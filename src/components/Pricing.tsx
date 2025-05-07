@@ -1,6 +1,7 @@
 
 import { useState, useEffect, useRef } from "react";
-import { Check } from "lucide-react";
+import { Check, Eye, Shield } from "lucide-react";
+import { EagleButton } from "./ui/eagle-button";
 
 const Pricing = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -37,12 +38,13 @@ const Pricing = () => {
   }, [isVisible]);
 
   const includedItems = [
-    "Complete AI Lead Response System",
-    "Automated Review Generation",
-    "Audiology-Specific Scripts",
-    "No Setup Fee ($2,500 value)",
-    "5-10 Guaranteed Appointments in Trial",
-    "25+ Reviews in First Month",
+    "Get 4x More Reviews & Referrals",
+    "Automated Text & Email Requests",
+    "Personalized Image Requests",
+    "Automated AI Review Responses",
+    "Done For You Custom Integration",
+    "Complimentary Onboarding Call",
+    "Only Pay For 4-5 Star Reviews",
   ];
 
   return (
@@ -54,19 +56,19 @@ const Pricing = () => {
       <div className="section-container relative z-10">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            Limited-Time Offer for Founding Clinics
+            Pricing
           </h2>
-          <p className="text-center text-eagle-orange font-medium mb-6">Only 3 Clinics Left Being Accepted This Month</p>
+          <p className="text-center text-eagle-orange font-medium mb-6">This is a limited time offer, for our first 1,000 users!</p>
           
           {/* Adding the Book Your Free Strategy Call button */}
           <div className="text-center mb-8">
             <a
-              href="https://calendly.com/weareagencyeagleeye/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="eagle-btn-primary inline-block"
+              href="#pricing"
+              className="inline-block"
             >
-              BOOK YOUR FREE STRATEGY CALL
+              <EagleButton className="uppercase font-bold">
+                START FREE
+              </EagleButton>
             </a>
           </div>
 
@@ -78,33 +80,27 @@ const Pricing = () => {
             }`}
           >
             <div className="relative bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-white/10">
-              <div className="absolute top-0 right-0 bg-eagle-blue px-4 py-2 rounded-bl-lg rounded-tr-lg font-medium">
-                Founding Member
+              <div className="absolute top-0 right-0 bg-eagle-orange px-4 py-2 rounded-bl-lg rounded-tr-lg font-medium">
+                LIMITED TIME
               </div>
 
               <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold mb-2">Pay-Per-Review</h3>
+                <p className="text-gray-300 mb-4">Unlimited Review Requests</p>
+                
                 <div className="flex flex-col items-center justify-center mb-4">
-                  <span className="text-xl text-gray-400">Starting at</span>
                   <div className="flex items-baseline">
                     <span className="text-3xl">$</span>
-                    <span className="text-5xl font-bold">0</span>
+                    <span className="text-5xl font-bold">149</span>
                   </div>
-                  <span className="text-eagle-orange font-medium mt-2">
-                    14-Day Free Trial
+                  <span className="text-gray-400 font-medium mt-2">
+                    A Month
                   </span>
-                </div>
-
-                <div className="mb-4 py-2 border-t border-b border-white/10">
-                  <span className="text-xl font-medium">$1,297</span>
-                  <span className="text-gray-400">/month after trial</span>
-                  <p className="text-sm text-gray-400"><s>Normally $1,997</s></p>
-                  <p className="text-sm text-gray-400">Cancel Anytime</p>
                 </div>
               </div>
 
               <div className="mb-8">
-                <h3 className="text-lg font-medium mb-4">What's Included:</h3>
-                <ul className="space-y-3">
+                <ul className="space-y-4">
                   {includedItems.map((item, index) => (
                     <li
                       key={index}
@@ -115,7 +111,7 @@ const Pricing = () => {
                     >
                       <Check
                         size={18}
-                        className="mr-2 text-eagle-orange"
+                        className="mr-3 text-eagle-blue flex-shrink-0"
                       />
                       <span>{item}</span>
                     </li>
@@ -125,14 +121,18 @@ const Pricing = () => {
 
               <div className="text-center">
                 <a
-                  href="https://calendly.com/weareagencyeagleeye/30min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="eagle-btn-secondary w-full flex justify-center items-center group relative overflow-hidden"
+                  href="#start-free"
+                  className="inline-block w-full"
                 >
-                  <span className="relative z-10">LOCK IN YOUR FOUNDING RATE NOW</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-eagle-orange to-eagle-orange/70 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <EagleButton className="w-full uppercase font-bold">
+                    START FREE
+                  </EagleButton>
                 </a>
+              </div>
+
+              <div className="mt-4 text-center flex items-center justify-center text-sm text-gray-400">
+                <Shield size={14} className="mr-1" />
+                <span>No credit card required</span>
               </div>
 
               <div className="absolute -inset-1 bg-gradient-to-r from-eagle-blue to-eagle-orange opacity-30 blur-lg -z-10 group-hover:opacity-50 transition-opacity"></div>
