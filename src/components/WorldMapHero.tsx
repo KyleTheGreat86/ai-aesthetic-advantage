@@ -32,10 +32,10 @@ const mapConnections = [
 ];
 
 const WorldMapHero = () => {
-  const [isShaking, setIsShaking] = useState(true);
+  const [isShaking, setIsShaking] = useState(false); // Changed default to false
   const [isVisible, setIsVisible] = useState(false);
   
-  // Performance optimized animation loop
+  // Performance optimized animation - reduced animations
   useEffect(() => {
     // Only start animations when component is in viewport
     const observer = new IntersectionObserver(
@@ -50,31 +50,9 @@ const WorldMapHero = () => {
     
     observer.observe(document.getElementById('mapSection') || document.body);
     
-    // Use requestAnimationFrame for smoother animations
-    let animationFrame: number;
-    let interval: number;
-    
-    if (isVisible) {
-      // Restart shaking animation with better timing
-      const restartShaking = () => {
-        setIsShaking(false);
-        animationFrame = window.requestAnimationFrame(() => {
-          window.requestAnimationFrame(() => {
-            setIsShaking(true);
-          });
-        });
-      };
-      
-      // Start the animation loop
-      interval = window.setInterval(restartShaking, 5000);
-    }
-    
+    // Animation is now disabled by default to improve performance
     return () => {
       observer.disconnect();
-      clearInterval(interval);
-      if (animationFrame) {
-        cancelAnimationFrame(animationFrame);
-      }
     };
   }, [isVisible]);
 
