@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { WorldMap } from "./ui/world-map";
 import { Globe } from "lucide-react";
 import { useState, useEffect, memo } from "react";
+import { useDeviceType } from "../hooks/use-mobile";
 
 const mapConnections = [
   {
@@ -32,8 +33,9 @@ const mapConnections = [
 ];
 
 const WorldMapHero = () => {
-  const [isShaking, setIsShaking] = useState(false); // Changed default to false
+  const [isShaking, setIsShaking] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const deviceType = useDeviceType();
   
   // Performance optimized animation - reduced animations
   useEffect(() => {
@@ -54,7 +56,7 @@ const WorldMapHero = () => {
     return () => {
       observer.disconnect();
     };
-  }, [isVisible]);
+  }, []);
 
   return (
     <div id="mapSection" className="relative py-16 w-full overflow-hidden">
@@ -69,7 +71,7 @@ const WorldMapHero = () => {
       )}
       
       {/* Content overlay */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center w-full">
         <div className="inline-block mb-6 rounded-full p-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -91,9 +93,9 @@ const WorldMapHero = () => {
           <span className="gradient-text-orange">With 5-Star Google Reviews</span>
         </motion.h1>
         
-        <div className="inline-block p-2 rounded-lg max-w-3xl bg-white/5 backdrop-blur-sm border border-white/10">
+        <div className="inline-block p-2 rounded-lg max-w-3xl mx-auto bg-white/5 backdrop-blur-sm border border-white/10">
           <motion.p 
-            className="text-xl md:text-2xl opacity-90 mx-auto"
+            className="text-xl md:text-2xl opacity-90"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}

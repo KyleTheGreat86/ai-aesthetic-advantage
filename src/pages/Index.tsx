@@ -2,14 +2,14 @@
 import { useEffect, lazy, Suspense, useState, memo } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
-import { useIsMobile } from "../hooks/use-mobile";
+import { useIsMobile, useDeviceType } from "../hooks/use-mobile";
 
 // Import the RainbowButton CSS styles
 import "../rainbow-button-styles.css";
 
 // Simple loading component to avoid layout shift
 const SectionLoader = () => (
-  <div className="py-12 flex justify-center items-center min-h-[200px]">
+  <div className="py-12 flex justify-center items-center min-h-[200px] w-full">
     <div className="w-6 h-6 border-2 border-eagle-blue border-t-transparent rounded-full animate-spin"></div>
   </div>
 );
@@ -22,6 +22,12 @@ const LoadingScreen = lazy(() =>
 
 const WorldMapHero = lazy(() => 
   import("../components/WorldMapHero")
+    .then(module => ({ default: memo(module.default) }))
+);
+
+// Lazy load the ROI Calculator with high priority after the video
+const RoiCalculator = lazy(() => 
+  import("../components/RoiCalculator")
     .then(module => ({ default: memo(module.default) }))
 );
 
@@ -84,9 +90,11 @@ const BackgroundGrid = lazy(() =>
 // Optimized Index component
 const Index = () => {
   const isMobile = useIsMobile();
+  const deviceType = useDeviceType();
   const [hasLoaded, setHasLoaded] = useState(false);
   const [visibleSections, setVisibleSections] = useState({
     worldMap: false,
+    roiCalculator: false,
     problem: false,
     solution: false,
     howItWorks: false,
@@ -168,7 +176,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-eagle-dark text-white">
+    <div className="min-h-screen w-full bg-eagle-dark text-white">
       <Suspense fallback={<div className="fixed inset-0 bg-eagle-dark z-50"></div>}>
         <LoadingScreen />
       </Suspense>
@@ -185,62 +193,69 @@ const Index = () => {
       
       <Hero />
       
+      {/* ROI Calculator section with higher visibility (no conditional loading) */}
+      <section id="roiCalculator" className="w-full">
+        <Suspense fallback={<SectionLoader />}>
+          <RoiCalculator />
+        </Suspense>
+      </section>
+      
       {/* Load remaining components progressively as user scrolls */}
-      <section id="problem">
+      <section id="problem" className="w-full">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.problem || isMobile) && <ProblemStatement />}
+          {(visibleSections.problem || deviceType === 'mobile') && <ProblemStatement />}
         </Suspense>
       </section>
       
-      <section id="solution">
+      <section id="solution" className="w-full">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.solution || isMobile) && <Solution />}
+          {(visibleSections.solution || deviceType === 'mobile') && <Solution />}
         </Suspense>
       </section>
       
-      <section id="howItWorks">
+      <section id="howItWorks" className="w-full">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.howItWorks || isMobile) && <HowItWorks />}
+          {(visibleSections.howItWorks || deviceType === 'mobile') && <HowItWorks />}
         </Suspense>
       </section>
       
-      <section id="results">
+      <section id="results" className="w-full">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.results || isMobile) && <Results />}
+          {(visibleSections.results || deviceType === 'mobile') && <Results />}
         </Suspense>
       </section>
       
-      <section id="pricing">
+      <section id="pricing" className="w-full">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.pricing || isMobile) && <Pricing />}
+          {(visibleSections.pricing || deviceType === 'mobile') && <Pricing />}
         </Suspense>
       </section>
       
-      <section id="guarantee">
+      <section id="guarantee" className="w-full">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.guarantee || isMobile) && <Guarantee />}
+          {(visibleSections.guarantee || deviceType === 'mobile') && <Guarantee />}
         </Suspense>
       </section>
       
-      <section id="team">
+      <section id="team" className="w-full">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.team || isMobile) && <TeamExperts />}
+          {(visibleSections.team || deviceType === 'mobile') && <TeamExperts />}
         </Suspense>
       </section>
       
-      <section id="about">
+      <section id="about" className="w-full">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.about || isMobile) && <About />}
+          {(visibleSections.about || deviceType === 'mobile') && <About />}
         </Suspense>
       </section>
       
-      <section id="faq">
+      <section id="faq" className="w-full">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.faq || isMobile) && <FAQ />}
+          {(visibleSections.faq || deviceType === 'mobile') && <FAQ />}
         </Suspense>
       </section>
       
-      <Suspense fallback={<div className="h-20"></div>}>
+      <Suspense fallback={<div className="h-20 w-full"></div>}>
         <Footer />
       </Suspense>
     </div>

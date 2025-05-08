@@ -1,6 +1,8 @@
 
 import { useState, useEffect, useRef, memo } from "react";
 import { Shield, Clock, Star } from "lucide-react";
+import { CountdownTimer } from "./ui/countdown-timer";
+import { useDeviceType } from "../hooks/use-mobile";
 
 const guarantees = [
   {
@@ -27,6 +29,16 @@ const Guarantee = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const clockRef = useRef<HTMLDivElement>(null);
+  const deviceType = useDeviceType();
+  
+  // Set target date to August 1st of the current year
+  const currentYear = new Date().getFullYear();
+  const targetDate = new Date(currentYear, 7, 1); // Month is 0-indexed (7 = August)
+  
+  // If the current date is past August 1st of the current year, set the target to next year
+  if (new Date() > targetDate) {
+    targetDate.setFullYear(currentYear + 1);
+  }
 
   useEffect(() => {
     // Create observer outside the callback to avoid recreation
@@ -70,16 +82,16 @@ const Guarantee = () => {
     <section
       ref={sectionRef}
       id="guarantee"
-      className="py-16 relative overflow-hidden bg-gradient-to-b from-eagle-dark to-eagle-dark/90"
+      className="py-16 relative overflow-hidden bg-gradient-to-b from-eagle-dark to-eagle-dark/90 w-full"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-eagle-blue/10 to-eagle-orange/10"></div>
       <div className="section-container relative z-10">
-        <div className="max-w-5xl mx-auto text-center">
+        <div className="mx-auto text-center w-full">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">
             Our Triple Guarantee
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {guarantees.map((guarantee, index) => (
               <div
                 key={index}
@@ -105,16 +117,16 @@ const Guarantee = () => {
             }`}
             style={{ transitionDelay: "300ms" }}
           >
-            <div className="p-6 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 max-w-3xl mx-auto">
+            <div className="p-6 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 mx-auto">
               <div className="flex flex-col md:flex-row items-center justify-between">
                 <div className="mb-6 md:mb-0">
                   <h3 className="text-2xl font-semibold mb-3 text-eagle-orange">
                     Limited Time Offer
                   </h3>
-                  <p className="text-lg">
-                    Only <span className="font-bold text-white">7</span> days remaining for this special pricing
+                  <p className="text-lg mb-2">
+                    Only <CountdownTimer targetDate={targetDate} className="inline-flex text-eagle-orange font-medium" /> remaining for this special pricing
                   </p>
-                  <div className="mt-4 flex items-center">
+                  <div className="mt-4 flex items-center justify-center md:justify-start">
                     <div ref={clockRef} className="mr-3">
                       <Clock className="h-6 w-6 text-eagle-orange" />
                     </div>
@@ -123,10 +135,12 @@ const Guarantee = () => {
                     </p>
                   </div>
                 </div>
-                <div>
+                <div className="w-full md:w-auto">
                   <a
-                    href="#contact"
-                    className="eagle-btn-primary inline-block relative group overflow-hidden"
+                    href="https://calendly.com/weareagencyeagleeye/30min"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="eagle-btn-primary inline-block relative group overflow-hidden w-full md:w-auto"
                   >
                     <span className="relative z-10">CLAIM YOUR SPECIAL OFFER NOW</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-eagle-blue/0 via-white/20 to-eagle-blue/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
