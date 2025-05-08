@@ -1,67 +1,21 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Calculator } from "lucide-react";
 import { useIsMobile } from '@/hooks/use-mobile';
 import Chart from 'chart.js/auto';
 
-// Industry-specific multipliers
+// Industry-specific multipliers - keeping retail as default
 const industryData = {
   retail: {
     starRatingMultiplier: 0.07, // 7% revenue increase per star
     reviewVolumeEffect: 0.0012, // Per review effect
     top3Ranking: 0.32, // 32% boost for top 3 ranking
     compoundFactor: 0.02 // 2% compound growth
-  },
-  hospitality: {
-    starRatingMultiplier: 0.09, // 9% revenue increase per star
-    reviewVolumeEffect: 0.0015, // Per review effect
-    top3Ranking: 0.38, // 38% boost for top 3 ranking
-    compoundFactor: 0.025 // 2.5% compound growth
-  },
-  professional: {
-    starRatingMultiplier: 0.06, // 6% revenue increase per star
-    reviewVolumeEffect: 0.001, // Per review effect
-    top3Ranking: 0.30, // 30% boost for top 3 ranking
-    compoundFactor: 0.018 // 1.8% compound growth
-  },
-  healthcare: {
-    starRatingMultiplier: 0.055, // 5.5% revenue increase per star
-    reviewVolumeEffect: 0.0008, // Per review effect
-    top3Ranking: 0.28, // 28% boost for top 3 ranking
-    compoundFactor: 0.015 // 1.5% compound growth
-  },
-  trades: {
-    starRatingMultiplier: 0.085, // 8.5% revenue increase per star
-    reviewVolumeEffect: 0.0018, // Per review effect
-    top3Ranking: 0.40, // 40% boost for top 3 ranking
-    compoundFactor: 0.025 // 2.5% compound growth
-  },
-  beauty: {
-    starRatingMultiplier: 0.075, // 7.5% revenue increase per star
-    reviewVolumeEffect: 0.0016, // Per review effect
-    top3Ranking: 0.35, // 35% boost for top 3 ranking
-    compoundFactor: 0.022 // 2.2% compound growth
-  },
-  automotive: {
-    starRatingMultiplier: 0.065, // 6.5% revenue increase per star
-    reviewVolumeEffect: 0.0011, // Per review effect
-    top3Ranking: 0.33, // 33% boost for top 3 ranking
-    compoundFactor: 0.02 // 2% compound growth
-  },
-  real_estate: {
-    starRatingMultiplier: 0.058, // 5.8% revenue increase per star
-    reviewVolumeEffect: 0.0009, // Per review effect
-    top3Ranking: 0.29, // 29% boost for top 3 ranking
-    compoundFactor: 0.017 // 1.7% compound growth
   }
 };
 
-// Local ranking improvement factors
+// Local ranking improvement factor - only keeping not_ranked option
 const rankingImprovementFactors = {
   not_ranked: 1.0, // Full improvement potential
-  '11_20': 0.8,   // 80% of full improvement potential
-  '4_10': 0.5,    // 50% of full improvement potential
-  top_3: 0.0      // Already in top 3, no improvement
 };
 
 const RoiCalculator = () => {
@@ -69,8 +23,7 @@ const RoiCalculator = () => {
   const chartRef = useRef<HTMLCanvasElement>(null);
   const chartInstanceRef = useRef<Chart | null>(null);
   
-  // State for all form inputs
-  const [industry, setIndustry] = useState('retail');
+  // State for all form inputs - removed industry selection
   const [monthlyRevenue, setMonthlyRevenue] = useState(10000);
   const [currentStarRating, setCurrentStarRating] = useState(3.5);
   const [targetStarRating, setTargetStarRating] = useState(4.7);
@@ -102,13 +55,11 @@ const RoiCalculator = () => {
   
   // Calculate ROI based on form inputs
   const calculateROI = () => {
-    // Get industry multipliers
-    const { starRatingMultiplier, reviewVolumeEffect, top3Ranking, compoundFactor } = 
-      industryData[industry as keyof typeof industryData];
+    // Get industry multipliers - always using retail
+    const { starRatingMultiplier, reviewVolumeEffect, top3Ranking, compoundFactor } = industryData.retail;
     
-    // Calculate ranking improvement factor
-    const rankingImprovementFactor = 
-      rankingImprovementFactors[currentRanking as keyof typeof rankingImprovementFactors];
+    // Calculate ranking improvement factor - always not_ranked
+    const rankingImprovementFactor = rankingImprovementFactors.not_ranked;
     
     // Calculate impact values
     let baselineRevenue: number[] = [];
@@ -306,7 +257,6 @@ const RoiCalculator = () => {
   
   // Handle form reset
   const resetCalculator = () => {
-    setIndustry('retail');
     setMonthlyRevenue(10000);
     setCurrentStarRating(3.5);
     setTargetStarRating(4.7);
@@ -374,24 +324,7 @@ const RoiCalculator = () => {
           <div className="md:col-span-5 bg-black/20 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-eagle-blue/20">
             <h3 className="text-2xl font-semibold text-eagle-blue mb-6">Your Business Information</h3>
             
-            <div className="mb-5">
-              <label className="block text-gray-200 font-medium mb-2" htmlFor="industry">Industry/Sector</label>
-              <select 
-                id="industry"
-                value={industry}
-                onChange={(e) => setIndustry(e.target.value)}
-                className="w-full border border-white/20 bg-white/5 text-white rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-eagle-blue"
-              >
-                <option value="retail">Retail</option>
-                <option value="hospitality">Hospitality (Restaurants, Hotels)</option>
-                <option value="professional">Professional Services</option>
-                <option value="healthcare">Healthcare</option>
-                <option value="trades">Trades (Plumbers, Electricians)</option>
-                <option value="beauty">Beauty & Wellness</option>
-                <option value="automotive">Automotive</option>
-                <option value="real_estate">Real Estate</option>
-              </select>
-            </div>
+            {/* Removed Industry/Sector field */}
 
             <div className="mb-5">
               <label className="block text-gray-200 font-medium mb-2" htmlFor="monthlyRevenue">
@@ -505,6 +438,7 @@ const RoiCalculator = () => {
               </div>
             </div>
 
+            {/* Simplified Local Search Ranking - removed options */}
             <div className="mb-6">
               <label className="block text-gray-200 font-medium mb-2" htmlFor="currentRanking">
                 Current Local Search Ranking
@@ -515,17 +449,12 @@ const RoiCalculator = () => {
                   </span>
                 </span>
               </label>
-              <select 
-                id="currentRanking"
-                value={currentRanking}
-                onChange={(e) => setCurrentRanking(e.target.value)}
-                className="w-full border border-white/20 bg-white/5 text-white rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-eagle-blue"
-              >
-                <option value="not_ranked">Not in top 20 results</option>
-                <option value="11_20">Ranked 11-20</option>
-                <option value="4_10">Ranked 4-10</option>
-                <option value="top_3">Already in top 3</option>
-              </select>
+              <input 
+                type="text"
+                value="Not in top 20 results"
+                readOnly
+                className="w-full border border-white/20 bg-white/5 text-white rounded-lg px-4 py-2 cursor-not-allowed opacity-75"
+              />
             </div>
 
             <div className="mb-6">
