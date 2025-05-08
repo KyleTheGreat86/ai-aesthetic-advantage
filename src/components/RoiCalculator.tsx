@@ -371,7 +371,7 @@ const RoiCalculator = () => {
         
         <div className="grid md:grid-cols-12 gap-8 px-4">
           {/* Input Section */}
-          <div className="md:col-span-5 bg-white/5 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-white/10">
+          <div className="md:col-span-5 bg-black/20 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-eagle-blue/20">
             <h3 className="text-2xl font-semibold text-eagle-blue mb-6">Your Business Information</h3>
             
             <div className="mb-5">
@@ -562,7 +562,7 @@ const RoiCalculator = () => {
           </div>
 
           {/* Results Section */}
-          <div className="md:col-span-7 bg-white/5 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-white/10">
+          <div className="md:col-span-7 bg-black/20 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-eagle-blue/20">
             <h3 className="text-2xl font-semibold text-eagle-orange mb-6">Your Projected ROI Results</h3>
             
             <div className="mb-6 h-64">
@@ -665,7 +665,7 @@ const RoiCalculator = () => {
       
       {/* Consultation Form Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
           <div className="bg-eagle-dark rounded-xl shadow-xl p-8 max-w-lg w-full mx-4 border border-eagle-blue/30">
             <div className="flex justify-between items-center mb-6">
               <h3 className="text-2xl font-bold text-eagle-blue">Request Your Free Consultation</h3>

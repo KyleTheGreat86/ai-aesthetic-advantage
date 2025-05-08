@@ -193,10 +193,10 @@ const Index = () => {
       
       <Hero />
       
-      {/* Add ROI Calculator after Hero section (after video) */}
+      {/* ROI Calculator section with higher visibility (no conditional loading) */}
       <section id="roiCalculator" className="w-full">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.roiCalculator || deviceType === 'mobile') && <RoiCalculator />}
+          <RoiCalculator />
         </Suspense>
       </section>
       
