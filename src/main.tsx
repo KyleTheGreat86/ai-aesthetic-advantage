@@ -82,8 +82,8 @@ setInterval(removeEditButtons, 500); // Check every half second
 
 // Add event listeners to catch any script loading
 document.addEventListener('DOMNodeInserted', function(e) {
-  if (e.target.tagName === 'SCRIPT') {
-    const script = e.target;
+  if (e.target instanceof HTMLElement && e.target.tagName === 'SCRIPT') {
+    const script = e.target as HTMLScriptElement;
     if (
       script.src.includes('lovable') || 
       script.src.includes('gpt') || 
