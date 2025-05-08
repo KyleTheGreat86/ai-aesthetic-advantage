@@ -4,6 +4,7 @@ import { WorldMap } from "./ui/world-map";
 import { Globe } from "lucide-react";
 import { useState, useEffect, memo } from "react";
 import { useDeviceType } from "../hooks/use-mobile";
+import { InteractiveBlocks } from "./ui/interactive-blocks";
 
 const mapConnections = [
   {
@@ -103,6 +104,16 @@ const WorldMapHero = () => {
             The #1 Review Management Platform Helping Local Businesses Worldwide Rank Higher & Convert More Customers
           </motion.p>
         </div>
+
+        {/* Add the interactive blocks */}
+        <motion.div
+          className="w-full mt-12"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+        >
+          <InteractiveBlocks />
+        </motion.div>
       </div>
     </div>
   );
