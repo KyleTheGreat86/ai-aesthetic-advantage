@@ -1,10 +1,8 @@
-
 import React, { useState, useEffect, lazy, Suspense } from "react";
 import eagleLogo from "/lovable-uploads/b797bc22-5a08-4a8e-a9e5-b0a065bd73a4.png";
 import { EagleButton, EagleSecondaryButton } from "./ui/eagle-button";
 import { Eye, Star, TrendingUp, BarChart3, Play, MessageCircle } from "lucide-react";
-import { ClientLogosCarousel } from "./ui/client-logos-carousel";
-import { useDeviceType, useOrientation } from "../hooks/use-mobile";
+import { PartnerLogosMarquee } from "./ui/partner-logos-marquee";
 
 // Lazy load non-critical components
 const FloatingShapes = lazy(() => import("./FloatingShapes"));
@@ -15,8 +13,6 @@ const Hero = () => {
   const [showTagline, setShowTagline] = useState(false);
   const [showButtons, setShowButtons] = useState(false);
   const [showLimitedBanner, setShowLimitedBanner] = useState(false);
-  const deviceType = useDeviceType();
-  const isLandscape = useOrientation();
   
   // Updated YouTube video ID for embedding
   const videoId = "hLvm2JHzOF4";
@@ -43,7 +39,7 @@ const Hero = () => {
 
   // Memoize static content to prevent re-renders
   const heroStats = React.useMemo(() => (
-    <div className="grid md:grid-cols-3 gap-4 mt-8 max-w-4xl mx-auto w-full px-2">
+    <div className="grid md:grid-cols-3 gap-4 mt-8 max-w-4xl mx-auto">
       <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 flex flex-col items-center">
         <TrendingUp size={28} className="text-eagle-blue mb-2" strokeWidth={1.5} />
         <p className="font-semibold">Rank Higher in Local Search</p>
@@ -60,18 +56,18 @@ const Hero = () => {
   ), []);
 
   const features = React.useMemo(() => (
-    <div className="flex flex-wrap justify-center gap-8 mb-12 w-full px-2">
-      <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 w-full sm:w-64 text-center transform hover:-translate-y-1 transition-transform">
+    <div className="flex flex-wrap justify-center gap-8 mb-12">
+      <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 w-64 text-center transform hover:-translate-y-1 transition-transform">
         <Eye size={32} className="mx-auto mb-3 text-eagle-blue" strokeWidth={1.5} />
         <h3 className="text-xl font-semibold mb-2">Personalized</h3>
         <p className="text-gray-300">Customized messages that get 64% higher response rates than generic requests</p>
       </div>
-      <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 w-full sm:w-64 text-center transform hover:-translate-y-1 transition-transform">
+      <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 w-64 text-center transform hover:-translate-y-1 transition-transform">
         <Eye size={32} className="mx-auto mb-3 text-eagle-orange" strokeWidth={1.5} />
         <h3 className="text-xl font-semibold mb-2">Automated</h3>
         <p className="text-gray-300">Smart timing algorithms deliver requests when customers are most likely to respond</p>
       </div>
-      <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 w-full sm:w-64 text-center transform hover:-translate-y-1 transition-transform">
+      <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 w-64 text-center transform hover:-translate-y-1 transition-transform">
         <Eye size={32} className="mx-auto mb-3 text-eagle-blue" strokeWidth={1.5} />
         <h3 className="text-xl font-semibold mb-2">Results-Based</h3>
         <p className="text-gray-300">You only pay for successful 4-5 star reviews we help you generate</p>
@@ -80,13 +76,13 @@ const Hero = () => {
   ), []);
 
   return (
-    <section id="home" className="relative min-h-screen w-full pt-24 flex items-center">
+    <section id="home" className="relative min-h-screen pt-24 flex items-center">
       <Suspense fallback={null}>
         <FloatingShapes />
       </Suspense>
       
-      <div className="section-container relative z-10 w-full px-4">
-        <div className="text-center mb-8 max-w-5xl mx-auto w-full">
+      <div className="section-container relative z-10">
+        <div className="text-center mb-8 max-w-5xl mx-auto">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             <span className="gradient-text-blue">Transform Your Google Reviews</span>
             <br />
@@ -97,7 +93,7 @@ const Hero = () => {
         
         {/* Limited Availability Banner */}
         {showLimitedBanner && (
-          <div className="mb-6 text-center opacity-0 animate-fade-in w-full">
+          <div className="mb-6 text-center opacity-0 animate-fade-in">
             <div className="inline-block bg-eagle-blue/20 backdrop-blur-sm rounded-lg px-6 py-3 border border-eagle-blue/50">
               <p className="text-xl font-semibold text-white">Limited Time Offer</p>
               <p className="text-lg font-medium text-eagle-orange">Only Pay for 4-5 Star Reviews</p>
@@ -141,9 +137,9 @@ const Hero = () => {
           </div>
         )}
         
-        {/* Call-to-action buttons */}
+        {/* Call-to-action buttons - Updated as requested */}
         {showButtons && (
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 opacity-0 animate-fade-in w-full px-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 opacity-0 animate-fade-in">
             <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <EagleButton className="uppercase font-bold text-base w-full sm:w-auto">
                 BOOK YOUR FREE TRIAL NOW
@@ -158,7 +154,7 @@ const Hero = () => {
           </div>
         )}
         
-        <div className="text-center max-w-4xl mx-auto w-full px-2">
+        <div className="text-center max-w-4xl mx-auto">
           <div className="mb-8">
             <img 
               src={eagleLogo} 
@@ -169,13 +165,13 @@ const Hero = () => {
             />
           </div>
           
-          <div className="mb-8 w-full">
+          <div className="mb-8">
             <p className="text-xl font-semibold text-eagle-blue mb-4 opacity-0 animate-fade-in">
               Trusted By Local Businesses Across 16+ Countries
             </p>
             
-            {/* New Client Logos Carousel */}
-            <ClientLogosCarousel />
+            {/* Partner Logos Marquee */}
+            <PartnerLogosMarquee />
           </div>
           
           {showTagline && (

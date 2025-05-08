@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -111,13 +110,6 @@
   * {
     @apply border-border;
     scroll-behavior: smooth;
-    box-sizing: border-box;
-  }
-
-  html, body, #root {
-    @apply w-full overflow-x-hidden;
-    margin: 0;
-    padding: 0;
   }
 
   body {
@@ -143,7 +135,7 @@
   }
 
   .section-container {
-    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16;
   }
 
   .gradient-text-blue {
@@ -203,66 +195,4 @@
   .animate-delay-600 {
     animation-delay: 600ms;
   }
-
-  .countdown-unit {
-    @apply bg-white/10 backdrop-blur-sm rounded-md px-2 py-1 mx-1 text-sm md:text-base;
-  }
-}
-
-/* Fix for container width issues */
-#root {
-  max-width: 100% !important;
-  padding: 0 !important;
-}
-
-/* Reset App.css overrides that might affect layout */
-.section, section {
-  width: 100%;
-  max-width: 100%;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-/* Extremely aggressive CSS to hide any edit buttons */
-[class*="lovable"],
-[id*="lovable"],
-[class*="gpt-engineer"],
-[id*="gpt-engineer"],
-[class*="pick-edit"],
-[id*="pick-edit"],
-[class*="edit"],
-[id*="edit"],
-button[style*="position: fixed"],
-div[style*="position: fixed"][style*="bottom"],
-div[style*="position: fixed"][style*="right"],
-.chat-button,
-.fab,
-.floating-action-button,
-iframe[src*="lovable"],
-iframe[src*="gpt"],
-iframe[src*="edit"] {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-  width: 0 !important;
-  height: 0 !important;
-  position: absolute !important;
-  left: -9999px !important;
-  top: -9999px !important;
-  z-index: -9999 !important;
-  transform: scale(0) !important;
-}
-
-/* Create a protective layer at bottom right to intercept clicks */
-body::after {
-  content: "";
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  width: 120px;
-  height: 120px;
-  z-index: 9999;
-  background: transparent;
-  pointer-events: auto;
 }

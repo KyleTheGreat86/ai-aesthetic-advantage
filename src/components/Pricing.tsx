@@ -49,9 +49,6 @@ const Pricing = () => {
     "Only Pay For 4-5 Star Reviews",
   ];
 
-  // Updated Calendly booking URL
-  const calendlyUrl = "https://calendly.com/weareagencyeagleeye/30min";
-
   return (
     <section
       ref={sectionRef}
@@ -68,9 +65,7 @@ const Pricing = () => {
           {/* Adding the Book Your Free Strategy Call button */}
           <div className="text-center mb-8">
             <a
-              href={calendlyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#pricing"
               className="inline-block"
             >
               <EagleButton className="uppercase font-bold">
@@ -92,23 +87,17 @@ const Pricing = () => {
               </div>
 
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold mb-2">Unlimited-Reviews</h3>
+                <h3 className="text-2xl font-bold mb-2">Pay-Per-Review</h3>
                 <p className="text-gray-300 mb-4">For Local Businesses Worldwide</p>
                 
-                <div className="flex flex-col items-center justify-center mb-2">
+                <div className="flex flex-col items-center justify-center mb-4">
                   <div className="flex items-baseline">
                     <span className="text-3xl">$</span>
-                    <span className="text-5xl font-bold">129</span>
+                    <span className="text-5xl font-bold">149</span>
                   </div>
-                  <span className="text-gray-400 font-medium mt-1">
+                  <span className="text-gray-400 font-medium mt-2">
                     /Month
                   </span>
-                </div>
-                
-                {/* Updated price increase urgency notice */}
-                <div className="flex items-center justify-center text-sm">
-                  <span className="text-gray-300 mr-2">By August:</span>
-                  <span className="line-through text-red-400 font-medium">$199</span>
                 </div>
               </div>
 
@@ -134,15 +123,18 @@ const Pricing = () => {
 
               <div className="text-center">
                 <a
-                  href={calendlyUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#start-free"
                   className="inline-block w-full"
                 >
                   <EagleButton className="w-full uppercase font-bold">
                     START YOUR FREE 30-DAY TRIAL
                   </EagleButton>
                 </a>
+              </div>
+
+              <div className="mt-4 text-center flex items-center justify-center text-sm text-gray-400">
+                <Shield size={14} className="mr-1" />
+                <span>No credit card required • 15-minute setup</span>
               </div>
               
               <div className="mt-3 text-center text-sm text-gray-400">
