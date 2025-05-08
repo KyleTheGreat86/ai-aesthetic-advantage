@@ -28,11 +28,13 @@
     
     <!-- Add preload for critical resources -->
     <link rel="preload" href="/src/rainbow-button-styles.css" as="style">
+    
+    <!-- Block any external scripts that might inject edit buttons -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval'; object-src 'none';">
   </head>
 
   <body>
     <div id="root"></div>
-    <!-- Removed the GPT Engineer script that shows edit button -->
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

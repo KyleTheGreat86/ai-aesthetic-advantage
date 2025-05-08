@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -222,15 +223,46 @@
   padding-right: 0;
 }
 
-/* Hide any Lovable edit buttons that might be injected */
-[class*="lovable-edit"],
-[id*="lovable-edit"],
+/* Extremely aggressive CSS to hide any edit buttons */
+[class*="lovable"],
+[id*="lovable"],
 [class*="gpt-engineer"],
 [id*="gpt-engineer"],
 [class*="pick-edit"],
-[id*="pick-edit"] {
+[id*="pick-edit"],
+[class*="edit"],
+[id*="edit"],
+button[style*="position: fixed"],
+div[style*="position: fixed"][style*="bottom"],
+div[style*="position: fixed"][style*="right"],
+.chat-button,
+.fab,
+.floating-action-button,
+iframe[src*="lovable"],
+iframe[src*="gpt"],
+iframe[src*="edit"] {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
   pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  z-index: -9999 !important;
+  transform: scale(0) !important;
+}
+
+/* Create a protective layer at bottom right to intercept clicks */
+body::after {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 120px;
+  height: 120px;
+  z-index: 9999;
+  background: transparent;
+  pointer-events: auto;
 }
