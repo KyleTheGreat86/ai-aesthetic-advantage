@@ -25,6 +25,12 @@ const WorldMapHero = lazy(() =>
     .then(module => ({ default: memo(module.default) }))
 );
 
+// Lazy load the ROI Calculator with high priority after the video
+const RoiCalculator = lazy(() => 
+  import("../components/RoiCalculator")
+    .then(module => ({ default: memo(module.default) }))
+);
+
 // Lazy load components with lower loading priority
 const ProblemStatement = lazy(() => 
   import("../components/ProblemStatement")
@@ -88,6 +94,7 @@ const Index = () => {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [visibleSections, setVisibleSections] = useState({
     worldMap: false,
+    roiCalculator: false,
     problem: false,
     solution: false,
     howItWorks: false,
@@ -185,6 +192,13 @@ const Index = () => {
       </Suspense>
       
       <Hero />
+      
+      {/* Add ROI Calculator after Hero section (after video) */}
+      <section id="roiCalculator" className="w-full">
+        <Suspense fallback={<SectionLoader />}>
+          {(visibleSections.roiCalculator || deviceType === 'mobile') && <RoiCalculator />}
+        </Suspense>
+      </section>
       
       {/* Load remaining components progressively as user scrolls */}
       <section id="problem" className="w-full">
