@@ -23,43 +23,45 @@ import Matter, {
   World,
 } from "matter-js"
 
+// Import decomp directly as a module
+import * as decomp from 'poly-decomp'
+
 import { cn } from "@/lib/utils"
 
 import SVGPathCommander from 'svg-path-commander';
 
 // Function to convert SVG path "d" to vertices
 function parsePathToVertices(path: string, sampleLength = 15) {
-// Convert path to absolute commands
-const commander = new SVGPathCommander(path);
+  // Convert path to absolute commands
+  const commander = new SVGPathCommander(path);
 
-    const points: { x: number, y: number }[] = [];
-    let lastPoint: { x: number, y: number } | null = null;
+  const points: { x: number, y: number }[] = [];
+  let lastPoint: { x: number, y: number } | null = null;
 
-    // Get total length of the path
-    const totalLength = commander.getTotalLength();
-    let length = 0;
+  // Get total length of the path
+  const totalLength = commander.getTotalLength();
+  let length = 0;
 
-    // Sample points along the path
-    while (length < totalLength) {
-        const point = commander.getPointAtLength(length);
+  // Sample points along the path
+  while (length < totalLength) {
+    const point = commander.getPointAtLength(length);
 
-        // Only add point if it's different from the last one
-        if (!lastPoint || point.x !== lastPoint.x || point.y !== lastPoint.y) {
-            points.push({ x: point.x, y: point.y });
-            lastPoint = point;
-        }
-
-        length += sampleLength;
+    // Only add point if it's different from the last one
+    if (!lastPoint || point.x !== lastPoint.x || point.y !== lastPoint.y) {
+      points.push({ x: point.x, y: point.y });
+      lastPoint = point;
     }
 
-    // Ensure we get the last point
-    const finalPoint = commander.getPointAtLength(totalLength);
-    if (lastPoint && (finalPoint.x !== lastPoint.x || finalPoint.y !== lastPoint.y)) {
-        points.push({ x: finalPoint.x, y: finalPoint.y });
-    }
+    length += sampleLength;
+  }
 
-    return points;
+  // Ensure we get the last point
+  const finalPoint = commander.getPointAtLength(totalLength);
+  if (lastPoint && (finalPoint.x !== lastPoint.x || finalPoint.y !== lastPoint.y)) {
+    points.push({ x: finalPoint.x, y: finalPoint.y });
+  }
 
+  return points;
 }
 
 function calculatePosition(
@@ -292,7 +294,8 @@ const Gravity = forwardRef<GravityRef, GravityProps>(
       const height = canvas.current.offsetHeight
       const width = canvas.current.offsetWidth
 
-      Common.setDecomp(require("poly-decomp"))
+      // Use imported decomp module instead of require
+      Common.setDecomp(decomp)
 
       engine.current.gravity.x = gravity.x
       engine.current.gravity.y = gravity.y
@@ -419,7 +422,7 @@ const Gravity = forwardRef<GravityRef, GravityProps>(
         runner.current.enabled = true
         startEngine()
       }
-    }, [updateElements, debug, autoStart])
+    }, [updateElements, debug, autoStart, gravity])
 
     // Clear the Matter.js world
     const clearRenderer = useCallback(() => {
@@ -510,7 +513,7 @@ const Gravity = forwardRef<GravityRef, GravityProps>(
       })
       updateElements()
       handleResize()
-    }, [])
+    }, [stopEngine, updateElements, handleResize, canvasSize.width, canvasSize.height])
 
     useImperativeHandle(
       ref,
@@ -519,7 +522,7 @@ const Gravity = forwardRef<GravityRef, GravityProps>(
         stop: stopEngine,
         reset,
       }),
-      [startEngine, stopEngine]
+      [startEngine, stopEngine, reset]
     )
 
     useEffect(() => {
