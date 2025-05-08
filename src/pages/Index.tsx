@@ -25,87 +25,27 @@ const WorldMapHero = lazy(() =>
     .then(module => ({ default: memo(module.default) }))
 );
 
-// Lazy load the ROI Calculator with high priority after the video
-const RoiCalculator = lazy(() => 
-  import("../components/RoiCalculator")
-    .then(module => ({ default: memo(module.default) }))
-);
+// Eager load the ROI Calculator since it's important
+import RoiCalculator from "../components/RoiCalculator";
 
-// Lazy load components with lower loading priority
-const ProblemStatement = lazy(() => 
-  import("../components/ProblemStatement")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const Solution = lazy(() => 
-  import("../components/Solution")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const HowItWorks = lazy(() => 
-  import("../components/HowItWorks")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const Results = lazy(() => 
-  import("../components/Results")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const Pricing = lazy(() => 
-  import("../components/Pricing")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const Guarantee = lazy(() => 
-  import("../components/Guarantee")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const TeamExperts = lazy(() => 
-  import("../components/TeamExperts")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const About = lazy(() => 
-  import("../components/About")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const FAQ = lazy(() => 
-  import("../components/FAQ")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const Footer = lazy(() => 
-  import("../components/Footer")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const BackgroundGrid = lazy(() => 
-  import("../components/BackgroundGrid")
-    .then(module => ({ default: memo(module.default) }))
-);
+// Lazy load components but with immediate loading for desktop
+const ProblemStatement = lazy(() => import("../components/ProblemStatement"));
+const Solution = lazy(() => import("../components/Solution"));
+const HowItWorks = lazy(() => import("../components/HowItWorks"));
+const Results = lazy(() => import("../components/Results"));
+const Pricing = lazy(() => import("../components/Pricing"));
+const Guarantee = lazy(() => import("../components/Guarantee"));
+const TeamExperts = lazy(() => import("../components/TeamExperts"));
+const About = lazy(() => import("../components/About"));
+const FAQ = lazy(() => import("../components/FAQ"));
+const Footer = lazy(() => import("../components/Footer"));
+const BackgroundGrid = lazy(() => import("../components/BackgroundGrid"));
 
 // Optimized Index component
 const Index = () => {
   const isMobile = useIsMobile();
   const deviceType = useDeviceType();
   const [hasLoaded, setHasLoaded] = useState(false);
-  const [visibleSections, setVisibleSections] = useState({
-    worldMap: false,
-    roiCalculator: false,
-    problem: false,
-    solution: false,
-    howItWorks: false,
-    results: false,
-    pricing: false,
-    guarantee: false,
-    team: false,
-    about: false,
-    faq: false,
-    footer: false
-  });
   
   useEffect(() => {
     // Mark as loaded
@@ -134,40 +74,25 @@ const Index = () => {
     
     document.addEventListener('click', handleAnchorClick, { passive: false });
     
-    // Use IntersectionObserver to load sections as they become visible
-    const setupIntersectionObserver = () => {
-      const observerOptions = {
-        rootMargin: '200px 0px', // Load when within 200px of viewport
-        threshold: 0.01
-      };
-      
-      const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.id;
-            if (id) {
-              setVisibleSections(prev => ({ ...prev, [id]: true }));
-            }
-            sectionObserver.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-      
-      // Observe each section to load it only when needed
-      const sections = document.querySelectorAll('section[id]');
-      sections.forEach(section => {
-        sectionObserver.observe(section);
-      });
-      
-      return () => {
-        sections.forEach(section => {
-          sectionObserver.unobserve(section);
-        });
-      };
+    // Preload all components after initial render
+    const preloadComponents = () => {
+      // Trigger imports for all major components to ensure they load
+      [
+        import("../components/ProblemStatement"),
+        import("../components/Solution"),
+        import("../components/HowItWorks"),
+        import("../components/Results"),
+        import("../components/Pricing"),
+        import("../components/Guarantee"),
+        import("../components/TeamExperts"),
+        import("../components/About"),
+        import("../components/FAQ"),
+        import("../components/Footer"),
+      ].forEach(promise => promise.catch(err => console.error("Failed to preload component:", err)));
     };
     
-    // Setup after initial render
-    const timer = setTimeout(setupIntersectionObserver, 500);
+    // Start preloading after a brief delay to prioritize critical components first
+    const timer = setTimeout(preloadComponents, 300);
     
     return () => {
       document.removeEventListener('click', handleAnchorClick);
@@ -193,65 +118,63 @@ const Index = () => {
       
       <Hero />
       
-      {/* ROI Calculator section with higher visibility (no conditional loading) */}
+      {/* ROI Calculator loaded directly (no lazy loading) */}
       <section id="roiCalculator" className="w-full">
-        <Suspense fallback={<SectionLoader />}>
-          <RoiCalculator />
-        </Suspense>
+        <RoiCalculator />
       </section>
       
-      {/* Load remaining components progressively as user scrolls */}
+      {/* Load remaining components with proper suspense boundaries */}
       <section id="problem" className="w-full">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.problem || deviceType === 'mobile') && <ProblemStatement />}
+          <ProblemStatement />
         </Suspense>
       </section>
       
       <section id="solution" className="w-full">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.solution || deviceType === 'mobile') && <Solution />}
+          <Solution />
         </Suspense>
       </section>
       
       <section id="howItWorks" className="w-full">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.howItWorks || deviceType === 'mobile') && <HowItWorks />}
+          <HowItWorks />
         </Suspense>
       </section>
       
       <section id="results" className="w-full">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.results || deviceType === 'mobile') && <Results />}
+          <Results />
         </Suspense>
       </section>
       
       <section id="pricing" className="w-full">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.pricing || deviceType === 'mobile') && <Pricing />}
+          <Pricing />
         </Suspense>
       </section>
       
       <section id="guarantee" className="w-full">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.guarantee || deviceType === 'mobile') && <Guarantee />}
+          <Guarantee />
         </Suspense>
       </section>
       
       <section id="team" className="w-full">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.team || deviceType === 'mobile') && <TeamExperts />}
+          <TeamExperts />
         </Suspense>
       </section>
       
       <section id="about" className="w-full">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.about || deviceType === 'mobile') && <About />}
+          <About />
         </Suspense>
       </section>
       
       <section id="faq" className="w-full">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.faq || deviceType === 'mobile') && <FAQ />}
+          <FAQ />
         </Suspense>
       </section>
       
