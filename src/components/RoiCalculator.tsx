@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Calculator } from "lucide-react";
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -311,23 +312,23 @@ const RoiCalculator = () => {
       <div className="section-container">
         <header className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-2">
-            <span className="gradient-text-blue">Review & Local SEO</span>{' '}
-            <span className="gradient-text-orange">ROI Calculator</span>
+            <span className="text-eagle-blue">Review & Local SEO</span>{' '}
+            <span className="text-eagle-orange">ROI Calculator</span>
           </h2>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg text-white max-w-3xl mx-auto">
             Discover how online reviews and Google local rankings combine to dramatically increase your business revenue
           </p>
         </header>
         
         <div className="grid md:grid-cols-12 gap-8 px-4">
           {/* Input Section */}
-          <div className="md:col-span-5 bg-black/20 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-eagle-blue/20">
+          <div className="md:col-span-5 bg-black/30 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-eagle-blue/30">
             <h3 className="text-2xl font-semibold text-eagle-blue mb-6">Your Business Information</h3>
             
             {/* Removed Industry/Sector field */}
 
             <div className="mb-5">
-              <label className="block text-gray-200 font-medium mb-2" htmlFor="monthlyRevenue">
+              <label className="block text-white font-medium mb-2" htmlFor="monthlyRevenue">
                 Monthly Revenue (£)
                 <span className="relative ml-1 text-gray-400 group">
                   <span className="cursor-help">?</span>
@@ -348,7 +349,7 @@ const RoiCalculator = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
               <div>
-                <label className="block text-gray-200 font-medium mb-2" htmlFor="currentStarRating">
+                <label className="block text-white font-medium mb-2" htmlFor="currentStarRating">
                   Current Star Rating
                   <span className="relative ml-1 text-gray-400 group">
                     <span className="cursor-help">?</span>
@@ -372,7 +373,7 @@ const RoiCalculator = () => {
                 </div>
               </div>
               <div>
-                <label className="block text-gray-200 font-medium mb-2" htmlFor="targetStarRating">
+                <label className="block text-white font-medium mb-2" htmlFor="targetStarRating">
                   Target Star Rating
                   <span className="relative ml-1 text-gray-400 group">
                     <span className="cursor-help">?</span>
@@ -399,7 +400,7 @@ const RoiCalculator = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
               <div>
-                <label className="block text-gray-200 font-medium mb-2" htmlFor="currentReviews">
+                <label className="block text-white font-medium mb-2" htmlFor="currentReviews">
                   Current # of Reviews
                   <span className="relative ml-1 text-gray-400 group">
                     <span className="cursor-help">?</span>
@@ -418,7 +419,7 @@ const RoiCalculator = () => {
                 />
               </div>
               <div>
-                <label className="block text-gray-200 font-medium mb-2" htmlFor="monthlyNewReviews">
+                <label className="block text-white font-medium mb-2" htmlFor="monthlyNewReviews">
                   Monthly New Reviews
                   <span className="relative ml-1 text-gray-400 group">
                     <span className="cursor-help">?</span>
@@ -440,7 +441,7 @@ const RoiCalculator = () => {
 
             {/* Simplified Local Search Ranking - removed options */}
             <div className="mb-6">
-              <label className="block text-gray-200 font-medium mb-2" htmlFor="currentRanking">
+              <label className="block text-white font-medium mb-2" htmlFor="currentRanking">
                 Current Local Search Ranking
                 <span className="relative ml-1 text-gray-400 group">
                   <span className="cursor-help">?</span>
@@ -458,7 +459,7 @@ const RoiCalculator = () => {
             </div>
 
             <div className="mb-6">
-              <label className="block text-gray-200 font-medium mb-2" htmlFor="projectionMonths">
+              <label className="block text-white font-medium mb-2" htmlFor="projectionMonths">
                 Projection Timeline (Months)
                 <span className="relative ml-1 text-gray-400 group">
                   <span className="cursor-help">?</span>
@@ -491,7 +492,7 @@ const RoiCalculator = () => {
           </div>
 
           {/* Results Section */}
-          <div className="md:col-span-7 bg-black/20 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-eagle-blue/20">
+          <div className="md:col-span-7 bg-black/30 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-eagle-orange/30">
             <h3 className="text-2xl font-semibold text-eagle-orange mb-6">Your Projected ROI Results</h3>
             
             <div className="mb-6 h-64">
