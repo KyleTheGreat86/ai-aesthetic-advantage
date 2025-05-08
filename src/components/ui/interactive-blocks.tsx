@@ -1,4 +1,5 @@
 
+import { useState, useEffect } from "react";
 import { Gravity, MatterBody } from "./gravity";
 import { Shield, Zap, TrendingUp, Rocket, HandCoins, User } from "lucide-react";
 
@@ -21,6 +22,10 @@ const BlockContent = ({ text, icon, color }: { text: string, icon: React.ReactNo
 };
 
 export const InteractiveBlocks = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [initialY] = useState("-100px"); // Starting position above the viewport
+
+  // Define the blocks
   const blocks: BlockProps[] = [
     { 
       text: "Personalized", 
@@ -76,6 +81,15 @@ export const InteractiveBlocks = () => {
     },
   ];
 
+  // Set loaded state after a small delay to ensure component is mounted
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 500);
+    
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="w-full h-[350px] md:h-[400px] relative">
       <Gravity 
@@ -83,13 +97,18 @@ export const InteractiveBlocks = () => {
         className="w-full h-full"
         resetOnResize={true}
         grabCursor={true}
+        autoStart={isLoaded} // Only start when component is loaded
       >
         {blocks.map((block, index) => (
           <MatterBody
             key={index}
-            matterBodyOptions={{ friction: 0.2, restitution: 0.3 }}
+            matterBodyOptions={{ 
+              friction: 0.2, 
+              restitution: 0.4, // Slightly bouncier
+              density: 0.001 // Keep lightweight
+            }}
             x={block.x}
-            y={block.y}
+            y={isLoaded ? initialY : block.y} // Start from top if loaded
             angle={block.angle || 0}
             isDraggable={true}
           >
