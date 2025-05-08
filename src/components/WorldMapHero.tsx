@@ -105,7 +105,7 @@ const WorldMapHero = () => {
           </motion.p>
         </div>
 
-        {/* Add the interactive blocks */}
+        {/* Interactive blocks */}
         <motion.div
           className="w-full mt-12"
           initial={{ opacity: 0, y: 30 }}
