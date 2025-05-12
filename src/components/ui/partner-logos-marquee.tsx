@@ -1,68 +1,58 @@
 
 import React from "react"
 import { Marquee } from "@/components/ui/marquee"
-import { Building, Building2, Store, Home, Landmark, Utensils, Car, Hammer, Scissors, Truck, Leaf, Wrench } from "lucide-react"
+import { Building, Building2, Scale, Gavel, Landmark, Database, Server, File, BookOpen, BarChart3 } from "lucide-react"
 
 // Define business categories outside component to prevent recreating on each render
 const BusinessCategories = [
   {
-    name: "Restaurants & Cafes",
-    icon: Utensils,
+    name: "Patent Law",
+    icon: File,
     color: "text-eagle-blue"
   },
   {
-    name: "Real Estate",
-    icon: Home,
-    color: "text-eagle-orange"
-  },
-  {
-    name: "Automotive",
-    icon: Car,
-    color: "text-eagle-blue"
-  },
-  {
-    name: "Retail Shops",
-    icon: Store,
-    color: "text-eagle-orange"
-  },
-  {
-    name: "Professional Services",
+    name: "Trademark Attorneys",
     icon: Landmark,
+    color: "text-eagle-orange"
+  },
+  {
+    name: "IP Litigation",
+    icon: Gavel,
     color: "text-eagle-blue"
   },
   {
-    name: "Small Businesses",
+    name: "Corporate Law",
     icon: Building,
     color: "text-eagle-orange"
   },
   {
-    name: "Medical & Healthcare",
+    name: "IP Portfolio Management",
+    icon: Database,
+    color: "text-eagle-blue"
+  },
+  {
+    name: "Legal Research",
+    icon: BookOpen,
+    color: "text-eagle-orange"
+  },
+  {
+    name: "IP Strategy",
+    icon: BarChart3,
+    color: "text-eagle-blue"
+  },
+  {
+    name: "International IP",
+    icon: Scale,
+    color: "text-eagle-orange"
+  },
+  {
+    name: "AI Legal Tech",
+    icon: Server,
+    color: "text-eagle-blue"
+  },
+  {
+    name: "Law Firms",
     icon: Building2,
-    color: "text-eagle-blue"
-  },
-  {
-    name: "Contractors",
-    icon: Hammer,
-    color: "text-eagle-orange"
-  },
-  {
-    name: "Salons & Spas",
-    icon: Scissors,
-    color: "text-eagle-blue"
-  },
-  {
-    name: "Home Services",
-    icon: Wrench,
-    color: "text-eagle-orange"
-  },
-  {
-    name: "Landscaping",
-    icon: Leaf, 
-    color: "text-eagle-blue"
-  },
-  {
-    name: "Delivery Services",
-    icon: Truck,
     color: "text-eagle-orange"
   }
 ];

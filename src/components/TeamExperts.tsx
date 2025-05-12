@@ -45,17 +45,17 @@ const TeamExperts = () => {
             Meet The Team
           </h2>
           <p className="text-lg text-gray-300 mb-8">
-            Led by our founder Kyle Holland, we bring decades of experience in digital marketing and review management strategies for local businesses worldwide.
+            Led by our founder Kyle Holland, we bring together expertise in AI, automation, and intellectual property law to create transformative solutions for legal professionals worldwide.
           </p>
           
-          {/* START YOUR FREE 30-DAY TRIAL button */}
+          {/* Schedule Demo button */}
           <div className="inline-block mb-10 rounded-lg">
             <a
               href="https://calendly.com/weareagencyeagleeye/30min"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <EagleButton>START YOUR FREE 30-DAY TRIAL</EagleButton>
+              <EagleButton>SCHEDULE YOUR AI DEMO</EagleButton>
             </a>
           </div>
           

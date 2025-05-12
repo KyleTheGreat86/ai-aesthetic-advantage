@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useRef } from "react";
-import { Check, Eye, Shield } from "lucide-react";
+import { Check, Server, Shield } from "lucide-react";
 import { EagleButton } from "./ui/eagle-button";
 
 const Pricing = () => {
@@ -38,15 +38,15 @@ const Pricing = () => {
   }, [isVisible]);
 
   const includedItems = [
-    "Unlimited Review Requests",
-    "Personalized Text & Email Campaigns",
-    "Custom Image & Video Review Requests",
-    "AI-Powered Response Management",
-    "Google Business Profile Optimization",
-    "Multi-Location Management",
-    "Competitor Review Monitoring",
-    "Monthly Performance Reports",
-    "Only Pay For 4-5 Star Reviews",
+    "Patent Search AI",
+    "Document Drafting Automation",
+    "Deadline Tracking & Alerts",
+    "Client Communication AI",
+    "CMS/DMS Integration",
+    "Enterprise-Grade Security",
+    "Custom AI Agent Training",
+    "Unlimited Users",
+    "24/7 Technical Support",
   ];
 
   // Updated Calendly booking URL
@@ -63,7 +63,7 @@ const Pricing = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
             Simple, Results-Based Pricing
           </h2>
-          <p className="text-center text-eagle-orange font-medium mb-6">Only Pay For Successful 4-5 Star Google Reviews</p>
+          <p className="text-center text-eagle-orange font-medium mb-6">Only Pay for Proven ROI</p>
           
           {/* Adding the Book Your Free Strategy Call button */}
           <div className="text-center mb-8">
@@ -74,7 +74,7 @@ const Pricing = () => {
               className="inline-block"
             >
               <EagleButton className="uppercase font-bold">
-                START YOUR FREE 30-DAY TRIAL
+                SCHEDULE YOUR AI DEMO
               </EagleButton>
             </a>
           </div>
@@ -92,23 +92,33 @@ const Pricing = () => {
               </div>
 
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold mb-2">Unlimited-Reviews</h3>
-                <p className="text-gray-300 mb-4">For Local Businesses Worldwide</p>
+                <h3 className="text-2xl font-bold mb-2">Enterprise Solution</h3>
+                <p className="text-gray-300 mb-4">For IP Law Firms Worldwide</p>
                 
                 <div className="flex flex-col items-center justify-center mb-2">
                   <div className="flex items-baseline">
-                    <span className="text-3xl">$</span>
-                    <span className="text-5xl font-bold">129</span>
+                    <span className="text-3xl">£</span>
+                    <span className="text-5xl font-bold">10,000</span>
                   </div>
                   <span className="text-gray-400 font-medium mt-1">
-                    /Month
+                    Setup Fee
+                  </span>
+                </div>
+                
+                <div className="flex flex-col items-center justify-center mb-2">
+                  <div className="flex items-baseline">
+                    <span className="text-3xl">£</span>
+                    <span className="text-5xl font-bold">2,000</span>
+                  </div>
+                  <span className="text-gray-400 font-medium mt-1">
+                    Monthly
                   </span>
                 </div>
                 
                 {/* Updated price increase urgency notice */}
                 <div className="flex items-center justify-center text-sm">
-                  <span className="text-gray-300 mr-2">By August:</span>
-                  <span className="line-through text-red-400 font-medium">$199</span>
+                  <span className="text-gray-300 mr-2">Regular Price:</span>
+                  <span className="line-through text-red-400 font-medium">£15,000 setup</span>
                 </div>
               </div>
 
@@ -140,13 +150,13 @@ const Pricing = () => {
                   className="inline-block w-full"
                 >
                   <EagleButton className="w-full uppercase font-bold">
-                    START YOUR FREE 30-DAY TRIAL
+                    CLAIM LIMITED DISCOUNT
                   </EagleButton>
                 </a>
               </div>
               
               <div className="mt-3 text-center text-sm text-gray-400">
-                <span>*No long-term contracts - Cancel anytime</span>
+                <span>*30-day money-back guarantee - Includes 3X ROI guarantee</span>
               </div>
 
               <div className="absolute -inset-1 bg-gradient-to-r from-eagle-blue to-eagle-orange opacity-30 blur-lg -z-10 group-hover:opacity-50 transition-opacity"></div>

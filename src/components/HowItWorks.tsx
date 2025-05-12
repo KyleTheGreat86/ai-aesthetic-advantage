@@ -1,34 +1,34 @@
 
 import { useState, useEffect, useRef } from "react";
-import { Check, Clock, TrendingUp, Eye, BarChart3, MessageSquare } from "lucide-react";
+import { Check, Database, Search, TrendingUp, Server, BarChart3, User } from "lucide-react";
 import { EagleButton } from "./ui/eagle-button";
 
 const steps = [
   {
     number: "01",
     title: "Quick 15-Minute Setup",
-    details: "We connect to your customer database and customize your review request templates that match your brand voice.",
-    icon: Clock,
+    details: "Connect your CMS/DMS via API. Our system integrates with all major legal practice management software.",
+    icon: Database,
     iconColor: "text-eagle-blue",
   },
   {
     number: "02",
-    title: "Smart Review Collection Begins",
-    details: "Our AI timing system identifies the perfect moment to request reviews from satisfied customers, using proven psychological triggers.",
-    icon: MessageSquare,
+    title: "AI Takes Over",
+    details: "Our specialized agents handle patent searches, draft documents, and track critical deadlines without human intervention.",
+    icon: Server,
     iconColor: "text-eagle-orange",
   },
   {
     number: "03",
-    title: "Review Growth & Leverage",
-    details: "As your ratings climb and review count grows, we help you showcase these assets across your website, social media, and Google Business Profile.",
-    icon: TrendingUp,
+    title: "Attorney Review",
+    details: "Human-in-the-loop approval ensures all AI output meets your quality standards before client delivery.",
+    icon: User,
     iconColor: "text-eagle-blue",
   },
   {
     number: "04",
-    title: "Analytics & Optimization",
-    details: "Track your growth against local competitors with our dashboard, while our system continuously improves based on response patterns.",
+    title: "Analytics Dashboard",
+    details: "Track time saved, client growth, and ROI metrics with our comprehensive analytics dashboard.",
     icon: BarChart3,
     iconColor: "text-eagle-orange",
   }
@@ -80,7 +80,7 @@ const HowItWorks = () => {
       <div className="section-container relative z-10">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">
-            How Our Google Review System Works <Eye className="inline-block text-eagle-blue mb-1" size={30} />
+            How Our AI Infrastructure Works <Server className="inline-block text-eagle-blue mb-1" size={30} />
           </h2>
 
           <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -118,9 +118,9 @@ const HowItWorks = () => {
                   <p className="text-gray-300 mb-6">{step.details}</p>
                   
                   {index === 0 && (
-                    <a href="#pricing" className="inline-block">
+                    <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer" className="inline-block">
                       <EagleButton size="sm">
-                        Start Free
+                        Schedule Demo
                       </EagleButton>
                     </a>
                   )}

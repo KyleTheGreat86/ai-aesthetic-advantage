@@ -34,20 +34,20 @@ const About = () => {
   // Memoize values to prevent unnecessary re-renders
   const values = [
     {
-      title: "Results First",
-      description: "We measure success by your results, not our activities",
+      title: "Innovation First",
+      description: "We measure success by how we transform legal workflows, not by traditional metrics",
     },
     {
-      title: "Invisible Technology",
-      description: "Our systems work seamlessly in the background",
+      title: "Enterprise Security",
+      description: "Your client data is protected with the highest level of security and confidentiality",
     },
     {
-      title: "Local Business Expertise",
-      description: "We understand the unique challenges local businesses face in different markets",
+      title: "IP Law Expertise",
+      description: "Our team combines legal and AI expertise to deliver solutions specific to intellectual property practice",
     },
     {
-      title: "Continuous Improvement",
-      description: "Your systems get better every month",
+      title: "Continuous Learning",
+      description: "Our AI systems get smarter with every document, improving outcomes over time",
     },
   ];
 
@@ -72,13 +72,13 @@ const About = () => {
           >
             <div>
               <p className="text-lg mb-4">
-                Agency Eagle Eye was founded with a simple mission: help local businesses worldwide stop losing potential customers through insufficient online reviews and suboptimal Google visibility.
+                Agency Eagle Eye was founded with a simple mission: help IP law firms worldwide stop losing revenue through inefficient processes and outdated technology.
               </p>
               <p className="text-lg mb-4">
-                Our founder Kyle Holland saw how even well-established businesses were missing out on significant revenue due to poor review management, weak online presence, and inability to capitalize on Google's local search algorithms.
+                Our founder Kyle Holland saw how even prestigious law firms were struggling with manual patent searches, time-consuming document drafting, and error-prone deadline tracking — all of which reduced profitability and client satisfaction.
               </p>
               <p className="text-lg">
-                By combining cutting-edge AI technology with deep expertise in digital marketing, we've created systems that deliver measurable, consistent results for local businesses worldwide seeking sustainable growth through Google reviews.
+                By combining cutting-edge AI technology with deep expertise in intellectual property processes, we've created systems that deliver measurable, consistent results for legal professionals seeking to stay competitive in a rapidly evolving industry.
               </p>
             </div>
           </div>
@@ -94,7 +94,7 @@ const About = () => {
               style={{ transitionDelay: "200ms" }}
             >
               <p className="text-lg text-center max-w-3xl mx-auto">
-                To help local businesses achieve their full revenue potential through intelligent review management, without adding to their team's workload.
+                To revolutionize IP law practice through AI-powered infrastructure that increases attorney productivity while enhancing the quality of legal services.
               </p>
             </div>
 

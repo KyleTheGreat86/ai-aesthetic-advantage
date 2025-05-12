@@ -21,10 +21,10 @@ const TestimonialsSection = memo(({ isVisible }: TestimonialsSectionProps) => {
         </div>
         <div className="flex-grow">
           <p className="text-lg italic">
-            "After using Eagle Eye we are outranking businesses that have been in our area for <span className="text-eagle-orange font-semibold">10+ years!</span> The Google reviews we're getting are bringing in more calls every day."
+            "Eagle Eye's AI paid for itself in <span className="text-eagle-orange font-semibold">8 weeks.</span> We're handling 40% more patent applications with the same team size, and our clients are amazed by how quickly we can respond to their needs."
           </p>
           <p className="mt-2 text-gray-400">
-            – Daniel Plourde, Dryer Vent Superheros PBC
+            – Sarah Kennedy, Managing Partner, London IP Group
           </p>
         </div>
       </div>

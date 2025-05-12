@@ -52,7 +52,7 @@ const Results = () => {
       <div className="section-container relative z-10">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
-            Real Results From <span className="text-eagle-blue">Real Local Businesses</span>
+            Case Studies From <span className="text-eagle-blue">Real IP Law Firms</span>
           </h2>
           
           {/* Only render when visible */}
@@ -75,12 +75,12 @@ const Results = () => {
           </div>
 
           <div className="text-center mt-4 text-sm text-gray-400 italic">
-            *Results vary by industry, location, and business type. On average, our clients see a 210% increase in Google reviews within the first 90 days.
+            *Results vary by firm size, specialization, and implementation scope. On average, clients see a 210% increase in efficiency and a 30% growth in revenue.
           </div>
 
           <div className="text-center mt-10">
             <a href="#testimonials" className="inline-flex items-center text-eagle-blue hover:text-eagle-blue/80 transition-colors">
-              <span className="font-semibold">See 50+ Other Happy Customers</span>
+              <span className="font-semibold">See 50+ Other Happy Clients</span>
               <ArrowRight size={16} className="ml-2" />
             </a>
           </div>
@@ -89,7 +89,9 @@ const Results = () => {
 
           <div className="mt-12 text-center">
             <a
-              href="#pricing"
+              href="https://calendly.com/weareagencyeagleeye/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block"
             >
               <EagleButton 
@@ -98,7 +100,7 @@ const Results = () => {
                 }`}
                 style={{ transitionDelay: "600ms" }}
               >
-                START YOUR FREE 30-DAY TRIAL
+                SCHEDULE YOUR AI DEMO
               </EagleButton>
             </a>
           </div>

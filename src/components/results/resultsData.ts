@@ -1,82 +1,81 @@
 
 export interface ResultItem {
+  name: string;
   businessType: string;
   location: string;
-  name: string;
+  percentage: number;
   reviews: {
     before: number;
     after: number;
   };
   timeframe: string;
-  percentage: number;
 }
 
-// Pre-defined data to avoid recalculation
 export const resultsData: ResultItem[] = [
   {
-    businessType: "Home Services",
-    location: "Palm Beach, FL",
-    name: "Daniel P.",
+    name: "London IP Group",
+    businessType: "Patent Law",
+    location: "London",
+    percentage: 65,
     reviews: {
-      before: 40,
-      after: 145
+      before: 24,
+      after: 112
     },
-    timeframe: "4 months",
-    percentage: 263
+    timeframe: "12 months"
   },
   {
-    businessType: "Recreation Services",
-    location: "Florida",
-    name: "Davin K.",
+    name: "Edinburgh Law Partners",
+    businessType: "Trademark",
+    location: "Edinburgh",
+    percentage: 48,
     reviews: {
-      before: 23,
-      after: 685
+      before: 18,
+      after: 72
     },
-    timeframe: "22 months",
-    percentage: 2878
+    timeframe: "9 months"
   },
   {
-    businessType: "Local Service Provider",
-    location: "Michigan",
-    name: "John M.",
+    name: "Manchester IP",
+    businessType: "Litigation",
+    location: "Manchester",
+    percentage: 73,
     reviews: {
-      before: 157,
-      after: 288
+      before: 11,
+      after: 78
     },
-    timeframe: "2 months",
-    percentage: 83
+    timeframe: "6 months"
   },
   {
-    businessType: "Junk Removal",
-    location: "Tampa, FL",
-    name: "Logan S.",
+    name: "Global Patent Services",
+    businessType: "Patent Law",
+    location: "London",
+    percentage: 52,
     reviews: {
-      before: 127,
-      after: 357
+      before: 32,
+      after: 89
     },
-    timeframe: "4 months",
-    percentage: 181
+    timeframe: "8 months"
   },
   {
-    businessType: "Photography Studio",
-    location: "New York",
-    name: "Jarell T.",
+    name: "Riverside IP Solutions",
+    businessType: "Trademark",
+    location: "Liverpool",
+    percentage: 61,
     reviews: {
-      before: 55,
-      after: 122
+      before: 15,
+      after: 64
     },
-    timeframe: "1 month",
-    percentage: 121
+    timeframe: "7 months"
   },
   {
-    businessType: "Dental Clinic",
-    location: "Chicago",
-    name: "Dr. Lawrence",
+    name: "Bristol Legal Tech",
+    businessType: "Corporate",
+    location: "Bristol",
+    percentage: 57,
     reviews: {
-      before: 39,
-      after: 428
+      before: 19,
+      after: 68
     },
-    timeframe: "2 months",
-    percentage: 997
+    timeframe: "10 months"
   }
 ];

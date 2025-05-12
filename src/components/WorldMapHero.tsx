@@ -88,9 +88,9 @@ const WorldMapHero = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <span className="gradient-text-blue">Dominate Local Search</span>
+          <span className="gradient-text-blue">AI-Powered IP Law</span>
           <br />
-          <span className="gradient-text-orange">With 5-Star Google Reviews</span>
+          <span className="gradient-text-orange">Infrastructure</span>
         </motion.h1>
         
         <div className="inline-block p-2 rounded-lg max-w-3xl mx-auto bg-white/5 backdrop-blur-sm border border-white/10">
@@ -100,7 +100,7 @@ const WorldMapHero = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            The #1 Review Management Platform Helping Local Businesses Worldwide Rank Higher & Convert More Customers
+            70% Faster, 30% More Revenue for IP Law Firms Worldwide
           </motion.p>
         </div>
       </div>

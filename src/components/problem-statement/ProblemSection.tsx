@@ -17,7 +17,7 @@ const ProblemSection = memo(({ problemItems, animationStarted, dollarAmount }: P
   return (
     <div className="max-w-4xl mx-auto text-center">
       <h2 className="text-3xl md:text-4xl font-bold mb-6">
-        Is Your Audiology Clinic Losing
+        Is Your IP Law Firm Losing
         <span
           className={`gradient-text-orange relative ml-2 inline-block ${
             animationStarted ? "opacity-100" : "opacity-0"
@@ -26,7 +26,7 @@ const ProblemSection = memo(({ problemItems, animationStarted, dollarAmount }: P
         >
           <span className="text-eagle-orange font-bold animate-pulse-slow">{dollarAmount}</span>
         </span>
-        <span className="ml-2">Monthly </span>
+        <span className="ml-2">Monthly</span>
         Due To:
       </h2>
 
@@ -49,9 +49,9 @@ const ProblemSection = memo(({ problemItems, animationStarted, dollarAmount }: P
         } transition-opacity duration-500`}
         style={{ transitionDelay: "800ms" }}
       >
-        Most audiology clinics lose{" "}
+        Most IP law firms lose{" "}
         <span className="text-eagle-orange font-semibold">
-          40% of potential revenue
+          30% of potential revenue
         </span>{" "}
         to these fixable problems.
       </p>

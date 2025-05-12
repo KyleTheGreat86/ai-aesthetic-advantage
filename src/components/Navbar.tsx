@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Menu, X, Eye } from "lucide-react";
+import { Menu, X, Server } from "lucide-react";
 import eagleLogo from "/lovable-uploads/b797bc22-5a08-4a8e-a9e5-b0a065bd73a4.png";
 
 const Navbar = () => {
@@ -45,10 +45,22 @@ const Navbar = () => {
                   Home
                 </a>
                 <a
+                  href="#how-it-works"
+                  className="text-white hover:text-eagle-blue transition-colors"
+                >
+                  How It Works
+                </a>
+                <a
+                  href="#roiCalculator"
+                  className="text-white hover:text-eagle-blue transition-colors"
+                >
+                  ROI Calculator
+                </a>
+                <a
                   href="#results"
                   className="text-white hover:text-eagle-blue transition-colors"
                 >
-                  Results
+                  Case Studies
                 </a>
                 <a
                   href="#pricing"
@@ -79,13 +91,13 @@ const Navbar = () => {
               Log In
             </a>
             <a
-              href="https://youtu.be/hLvm2JHzOF4"
+              href="https://calendly.com/weareagencyeagleeye/30min"
               target="_blank"
               rel="noopener noreferrer"
               className="eagle-btn-primary inline-flex items-center gap-2 relative group overflow-hidden"
             >
-              <span>START FREE</span>
-              <Eye size={16} className="text-white" />
+              <span>SCHEDULE AI DEMO</span>
+              <Server size={16} className="text-white" />
               <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
               <div className="absolute -inset-1 bg-eagle-blue/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </a>
@@ -113,11 +125,25 @@ const Navbar = () => {
               Home
             </a>
             <a
+              href="#how-it-works"
+              className="block px-3 py-2 text-white hover:bg-eagle-blue/10 rounded-md"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              How It Works
+            </a>
+            <a
+              href="#roiCalculator"
+              className="block px-3 py-2 text-white hover:bg-eagle-blue/10 rounded-md"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              ROI Calculator
+            </a>
+            <a
               href="#results"
               className="block px-3 py-2 text-white hover:bg-eagle-blue/10 rounded-md"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Results
+              Case Studies
             </a>
             <a
               href="#pricing"
@@ -149,13 +175,13 @@ const Navbar = () => {
                 Log In
               </a>
               <a
-                href="https://youtu.be/hLvm2JHzOF4"
+                href="https://calendly.com/weareagencyeagleeye/30min"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block px-3 py-2 text-eagle-blue font-semibold hover:bg-eagle-blue/10 rounded-md"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                START FREE
+                SCHEDULE AI DEMO
               </a>
             </div>
           </div>

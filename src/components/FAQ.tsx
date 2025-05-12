@@ -41,34 +41,34 @@ const FAQ = () => {
   // FAQ data
   const faqs = [
     {
-      question: "How quickly will I see my Google review count increase?",
+      question: "How quickly can we implement the AI solution?",
       answer:
-        "Most businesses see a 30-50% increase in their first 30 days. Factors like customer volume and industry can influence results, but our system is designed to maximize response rates from day one.",
+        "Most IP firms are fully operational within 28 days from signing. Our implementation team handles the setup, integration, and initial AI training. The system continues to improve as it learns your specific processes and requirements.",
     },
     {
-      question: "Will these be authentic reviews from real customers?",
+      question: "Is our data secure and confidential?",
       answer:
-        "Absolutely. We NEVER use fake reviews or questionable tactics. Our system only reaches out to your actual customers and makes it easier for them to leave genuine feedback. This ensures Google compliance and builds sustainable trust.",
+        "Absolutely. We utilize AES-256 encryption, strict access controls, and are fully GDPR compliant. Our system is built with attorney-client privilege in mind, and we sign comprehensive NDAs. No client data is ever used to train general AI models.",
     },
     {
-      question: "How does this improve my Google ranking?",
+      question: "Can your AI integrate with our existing legal software?",
       answer:
-        "Google's local algorithm heavily weighs review quantity, quality, and recency. Our system optimizes all three factors, which typically results in ranking increases within 45-60 days as your review profile strengthens.",
+        "Yes, we integrate with all major legal practice management systems including Clio, Anaqua, CPA Global, and many others. Our API-first approach allows us to connect with virtually any software your firm uses.",
     },
     {
-      question: "Can I use this for multiple business locations?",
+      question: "How does the pricing structure work?",
       answer:
-        "Yes! Our platform is designed to handle everything from single location businesses to enterprises with hundreds of locations. Each location can have customized settings while being managed from a single dashboard.",
+        "Our pricing includes an initial setup fee and a monthly subscription. The setup fee covers implementation, integration, and training the AI on your specific procedures and data. The monthly fee covers ongoing support, updates, and continuous AI improvements.",
     },
     {
-      question: "What makes Eagle Eye different from other review platforms?",
+      question: "What makes Eagle Eye different from other legal tech solutions?",
       answer:
-        "Unlike general reputation management tools, we specialize exclusively in Google reviews for local businesses. Our pay-for-performance model, specialized AI request timing, and local search optimization focus consistently outperform generic solutions by 2-3X.",
+        "Unlike general AI tools, our system is specifically built for IP law workflows. Our AI agents are trained on millions of patent documents, legal briefs, and IP-specific content. We offer a 3X ROI guarantee and only succeed when you achieve measurable productivity gains.",
     },
     {
-      question: "Is there any setup fee?",
+      question: "Is there a money-back guarantee?",
       answer:
-        "None. The 30-day trial is completely free, including implementation.",
+        "Yes, we provide a 30-day money-back guarantee if you're not satisfied with our solution. Additionally, we offer a 3X ROI guarantee within the first 90 days of implementation.",
     },
   ];
 
@@ -130,7 +130,7 @@ const FAQ = () => {
           >
             <div>
               <p className="mb-3 sm:mb-4 text-base sm:text-lg">
-                Have more questions about boosting your Google reviews? We're here to help.
+                Have more questions about our AI solution for your IP law firm? We're here to help.
               </p>
               <a href="#contact" className="eagle-btn-outline text-sm sm:text-base">
                 Contact Us

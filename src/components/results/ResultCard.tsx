@@ -1,8 +1,8 @@
 
 import { memo } from "react";
 import { TrendingUp } from "lucide-react";
-import FiveStars from "./FiveStars";
 import { ResultItem } from "./resultsData";
+import FiveStars from "./FiveStars";
 
 interface ResultCardProps {
   item: ResultItem;
@@ -34,11 +34,11 @@ const ResultCard = memo(({ item, index, isVisible, animateNumbers }: ResultCardP
       <span className="text-2xl font-bold text-white">
         {animateNumbers ? item.reviews.after : item.reviews.before}
       </span>
-      <FiveStars />
+      <span className="text-xs ml-1 text-gray-400">hours saved</span>
     </div>
     
     <p className="text-gray-300 text-sm">
-      Google reviews in <span className="text-eagle-blue font-medium">{item.timeframe}</span>
+      Time saved in <span className="text-eagle-blue font-medium">{item.timeframe}</span>
     </p>
   </div>
 ));
