@@ -11,28 +11,35 @@ const Hero = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const videoRef = useRef<HTMLIFrameElement>(null);
 
-  // Words for typewriter effect
+  // Words for typewriter effect - updated with full headline
   const words = [
     {
       text: "We",
+      className: "text-white",
     },
     {
       text: "Help",
+      className: "text-white",
     },
     {
       text: "U.S.",
+      className: "text-white",
     },
     {
       text: "CRE",
+      className: "text-white",
     },
     {
       text: "Brokers",
+      className: "text-white",
     },
     {
       text: "Close",
+      className: "text-white",
     },
     {
       text: "More",
+      className: "text-white",
     },
     {
       text: "$3M–$20M",
@@ -40,9 +47,11 @@ const Hero = () => {
     },
     {
       text: "Off-Market",
+      className: "text-white",
     },
     {
       text: "&",
+      className: "text-white",
     },
     {
       text: "NNN",
@@ -50,9 +59,11 @@ const Hero = () => {
     },
     {
       text: "Deals",
+      className: "text-white",
     },
     {
       text: "Using",
+      className: "text-white",
     },
     {
       text: "Next-Gen",
@@ -61,6 +72,42 @@ const Hero = () => {
     {
       text: "AI",
       className: "text-eagle-blue",
+    },
+    {
+      text: "—",
+      className: "text-white",
+    },
+    {
+      text: "No",
+      className: "text-white",
+    },
+    {
+      text: "Extra",
+      className: "text-white",
+    },
+    {
+      text: "Staff,",
+      className: "text-white",
+    },
+    {
+      text: "No",
+      className: "text-white",
+    },
+    {
+      text: "Lead",
+      className: "text-white",
+    },
+    {
+      text: "Leakage,",
+      className: "text-white",
+    },
+    {
+      text: "No",
+      className: "text-white",
+    },
+    {
+      text: "Busywork",
+      className: "text-white",
     },
   ];
 
@@ -101,7 +148,7 @@ const Hero = () => {
           <TypewriterEffect words={words} className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold" />
         </div>
         
-        <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
+        <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-white">
           Our Eagle Eye AI Autopilot eliminates <span className="text-eagle-orange font-semibold">90% of manual work</span>—scouring markets, analyzing deals, nurturing clients, and scheduling tours—so you close more <span className="text-eagle-blue font-semibold">$5M+ off-market deals</span> while competitors chase cold leads.
         </p>
 

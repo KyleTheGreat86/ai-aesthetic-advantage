@@ -39,7 +39,7 @@ export const TypewriterEffect = ({
         }
       );
     }
-  }, [isInView]);
+  }, [isInView, animate]);
 
   const renderWords = () => {
     return (
@@ -53,7 +53,7 @@ export const TypewriterEffect = ({
                     opacity: 0,
                   }}
                   key={`char-${index}`}
-                  className={cn("dark:text-white text-black", word.className)}
+                  className={cn("text-white", word.className)}
                 >
                   {char}
                 </motion.span>
