@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useRef } from "react";
-import { FiveStars } from "./results/FiveStars";
+import FiveStars from "./results/FiveStars";
 import {
   Carousel,
   CarouselContent,
