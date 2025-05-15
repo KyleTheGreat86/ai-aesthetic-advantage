@@ -25,13 +25,7 @@ const WorldMapHero = lazy(() =>
     .then(module => ({ default: memo(module.default) }))
 );
 
-// Lazy load the ROI Calculator with high priority after the video
-const RoiCalculator = lazy(() => 
-  import("../components/RoiCalculator")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-// Lazy load components with lower loading priority
+// Load remaining components
 const ProblemStatement = lazy(() => 
   import("../components/ProblemStatement")
     .then(module => ({ default: memo(module.default) }))
@@ -39,6 +33,11 @@ const ProblemStatement = lazy(() =>
 
 const Solution = lazy(() => 
   import("../components/Solution")
+    .then(module => ({ default: memo(module.default) }))
+);
+
+const Benefits = lazy(() => 
+  import("../components/Benefits")
     .then(module => ({ default: memo(module.default) }))
 );
 
@@ -54,16 +53,6 @@ const Results = lazy(() =>
 
 const Pricing = lazy(() => 
   import("../components/Pricing")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const Guarantee = lazy(() => 
-  import("../components/Guarantee")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const TeamExperts = lazy(() => 
-  import("../components/TeamExperts")
     .then(module => ({ default: memo(module.default) }))
 );
 
@@ -94,14 +83,12 @@ const Index = () => {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [visibleSections, setVisibleSections] = useState({
     worldMap: false,
-    roiCalculator: false,
     problem: false,
     solution: false,
+    benefits: false,
     howItWorks: false,
     results: false,
     pricing: false,
-    guarantee: false,
-    team: false,
     about: false,
     faq: false,
     footer: false
@@ -112,7 +99,7 @@ const Index = () => {
     setHasLoaded(true);
     
     // Update page title
-    document.title = "Eagle Eye | #1 Google Review Management for Local Businesses";
+    document.title = "Eagle Eye | AI Infrastructure for CRE Brokers";
     
     // Smooth scrolling with passive event listeners for performance
     const handleAnchorClick = (e: MouseEvent) => {
@@ -187,69 +174,51 @@ const Index = () => {
         <BackgroundGrid />
       </Suspense>
       
-      <Suspense fallback={<SectionLoader />}>
-        <WorldMapHero />
-      </Suspense>
-      
       <Hero />
       
-      {/* ROI Calculator section with higher visibility (no conditional loading) */}
-      <section id="roiCalculator" className="w-full">
-        <Suspense fallback={<SectionLoader />}>
-          <RoiCalculator />
-        </Suspense>
-      </section>
-      
-      {/* Load remaining components progressively as user scrolls */}
-      <section id="problem" className="w-full">
+      <section id="problem">
         <Suspense fallback={<SectionLoader />}>
           {(visibleSections.problem || deviceType === 'mobile') && <ProblemStatement />}
         </Suspense>
       </section>
       
-      <section id="solution" className="w-full">
+      <section id="solution">
         <Suspense fallback={<SectionLoader />}>
           {(visibleSections.solution || deviceType === 'mobile') && <Solution />}
         </Suspense>
       </section>
       
-      <section id="howItWorks" className="w-full">
+      <section id="benefits">
+        <Suspense fallback={<SectionLoader />}>
+          {(visibleSections.benefits || deviceType === 'mobile') && <Benefits />}
+        </Suspense>
+      </section>
+      
+      <section id="how-it-works">
         <Suspense fallback={<SectionLoader />}>
           {(visibleSections.howItWorks || deviceType === 'mobile') && <HowItWorks />}
         </Suspense>
       </section>
       
-      <section id="results" className="w-full">
+      <section id="results">
         <Suspense fallback={<SectionLoader />}>
           {(visibleSections.results || deviceType === 'mobile') && <Results />}
         </Suspense>
       </section>
       
-      <section id="pricing" className="w-full">
+      <section id="pricing">
         <Suspense fallback={<SectionLoader />}>
           {(visibleSections.pricing || deviceType === 'mobile') && <Pricing />}
         </Suspense>
       </section>
       
-      <section id="guarantee" className="w-full">
-        <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.guarantee || deviceType === 'mobile') && <Guarantee />}
-        </Suspense>
-      </section>
-      
-      <section id="team" className="w-full">
-        <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.team || deviceType === 'mobile') && <TeamExperts />}
-        </Suspense>
-      </section>
-      
-      <section id="about" className="w-full">
+      <section id="about">
         <Suspense fallback={<SectionLoader />}>
           {(visibleSections.about || deviceType === 'mobile') && <About />}
         </Suspense>
       </section>
       
-      <section id="faq" className="w-full">
+      <section id="faq">
         <Suspense fallback={<SectionLoader />}>
           {(visibleSections.faq || deviceType === 'mobile') && <FAQ />}
         </Suspense>

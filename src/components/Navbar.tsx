@@ -1,15 +1,30 @@
 
-import { useState, useEffect } from "react";
-import { Menu, X, Server } from "lucide-react";
-import eagleLogo from "/lovable-uploads/b797bc22-5a08-4a8e-a9e5-b0a065bd73a4.png";
+import { useEffect, useState } from "react";
+import { MessageSquare, Menu, X } from "lucide-react";
+import { EagleButton } from "./ui/eagle-button";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const navLinks = [
+    { name: "Home", href: "#home" },
+    { name: "The Problem", href: "#problem" },
+    { name: "Solution", href: "#solution" },
+    { name: "Benefits", href: "#benefits" },
+    { name: "How It Works", href: "#how-it-works" },
+    { name: "Results", href: "#results" },
+    { name: "Pricing", href: "#pricing" },
+    { name: "FAQ", href: "#faq" }
+  ];
+
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -18,176 +33,87 @@ const Navbar = () => {
     };
   }, []);
 
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-eagle-dark/80 backdrop-blur-lg shadow-lg py-2"
-          : "bg-transparent py-3"
+          ? "bg-black/80 backdrop-blur-md shadow-lg"
+          : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex justify-between items-center py-4">
+          {/* Logo */}
           <div className="flex items-center">
-            <a href="#" className="flex-shrink-0">
-              <img
-                className="h-12 w-auto"
-                src={eagleLogo}
-                alt="Agency Eagle Eye"
-              />
-            </a>
-            <div className="hidden md:block ml-10">
-              <div className="flex space-x-6">
-                <a
-                  href="#home"
-                  className="text-white hover:text-eagle-blue transition-colors"
-                >
-                  Home
-                </a>
-                <a
-                  href="#how-it-works"
-                  className="text-white hover:text-eagle-blue transition-colors"
-                >
-                  How It Works
-                </a>
-                <a
-                  href="#roiCalculator"
-                  className="text-white hover:text-eagle-blue transition-colors"
-                >
-                  ROI Calculator
-                </a>
-                <a
-                  href="#results"
-                  className="text-white hover:text-eagle-blue transition-colors"
-                >
-                  Case Studies
-                </a>
-                <a
-                  href="#pricing"
-                  className="text-white hover:text-eagle-blue transition-colors"
-                >
-                  Pricing
-                </a>
-                <a
-                  href="#about"
-                  className="text-white hover:text-eagle-blue transition-colors"
-                >
-                  About
-                </a>
-                <a
-                  href="#contact"
-                  className="text-white hover:text-eagle-blue transition-colors"
-                >
-                  Contact
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="hidden md:flex items-center space-x-4">
-            <a
-              href="#login"
-              className="text-white hover:text-eagle-blue transition-colors font-medium"
-            >
-              Log In
-            </a>
-            <a
-              href="https://calendly.com/weareagencyeagleeye/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="eagle-btn-primary inline-flex items-center gap-2 relative group overflow-hidden"
-            >
-              <span>SCHEDULE AI DEMO</span>
-              <Server size={16} className="text-white" />
-              <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
-              <div className="absolute -inset-1 bg-eagle-blue/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <a href="#home" className="flex items-center text-white">
+              <MessageSquare className="h-8 w-8 text-eagle-blue mr-2" />
+              <span className="font-bold text-xl">Eagle Eye</span>
             </a>
           </div>
-          <div className="md:hidden flex items-center">
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex space-x-6">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-gray-300 hover:text-white transition-colors py-2 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-eagle-blue after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+              >
+                {link.name}
+              </a>
+            ))}
+          </nav>
+
+          {/* CTA Button */}
+          <div className="hidden md:block">
+            <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer">
+              <EagleButton size="sm">Schedule Demo</EagleButton>
+            </a>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-white hover:text-eagle-blue transition-colors"
+              onClick={toggleMobileMenu}
+              className="text-gray-300 hover:text-white focus:outline-none"
             >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {mobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-eagle-dark/95 backdrop-blur-lg">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a
-              href="#home"
-              className="block px-3 py-2 text-white hover:bg-eagle-blue/10 rounded-md"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Home
-            </a>
-            <a
-              href="#how-it-works"
-              className="block px-3 py-2 text-white hover:bg-eagle-blue/10 rounded-md"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              How It Works
-            </a>
-            <a
-              href="#roiCalculator"
-              className="block px-3 py-2 text-white hover:bg-eagle-blue/10 rounded-md"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              ROI Calculator
-            </a>
-            <a
-              href="#results"
-              className="block px-3 py-2 text-white hover:bg-eagle-blue/10 rounded-md"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Case Studies
-            </a>
-            <a
-              href="#pricing"
-              className="block px-3 py-2 text-white hover:bg-eagle-blue/10 rounded-md"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Pricing
-            </a>
-            <a
-              href="#about"
-              className="block px-3 py-2 text-white hover:bg-eagle-blue/10 rounded-md"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              About
-            </a>
-            <a
-              href="#contact"
-              className="block px-3 py-2 text-white hover:bg-eagle-blue/10 rounded-md"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Contact
-            </a>
-            <div className="border-t border-white/10 my-2 pt-2">
+        <div className="md:hidden bg-black/95 backdrop-blur-lg">
+          <div className="px-4 pt-2 pb-6 space-y-2">
+            {navLinks.map((link) => (
               <a
-                href="#login"
-                className="block px-3 py-2 text-white hover:bg-eagle-blue/10 rounded-md"
+                key={link.name}
+                href={link.href}
+                className="block py-3 px-4 text-base hover:bg-white/5 rounded-md"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Log In
+                {link.name}
               </a>
-              <a
-                href="https://calendly.com/weareagencyeagleeye/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block px-3 py-2 text-eagle-blue font-semibold hover:bg-eagle-blue/10 rounded-md"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                SCHEDULE AI DEMO
+            ))}
+            <div className="pt-4">
+              <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer" className="w-full block">
+                <EagleButton size="sm" className="w-full">Schedule Demo</EagleButton>
               </a>
             </div>
           </div>
         </div>
       )}
-    </nav>
+    </header>
   );
 };
 
