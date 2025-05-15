@@ -1,14 +1,15 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { EagleButton, EagleSecondaryButton } from "./ui/eagle-button";
-import { ChevronRight, MessageCircle, Play, Pause } from "lucide-react";
+import { ChevronRight, Play, Pause } from "lucide-react";
 import { TypewriterEffect } from "./ui/typewriter-effect";
+import eagleEyeLogo from "/lovable-uploads/33a6f5a7-7d2c-48db-89fa-7230cda0aeec.png";
 
 const Hero = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
   const [showControls, setShowControls] = useState(false);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRef = useRef<HTMLIFrameElement>(null);
 
   // Words for typewriter effect
   const words = [
@@ -63,61 +64,35 @@ const Hero = () => {
     },
   ];
 
-  const togglePlayPause = () => {
-    if (videoRef.current) {
-      if (isVideoPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsVideoPlaying(!isVideoPlaying);
-    }
-  };
-
-  useEffect(() => {
-    const handleVideoLoaded = () => {
-      setIsVideoLoaded(true);
-    };
-
-    const video = videoRef.current;
-    if (video) {
-      video.addEventListener('loadeddata', handleVideoLoaded);
-    }
-
-    return () => {
-      if (video) {
-        video.removeEventListener('loadeddata', handleVideoLoaded);
-      }
-    };
-  }, []);
-
   return (
     <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
       {/* Background video */}
-      <div className="absolute inset-0 w-full h-full">
+      <div className="absolute inset-0 w-full h-full bg-black">
         <div className={`absolute inset-0 bg-black z-10 transition-opacity duration-1000 ${isVideoLoaded ? 'opacity-0' : 'opacity-100'}`}></div>
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 object-cover w-full h-full"
-          onMouseEnter={() => setShowControls(true)}
-          onMouseLeave={() => setShowControls(false)}
-        >
-          <source src="https://www.youtube.com/embed/MOL2f76XY-k?autoplay=1&controls=0&showinfo=0&rel=0&loop=1&playlist=MOL2f76XY-k" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <div className="absolute inset-0 bg-black/60 z-10"></div>
         
-        {/* Video controls */}
-        <button 
-          className={`absolute bottom-5 right-5 bg-white/20 backdrop-blur-sm rounded-full p-2 z-20 transition-opacity duration-300 ${showControls ? 'opacity-100' : 'opacity-0'}`}
-          onClick={togglePlayPause}
-        >
-          {isVideoPlaying ? <Pause size={20} /> : <Play size={20} />}
-        </button>
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
+          <iframe 
+            ref={videoRef}
+            src="https://www.youtube.com/embed/MOL2f76XY-k?autoplay=1&mute=1&controls=0&loop=1&playlist=MOL2f76XY-k&modestbranding=1&showinfo=0&rel=0" 
+            frameBorder="0" 
+            allow="autoplay; fullscreen" 
+            allowFullScreen
+            className="w-screen h-screen min-h-screen object-cover"
+            onLoad={() => setIsVideoLoaded(true)}
+            style={{
+              width: '100vw',
+              height: '56.25vw', /* 16:9 Aspect Ratio */
+              minHeight: '100vh',
+              minWidth: '177.77vh',
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)'
+            }}
+          ></iframe>
+        </div>
+        
+        <div className="absolute inset-0 bg-black/60 z-10"></div>
       </div>
 
       {/* Overlay content */}

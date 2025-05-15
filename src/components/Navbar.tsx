@@ -1,7 +1,8 @@
 
 import { useEffect, useState } from "react";
-import { MessageSquare, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { EagleButton } from "./ui/eagle-button";
+import eagleEyeLogo from "/lovable-uploads/33a6f5a7-7d2c-48db-89fa-7230cda0aeec.png";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -50,8 +51,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center">
             <a href="#home" className="flex items-center text-white">
-              <MessageSquare className="h-8 w-8 text-eagle-blue mr-2" />
-              <span className="font-bold text-xl">Eagle Eye</span>
+              <img src={eagleEyeLogo} alt="Eagle Eye Logo" className="h-10" />
             </a>
           </div>
 

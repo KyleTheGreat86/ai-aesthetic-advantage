@@ -91,10 +91,6 @@ const Pricing = () => {
             }`}
           >
             <div className="relative bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-white/10">
-              <div className="absolute top-0 right-0 bg-eagle-orange px-4 py-2 rounded-bl-lg rounded-tr-lg font-medium">
-                ONLY {daysLeft} IMPLEMENTATIONS LEFT
-              </div>
-
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold mb-2">Complete AI Solution</h3>
                 <p className="text-gray-300 mb-4">For CRE Brokerages Handling $3M-$20M Deals</p>
@@ -120,9 +116,15 @@ const Pricing = () => {
                 </div>
                 
                 {/* Updated price increase urgency notice */}
-                <div className="flex items-center justify-center text-sm">
-                  <span className="text-gray-300 mr-2">Regular Price:</span>
-                  <span className="line-through text-red-400 font-medium">$7,500 setup</span>
+                <div className="flex flex-col items-center justify-center text-sm">
+                  <div className="flex items-center justify-center">
+                    <span className="text-gray-300 mr-2">Regular Price:</span>
+                    <span className="line-through text-red-400 font-medium">$12,500 setup</span>
+                  </div>
+                  <div className="flex items-center justify-center mt-1">
+                    <span className="text-gray-300 mr-2">Regular Monthly:</span>
+                    <span className="line-through text-red-400 font-medium">$2,995/month</span>
+                  </div>
                 </div>
               </div>
 

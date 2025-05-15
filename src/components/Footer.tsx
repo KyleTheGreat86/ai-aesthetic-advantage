@@ -1,6 +1,7 @@
 
-import { Facebook, Linkedin, MessageSquare, Youtube, ArrowUp, Mail, Phone } from "lucide-react";
+import { Facebook, Linkedin, Youtube, ArrowUp } from "lucide-react";
 import { EagleButton } from "./ui/eagle-button";
+import eagleEyeLogo from "/lovable-uploads/33a6f5a7-7d2c-48db-89fa-7230cda0aeec.png";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -33,12 +34,12 @@ const Footer = () => {
           <p className="mt-4 text-sm text-red-400 font-medium">Only 3 implementations available this month!</p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-xl font-bold mb-4 flex items-center">
-              <MessageSquare className="inline-block mr-2 text-eagle-blue" size={24} />
-              Eagle Eye AI
-            </h3>
+            <div className="flex items-center mb-4">
+              <img src={eagleEyeLogo} alt="Eagle Eye Logo" className="h-10 mr-2" />
+              <h3 className="text-xl font-bold">Eagle Eye AI</h3>
+            </div>
             <p className="text-gray-400 mb-6 max-w-md">
               AI infrastructure for CRE brokers handling $3M-$20M deals. We help you close more off-market deals with less admin work through intelligent automation and mobile-first design.
             </p>
@@ -58,35 +59,6 @@ const Footer = () => {
               <FooterLink href="#benefits">Benefits</FooterLink>
               <FooterLink href="#how-it-works">How It Works</FooterLink>
               <FooterLink href="#pricing">Pricing</FooterLink>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-semibold mb-4">Contact</h4>
-            <ul className="space-y-4">
-              <li className="flex items-center">
-                <Mail size={16} className="mr-2 text-eagle-blue" />
-                <a href="mailto:team@eagleeyeai.com" className="text-gray-400 hover:text-white">
-                  team@eagleeyeai.com
-                </a>
-              </li>
-              <li className="flex items-center">
-                <Phone size={16} className="mr-2 text-eagle-orange" />
-                <a href="tel:+1-555-123-4567" className="text-gray-400 hover:text-white">
-                  +1 (555) 123-4567
-                </a>
-              </li>
-              <li className="mt-4">
-                <a 
-                  href="https://calendly.com/weareagencyeagleeye/30min" 
-                  target="_blank"
-                  rel="noopener noreferrer" 
-                  className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded transition-colors inline-flex items-center"
-                >
-                  <MessageSquare size={16} className="mr-2" />
-                  Schedule a Call
-                </a>
-              </li>
             </ul>
           </div>
         </div>

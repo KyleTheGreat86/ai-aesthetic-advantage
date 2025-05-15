@@ -8,6 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "./ui/carousel";
+import foresiteLogo from "/lovable-uploads/1655747e-449e-497c-9ec1-b3069ad83902.png";
 
 const Results = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -35,30 +36,6 @@ const Results = () => {
     };
   }, []);
 
-  const testimonials = [
-    {
-      title: "$1.2M in New Commissions",
-      quote: "Eagle Eye found us 3 off-market deals we'd have missed. The system paid for itself in 45 days.",
-      author: "Sarah K., Miami Industrial Broker",
-      rating: 5,
-      imageSrc: "/lovable-uploads/2e9a41eb-a8c6-470a-b03f-0cb121f7f7dc.png"
-    },
-    {
-      title: "From Spreadsheets to AI",
-      quote: "Our brokers now spend 80% less time on admin. The mobile interface is a game-changer.",
-      author: "James L., Phoenix Multifamily Group",
-      rating: 5,
-      imageSrc: "/lovable-uploads/832b58cc-33bc-448c-9f70-00ae0255ce21.png"
-    },
-    {
-      title: "Best Tech Investment Ever",
-      quote: "The automated client nurture bot brought us 2 repeat deals last quarter.",
-      author: "Lisa T., Charlotte Retail Specialist",
-      rating: 5,
-      imageSrc: "/lovable-uploads/5127203e-a625-4f68-9136-6183b4f8fdb0.png"
-    }
-  ];
-
   return (
     <section
       ref={sectionRef}
@@ -75,61 +52,38 @@ const Results = () => {
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto">
-          <Carousel
-            opts={{
-              align: "center",
-              loop: true,
-            }}
-            className="w-full"
+        <div className="max-w-3xl mx-auto">
+          <div
+            className={`h-full bg-white/5 backdrop-blur-sm p-8 rounded-lg border border-white/10 transform transition-all duration-500 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            } hover:border-eagle-blue/30 hover:bg-white/10`}
           >
-            <CarouselContent>
-              {testimonials.map((testimonial, index) => (
-                <CarouselItem
-                  key={index}
-                  className="md:basis-1/2 lg:basis-1/3 p-1"
-                >
-                  <div
-                    className={`h-full bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 flex flex-col transform transition-all duration-500 ${
-                      isVisible
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-10"
-                    } hover:border-eagle-blue/30 hover:bg-white/10`}
-                    style={{ transitionDelay: `${index * 150}ms` }}
-                  >
-                    <div className="mb-4">
-                      <FiveStars rating={testimonial.rating} />
-                    </div>
-
-                    <h3 className="text-xl font-bold mb-3 text-eagle-orange">
-                      {testimonial.title}
-                    </h3>
-
-                    <p className="text-gray-200 italic mb-6 flex-grow">
-                      "{testimonial.quote}"
-                    </p>
-
-                    <div className="flex items-center mt-auto">
-                      <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-300 mr-3">
-                        <img
-                          src={testimonial.imageSrc}
-                          alt={testimonial.author}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div>
-                        <p className="font-medium">{testimonial.author}</p>
-                      </div>
-                    </div>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="hidden md:flex">
-              <CarouselPrevious className="relative left-0" />
-              <CarouselNext className="relative right-0" />
+            <div className="flex flex-col md:flex-row items-center mb-6">
+              <div className="mb-4 md:mb-0 md:mr-6 w-40">
+                <img src={foresiteLogo} alt="Foresite Commercial Real Estate" className="w-full" />
+              </div>
+              <div>
+                <FiveStars rating={5} />
+              </div>
             </div>
-          </Carousel>
+
+            <h3 className="text-xl font-bold mb-3 text-eagle-orange">
+              "Game-Changing Technology for Our Brokerage"
+            </h3>
+
+            <p className="text-gray-200 italic mb-6 text-lg">
+              "Eagle Eye AI has revolutionized how we handle our off-market portfolio. The ability to automate document collection and buyer matching saved our team countless hours while increasing our deal flow substantially."
+            </p>
+
+            <div className="flex items-center">
+              <div>
+                <p className="font-medium">Bethany Babcock</p>
+                <p className="text-gray-400">Principal, Co-Owner at Foresite Commercial Real Estate</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="mt-16 flex justify-center">

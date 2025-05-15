@@ -35,7 +35,8 @@ const ProblemStatement = () => {
     }
   ];
 
-  const lostCommissions = ["$270K", "$310K", "$290K", "$350K"];
+  // Ordered from lowest to highest
+  const lostCommissions = ["$270K", "$290K", "$310K", "$350K"];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -65,7 +66,7 @@ const ProblemStatement = () => {
     }
   }, [isVisible, animationStarted]);
 
-  // Rotate through statistics
+  // Rotate through statistics in sequential order
   useEffect(() => {
     if (isVisible) {
       const interval = setInterval(() => {

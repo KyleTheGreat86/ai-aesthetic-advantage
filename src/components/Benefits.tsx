@@ -78,9 +78,10 @@ const Benefits = () => {
     const commission = dealSizeNum * 0.03;
     const annualAdditionalRevenue = commission * 4;
     const annualCost = (5995 + (1750 * 12));
-    const roi = (annualAdditionalRevenue - annualCost) / annualCost * 100;
+    const roi = (annualAdditionalRevenue - annualCost) / annualCost;
     
-    setCalculatedROI(`${roi.toFixed(0)}%`);
+    // Format as Xx ROI instead of percentage
+    setCalculatedROI(`${roi.toFixed(2)}x`);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -159,9 +160,9 @@ const Benefits = () => {
           
           {calculatedROI && (
             <div className="bg-white/10 rounded-lg p-4 text-center">
-              <p className="text-sm mb-1">Your potential annual ROI:</p>
+              <p className="text-sm mb-1">Your potential ROI:</p>
               <p className="text-3xl font-bold text-eagle-orange">{calculatedROI}</p>
-              <p className="text-sm text-gray-300 mt-2">Based on 4 additional deals per year at 3% commission rate</p>
+              <p className="text-sm text-gray-300 mt-2">For every $1 invested, you get {calculatedROI} back</p>
             </div>
           )}
           
