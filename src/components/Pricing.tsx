@@ -1,12 +1,11 @@
 
 import { useState, useEffect, useRef } from "react";
-import { Check, Shield } from "lucide-react";
+import { Check, Shield, Rocket, Target, BarChart } from "lucide-react";
 import { EagleButton } from "./ui/eagle-button";
 
 const Pricing = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showItems, setShowItems] = useState(false);
-  const [daysLeft, setDaysLeft] = useState(7);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -37,21 +36,6 @@ const Pricing = () => {
       return () => clearTimeout(timer);
     }
   }, [isVisible]);
-
-  const includedItems = [
-    "Lead Generation Engine",
-    "Instant Deal Analyzer",
-    "Document Hunter",
-    "Buyer/Seller Matchmaker",
-    "Tour Scheduler",
-    "Client Nurture Bot",
-    "CRM/Email Integration",
-    "Mobile-First Interface",
-    "Unlimited Users",
-    "24/7 Technical Support",
-    "Custom Workflow Setup",
-    "30-Day ROI Guarantee",
-  ];
 
   // Updated Calendly booking URL
   const calendlyUrl = "https://calendly.com/weareagencyeagleeye/30min";
@@ -92,60 +76,102 @@ const Pricing = () => {
           >
             <div className="relative bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-white/10">
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold mb-2">Complete AI Solution</h3>
-                <p className="text-gray-300 mb-4">For CRE Brokerages Handling $3M-$20M Deals</p>
-                
-                <div className="flex flex-col items-center justify-center mb-2">
-                  <div className="flex items-baseline">
-                    <span className="text-3xl">$</span>
-                    <span className="text-5xl font-bold">5,995</span>
-                  </div>
-                  <span className="text-gray-400 font-medium mt-1">
-                    One-Time Setup Fee
-                  </span>
-                </div>
-                
-                <div className="flex flex-col items-center justify-center mb-2">
-                  <div className="flex items-baseline">
-                    <span className="text-3xl">$</span>
-                    <span className="text-5xl font-bold">1,750</span>
-                  </div>
-                  <span className="text-gray-400 font-medium mt-1">
-                    Monthly
-                  </span>
-                </div>
-                
-                {/* Updated price increase urgency notice */}
-                <div className="flex flex-col items-center justify-center text-sm">
-                  <div className="flex items-center justify-center">
-                    <span className="text-gray-300 mr-2">Regular Price:</span>
-                    <span className="line-through text-red-400 font-medium">$12,500 setup</span>
-                  </div>
-                  <div className="flex items-center justify-center mt-1">
-                    <span className="text-gray-300 mr-2">Regular Monthly:</span>
-                    <span className="line-through text-red-400 font-medium">$2,995/month</span>
-                  </div>
-                </div>
+                <Rocket className="mx-auto text-eagle-orange mb-4" size={40} />
+                <h3 className="text-2xl font-bold mb-2">Custom AI Infrastructure for CRE Brokerages</h3>
+                <p className="text-gray-300 mb-6">Tailored Automation Solutions for Firms Handling $3M–$20M+ Deals</p>
               </div>
 
               <div className="mb-8">
-                <ul className="space-y-4">
-                  {includedItems.map((item, index) => (
-                    <li
-                      key={index}
-                      className={`flex items-center opacity-0 ${
-                        showItems ? "animate-fade-in" : ""
-                      }`}
-                      style={{ animationDelay: `${index * 100}ms` }}
-                    >
-                      <Check
-                        size={18}
-                        className="mr-3 text-eagle-blue flex-shrink-0"
-                      />
-                      <span>{item}</span>
-                    </li>
-                  ))}
+                <h4 className="text-xl font-semibold text-eagle-blue mb-4">Our Core Workflows:</h4>
+                <ul className="space-y-3">
+                  <li className="flex items-center">
+                    <Check size={18} className="mr-3 text-eagle-blue flex-shrink-0" />
+                    <span className="text-white">Lead Generation Engine</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check size={18} className="mr-3 text-eagle-blue flex-shrink-0" />
+                    <span className="text-white">Instant Deal Analyzer</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check size={18} className="mr-3 text-eagle-blue flex-shrink-0" />
+                    <span className="text-white">Document Hunter</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check size={18} className="mr-3 text-eagle-blue flex-shrink-0" />
+                    <span className="text-white">Buyer/Seller Matchmaker</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check size={18} className="mr-3 text-eagle-blue flex-shrink-0" />
+                    <span className="text-white">Tour Scheduler</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check size={18} className="mr-3 text-eagle-blue flex-shrink-0" />
+                    <span className="text-white">Client Nurture Bot</span>
+                  </li>
                 </ul>
+              </div>
+
+              <div className="mb-8">
+                <h4 className="text-xl font-semibold text-eagle-orange mb-4">Key Features:</h4>
+                <ul className="space-y-3">
+                  <li className="flex items-center">
+                    <Check size={18} className="mr-3 text-eagle-orange flex-shrink-0" />
+                    <span className="text-white">CRM & Email Integration</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check size={18} className="mr-3 text-eagle-orange flex-shrink-0" />
+                    <span className="text-white">Mobile-First Interface</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check size={18} className="mr-3 text-eagle-orange flex-shrink-0" />
+                    <span className="text-white">Unlimited Users</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check size={18} className="mr-3 text-eagle-orange flex-shrink-0" />
+                    <span className="text-white">24/7 Technical Support</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check size={18} className="mr-3 text-eagle-orange flex-shrink-0" />
+                    <span className="text-white">Custom Workflow Setup</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check size={18} className="mr-3 text-eagle-orange flex-shrink-0" />
+                    <span className="text-white">30-Day ROI Guarantee</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="mb-8">
+                <h4 className="text-xl font-semibold text-eagle-blue flex items-center justify-center mb-4">
+                  <BarChart size={20} className="mr-2" />
+                  <span>Bespoke Proposals for Unique Needs</span>
+                </h4>
+                <p className="text-gray-300 mb-3">Every brokerage operates differently. We provide customized proposals based on:</p>
+                <ul className="space-y-2 text-white">
+                  <li>• Deal Volume & Team Size</li>
+                  <li>• Required Integrations</li>
+                  <li>• Existing Tech Stack</li>
+                  <li>• Specific Automation Needs</li>
+                </ul>
+              </div>
+
+              <div className="mb-8">
+                <h4 className="text-xl font-semibold text-eagle-orange flex items-center justify-center mb-4">
+                  <Target size={20} className="mr-2" />
+                  <span>Get Your Personalized AI Blueprint</span>
+                </h4>
+                <p className="text-gray-300 mb-3">We'll assess your current operations and deliver:</p>
+                <ul className="space-y-2 text-white">
+                  <li>• A Tailored Automation Blueprint</li>
+                  <li>• Profit Projection</li>
+                  <li>• Custom Implementation Quote</li>
+                </ul>
+              </div>
+              
+              <div className="mt-4 text-center text-gray-300 mb-6">
+                <p className="font-medium">Guarantees:</p>
+                <p>30-Day Money-Back Guarantee</p>
+                <p>60-Day ROI Guarantee</p>
               </div>
 
               <div className="text-center">
@@ -156,16 +182,11 @@ const Pricing = () => {
                   className="inline-block w-full"
                 >
                   <EagleButton className="w-full uppercase font-bold">
-                    CLAIM YOUR IMPLEMENTATION SPOT
+                    CLAIM YOUR AI INFRASTRUCTURE BLUEPRINT
                   </EagleButton>
                 </a>
               </div>
               
-              <div className="mt-3 text-center flex items-center justify-center text-sm text-gray-400">
-                <Shield size={14} className="mr-1" />
-                <span>30-day money-back guarantee • 60-day ROI guarantee</span>
-              </div>
-
               <div className="absolute -inset-1 bg-gradient-to-r from-eagle-blue to-eagle-orange opacity-30 blur-lg -z-10 group-hover:opacity-50 transition-opacity"></div>
               
               {/* Pulsing highlight */}
