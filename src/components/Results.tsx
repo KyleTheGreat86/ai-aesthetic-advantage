@@ -6,6 +6,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "./ui/carousel";
+import AnimatedTextCycle from "./ui/animated-text-cycle";
 
 const Results = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -33,6 +34,19 @@ const Results = () => {
     };
   }, []);
 
+  const rotatingWords = [
+    "Market Leader",
+    "Tech-Driven Powerhouse",
+    "AI-Enabled Enterprise",
+    "Future-Ready Firm",
+    "Automated Success Story",
+    "Scalable Operation",
+    "Data-Driven Dealmaker",
+    "Streamlined Machine",
+    "High-Performance Team",
+    "Next-Gen Brokerage"
+  ];
+
   return (
     <section
       ref={sectionRef}
@@ -40,6 +54,17 @@ const Results = () => {
       className="py-24 relative overflow-hidden"
     >
       <div className="section-container relative z-10">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Ready to Transform Your Brokerage into a{" "}
+            <AnimatedTextCycle 
+              words={rotatingWords} 
+              interval={3000} 
+              className="text-eagle-blue"
+            />?
+          </h2>
+        </div>
+        
         <div className="mt-16 flex justify-center">
           <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 max-w-3xl">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
@@ -59,7 +84,7 @@ const Results = () => {
             
             <div className="mt-8 text-center">
               <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer">
-                <EagleButton className="uppercase font-bold">
+                <EagleButton className="uppercase font-bold container">
                   See How We Can Help You
                 </EagleButton>
               </a>
