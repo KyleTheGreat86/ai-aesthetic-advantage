@@ -1,5 +1,6 @@
 
 import { useState, useEffect, useRef } from "react";
+import { EagleButton } from "./ui/eagle-button";
 import {
   Carousel,
   CarouselContent,
@@ -56,6 +57,14 @@ const Results = () => {
                 <h3 className="text-3xl font-bold text-eagle-orange">23.4%</h3>
                 <p className="text-gray-300">Increased Deal Closure</p>
               </div>
+            </div>
+            
+            <div className="mt-8 text-center">
+              <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer">
+                <EagleButton className="uppercase font-bold">
+                  See How We Can Help You
+                </EagleButton>
+              </a>
             </div>
           </div>
         </div>
