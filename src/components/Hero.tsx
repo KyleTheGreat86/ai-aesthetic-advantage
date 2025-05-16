@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { EagleButton, EagleSecondaryButton } from "./ui/eagle-button";
 import { ChevronRight, Play, Pause } from "lucide-react";
 import { TypewriterEffect } from "./ui/typewriter-effect";
+import { useDeviceType } from "../hooks/use-mobile";
 import eagleEyeLogo from "/lovable-uploads/33a6f5a7-7d2c-48db-89fa-7230cda0aeec.png";
 
 const Hero = () => {
@@ -10,6 +11,7 @@ const Hero = () => {
   const [showControls, setShowControls] = useState(false);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const videoRef = useRef<HTMLIFrameElement>(null);
+  const deviceType = useDeviceType();
 
   // Words for typewriter effect - updated with full headline
   const words = [
@@ -111,6 +113,45 @@ const Hero = () => {
     },
   ];
 
+  // Determine optimal video sizing based on device type
+  const getVideoStyle = () => {
+    // Base styles that work across all devices
+    const baseStyle = {
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      minWidth: '100%',
+      minHeight: '100%',
+    };
+
+    // Device-specific adjustments
+    if (deviceType === 'mobile') {
+      return {
+        ...baseStyle,
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover', // Ensures the video covers the entire container
+      };
+    } else if (deviceType === 'tablet') {
+      return {
+        ...baseStyle,
+        width: '100vw',
+        height: '100vh',
+        objectFit: 'cover',
+      };
+    } else {
+      // Desktop - use the original aspect ratio approach
+      return {
+        ...baseStyle,
+        width: '100vw',
+        height: '56.25vw', /* 16:9 Aspect Ratio */
+        minHeight: '100vh',
+        minWidth: '177.77vh',
+      };
+    }
+  };
+
   return (
     <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
       {/* Background video */}
@@ -124,18 +165,9 @@ const Hero = () => {
             frameBorder="0" 
             allow="autoplay; fullscreen" 
             allowFullScreen
-            className="w-screen h-screen min-h-screen object-cover"
+            className="w-full h-full object-cover"
             onLoad={() => setIsVideoLoaded(true)}
-            style={{
-              width: '100vw',
-              height: '56.25vw', /* 16:9 Aspect Ratio */
-              minHeight: '100vh',
-              minWidth: '177.77vh',
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)'
-            }}
+            style={getVideoStyle()}
           ></iframe>
         </div>
         
@@ -154,7 +186,7 @@ const Hero = () => {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
           <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-            <EagleButton className="uppercase font-bold text-base w-full sm:w-auto group">
+            <EagleButton className="uppercase font-bold text-base w-full sm:w-auto group container">
               Schedule Your Strategy Session
               <ChevronRight className="ml-2 transition-transform group-hover:translate-x-1" />
             </EagleButton>

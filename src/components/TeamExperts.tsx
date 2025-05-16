@@ -42,10 +42,10 @@ const TeamExperts = () => {
       <div className="section-container relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Meet The Team
+            Meet Our Team
           </h2>
           <p className="text-lg text-gray-300 mb-8">
-            Led by our founder Kyle Holland, we bring together expertise in AI, automation, and intellectual property law to create transformative solutions for legal professionals worldwide.
+            We bring together expertise in AI, automation, and commercial real estate to create transformative solutions for brokers nationwide.
           </p>
           
           {/* Schedule Demo button */}
@@ -55,7 +55,7 @@ const TeamExperts = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <EagleButton>SCHEDULE YOUR AI DEMO</EagleButton>
+              <EagleButton className="container">SCHEDULE YOUR AI DEMO</EagleButton>
             </a>
           </div>
           

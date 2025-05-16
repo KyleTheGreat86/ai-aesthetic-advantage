@@ -47,6 +47,17 @@ const Results = () => {
     "Next-Gen Brokerage"
   ];
 
+  const personalRotatingWords = [
+    "Life",
+    "Business",
+    "Legacy",
+    "Future",
+    "Career",
+    "Workflow",
+    "Wealth",
+    "Freedom"
+  ];
+
   return (
     <section
       ref={sectionRef}
@@ -89,6 +100,27 @@ const Results = () => {
                 </EagleButton>
               </a>
             </div>
+          </div>
+        </div>
+
+        {/* Second animated text section */}
+        <div className="text-center mt-16">
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Ready to Transform Your{" "}
+            <AnimatedTextCycle 
+              words={personalRotatingWords} 
+              interval={3000} 
+              className="text-eagle-orange"
+            />?
+          </h2>
+          <p className="text-xl mt-3">Proven ROI Within 60 Days</p>
+          
+          <div className="mt-8">
+            <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer">
+              <EagleButton className="uppercase font-bold container">
+                Schedule Your Free Consultation
+              </EagleButton>
+            </a>
           </div>
         </div>
       </div>
