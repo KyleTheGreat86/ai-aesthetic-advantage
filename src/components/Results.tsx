@@ -62,41 +62,44 @@ const Results = () => {
     <section
       ref={sectionRef}
       id="results"
-      className="py-24 relative overflow-hidden"
+      className="py-16 sm:py-24 relative overflow-hidden"
     >
       <div className="section-container relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold">
+        <div className="text-center mb-8 sm:mb-12 px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold px-2 sm:px-0">
             Ready to Transform Your Brokerage into a{" "}
-            <AnimatedTextCycle 
-              words={rotatingWords} 
-              interval={3000} 
-              className="text-eagle-blue"
-            />?
+            <span className="inline-block">
+              <AnimatedTextCycle 
+                words={rotatingWords} 
+                interval={3000} 
+                className="text-eagle-blue"
+              />
+              ?
+            </span>
           </h2>
         </div>
         
-        <div className="mt-16 flex justify-center">
-          <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 max-w-3xl">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div className="mt-10 sm:mt-16 flex justify-center px-4">
+          <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 sm:p-6 max-w-3xl w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-center">
               <div>
-                <h3 className="text-3xl font-bold text-eagle-orange">6.2x</h3>
-                <p className="text-gray-300">Average ROI</p>
+                <h3 className="text-2xl sm:text-3xl font-bold text-eagle-orange">6.2x</h3>
+                <p className="text-gray-300 text-sm sm:text-base">Average ROI</p>
               </div>
               <div>
-                <h3 className="text-3xl font-bold text-eagle-blue">78%</h3>
-                <p className="text-gray-300">Reduction in Admin Work</p>
+                <h3 className="text-2xl sm:text-3xl font-bold text-eagle-blue">78%</h3>
+                <p className="text-gray-300 text-sm sm:text-base">Reduction in Admin Work</p>
               </div>
               <div>
-                <h3 className="text-3xl font-bold text-eagle-orange">23.4%</h3>
-                <p className="text-gray-300">Increased Deal Closure</p>
+                <h3 className="text-2xl sm:text-3xl font-bold text-eagle-orange">23.4%</h3>
+                <p className="text-gray-300 text-sm sm:text-base">Increased Deal Closure</p>
               </div>
             </div>
             
-            <div className="mt-8 text-center">
+            <div className="mt-6 sm:mt-8 text-center">
               <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer">
-                <EagleButton className="uppercase font-bold container">
-                  See How We Can Help You
+                <EagleButton className="uppercase font-bold text-xs sm:text-base px-3 sm:px-6 py-2 w-full">
+                  <span className="whitespace-normal">See How We Can Help You</span>
                 </EagleButton>
               </a>
             </div>
@@ -104,21 +107,24 @@ const Results = () => {
         </div>
 
         {/* Second animated text section */}
-        <div className="text-center mt-16">
-          <h2 className="text-3xl md:text-4xl font-bold">
+        <div className="text-center mt-12 sm:mt-16 px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
             Ready to Transform Your{" "}
-            <AnimatedTextCycle 
-              words={personalRotatingWords} 
-              interval={3000} 
-              className="text-eagle-orange"
-            />?
+            <span className="inline-block">
+              <AnimatedTextCycle 
+                words={personalRotatingWords} 
+                interval={3000} 
+                className="text-eagle-orange"
+              />
+              ?
+            </span>
           </h2>
-          <p className="text-xl mt-3">Proven ROI Within 60 Days</p>
+          <p className="text-lg sm:text-xl mt-3">Proven ROI Within 60 Days</p>
           
-          <div className="mt-8">
+          <div className="mt-6 sm:mt-8">
             <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer">
-              <EagleButton className="uppercase font-bold container">
-                Schedule Your Free Consultation
+              <EagleButton className="uppercase font-bold text-xs sm:text-base px-3 sm:px-6 py-2 w-full sm:w-auto">
+                <span className="whitespace-normal">Schedule Your Free Consultation</span>
               </EagleButton>
             </a>
           </div>

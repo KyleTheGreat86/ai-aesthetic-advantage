@@ -99,59 +99,59 @@ const Benefits = () => {
     <section
       ref={sectionRef}
       id="benefits"
-      className="py-24 relative overflow-hidden"
+      className="py-16 sm:py-24 relative overflow-hidden"
     >
       <div className="section-container relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">
+        <div className="text-center mb-10 sm:mb-16 px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
             Why Top Brokers Choose Eagle Eye
           </h2>
-          <p className="text-xl text-gray-300">AI infrastructure designed specifically for $3M-$20M CRE deals</p>
+          <p className="text-lg sm:text-xl text-gray-300">AI infrastructure designed specifically for $3M-$20M CRE deals</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16 px-4">
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
             return (
               <div
                 key={index}
-                className={`bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6 transform transition-all duration-500 hover:border-white/20 hover:bg-white/10 ${
+                className={`bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-4 sm:p-6 transform transition-all duration-500 hover:border-white/20 hover:bg-white/10 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="flex items-center mb-4">
-                  <div className={`p-3 rounded-full ${benefit.color} bg-white/10`}>
-                    <Icon size={24} />
+                <div className="flex items-center mb-3 sm:mb-4">
+                  <div className={`p-2 sm:p-3 rounded-full ${benefit.color} bg-white/10`}>
+                    <Icon size={20} className="sm:w-6 sm:h-6" />
                   </div>
-                  <h3 className="text-xl font-semibold ml-3">{benefit.title}</h3>
+                  <h3 className="text-lg sm:text-xl font-semibold ml-3">{benefit.title}</h3>
                 </div>
-                <p className="text-gray-300">{benefit.description}</p>
+                <p className="text-sm sm:text-base text-gray-300">{benefit.description}</p>
               </div>
             );
           })}
         </div>
 
         {/* ROI Calculator */}
-        <div className="max-w-2xl mx-auto bg-white/5 backdrop-blur-sm rounded-lg border border-eagle-blue/30 p-8">
+        <div className="max-w-2xl mx-auto bg-white/5 backdrop-blur-sm rounded-lg border border-eagle-blue/30 p-4 sm:p-8 mx-4 sm:mx-auto">
           <div className="flex items-center mb-4">
-            <Calculator size={28} className="text-eagle-blue mr-3" />
-            <h3 className="text-2xl font-bold">ROI Calculator</h3>
+            <Calculator size={24} className="text-eagle-blue mr-3" />
+            <h3 className="text-xl sm:text-2xl font-bold">ROI Calculator</h3>
           </div>
           
-          <div className="mb-6">
+          <div className="mb-4 sm:mb-6">
             <label className="block text-sm font-medium mb-2">Enter your average deal size:</label>
-            <div className="flex items-center">
+            <div className="flex flex-wrap sm:flex-nowrap items-center">
               <span className="bg-white/10 p-2 rounded-l-md border border-white/20">$</span>
               <input
                 type="text"
                 value={formatNumber(dealSize)}
                 onChange={handleInputChange}
-                className="bg-white/10 text-white p-2 flex-grow border border-white/20 focus:outline-none focus:border-eagle-blue"
+                className="bg-white/10 text-white p-2 flex-grow border border-white/20 focus:outline-none focus:border-eagle-blue min-w-0"
               />
               <button 
                 onClick={calculateROI}
-                className="bg-eagle-blue hover:bg-eagle-blue/90 text-white py-2 px-4 rounded-r-md transition"
+                className="bg-eagle-blue hover:bg-eagle-blue/90 text-white py-2 px-3 sm:px-4 rounded-md sm:rounded-none sm:rounded-r-md transition mt-2 sm:mt-0 w-full sm:w-auto"
               >
                 Calculate
               </button>
@@ -161,14 +161,16 @@ const Benefits = () => {
           {calculatedROI && (
             <div className="bg-white/10 rounded-lg p-4 text-center">
               <p className="text-sm mb-1">Your potential ROI:</p>
-              <p className="text-3xl font-bold text-eagle-orange">{calculatedROI}</p>
-              <p className="text-sm text-gray-300 mt-2">For every $1 invested, you get {calculatedROI} back</p>
+              <p className="text-2xl sm:text-3xl font-bold text-eagle-orange">{calculatedROI}</p>
+              <p className="text-xs sm:text-sm text-gray-300 mt-2">For every $1 invested, you get {calculatedROI} back</p>
             </div>
           )}
           
-          <div className="mt-6 text-center">
+          <div className="mt-4 sm:mt-6 text-center">
             <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer">
-              <EagleButton>Get Your Customized ROI Analysis</EagleButton>
+              <EagleButton className="text-xs sm:text-base px-3 sm:px-6 py-2 w-full sm:w-auto">
+                <span className="whitespace-normal">Get Your Customized ROI Analysis</span>
+              </EagleButton>
             </a>
           </div>
         </div>

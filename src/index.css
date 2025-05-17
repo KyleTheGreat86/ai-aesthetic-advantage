@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -121,28 +122,38 @@
 
   body {
     @apply bg-eagle-dark text-white font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading font-semibold;
   }
+  
+  /* Improve readability on small screens */
+  @media (max-width: 640px) {
+    h1, h2, h3 {
+      word-break: break-word;
+      hyphens: auto;
+    }
+  }
 }
 
 @layer components {
   .eagle-btn-primary {
-    @apply bg-eagle-blue text-white px-6 py-3 rounded-md font-semibold transition-all hover:bg-eagle-blue/90 hover:shadow-lg hover:shadow-eagle-blue/20 hover:-translate-y-0.5;
+    @apply bg-eagle-blue text-white px-4 sm:px-6 py-2 sm:py-3 rounded-md font-semibold transition-all hover:bg-eagle-blue/90 hover:shadow-lg hover:shadow-eagle-blue/20 hover:-translate-y-0.5;
   }
   
   .eagle-btn-secondary {
-    @apply bg-eagle-orange text-white px-6 py-3 rounded-md font-semibold transition-all hover:bg-eagle-orange/90 hover:shadow-lg hover:shadow-eagle-orange/20 hover:-translate-y-0.5;
+    @apply bg-eagle-orange text-white px-4 sm:px-6 py-2 sm:py-3 rounded-md font-semibold transition-all hover:bg-eagle-orange/90 hover:shadow-lg hover:shadow-eagle-orange/20 hover:-translate-y-0.5;
   }
 
   .eagle-btn-outline {
-    @apply border-2 border-white text-white px-6 py-3 rounded-md font-semibold transition-all hover:bg-white/10 hover:-translate-y-0.5;
+    @apply border-2 border-white text-white px-4 sm:px-6 py-2 sm:py-3 rounded-md font-semibold transition-all hover:bg-white/10 hover:-translate-y-0.5;
   }
 
   .section-container {
-    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16;
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16;
   }
 
   .gradient-text-blue {
@@ -179,6 +190,7 @@
     background-size: 50px 50px;
   }
 
+  /* Mobile-friendly animation delays */
   .animate-delay-100 {
     animation-delay: 100ms;
   }
@@ -204,7 +216,18 @@
   }
 
   .countdown-unit {
-    @apply bg-white/10 backdrop-blur-sm rounded-md px-2 py-1 mx-1 text-sm md:text-base;
+    @apply bg-white/10 backdrop-blur-sm rounded-md px-1 sm:px-2 py-1 mx-0.5 sm:mx-1 text-xs sm:text-sm md:text-base;
+  }
+  
+  /* Mobile-specific optimizations */
+  @media (max-width: 640px) {
+    .section-container {
+      @apply py-6;
+    }
+    
+    button, .button, a.button {
+      @apply text-sm;
+    }
   }
 }
 
@@ -244,5 +267,27 @@
   100% {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+/* Mobile-specific fixes */
+@media (max-width: 640px) {
+  /* Prevent horizontal overflow */
+  body, #root, main, section, div {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  
+  /* Improve tap targets */
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Ensure text is readable */
+  p, li, span {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
 }

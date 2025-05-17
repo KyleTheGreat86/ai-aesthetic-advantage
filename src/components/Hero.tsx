@@ -16,102 +16,30 @@ const Hero = () => {
 
   // Words for typewriter effect - updated with full headline
   const words = [
-    {
-      text: "We",
-      className: "text-white",
-    },
-    {
-      text: "Help",
-      className: "text-white",
-    },
-    {
-      text: "U.S.",
-      className: "text-white",
-    },
-    {
-      text: "CRE",
-      className: "text-white",
-    },
-    {
-      text: "Brokers",
-      className: "text-white",
-    },
-    {
-      text: "Close",
-      className: "text-white",
-    },
-    {
-      text: "More",
-      className: "text-white",
-    },
-    {
-      text: "$3M–$20M",
-      className: "text-eagle-orange",
-    },
-    {
-      text: "Off-Market",
-      className: "text-white",
-    },
-    {
-      text: "&",
-      className: "text-white",
-    },
-    {
-      text: "NNN",
-      className: "text-eagle-blue",
-    },
-    {
-      text: "Deals",
-      className: "text-white",
-    },
-    {
-      text: "Using",
-      className: "text-white",
-    },
-    {
-      text: "Next-Gen",
-      className: "text-eagle-orange",
-    },
-    {
-      text: "AI",
-      className: "text-eagle-blue",
-    },
-    {
-      text: "—",
-      className: "text-white",
-    },
-    {
-      text: "No",
-      className: "text-white",
-    },
-    {
-      text: "Extra",
-      className: "text-white",
-    },
-    {
-      text: "Staff,",
-      className: "text-white",
-    },
-    {
-      text: "No",
-      className: "text-white",
-    },
-    {
-      text: "Lead",
-      className: "text-white",
-    },
-    {
-      text: "Leakage,",
-      className: "text-white",
-    },
-    {
-      text: "No",
-      className: "text-white",
-    },
-    {
-      text: "Busywork",
-      className: "text-white",
-    },
+    { text: "We", className: "text-white" },
+    { text: "Help", className: "text-white" },
+    { text: "U.S.", className: "text-white" },
+    { text: "CRE", className: "text-white" },
+    { text: "Brokers", className: "text-white" },
+    { text: "Close", className: "text-white" },
+    { text: "More", className: "text-white" },
+    { text: "$3M–$20M", className: "text-eagle-orange" },
+    { text: "Off-Market", className: "text-white" },
+    { text: "&", className: "text-white" },
+    { text: "NNN", className: "text-eagle-blue" },
+    { text: "Deals", className: "text-white" },
+    { text: "Using", className: "text-white" },
+    { text: "Next-Gen", className: "text-eagle-orange" },
+    { text: "AI", className: "text-eagle-blue" },
+    { text: "—", className: "text-white" },
+    { text: "No", className: "text-white" },
+    { text: "Extra", className: "text-white" },
+    { text: "Staff,", className: "text-white" },
+    { text: "No", className: "text-white" },
+    { text: "Lead", className: "text-white" },
+    { text: "Leakage,", className: "text-white" },
+    { text: "No", className: "text-white" },
+    { text: "Busywork", className: "text-white" }
   ];
 
   // Determine optimal video sizing based on device type
@@ -122,33 +50,22 @@ const Hero = () => {
       top: '50%',
       left: '50%',
       transform: 'translate(-50%, -50%)',
-      minWidth: '100%',
-      minHeight: '100%',
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover' as 'cover',
     };
 
     // Device-specific adjustments
     if (deviceType === 'mobile') {
-      return {
-        ...baseStyle,
-        width: '100%',
-        height: '100%',
-        objectFit: 'cover' as 'cover', // Type assertion to valid CSS objectFit value
-      };
+      return baseStyle;
     } else if (deviceType === 'tablet') {
-      return {
-        ...baseStyle,
-        width: '100vw',
-        height: '100vh',
-        objectFit: 'cover' as 'cover', // Type assertion to valid CSS objectFit value
-      };
+      return baseStyle;
     } else {
-      // Desktop - use the original aspect ratio approach
+      // Desktop - maintain aspect ratio but ensure full coverage
       return {
         ...baseStyle,
-        width: '100vw',
-        height: '56.25vw', /* 16:9 Aspect Ratio */
-        minHeight: '100vh',
-        minWidth: '177.77vh',
+        minWidth: '100%',
+        minHeight: '100%',
       };
     }
   };
@@ -166,7 +83,7 @@ const Hero = () => {
             frameBorder="0" 
             allow="autoplay; fullscreen" 
             allowFullScreen
-            className="w-full h-full object-cover"
+            className="w-full h-full"
             onLoad={() => setIsVideoLoaded(true)}
             style={getVideoStyle()}
           ></iframe>
@@ -176,25 +93,25 @@ const Hero = () => {
       </div>
 
       {/* Overlay content */}
-      <div className="relative z-20 max-w-5xl mx-auto text-center px-4">
+      <div className="relative z-20 max-w-5xl mx-auto text-center px-4 py-8">
         <div className="mb-6">
-          <TypewriterEffect words={words} className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold" />
+          <TypewriterEffect words={words} className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold" />
         </div>
         
-        <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-white">
+        <p className="text-base sm:text-lg md:text-xl mb-8 max-w-3xl mx-auto text-white">
           Our Eagle Eye AI Autopilot eliminates <span className="text-eagle-orange font-semibold">90% of manual work</span>—scouring markets, analyzing deals, nurturing clients, and scheduling tours—so you close more <span className="text-eagle-blue font-semibold">$5M+ off-market deals</span> while competitors chase cold leads.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 sm:mb-16">
           <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-            <EagleButton className="uppercase font-bold text-base w-full sm:w-auto group container">
-              Schedule Your Strategy Session
-              <ChevronRight className="ml-2 transition-transform group-hover:translate-x-1" />
+            <EagleButton className="uppercase font-bold text-base w-full sm:w-auto group container px-3 sm:px-6">
+              <span className="whitespace-normal sm:whitespace-nowrap">Schedule Your Strategy Session</span>
+              <ChevronRight className="ml-1 transition-transform group-hover:translate-x-1 flex-shrink-0" />
             </EagleButton>
           </a>
           <a href="#how-it-works" className="w-full sm:w-auto">
             <EagleSecondaryButton className="uppercase font-bold text-base w-full sm:w-auto flex items-center justify-center">
-              See How It Works
+              <span className="whitespace-normal sm:whitespace-nowrap">See How It Works</span>
             </EagleSecondaryButton>
           </a>
         </div>

@@ -17,19 +17,30 @@ export default function AnimatedTextCycle({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [width, setWidth] = useState("auto");
   const measureRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLSpanElement>(null);
 
-  // Get the width of the current word
+  // Responsive width adjustment
   useEffect(() => {
-    if (measureRef.current) {
-      const elements = measureRef.current.children;
-      if (elements.length > currentIndex) {
-        // Add a small buffer (10px) to prevent text wrapping
-        const newWidth = elements[currentIndex].getBoundingClientRect().width;
-        setWidth(`${newWidth}px`);
+    const handleResize = () => {
+      if (measureRef.current) {
+        const elements = measureRef.current.children;
+        if (elements.length > currentIndex) {
+          // Add a small buffer to prevent text wrapping
+          const newWidth = elements[currentIndex].getBoundingClientRect().width;
+          setWidth(`${newWidth}px`);
+        }
       }
-    }
+    };
+
+    // Initial measurement
+    handleResize();
+    
+    // Update on resize
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, [currentIndex]);
 
+  // Word cycling logic
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % words.length);
@@ -41,7 +52,7 @@ export default function AnimatedTextCycle({
   // Container animation for the whole word
   const containerVariants = {
     hidden: { 
-      y: -20,
+      y: -10,
       opacity: 0,
       filter: "blur(8px)"
     },
@@ -55,7 +66,7 @@ export default function AnimatedTextCycle({
       }
     },
     exit: { 
-      y: 20,
+      y: 10,
       opacity: 0,
       filter: "blur(8px)",
       transition: { 
@@ -83,14 +94,15 @@ export default function AnimatedTextCycle({
 
       {/* Visible animated word */}
       <motion.span 
-        className="relative inline-block"
+        ref={containerRef}
+        className="relative inline-block align-bottom"
         animate={{ 
           width,
           transition: { 
             type: "spring",
-            stiffness: 150,
-            damping: 15,
-            mass: 1.2,
+            stiffness: 120,
+            damping: 20,
+            mass: 1,
           }
         }}
       >
@@ -102,7 +114,7 @@ export default function AnimatedTextCycle({
             initial="hidden"
             animate="visible"
             exit="exit"
-            style={{ whiteSpace: "nowrap" }}
+            style={{ whiteSpace: "nowrap", display: "inline-block" }}
           >
             {words[currentIndex]}
           </motion.span>
