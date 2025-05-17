@@ -5,6 +5,7 @@ import { ChevronRight, Play, Pause } from "lucide-react";
 import { TypewriterEffect } from "./ui/typewriter-effect";
 import { useDeviceType } from "../hooks/use-mobile";
 import eagleEyeLogo from "/lovable-uploads/33a6f5a7-7d2c-48db-89fa-7230cda0aeec.png";
+import { CSSProperties } from "react";
 
 const Hero = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
@@ -114,9 +115,9 @@ const Hero = () => {
   ];
 
   // Determine optimal video sizing based on device type
-  const getVideoStyle = () => {
+  const getVideoStyle = (): CSSProperties => {
     // Base styles that work across all devices
-    const baseStyle = {
+    const baseStyle: CSSProperties = {
       position: 'absolute',
       top: '50%',
       left: '50%',
@@ -131,14 +132,14 @@ const Hero = () => {
         ...baseStyle,
         width: '100%',
         height: '100%',
-        objectFit: 'cover', // Ensures the video covers the entire container
+        objectFit: 'cover' as 'cover', // Type assertion to valid CSS objectFit value
       };
     } else if (deviceType === 'tablet') {
       return {
         ...baseStyle,
         width: '100vw',
         height: '100vh',
-        objectFit: 'cover',
+        objectFit: 'cover' as 'cover', // Type assertion to valid CSS objectFit value
       };
     } else {
       // Desktop - use the original aspect ratio approach
