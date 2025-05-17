@@ -36,6 +36,11 @@ const Solution = lazy(() =>
     .then(module => ({ default: memo(module.default) }))
 );
 
+const CompetitorComparison = lazy(() => 
+  import("../components/CompetitorComparison")
+    .then(module => ({ default: memo(module.default) }))
+);
+
 const Benefits = lazy(() => 
   import("../components/Benefits")
     .then(module => ({ default: memo(module.default) }))
@@ -85,6 +90,7 @@ const Index = () => {
     worldMap: false,
     problem: false,
     solution: false,
+    comparison: false,
     benefits: false,
     howItWorks: false,
     results: false,
@@ -185,6 +191,12 @@ const Index = () => {
       <section id="solution">
         <Suspense fallback={<SectionLoader />}>
           {(visibleSections.solution || deviceType === 'mobile') && <Solution />}
+        </Suspense>
+      </section>
+      
+      <section id="comparison">
+        <Suspense fallback={<SectionLoader />}>
+          {(visibleSections.comparison || deviceType === 'mobile') && <CompetitorComparison />}
         </Suspense>
       </section>
       
