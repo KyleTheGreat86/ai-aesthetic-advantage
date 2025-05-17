@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -139,18 +140,20 @@
 }
 
 @layer components {
+  /* Updated standardized button styling to ensure consistency */
   .eagle-btn-primary {
-    @apply bg-eagle-blue text-white w-full sm:w-auto px-6 sm:px-8 py-3 rounded-md font-semibold transition-all hover:bg-eagle-blue/90 hover:shadow-lg hover:shadow-eagle-blue/20 hover:-translate-y-0.5 text-center min-w-[120px] max-w-[220px] mx-auto sm:mx-2;
+    @apply bg-eagle-blue text-white w-48 max-w-full px-6 py-3 rounded-md font-semibold transition-all hover:bg-eagle-blue/90 hover:shadow-lg hover:shadow-eagle-blue/20 hover:-translate-y-0.5 text-center uppercase;
   }
   
   .eagle-btn-secondary {
-    @apply bg-eagle-orange text-white w-full sm:w-auto px-6 sm:px-8 py-3 rounded-md font-semibold transition-all hover:bg-eagle-orange/90 hover:shadow-lg hover:shadow-eagle-orange/20 hover:-translate-y-0.5 text-center min-w-[120px] max-w-[220px] mx-auto sm:mx-2;
+    @apply bg-eagle-orange text-white w-48 max-w-full px-6 py-3 rounded-md font-semibold transition-all hover:bg-eagle-orange/90 hover:shadow-lg hover:shadow-eagle-orange/20 hover:-translate-y-0.5 text-center uppercase;
   }
 
   .eagle-btn-outline {
-    @apply border-2 border-white text-white w-full sm:w-auto px-6 sm:px-8 py-3 rounded-md font-semibold transition-all hover:bg-white/10 hover:-translate-y-0.5 text-center min-w-[120px] max-w-[220px] mx-auto sm:mx-2;
+    @apply border-2 border-white text-white w-48 max-w-full px-6 py-3 rounded-md font-semibold transition-all hover:bg-white/10 hover:-translate-y-0.5 text-center uppercase;
   }
-
+  
+  /* Keep the rest of the components */
   .section-container {
     @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16;
   }
@@ -291,6 +294,11 @@
   button, a, [role="button"] {
     min-height: 44px;
     min-width: 44px;
+  }
+  
+  /* Standard button styles for mobile */
+  .eagle-btn-primary, .eagle-btn-secondary, .eagle-btn-outline, .cta-button {
+    @apply w-48 max-w-full px-4 py-2 text-sm font-bold;
   }
   
   /* Ensure text is readable */

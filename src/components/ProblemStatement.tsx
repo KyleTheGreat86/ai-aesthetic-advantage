@@ -35,8 +35,8 @@ const ProblemStatement = () => {
     }
   ];
 
-  // Ordered from lowest to highest
-  const lostCommissions = ["$270K", "$290K", "$310K", "$350K"];
+  // Updated ordered from lowest to highest
+  const lostCommissions = ["$150K", "$175K", "$200K", "$225K", "$250K"];
 
   useEffect(() => {
     const observer = new IntersectionObserver(

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from "react";
 import { TrendingUp, Clock, Smartphone, Bell, Briefcase, Shield, Calculator } from "lucide-react";
 import { EagleButton } from "./ui/eagle-button";
@@ -179,7 +178,7 @@ const Benefits = () => {
           })}
         </div>
 
-        {/* New ROI Calculator */}
+        {/* ROI Calculator */}
         <div className="max-w-5xl mx-auto bg-eagle-dark/80 backdrop-blur-lg rounded-xl border border-eagle-blue/30 p-4 sm:p-8 mx-4 sm:mx-auto shadow-xl">
           <div className="calculator-header text-center mb-8">
             <div className="flex items-center justify-center mb-4">
@@ -327,10 +326,10 @@ const Benefits = () => {
           
           <button
             onClick={calculateROI}
-            className="w-full bg-gradient-to-r from-eagle-blue to-eagle-blue/70 hover:from-eagle-blue/90 hover:to-eagle-blue/60 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center"
+            className="bg-eagle-blue text-white w-48 max-w-full mx-auto px-6 py-3 rounded-md font-semibold uppercase transition-all hover:bg-eagle-blue/90 hover:shadow-lg hover:shadow-eagle-blue/20 flex items-center justify-center"
           >
             <Calculator className="mr-2" size={20} />
-            Calculate My ROI
+            Calculate ROI
           </button>
           
           {/* Results Container */}
@@ -390,8 +389,8 @@ const Benefits = () => {
               
               <div className="text-center">
                 <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer">
-                  <EagleButton className="text-sm sm:text-base px-6 py-3">
-                    Schedule Your AI Demo
+                  <EagleButton className="uppercase font-bold w-48 max-w-full py-3">
+                    Schedule AI Demo
                   </EagleButton>
                 </a>
               </div>

@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { Check, Shield, Rocket, Target, BarChart } from "lucide-react";
 import { EagleButton } from "./ui/eagle-button";
@@ -53,7 +52,7 @@ const Pricing = () => {
           </h2>
           <p className="text-center text-xl text-eagle-orange font-medium mb-6">Proven ROI Within 60 Days</p>
           
-          {/* Adding the Book Your Free Strategy Call button */}
+          {/* Updated button styling for consistency */}
           <div className="text-center mb-8">
             <a
               href={calendlyUrl}
@@ -61,8 +60,8 @@ const Pricing = () => {
               rel="noopener noreferrer"
               className="inline-block"
             >
-              <EagleButton className="uppercase font-bold">
-                SCHEDULE YOUR STRATEGY SESSION
+              <EagleButton className="uppercase font-bold w-48 max-w-full py-3">
+                Strategy Session
               </EagleButton>
             </a>
           </div>
@@ -179,10 +178,10 @@ const Pricing = () => {
                   href={calendlyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block w-full"
+                  className="inline-block"
                 >
-                  <EagleButton className="w-full uppercase font-bold">
-                    CLAIM YOUR AI INFRASTRUCTURE BLUEPRINT
+                  <EagleButton className="uppercase font-bold w-48 max-w-full py-3">
+                    Get AI Blueprint
                   </EagleButton>
                 </a>
               </div>

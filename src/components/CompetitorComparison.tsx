@@ -2,6 +2,7 @@
 import React from "react";
 import { Check, X } from "lucide-react";
 import { useIsMobile } from "../hooks/use-mobile";
+import { EagleButton } from "./ui/eagle-button";
 
 const CompetitorComparison = () => {
   const isMobile = useIsMobile();
@@ -84,8 +85,10 @@ const CompetitorComparison = () => {
           </div>
           
           <div className="text-center">
-            <a href="#how-it-works" className="inline-block eagle-btn-primary w-48 max-w-full text-center">
-              See How It Works
+            <a href="#how-it-works" className="inline-block">
+              <EagleButton className="uppercase font-bold w-48 max-w-full py-3">
+                How It Works
+              </EagleButton>
             </a>
           </div>
         </div>

@@ -7,12 +7,14 @@ interface AnimatedTextCycleProps {
   words: string[];
   interval?: number;
   className?: string;
+  suffix?: string;
 }
 
 export default function AnimatedTextCycle({
   words,
   interval = 5000,
   className = "",
+  suffix = "",
 }: AnimatedTextCycleProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [width, setWidth] = useState("auto");
@@ -25,8 +27,8 @@ export default function AnimatedTextCycle({
       if (measureRef.current) {
         const elements = measureRef.current.children;
         if (elements.length > currentIndex) {
-          // Add a small buffer to prevent text wrapping
-          const newWidth = elements[currentIndex].getBoundingClientRect().width;
+          // Add a bit more buffer to prevent text wrapping
+          const newWidth = elements[currentIndex].getBoundingClientRect().width + 5;
           setWidth(`${newWidth}px`);
         }
       }
@@ -87,7 +89,7 @@ export default function AnimatedTextCycle({
       >
         {words.map((word, i) => (
           <span key={i} className={`font-bold ${className}`}>
-            {word}
+            {word}{suffix}
           </span>
         ))}
       </div>
@@ -116,7 +118,7 @@ export default function AnimatedTextCycle({
             exit="exit"
             style={{ whiteSpace: "nowrap", display: "inline-block" }}
           >
-            {words[currentIndex]}
+            {words[currentIndex]}{suffix}
           </motion.span>
         </AnimatePresence>
       </motion.span>

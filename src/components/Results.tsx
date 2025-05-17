@@ -73,8 +73,8 @@ const Results = () => {
                 words={rotatingWords} 
                 interval={3000} 
                 className="text-eagle-blue"
+                suffix="?" 
               />
-              ?
             </span>
           </h2>
         </div>
@@ -98,8 +98,8 @@ const Results = () => {
             
             <div className="mt-6 sm:mt-8 text-center">
               <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer">
-                <EagleButton className="uppercase font-bold text-xs sm:text-base px-3 sm:px-6 py-2 w-full">
-                  <span className="whitespace-normal">See How We Can Help You</span>
+                <EagleButton className="uppercase font-bold w-48 max-w-full py-3">
+                  See How We Can Help
                 </EagleButton>
               </a>
             </div>
@@ -115,16 +115,16 @@ const Results = () => {
                 words={personalRotatingWords} 
                 interval={3000} 
                 className="text-eagle-orange"
+                suffix="?"
               />
-              ?
             </span>
           </h2>
           <p className="text-lg sm:text-xl mt-3">Proven ROI Within 60 Days</p>
           
-          <div className="mt-6 sm:mt-8">
+          <div className="mt-6 sm:mt-8 text-center">
             <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer">
-              <EagleButton className="uppercase font-bold text-xs sm:text-base px-3 sm:px-6 py-2 w-full sm:w-auto">
-                <span className="whitespace-normal">Schedule Your Free Consultation</span>
+              <EagleButton className="uppercase font-bold w-48 max-w-full py-3">
+                Free Consultation
               </EagleButton>
             </a>
           </div>
