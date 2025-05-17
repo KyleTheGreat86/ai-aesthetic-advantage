@@ -10,11 +10,6 @@ import {
 const FAQ = () => {
   const faqItems = [
     {
-      question: "How much does Eagle Eye cost?",
-      answer:
-        "$5,995 setup (one-time) + $1,750/month. Most clients see ROI in <60 days.",
-    },
-    {
       question: "Do I need technical skills to use it?",
       answer:
         "No. Everything runs via Telegram—just tap buttons to approve deals, schedule tours, etc. The interface is designed for busy brokers who need information and actions at their fingertips.",
@@ -82,10 +77,10 @@ const FAQ = () => {
             </p>
             <p className="mt-2">
               <a
-                href="mailto:team@eagleeyeai.com"
+                href="mailto:kyle@agencyeagleeye.com"
                 className="text-eagle-blue hover:underline"
               >
-                team@eagleeyeai.com
+                kyle@agencyeagleeye.com
               </a>
             </p>
           </div>
