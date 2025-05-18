@@ -101,6 +101,20 @@ const Hero = () => {
         <p className="text-base sm:text-lg md:text-xl mb-8 max-w-3xl mx-auto text-white">
           Our Eagle Eye AI Autopilot eliminates <span className="text-eagle-orange font-semibold">90% of manual work</span>—scouring markets, analyzing deals, nurturing clients, and scheduling tours—so you close more <span className="text-eagle-blue font-semibold">$5M+ off-market deals</span> while competitors chase cold leads.
         </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 sm:mb-16">
+          <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+            <EagleButton className="uppercase font-bold text-base w-full sm:w-auto group container px-3 sm:px-6">
+              <span className="whitespace-normal sm:whitespace-nowrap">Schedule Your Strategy Session</span>
+              <ChevronRight className="ml-1 transition-transform group-hover:translate-x-1 flex-shrink-0" />
+            </EagleButton>
+          </a>
+          <a href="#how-it-works" className="w-full sm:w-auto">
+            <EagleSecondaryButton className="uppercase font-bold text-base w-full sm:w-auto flex items-center justify-center">
+              <span className="whitespace-normal sm:whitespace-nowrap">See How It Works</span>
+            </EagleSecondaryButton>
+          </a>
+        </div>
       </div>
     </section>
   );

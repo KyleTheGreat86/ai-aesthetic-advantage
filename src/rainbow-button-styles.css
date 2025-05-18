@@ -1,51 +1,8 @@
 
-/* Button Styles with Rainbow Effect */
+/* Simplified Button Styles - Removed rainbow effects */
 button.rainbow-enhanced {
   position: relative;
   overflow: hidden;
-}
-
-/* Rainbow effect that fits the button */
-button.rainbow-enhanced::before {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(
-    45deg,
-    hsl(var(--color-1)),
-    hsl(var(--color-2)),
-    hsl(var(--color-3)),
-    hsl(var(--color-4)),
-    hsl(var(--color-5))
-  );
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(5px);
-  border-radius: 14px;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-/* Show rainbow effect on hover */
-button.rainbow-enhanced:hover::before {
-  opacity: 1;
-  animation: rainbow-animation 8s linear infinite;
-}
-
-/* Rainbow animation */
-@keyframes rainbow-animation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
 }
 
 /* Ensure button content remains visible */
@@ -54,11 +11,7 @@ button.rainbow-enhanced > * {
   z-index: 1;
 }
 
-/* Define rainbow colors as CSS variables */
-:root {
-  --color-1: 302, 70%, 70%;  /* Pink/purple */
-  --color-2: 268, 75%, 75%;  /* Purple */
-  --color-3: 315, 80%, 70%;  /* Pink */
-  --color-4: 290, 70%, 75%;  /* Lavender */
-  --color-5: 270, 80%, 70%;  /* Purple */
+/* Make sure the effect doesn't interfere with button text colors */
+button.rainbow-enhanced {
+  color: inherit;
 }

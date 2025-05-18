@@ -1,7 +1,6 @@
 
 import { Facebook, Linkedin, Youtube, ArrowUp } from "lucide-react";
 import { EagleButton } from "./ui/eagle-button";
-import { RainbowButton } from "./ui/rainbow-button";
 import eagleEyeLogo from "/lovable-uploads/33a6f5a7-7d2c-48db-89fa-7230cda0aeec.png";
 
 const Footer = () => {
@@ -27,7 +26,7 @@ const Footer = () => {
             className="inline-block"
           >
             <EagleButton className="uppercase font-bold group">
-              <span className="whitespace-nowrap">Claim Your Free Demo</span>
+              Claim Your Free Demo
               <span className="ml-2 group-hover:ml-3 transition-all">→</span>
             </EagleButton>
           </a>
@@ -120,7 +119,7 @@ const SocialIcon = ({ href, containerClass, children, ariaLabel }: SocialIconPro
   return (
     <a
       href={href}
-      target="_blank" 
+      target="_blank"
       rel="noopener noreferrer"
       className={`socialContainer ${containerClass} w-[52px] h-[52px] bg-[#2c2c2c] flex items-center justify-center overflow-hidden transition-all duration-300 hover:scale-100 active:scale-90`}
       aria-label={ariaLabel}
