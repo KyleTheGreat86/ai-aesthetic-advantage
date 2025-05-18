@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/animated-video-on-scroll"
 import { EagleButton } from "./eagle-button"
 import { ChevronRight } from "lucide-react"
-import { RainbowButton } from "./rainbow-button"
 
 export const AnimatedVideoDemo = () => {
   return (
@@ -46,10 +45,10 @@ export const AnimatedVideoDemo = () => {
             className="mx-auto mt-6 flex flex-col sm:flex-row gap-4 justify-center"
           >
             <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer">
-              <RainbowButton className="uppercase font-bold text-base w-full sm:w-auto group flex items-center gap-2 justify-center">
+              <EagleButton className="uppercase font-bold text-base w-full sm:w-auto group flex items-center gap-2 justify-center">
                 <span>Schedule Your Strategy Session</span>
                 <ChevronRight className="transition-transform group-hover:translate-x-1 flex-shrink-0" />
-              </RainbowButton>
+              </EagleButton>
             </a>
           </ContainerAnimated>
         </ContainerSticky>

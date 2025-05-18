@@ -4,9 +4,7 @@ import { cn } from "@/lib/utils";
 import "../../rainbow-button-styles.css";
 
 interface RainbowButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  children: React.ReactNode;
-}
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
 export function RainbowButton({
   children,
