@@ -5,7 +5,7 @@ import { ChevronRight } from "lucide-react";
 
 const VideoSection = () => {
   return (
-    <section id="video-section" className="py-16 bg-eagle-dark relative z-10">
+    <section id="video-section" className="py-16 bg-eagle-dark relative z-20">
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">See How It Works</h2>
@@ -30,7 +30,7 @@ const VideoSection = () => {
         {/* Call-to-action buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-            <EagleButton className="uppercase font-bold text-base w-full sm:w-auto group container px-3 sm:px-6">
+            <EagleButton className="uppercase font-bold text-base w-full sm:w-auto group px-3 sm:px-6">
               <span className="whitespace-normal sm:whitespace-nowrap">Schedule Your Strategy Session</span>
               <ChevronRight className="ml-1 transition-transform group-hover:translate-x-1 flex-shrink-0" />
             </EagleButton>
@@ -42,9 +42,6 @@ const VideoSection = () => {
           </a>
         </div>
       </div>
-      
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-eagle-dark/80 to-eagle-dark/100 pointer-events-none"></div>
     </section>
   );
 };

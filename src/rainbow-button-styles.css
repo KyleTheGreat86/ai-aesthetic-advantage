@@ -53,3 +53,12 @@ button.rainbow-enhanced > * {
   position: relative;
   z-index: 1;
 }
+
+/* Define rainbow colors as CSS variables */
+:root {
+  --color-1: 302, 70%, 70%;  /* Pink/purple */
+  --color-2: 268, 75%, 75%;  /* Purple */
+  --color-3: 315, 80%, 70%;  /* Pink */
+  --color-4: 290, 70%, 75%;  /* Lavender */
+  --color-5: 270, 80%, 70%;  /* Purple */
+}

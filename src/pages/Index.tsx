@@ -1,11 +1,15 @@
+
 import { useEffect, lazy, Suspense, useState, memo } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import VideoSection from "../components/VideoSection";
 import { useIsMobile, useDeviceType } from "../hooks/use-mobile";
+import { AnimatedVideoDemo } from "../components/ui/animated-video-demo";
 
 // Import the RainbowButton CSS styles
 import "../rainbow-button-styles.css";
+import { EagleButton } from "@/components/ui/eagle-button";
+import { ChevronRight } from "lucide-react";
 
 // Simple loading component to avoid layout shift
 const SectionLoader = () => (
@@ -183,6 +187,31 @@ const Index = () => {
       <Hero />
 
       <VideoSection />
+
+      {/* Call to Action Section with Parallax Video */}
+      <div className="py-16" id="transform-section">
+        <div className="container mx-auto px-4 text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Transform Your Career?</h2>
+          <p className="text-xl mb-6">Proven ROI Within 60 Days</p>
+        </div>
+        
+        {/* Add the AnimatedVideoDemo component here */}
+        <AnimatedVideoDemo />
+        
+        <div className="container mx-auto px-4 text-center mt-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Transform Your Brokerage?</h2>
+          <p className="text-xl mb-6">Proven ROI Within 60 Days</p>
+          
+          <div className="flex justify-center">
+            <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer">
+              <EagleButton className="uppercase font-bold text-base group">
+                Strategy Session
+                <ChevronRight className="ml-1 transition-transform group-hover:translate-x-1" />
+              </EagleButton>
+            </a>
+          </div>
+        </div>
+      </div>
       
       <section id="problem">
         <Suspense fallback={<SectionLoader />}>
