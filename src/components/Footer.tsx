@@ -1,4 +1,3 @@
-
 import { Facebook, Linkedin, Youtube, ArrowUp } from "lucide-react";
 import { EagleButton } from "./ui/eagle-button";
 import eagleEyeLogo from "/lovable-uploads/33a6f5a7-7d2c-48db-89fa-7230cda0aeec.png";
@@ -19,23 +18,19 @@ const Footer = () => {
           <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Transform Your Brokerage?</h2>
           <p className="text-lg mb-6">Book a 30-minute strategy session to see Eagle Eye in action. Limited spots available.</p>
           
-          <a 
-            href="https://calendly.com/weareagencyeagleeye/30min" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-block"
+          <EagleButton
+            calendlyLink="https://calendly.com/weareagencyeagleeye/30min"
+            className="uppercase font-bold group text-white w-auto px-6"
           >
-            <EagleButton className="uppercase font-bold group">
-              Claim Your Free Demo
-              <span className="ml-2 group-hover:ml-3 transition-all">→</span>
-            </EagleButton>
-          </a>
+            Claim Your Free Demo
+            <span className="ml-2 group-hover:ml-3 transition-all">→</span>
+          </EagleButton>
           
           <p className="mt-4 text-sm text-red-400 font-medium">Only 3 implementations available this month!</p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          <div className="col-span-1 md:col-span-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div className="col-span-1">
             <div className="flex items-center mb-4">
               <img src={eagleEyeLogo} alt="Eagle Eye Logo" className="h-10 mr-2" />
               <h3 className="text-xl font-bold">Eagle Eye AI</h3>

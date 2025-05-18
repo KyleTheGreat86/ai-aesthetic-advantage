@@ -103,17 +103,15 @@ const Hero = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 sm:mb-16">
-          <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-            <EagleButton className="uppercase font-bold text-base w-full sm:w-auto group container px-3 sm:px-6">
-              <span className="whitespace-normal sm:whitespace-nowrap">Schedule Your Strategy Session</span>
-              <ChevronRight className="ml-1 transition-transform group-hover:translate-x-1 flex-shrink-0" />
-            </EagleButton>
-          </a>
-          <a href="#how-it-works" className="w-full sm:w-auto">
-            <EagleSecondaryButton className="uppercase font-bold text-base w-full sm:w-auto flex items-center justify-center">
+          <EagleButton calendlyLink="https://calendly.com/weareagencyeagleeye/30min" className="uppercase font-bold text-base w-full sm:w-auto group container px-3 sm:px-6">
+            <span className="whitespace-normal sm:whitespace-nowrap">Schedule Your Strategy Session</span>
+            <ChevronRight className="ml-1 transition-transform group-hover:translate-x-1 flex-shrink-0" />
+          </EagleButton>
+          <EagleSecondaryButton className="uppercase font-bold text-base w-full sm:w-auto flex items-center justify-center">
+            <a href="#how-it-works" className="w-full h-full flex items-center justify-center">
               <span className="whitespace-normal sm:whitespace-nowrap">See How It Works</span>
-            </EagleSecondaryButton>
-          </a>
+            </a>
+          </EagleSecondaryButton>
         </div>
       </div>
     </section>

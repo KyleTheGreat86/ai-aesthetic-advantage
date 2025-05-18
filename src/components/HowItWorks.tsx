@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { Calendar, Server, CheckSquare, Rocket, BarChart3, User } from "lucide-react";
 import { EagleButton } from "./ui/eagle-button";
@@ -153,11 +152,9 @@ const HowItWorks = () => {
           </div>
 
           <div className="mt-12">
-            <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer">
-              <EagleButton>
-                Start Your 20-Day Transformation
-              </EagleButton>
-            </a>
+            <EagleButton calendlyLink="https://calendly.com/weareagencyeagleeye/30min">
+              Start Your 20-Day Transformation
+            </EagleButton>
           </div>
         </div>
       </div>

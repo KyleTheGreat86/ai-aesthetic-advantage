@@ -2,6 +2,8 @@
 import { useEffect, lazy, Suspense, useState, memo } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import VideoSection from "../components/VideoSection";
+import TransformationSection from "../components/TransformationSection";
 import { useIsMobile, useDeviceType } from "../hooks/use-mobile";
 
 // Import the RainbowButton CSS styles
@@ -87,12 +89,14 @@ const Index = () => {
   const deviceType = useDeviceType();
   const [hasLoaded, setHasLoaded] = useState(false);
   const [visibleSections, setVisibleSections] = useState({
+    videoSection: false,
     worldMap: false,
     problem: false,
     solution: false,
     comparison: false,
     benefits: false,
     howItWorks: false,
+    transformation: false,
     results: false,
     pricing: false,
     about: false,
@@ -182,6 +186,12 @@ const Index = () => {
       
       <Hero />
       
+      <section id="video-section">
+        <Suspense fallback={<SectionLoader />}>
+          <VideoSection />
+        </Suspense>
+      </section>
+      
       <section id="problem">
         <Suspense fallback={<SectionLoader />}>
           {(visibleSections.problem || deviceType === 'mobile') && <ProblemStatement />}
@@ -212,6 +222,12 @@ const Index = () => {
         </Suspense>
       </section>
       
+      <section id="transformation">
+        <Suspense fallback={<SectionLoader />}>
+          {(visibleSections.transformation || deviceType === 'mobile') && <TransformationSection />}
+        </Suspense>
+      </section>
+      
       <section id="results">
         <Suspense fallback={<SectionLoader />}>
           {(visibleSections.results || deviceType === 'mobile') && <Results />}
@@ -221,12 +237,6 @@ const Index = () => {
       <section id="pricing">
         <Suspense fallback={<SectionLoader />}>
           {(visibleSections.pricing || deviceType === 'mobile') && <Pricing />}
-        </Suspense>
-      </section>
-      
-      <section id="about">
-        <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.about || deviceType === 'mobile') && <About />}
         </Suspense>
       </section>
       
