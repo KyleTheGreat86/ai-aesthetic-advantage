@@ -11,7 +11,7 @@ export const EagleButton = React.forwardRef<HTMLButtonElement, EagleButtonProps>
       <Button
         ref={ref}
         className={cn(
-          "bg-[#1A9BD7] text-white shadow-[2px_2px_3px_rgba(0,0,0,0.3)] hover:bg-[#1689c1] w-48 max-w-full uppercase font-bold py-3",
+          "bg-[#1A9BD7] text-white shadow-[2px_2px_3px_rgba(0,0,0,0.3)] hover:bg-[#1689c1] w-48 max-w-full uppercase font-bold py-3 rainbow-enhanced",
           className
         )}
         {...props}
@@ -31,7 +31,7 @@ export const EagleSecondaryButton = React.forwardRef<HTMLButtonElement, EagleSec
       <Button
         ref={ref}
         className={cn(
-          "bg-[#1A9BD7] text-white shadow-[2px_2px_3px_rgba(0,0,0,0.3)] hover:bg-[#1689c1] w-48 max-w-full uppercase font-bold py-3",
+          "bg-[#1A9BD7] text-white shadow-[2px_2px_3px_rgba(0,0,0,0.3)] hover:bg-[#1689c1] w-48 max-w-full uppercase font-bold py-3 rainbow-enhanced",
           className
         )}
         {...props}

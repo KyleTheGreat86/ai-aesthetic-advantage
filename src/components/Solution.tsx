@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from "react";
-import { Search, BarChart3, FileSearch, Users, Calendar, MessageSquare } from "lucide-react";
+import { Search, BarChart3, Calendar, MessageSquare } from "lucide-react";
 
 const Solution = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -18,18 +18,6 @@ const Solution = () => {
       title: "Instant Deal Analyzer",
       description: "Runs cap rates, ROI projections in seconds",
       icon: BarChart3,
-      iconColor: "text-eagle-orange"
-    },
-    {
-      title: "Document Hunter",
-      description: "Automatically requests missing leases, title reports",
-      icon: FileSearch,
-      iconColor: "text-eagle-blue"
-    },
-    {
-      title: "Buyer/Seller Matchmaker",
-      description: "Pairs your client criteria with new listings",
-      icon: Users,
       iconColor: "text-eagle-orange"
     },
     {
@@ -92,11 +80,9 @@ const Solution = () => {
         </div>
 
         <div className="max-w-5xl mx-auto">
-          {/* Interactive workflow diagram */}
+          {/* Interactive workflow diagram - removed the blue/orange line */}
           <div className="relative mb-16">
-            <div className="hidden md:block h-1 bg-gradient-to-r from-eagle-blue via-eagle-orange to-eagle-blue absolute top-1/2 left-0 right-0 transform -translate-y-1/2"></div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {features.map((feature, index) => {
                 const Icon = feature.icon;
                 return (
@@ -114,14 +100,6 @@ const Solution = () => {
                     </div>
                     <h3 className="text-lg font-semibold text-center mb-2">{feature.title}</h3>
                     <p className="text-sm text-center text-gray-300">{feature.description}</p>
-                    
-                    {index < features.length - 1 && (
-                      <div className="hidden md:block absolute top-8 -right-3 transform translate-x-1/2 z-0">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M10 0L20 10L10 20V0Z" fill="white" fillOpacity="0.3" />
-                        </svg>
-                      </div>
-                    )}
                   </div>
                 );
               })}

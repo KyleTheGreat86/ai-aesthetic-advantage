@@ -1,7 +1,7 @@
-
 import { useEffect, lazy, Suspense, useState, memo } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import VideoSection from "../components/VideoSection";
 import { useIsMobile, useDeviceType } from "../hooks/use-mobile";
 
 // Import the RainbowButton CSS styles
@@ -181,6 +181,8 @@ const Index = () => {
       </Suspense>
       
       <Hero />
+
+      <VideoSection />
       
       <section id="problem">
         <Suspense fallback={<SectionLoader />}>
