@@ -1,9 +1,12 @@
 
 import React from "react";
-import { EagleButton } from "./ui/eagle-button";
+import { RainbowButton } from "./ui/rainbow-button";
 import AnimatedCodeSpline from "./ui/animated-code-spline";
 
 const TransformationSection = () => {
+  // Updated Calendly booking URL
+  const calendlyUrl = "https://calendly.com/weareagencyeagleeye/30min";
+  
   return (
     <section className="py-24 relative bg-eagle-dark/80">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,6 +21,15 @@ const TransformationSection = () => {
         
         {/* Code Spline Animation */}
         <AnimatedCodeSpline />
+        
+        {/* Button has been moved to the end of the component */}
+        <div className="text-center mt-12">
+          <RainbowButton 
+            calendlyLink={calendlyUrl}
+            className="uppercase font-bold text-base px-8 py-3">
+            Free Consultation
+          </RainbowButton>
+        </div>
       </div>
     </section>
   );

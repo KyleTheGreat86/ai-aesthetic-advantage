@@ -49,21 +49,8 @@ const Pricing = () => {
     >
       <div className="section-container relative z-10">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-            Ready to Transform Your Brokerage?
-          </h2>
-          <p className="text-center text-xl text-eagle-orange font-medium mb-6">Proven ROI Within 60 Days</p>
+          {/* Removed the duplicated title and button here */}
           
-          {/* Updated button styling for consistency */}
-          <div className="text-center mb-8">
-            <RainbowButton
-              calendlyLink={calendlyUrl}
-              className="uppercase font-bold py-3 px-8"
-            >
-              Strategy Session
-            </RainbowButton>
-          </div>
-
           <div
             className={`card-glow max-w-lg mx-auto transform transition-all duration-700 ${
               isVisible
