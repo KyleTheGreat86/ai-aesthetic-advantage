@@ -1,6 +1,8 @@
+
 import { useState, useEffect, useRef } from "react";
 import { Check, Shield, Rocket, Target, BarChart } from "lucide-react";
 import { EagleButton } from "./ui/eagle-button";
+import { RainbowButton } from "./ui/rainbow-button";
 
 const Pricing = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -54,16 +56,12 @@ const Pricing = () => {
           
           {/* Updated button styling for consistency */}
           <div className="text-center mb-8">
-            <a
-              href={calendlyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block"
+            <RainbowButton
+              calendlyLink={calendlyUrl}
+              className="uppercase font-bold py-3 px-8"
             >
-              <EagleButton className="uppercase font-bold w-48 max-w-full py-3">
-                Strategy Session
-              </EagleButton>
-            </a>
+              Strategy Session
+            </RainbowButton>
           </div>
 
           <div
@@ -90,14 +88,6 @@ const Pricing = () => {
                   <li className="flex items-center">
                     <Check size={18} className="mr-3 text-eagle-blue flex-shrink-0" />
                     <span className="text-white">Instant Deal Analyzer</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check size={18} className="mr-3 text-eagle-blue flex-shrink-0" />
-                    <span className="text-white">Document Hunter</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check size={18} className="mr-3 text-eagle-blue flex-shrink-0" />
-                    <span className="text-white">Buyer/Seller Matchmaker</span>
                   </li>
                   <li className="flex items-center">
                     <Check size={18} className="mr-3 text-eagle-blue flex-shrink-0" />
@@ -174,16 +164,12 @@ const Pricing = () => {
               </div>
 
               <div className="text-center">
-                <a
-                  href={calendlyUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block"
+                <RainbowButton
+                  calendlyLink={calendlyUrl}
+                  className="uppercase font-bold py-3 px-8"
                 >
-                  <EagleButton className="uppercase font-bold w-48 max-w-full py-3">
-                    Get AI Blueprint
-                  </EagleButton>
-                </a>
+                  Get AI Blueprint
+                </RainbowButton>
               </div>
               
               <div className="absolute -inset-1 bg-gradient-to-r from-eagle-blue to-eagle-orange opacity-30 blur-lg -z-10 group-hover:opacity-50 transition-opacity"></div>

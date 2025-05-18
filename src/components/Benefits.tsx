@@ -1,6 +1,8 @@
+
 import React, { useState, useEffect, useRef } from "react";
 import { TrendingUp, Clock, Smartphone, Bell, Briefcase, Shield, Calculator } from "lucide-react";
 import { EagleButton } from "./ui/eagle-button";
+import { RainbowButton } from "./ui/rainbow-button";
 
 const Benefits = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -21,6 +23,7 @@ const Benefits = () => {
   const [timeSaved, setTimeSaved] = useState(0);
   const [timeValueSaved, setTimeValueSaved] = useState(0);
   const [additionalRevenue, setAdditionalRevenue] = useState(0);
+  const [monthlyAdditionalRevenue, setMonthlyAdditionalRevenue] = useState(0);
   const [annualROI, setAnnualROI] = useState(0);
   const [additionalDeals, setAdditionalDeals] = useState(0);
   const [commissionPerDeal, setCommissionPerDeal] = useState(0);
@@ -107,6 +110,9 @@ const Benefits = () => {
     const commPerDeal = avgDealValue * (commissionRate / 100);
     const addRevenue = addDeals * commPerDeal;
     
+    // Calculate monthly additional revenue
+    const monthlyAddRevenue = addRevenue / 12;
+    
     // Calculate ROI
     // Assuming annual cost of system based on pricing model
     const annualCost = 24000; // $2,000/month average
@@ -120,6 +126,7 @@ const Benefits = () => {
     setTimeSaved(Math.round(monthlySaved));
     setTimeValueSaved(Math.round(monthlyTimeSavingsValue));
     setAdditionalRevenue(Math.round(addRevenue));
+    setMonthlyAdditionalRevenue(Math.round(monthlyAddRevenue));
     setAnnualROI(Math.round(annualReturn));
     setAdditionalDeals(addDeals);
     setCommissionPerDeal(Math.round(commPerDeal));
@@ -324,13 +331,15 @@ const Benefits = () => {
             </div>
           </div>
           
-          <button
-            onClick={calculateROI}
-            className="bg-eagle-blue text-white w-48 max-w-full mx-auto px-6 py-3 rounded-md font-semibold uppercase transition-all hover:bg-eagle-blue/90 hover:shadow-lg hover:shadow-eagle-blue/20 flex items-center justify-center"
-          >
-            <Calculator className="mr-2" size={20} />
-            Calculate ROI
-          </button>
+          <div className="text-center">
+            <RainbowButton
+              onClick={calculateROI}
+              className="uppercase font-bold py-3 px-8"
+            >
+              <Calculator className="mr-2" size={20} />
+              Calculate ROI
+            </RainbowButton>
+          </div>
           
           {/* Results Container */}
           {showResults && (
@@ -340,7 +349,7 @@ const Benefits = () => {
                 <p className="text-gray-300">Based on your inputs, here's how our solution can transform your business:</p>
               </div>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-10">
                 <div className="bg-white/5 backdrop-blur-sm rounded-lg p-5 border border-eagle-blue/20 text-center transition-all duration-300 transform hover:scale-[1.02] hover:border-eagle-blue/40">
                   <h4 className="text-lg font-semibold text-white mb-2">Time Saved Monthly</h4>
                   <div className="text-3xl font-bold text-eagle-blue">{timeSaved} hours</div>
@@ -354,15 +363,21 @@ const Benefits = () => {
                 </div>
                 
                 <div className="bg-white/5 backdrop-blur-sm rounded-lg p-5 border border-eagle-orange/20 text-center transition-all duration-300 transform hover:scale-[1.02] hover:border-eagle-orange/40">
-                  <h4 className="text-lg font-semibold text-white mb-2">Additional Annual Revenue</h4>
+                  <h4 className="text-lg font-semibold text-white mb-2">Monthly Revenue Boost</h4>
+                  <div className="text-3xl font-bold text-eagle-orange">{formatCurrency(monthlyAdditionalRevenue)}</div>
+                  <p className="text-xs sm:text-sm text-gray-300 mt-2">Extra monthly commissions with AI</p>
+                </div>
+                
+                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-5 border border-eagle-orange/20 text-center transition-all duration-300 transform hover:scale-[1.02] hover:border-eagle-orange/40">
+                  <h4 className="text-lg font-semibold text-white mb-2">Annual Revenue Boost</h4>
                   <div className="text-3xl font-bold text-eagle-orange">{formatCurrency(additionalRevenue)}</div>
-                  <p className="text-xs sm:text-sm text-gray-300 mt-2">From increased deal flow and client retention</p>
+                  <p className="text-xs sm:text-sm text-gray-300 mt-2">Additional yearly revenue</p>
                 </div>
                 
                 <div className="bg-white/5 backdrop-blur-sm rounded-lg p-5 border border-eagle-orange/20 text-center transition-all duration-300 transform hover:scale-[1.02] hover:border-eagle-orange/40">
                   <h4 className="text-lg font-semibold text-white mb-2">Annual ROI</h4>
                   <div className="text-3xl font-bold text-eagle-orange">{annualROI}%</div>
-                  <p className="text-xs sm:text-sm text-gray-300 mt-2">Return on your CRE AI Infrastructure investment</p>
+                  <p className="text-xs sm:text-sm text-gray-300 mt-2">Return on your investment</p>
                 </div>
               </div>
               
@@ -388,11 +403,12 @@ const Benefits = () => {
               </div>
               
               <div className="text-center">
-                <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer">
-                  <EagleButton className="uppercase font-bold w-48 max-w-full py-3">
-                    Schedule AI Demo
-                  </EagleButton>
-                </a>
+                <RainbowButton
+                  calendlyLink="https://calendly.com/weareagencyeagleeye/30min"
+                  className="uppercase font-bold py-3 px-8"
+                >
+                  Schedule AI Demo
+                </RainbowButton>
               </div>
             </div>
           )}

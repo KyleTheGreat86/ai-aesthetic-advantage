@@ -1,6 +1,7 @@
 
 import React from "react";
-import { EagleButton, EagleSecondaryButton } from "./ui/eagle-button";
+import { RainbowButton } from "./ui/rainbow-button";
+import { EagleSecondaryButton } from "./ui/eagle-button";
 import { ChevronRight } from "lucide-react";
 
 const VideoSection = () => {
@@ -26,15 +27,19 @@ const VideoSection = () => {
         </div>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-          <EagleButton calendlyLink="https://calendly.com/weareagencyeagleeye/30min" className="uppercase font-bold text-base group">
-            <span>Schedule Your Strategy Session</span>
+          <RainbowButton 
+            calendlyLink="https://calendly.com/weareagencyeagleeye/30min" 
+            className="uppercase font-bold text-base group w-auto"
+          >
+            <span className="whitespace-nowrap">Schedule Your Strategy Session</span>
             <ChevronRight className="ml-1 transition-transform group-hover:translate-x-1" />
-          </EagleButton>
-          <EagleSecondaryButton className="uppercase font-bold text-base">
+          </RainbowButton>
+          
+          <RainbowButton className="uppercase font-bold text-base w-auto">
             <a href="#how-it-works" className="w-full h-full flex items-center justify-center">
               See How It Works
             </a>
-          </EagleSecondaryButton>
+          </RainbowButton>
         </div>
       </div>
     </section>

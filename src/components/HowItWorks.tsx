@@ -1,6 +1,7 @@
+
 import { useState, useEffect, useRef } from "react";
 import { Calendar, Server, CheckSquare, Rocket, BarChart3, User } from "lucide-react";
-import { EagleButton } from "./ui/eagle-button";
+import { RainbowButton } from "./ui/rainbow-button";
 
 const steps = [
   {
@@ -152,9 +153,12 @@ const HowItWorks = () => {
           </div>
 
           <div className="mt-12">
-            <EagleButton calendlyLink="https://calendly.com/weareagencyeagleeye/30min">
+            <RainbowButton
+              calendlyLink="https://calendly.com/weareagencyeagleeye/30min"
+              className="uppercase font-bold py-3 px-8"
+            >
               Start Your 20-Day Transformation
-            </EagleButton>
+            </RainbowButton>
           </div>
         </div>
       </div>

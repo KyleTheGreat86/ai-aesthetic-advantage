@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from "react";
-import { EagleButton, EagleSecondaryButton } from "./ui/eagle-button";
+import { RainbowButton } from "./ui/rainbow-button";
 import { ChevronRight, Play, Pause } from "lucide-react";
 import { TypewriterEffect } from "./ui/typewriter-effect";
 import { useDeviceType } from "../hooks/use-mobile";
@@ -103,15 +103,19 @@ const Hero = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 sm:mb-16">
-          <EagleButton calendlyLink="https://calendly.com/weareagencyeagleeye/30min" className="uppercase font-bold text-base w-full sm:w-auto group container px-3 sm:px-6">
-            <span className="whitespace-normal sm:whitespace-nowrap">Schedule Your Strategy Session</span>
+          <RainbowButton 
+            calendlyLink="https://calendly.com/weareagencyeagleeye/30min" 
+            className="uppercase font-bold text-base w-auto px-6 group"
+          >
+            <span className="whitespace-nowrap">Schedule Your Strategy Session</span>
             <ChevronRight className="ml-1 transition-transform group-hover:translate-x-1 flex-shrink-0" />
-          </EagleButton>
-          <EagleSecondaryButton className="uppercase font-bold text-base w-full sm:w-auto flex items-center justify-center">
+          </RainbowButton>
+          
+          <RainbowButton className="uppercase font-bold text-base w-auto px-6">
             <a href="#how-it-works" className="w-full h-full flex items-center justify-center">
-              <span className="whitespace-normal sm:whitespace-nowrap">See How It Works</span>
+              <span className="whitespace-nowrap">See How It Works</span>
             </a>
-          </EagleSecondaryButton>
+          </RainbowButton>
         </div>
       </div>
     </section>

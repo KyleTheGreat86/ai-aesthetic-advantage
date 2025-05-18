@@ -2,7 +2,7 @@
 /* Enhanced Button Styles with rainbow glow effect */
 button.rainbow-enhanced {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   box-shadow: 0 0 15px rgba(213, 70, 239, 0.5); /* Purple glow */
   transition: all 0.3s ease;
 }
@@ -15,11 +15,28 @@ button.rainbow-enhanced > * {
 
 /* Make sure the effect doesn't interfere with button text colors */
 button.rainbow-enhanced {
-  color: inherit;
+  color: white;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 /* Add hover glow effect */
 button.rainbow-enhanced:hover {
   box-shadow: 0 0 20px rgba(213, 70, 239, 0.8); /* Enhanced purple glow on hover */
   transform: translateY(-2px);
+}
+
+/* Fix button text containment */
+button.rainbow-enhanced span {
+  display: inline-block;
+}
+
+/* Make sure inner content stays within button boundaries */
+button.rainbow-enhanced a {
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
