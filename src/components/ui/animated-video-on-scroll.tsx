@@ -4,24 +4,25 @@
 import * as React from "react"
 import {
   HTMLMotionProps,
-  MotionValue,
-  Variants,
   motion,
   useMotionTemplate,
   useScroll,
   useTransform,
-} from "motion/react"
+  Variants
+} from "framer-motion"
 
 import { cn } from "@/lib/utils"
 
 interface ContainerScrollContextValue {
-  scrollYProgress: MotionValue<number>
+  scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"]
 }
+
 interface ContainerInsetProps extends HTMLMotionProps<"div"> {
   insetYRange?: [number, number]
   insetXRange?: [number, number]
   roundednessRange?: [number, number]
 }
+
 const SPRING_TRANSITION_CONFIG = {
   type: "spring",
   stiffness: 100,
@@ -40,9 +41,11 @@ const variants: Variants = {
     opacity: 1,
   },
 }
+
 const ContainerScrollContext = React.createContext<
   ContainerScrollContextValue | undefined
 >(undefined)
+
 function useContainerScrollContext() {
   const context = React.useContext(ContainerScrollContext)
   if (!context) {
@@ -75,10 +78,13 @@ export const ContainerScroll: React.FC<
   )
 }
 ContainerScroll.displayName = "ContainerScroll"
+
 interface ContainerAnimatedProps extends HTMLMotionProps<"div"> {
   inputRange?: number[]
   outputRange?: number[]
+  children?: React.ReactNode
 }
+
 export const ContainerAnimated = React.forwardRef<
   HTMLDivElement,
   ContainerAnimatedProps
@@ -90,6 +96,7 @@ export const ContainerAnimated = React.forwardRef<
       style,
       inputRange = [0.2, 0.8],
       outputRange = [80, 0],
+      children,
       ...props
     },
     ref
@@ -107,7 +114,9 @@ export const ContainerAnimated = React.forwardRef<
         style={{ y, ...style }}
         transition={{ ...SPRING_TRANSITION_CONFIG, ...transition }}
         {...props}
-      />
+      >
+        {children}
+      </motion.div>
     )
   }
 )
@@ -116,21 +125,27 @@ ContainerAnimated.displayName = "ContainerAnimated"
 export const ContainerSticky = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => {
+>(({ className, children, ...props }, ref) => {
   return (
     <div
       ref={ref}
       className={cn("sticky left-0 top-0 min-h-svh w-full", className)}
       {...props}
-    />
+    >
+      {children}
+    </div>
   )
 })
 ContainerSticky.displayName = "ContainerSticky"
 
+interface HeroVideoProps extends HTMLMotionProps<"video"> {
+  children?: React.ReactNode
+}
+
 export const HeroVideo = React.forwardRef<
   HTMLVideoElement,
-  HTMLMotionProps<"video">
->(({ style, className, transition, ...props }, ref) => {
+  HeroVideoProps
+>(({ style, className, transition, children, ...props }, ref) => {
   const { scrollYProgress } = useContainerScrollContext()
   const scale = useTransform(scrollYProgress, [0, 0.8], [0.7, 1])
 
@@ -138,7 +153,7 @@ export const HeroVideo = React.forwardRef<
     <motion.video
       ref={ref}
       className={cn(
-        "relative z-10 size-auto max-h-full max-w-full ",
+        "relative z-10 size-auto max-h-full max-w-full",
         className
       )}
       autoPlay
@@ -147,15 +162,21 @@ export const HeroVideo = React.forwardRef<
       playsInline
       style={{ scale, ...style }}
       {...props}
-    />
+    >
+      {children}
+    </motion.video>
   )
 })
 HeroVideo.displayName = "HeroVideo"
 
+interface HeroButtonProps extends HTMLMotionProps<"button"> {
+  children?: React.ReactNode
+}
+
 export const HeroButton = React.forwardRef<
   HTMLButtonElement,
-  HTMLMotionProps<"button">
->(({ className, transition, ...props }, ref) => {
+  HeroButtonProps
+>(({ className, transition, children, ...props }, ref) => {
   return (
     <motion.button
       whileHover={{
@@ -170,7 +191,9 @@ export const HeroButton = React.forwardRef<
         className
       )}
       {...props}
-    />
+    >
+      {children}
+    </motion.button>
   )
 })
 HeroButton.displayName = "HeroButton"
@@ -187,6 +210,7 @@ export const ContainerInset = React.forwardRef<
       insetXRange = [45, 0],
       roundednessRange = [1000, 16],
       transition,
+      children,
       ...props
     },
     ref
@@ -203,7 +227,7 @@ export const ContainerInset = React.forwardRef<
       <motion.div
         ref={ref}
         className={cn(
-          "relateive pointer-events-none overflow-hidden",
+          "relative pointer-events-none overflow-hidden",
           className
         )}
         style={{
@@ -211,7 +235,9 @@ export const ContainerInset = React.forwardRef<
           ...style,
         }}
         {...props}
-      />
+      >
+        {children}
+      </motion.div>
     )
   }
 )
