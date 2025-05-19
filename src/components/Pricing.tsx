@@ -39,7 +39,7 @@ const Pricing = () => {
   }, [isVisible]);
 
   // Updated Calendly booking URL
-  const calendlyUrl = "https://calendly.com/weareagencyeagleeye/30min";
+  const calendlyUrl = "https://calendly.com/agencyeagleeye/profit-blueprint";
 
   return (
     <section

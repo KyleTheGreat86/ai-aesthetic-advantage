@@ -5,7 +5,7 @@ import AnimatedCodeSpline from "./ui/animated-code-spline";
 
 const TransformationSection = () => {
   // Updated Calendly booking URL
-  const calendlyUrl = "https://calendly.com/weareagencyeagleeye/30min";
+  const calendlyUrl = "https://calendly.com/agencyeagleeye/profit-blueprint";
   
   return (
     <section className="py-24 relative bg-eagle-dark/80">

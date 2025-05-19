@@ -12,7 +12,7 @@ interface CodeLineProps {
 const CodeLine: React.FC<CodeLineProps> = ({ width, delay, color, className }) => {
   const controls = useAnimation();
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false });
+  const isInView = useInView(ref, { once: false, threshold: 0.1 });
 
   useEffect(() => {
     if (isInView) {
@@ -50,7 +50,7 @@ interface CodeBlockProps {
 const CodeBlock: React.FC<CodeBlockProps> = ({ delay, position, content, color, className }) => {
   const controls = useAnimation();
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false });
+  const isInView = useInView(ref, { once: false, threshold: 0.1 });
 
   useEffect(() => {
     if (isInView) {
@@ -102,6 +102,55 @@ const AnimatedCodeSpline: React.FC = () => {
   return (
     <div className="relative py-10 overflow-hidden">
       <div className="absolute inset-0 -z-10 bg-grid opacity-10"></div>
+      
+      {/* Left code block */}
+      <CodeBlock 
+        delay={0.1}
+        position="left"
+        color="blue"
+        content={[
+          "function generateLeads() {",
+          "  const markets = ['Miami', 'Orlando', 'Tampa'];",
+          "  return ai.scan(markets, { minPrice: 3000000 });"
+        ]}
+      />
+      
+      {/* Code line */}
+      <div className="my-4 px-4">
+        <CodeLine width={80} delay={0.7} color="#1A9BD7" />
+      </div>
+      
+      {/* Right code block */}
+      <CodeBlock 
+        delay={1.0}
+        position="right"
+        color="orange"
+        content={[
+          "function analyzeProperty(deal) {",
+          "  return {",
+          "    capRate: deal.income / deal.price",
+          "  };",
+          "}"
+        ]}
+      />
+      
+      {/* Code line */}
+      <div className="my-4 px-4">
+        <CodeLine width={60} delay={1.7} color="#FF8024" />
+      </div>
+      
+      {/* Left code block */}
+      <CodeBlock 
+        delay={2.0}
+        position="left"
+        color="blue"
+        content={[
+          "async function scheduleTour(property, client) {",
+          "  const times = await client.availability();",
+          "  return bookCalendar(property, times[0]);",
+          "}"
+        ]}
+      />
       
       {/* Particles animation */}
       <div className="absolute inset-0 pointer-events-none">
