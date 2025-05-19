@@ -61,6 +61,7 @@ export default {
 					dark: '#050A14',
 					blue: '#1A9BD7',
 					orange: '#FF8024',
+					gold: '#FFD700',
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
