@@ -12,7 +12,7 @@ interface CodeLineProps {
 const CodeLine: React.FC<CodeLineProps> = ({ width, delay, color, className }) => {
   const controls = useAnimation();
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, threshold: 0.1 });
+  const isInView = useInView(ref, { once: false });
 
   useEffect(() => {
     if (isInView) {
@@ -50,7 +50,7 @@ interface CodeBlockProps {
 const CodeBlock: React.FC<CodeBlockProps> = ({ delay, position, content, color, className }) => {
   const controls = useAnimation();
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, threshold: 0.1 });
+  const isInView = useInView(ref, { once: false });
 
   useEffect(() => {
     if (isInView) {
