@@ -20,8 +20,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
-				heading: ['Poppins', 'sans-serif'],
+				sans: ['Montserrat', 'sans-serif'],
+				heading: ['Montserrat', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -58,10 +58,9 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				eagle: {
-					dark: '#1B263B',   // Navy Blue
-					blue: '#1B263B',   // Navy Blue
-					orange: '#E4B22C', // Gold
-					gold: '#E4B22C',   // Gold
+					dark: '#050A14',
+					blue: '#1A9BD7',
+					orange: '#FF8024',
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',

@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -120,7 +121,7 @@
   }
 
   body {
-    @apply bg-white text-eagle-dark font-sans;
+    @apply bg-eagle-dark text-white font-sans;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -141,15 +142,15 @@
 @layer components {
   /* Updated standardized button styling to ensure consistency */
   .eagle-btn-primary {
-    @apply bg-eagle-gold text-eagle-dark w-48 max-w-full px-6 py-3 rounded-md font-semibold transition-all hover:bg-eagle-gold/90 hover:shadow-lg hover:shadow-eagle-gold/20 hover:-translate-y-0.5 text-center uppercase;
+    @apply bg-eagle-blue text-white w-48 max-w-full px-6 py-3 rounded-md font-semibold transition-all hover:bg-eagle-blue/90 hover:shadow-lg hover:shadow-eagle-blue/20 hover:-translate-y-0.5 text-center uppercase;
   }
   
   .eagle-btn-secondary {
-    @apply bg-eagle-dark text-white w-48 max-w-full px-6 py-3 rounded-md font-semibold transition-all hover:bg-eagle-dark/90 hover:shadow-lg hover:shadow-eagle-dark/20 hover:-translate-y-0.5 text-center uppercase;
+    @apply bg-eagle-orange text-white w-48 max-w-full px-6 py-3 rounded-md font-semibold transition-all hover:bg-eagle-orange/90 hover:shadow-lg hover:shadow-eagle-orange/20 hover:-translate-y-0.5 text-center uppercase;
   }
 
   .eagle-btn-outline {
-    @apply border-2 border-eagle-gold text-eagle-dark w-48 max-w-full px-6 py-3 rounded-md font-semibold transition-all hover:bg-eagle-gold/10 hover:-translate-y-0.5 text-center uppercase;
+    @apply border-2 border-white text-white w-48 max-w-full px-6 py-3 rounded-md font-semibold transition-all hover:bg-white/10 hover:-translate-y-0.5 text-center uppercase;
   }
   
   /* Keep the rest of the components */
@@ -158,11 +159,11 @@
   }
 
   .gradient-text-blue {
-    @apply bg-gradient-to-r from-eagle-blue to-blue-400 inline-block text-transparent bg-clip-text;
+    @apply bg-gradient-to-r from-eagle-blue to-blue-300 inline-block text-transparent bg-clip-text;
   }
 
-  .gradient-text-gold {
-    @apply bg-gradient-to-r from-eagle-gold to-yellow-300 inline-block text-transparent bg-clip-text;
+  .gradient-text-orange {
+    @apply bg-gradient-to-r from-eagle-orange to-amber-300 inline-block text-transparent bg-clip-text;
   }
 
   .card-glow {
@@ -170,7 +171,7 @@
   }
 
   .card-glow::before {
-    @apply content-[''] absolute -inset-0.5 bg-gradient-to-r from-eagle-blue to-eagle-gold opacity-30 blur-sm transition-all duration-1000;
+    @apply content-[''] absolute -inset-0.5 bg-gradient-to-r from-eagle-blue to-eagle-orange opacity-30 blur-sm transition-all duration-1000;
   }
 
   .card-glow:hover::before {
@@ -186,8 +187,8 @@
   }
   
   .bg-grid {
-    background-image: linear-gradient(rgba(27, 38, 59, 0.03) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(27, 38, 59, 0.03) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     background-size: 50px 50px;
   }
 
