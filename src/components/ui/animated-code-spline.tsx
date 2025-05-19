@@ -117,7 +117,7 @@ const AnimatedCodeSpline: React.FC = () => {
       
       {/* Code line */}
       <div className="my-4 px-4">
-        <CodeLine width={80} delay={0.7} color="#1A9BD7" />
+        <CodeLine width={80} delay={0.7} color="#1B263B" />
       </div>
       
       {/* Right code block */}
@@ -136,7 +136,7 @@ const AnimatedCodeSpline: React.FC = () => {
       
       {/* Code line */}
       <div className="my-4 px-4">
-        <CodeLine width={60} delay={1.7} color="#FF8024" />
+        <CodeLine width={60} delay={1.7} color="#E4B22C" />
       </div>
       
       {/* Left code block */}

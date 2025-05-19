@@ -1,254 +1,101 @@
 
-import { useEffect, lazy, Suspense, useState, memo } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
-import VideoSection from "../components/VideoSection";
-import TransformationSection from "../components/TransformationSection";
-import { useIsMobile, useDeviceType } from "../hooks/use-mobile";
+import Hero from "../components/home/Hero";
+import PainPoints from "../components/home/PainPoints";
+import Solution from "../components/home/Solution";
+import Offer from "../components/home/Offer";
+import Proof from "../components/home/Proof";
+import RoiCalculator from "../components/home/RoiCalculator";
+import FaqTeaser from "../components/home/FaqTeaser";
+import Footer from "../components/Footer";
+import { Helmet } from "react-helmet";
 
-// Import the RainbowButton CSS styles
-import "../rainbow-button-styles.css";
-
-// Simple loading component to avoid layout shift
+// Simple loading component
 const SectionLoader = () => (
   <div className="py-12 flex justify-center items-center min-h-[200px] w-full">
-    <div className="w-6 h-6 border-2 border-eagle-blue border-t-transparent rounded-full animate-spin"></div>
+    <div className="w-6 h-6 border-2 border-eagle-gold border-t-transparent rounded-full animate-spin"></div>
   </div>
 );
 
-// Lazy load components with higher loading priority
-const LoadingScreen = lazy(() => 
-  import("../components/LoadingScreen")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const WorldMapHero = lazy(() => 
-  import("../components/WorldMapHero")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-// Load remaining components
-const ProblemStatement = lazy(() => 
-  import("../components/ProblemStatement")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const Solution = lazy(() => 
-  import("../components/Solution")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const CompetitorComparison = lazy(() => 
-  import("../components/CompetitorComparison")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const Benefits = lazy(() => 
-  import("../components/Benefits")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const HowItWorks = lazy(() => 
-  import("../components/HowItWorks")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const Results = lazy(() => 
-  import("../components/Results")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const Pricing = lazy(() => 
-  import("../components/Pricing")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const About = lazy(() => 
-  import("../components/About")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const FAQ = lazy(() => 
-  import("../components/FAQ")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const Footer = lazy(() => 
-  import("../components/Footer")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const BackgroundGrid = lazy(() => 
-  import("../components/BackgroundGrid")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-// Optimized Index component
 const Index = () => {
-  const isMobile = useIsMobile();
-  const deviceType = useDeviceType();
-  const [hasLoaded, setHasLoaded] = useState(false);
-  const [visibleSections, setVisibleSections] = useState({
-    videoSection: false,
-    worldMap: false,
-    problem: false,
-    solution: false,
-    comparison: false,
-    benefits: false,
-    howItWorks: false,
-    transformation: false,
-    results: false,
-    pricing: false,
-    about: false,
-    faq: false,
-    footer: false
-  });
-  
   useEffect(() => {
-    // Mark as loaded
-    setHasLoaded(true);
+    // Scroll to top on page load
+    window.scrollTo(0, 0);
     
-    // Update page title
-    document.title = "Eagle Eye | AI Infrastructure for CRE Brokers";
-    
-    // Smooth scrolling with passive event listeners for performance
-    const handleAnchorClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.tagName === 'A' && target.getAttribute('href')?.startsWith('#')) {
-        const id = target.getAttribute('href')?.substring(1);
-        if (id) {
-          const element = document.getElementById(id);
-          if (element) {
-            e.preventDefault();
-            element.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
-        }
-      }
-    };
-    
-    document.addEventListener('click', handleAnchorClick, { passive: false });
-    
-    // Use IntersectionObserver to load sections as they become visible
-    const setupIntersectionObserver = () => {
-      const observerOptions = {
-        rootMargin: '200px 0px', // Load when within 200px of viewport
-        threshold: 0.01
-      };
-      
-      const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.id;
-            if (id) {
-              setVisibleSections(prev => ({ ...prev, [id]: true }));
-            }
-            sectionObserver.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-      
-      // Observe each section to load it only when needed
-      const sections = document.querySelectorAll('section[id]');
-      sections.forEach(section => {
-        sectionObserver.observe(section);
-      });
-      
-      return () => {
-        sections.forEach(section => {
-          sectionObserver.unobserve(section);
-        });
-      };
-    };
-    
-    // Setup after initial render
-    const timer = setTimeout(setupIntersectionObserver, 500);
-    
-    return () => {
-      document.removeEventListener('click', handleAnchorClick);
-      clearTimeout(timer);
-    };
+    // Add Google Analytics code here when available
+    console.log("Homepage loaded");
   }, []);
 
   return (
-    <div className="min-h-screen w-full bg-eagle-dark text-white">
-      <Suspense fallback={<div className="fixed inset-0 bg-eagle-dark z-50"></div>}>
-        <LoadingScreen />
-      </Suspense>
+    <div className="min-h-screen w-full bg-white text-eagle-dark">
+      <Helmet>
+        <title>Agency Eagle Eye: Add $1M+ to Florida CRE with AI</title>
+        <meta name="description" content="Automate your Florida CRE brokerage with the Eagle Eye Profit Maximizer. Get $1M+ in commissions. Book a free Profit Blueprint now." />
+        <meta name="keywords" content="Florida CRE AI, Commercial Real Estate Automation, Eagle Eye Profit Maximizer" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://agencyeagleeye.com/" />
+        <meta property="og:title" content="Agency Eagle Eye: Add $1M+ to Florida CRE with AI" />
+        <meta property="og:description" content="Automate your Florida CRE brokerage with the Eagle Eye Profit Maximizer. Get $1M+ in commissions. Book a free Profit Blueprint now." />
+        
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://agencyeagleeye.com/" />
+        <meta property="twitter:title" content="Agency Eagle Eye: Add $1M+ to Florida CRE with AI" />
+        <meta property="twitter:description" content="Automate your Florida CRE brokerage with the Eagle Eye Profit Maximizer. Get $1M+ in commissions. Book a free Profit Blueprint now." />
+        
+        {/* Schema.org markup */}
+        <script type="application/ld+json">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Agency Eagle Eye",
+            "url": "https://agencyeagleeye.com",
+            "logo": "https://agencyeagleeye.com/logo.png",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "email": "kyle@agencyeagleeye.com",
+              "contactType": "customer service"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/in/kyle-holland-agencyeagleeye/"
+            ]
+          }
+        `}
+        </script>
+        <script type="application/ld+json">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Eagle Eye Profit Maximizer",
+            "provider": {
+              "@type": "Organization",
+              "name": "Agency Eagle Eye"
+            },
+            "description": "AI automation system for Florida CRE brokers, providing lead generation, deal analysis, and client management.",
+            "areaServed": "Florida"
+          }
+        `}
+        </script>
+      </Helmet>
       
       <Navbar />
       
-      <Suspense fallback={null}>
-        <BackgroundGrid />
-      </Suspense>
+      <main>
+        <Hero />
+        <PainPoints />
+        <Solution />
+        <Offer />
+        <Proof />
+        <RoiCalculator />
+        <FaqTeaser />
+      </main>
       
-      <Hero />
-      
-      <section id="video-section">
-        <Suspense fallback={<SectionLoader />}>
-          <VideoSection />
-        </Suspense>
-      </section>
-      
-      <section id="problem">
-        <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.problem || deviceType === 'mobile') && <ProblemStatement />}
-        </Suspense>
-      </section>
-      
-      <section id="solution">
-        <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.solution || deviceType === 'mobile') && <Solution />}
-        </Suspense>
-      </section>
-      
-      <section id="comparison">
-        <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.comparison || deviceType === 'mobile') && <CompetitorComparison />}
-        </Suspense>
-      </section>
-      
-      <section id="benefits">
-        <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.benefits || deviceType === 'mobile') && <Benefits />}
-        </Suspense>
-      </section>
-      
-      <section id="how-it-works">
-        <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.howItWorks || deviceType === 'mobile') && <HowItWorks />}
-        </Suspense>
-      </section>
-      
-      <section id="transformation">
-        <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.transformation || deviceType === 'mobile') && <TransformationSection />}
-        </Suspense>
-      </section>
-      
-      <section id="results">
-        <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.results || deviceType === 'mobile') && <Results />}
-        </Suspense>
-      </section>
-      
-      <section id="pricing">
-        <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.pricing || deviceType === 'mobile') && <Pricing />}
-        </Suspense>
-      </section>
-      
-      <section id="faq">
-        <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.faq || deviceType === 'mobile') && <FAQ />}
-        </Suspense>
-      </section>
-      
-      <Suspense fallback={<div className="h-20 w-full"></div>}>
-        <Footer />
-      </Suspense>
+      <Footer />
     </div>
   );
 };
