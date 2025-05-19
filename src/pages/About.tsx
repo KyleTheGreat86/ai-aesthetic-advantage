@@ -1,11 +1,19 @@
 
 import React, { useEffect } from "react";
-import { Helmet } from "react-helmet";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const About = () => {
   useEffect(() => {
+    // Set page title directly
+    document.title = "About Agency Eagle Eye | Florida CRE AI Specialists";
+    
+    // Set meta tags
+    const descriptionMeta = document.querySelector('meta[name="description"]');
+    if (descriptionMeta) {
+      descriptionMeta.setAttribute("content", "Founded to solve inefficiencies killing Florida CRE brokerages. Our AI is your unfair advantage. Learn about our mission and expertise.");
+    }
+    
     // Scroll to top on page load
     window.scrollTo(0, 0);
     
@@ -15,12 +23,6 @@ const About = () => {
 
   return (
     <div className="min-h-screen w-full bg-white text-eagle-dark">
-      <Helmet>
-        <title>About Agency Eagle Eye | Florida CRE AI Specialists</title>
-        <meta name="description" content="Founded to solve inefficiencies killing Florida CRE brokerages. Our AI is your unfair advantage. Learn about our mission and expertise." />
-        <meta name="keywords" content="About Agency Eagle Eye, Florida CRE AI, Kyle Holland" />
-      </Helmet>
-      
       <Navbar />
       
       <main className="pt-20">

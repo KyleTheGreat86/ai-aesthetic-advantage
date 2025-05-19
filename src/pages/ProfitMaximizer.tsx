@@ -1,11 +1,19 @@
 
 import React, { useEffect } from "react";
-import { Helmet } from "react-helmet";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const ProfitMaximizer = () => {
   useEffect(() => {
+    // Set page title directly
+    document.title = "Eagle Eye Profit Maximizer | $1M+ in CRE Commissions";
+    
+    // Set meta tags
+    const descriptionMeta = document.querySelector('meta[name="description"]');
+    if (descriptionMeta) {
+      descriptionMeta.setAttribute("content", "The Eagle Eye Profit Maximizer automates your Florida CRE brokerage. Add $1M+ in commissions with our AI-powered system. Book your free blueprint now.");
+    }
+    
     // Scroll to top on page load
     window.scrollTo(0, 0);
     
@@ -15,12 +23,6 @@ const ProfitMaximizer = () => {
 
   return (
     <div className="min-h-screen w-full bg-white text-eagle-dark">
-      <Helmet>
-        <title>Eagle Eye Profit Maximizer | $1M+ in CRE Commissions</title>
-        <meta name="description" content="The Eagle Eye Profit Maximizer automates your Florida CRE brokerage. Add $1M+ in commissions with our AI-powered system. Book your free blueprint now." />
-        <meta name="keywords" content="Eagle Eye Profit Maximizer, CRE Automation, Florida Real Estate AI" />
-      </Helmet>
-      
       <Navbar />
       
       <main className="pt-20">
