@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from "react";
-import { Search, BarChart3, Calendar, MessageSquare } from "lucide-react";
+import { Heart, Clock, Calendar, Info } from "lucide-react";
 
 const Solution = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -9,28 +9,28 @@ const Solution = () => {
 
   const features = [
     {
-      title: "Lead Generation Engine",
-      description: "Scrapes LoopNet/CoStar, IDs off-market deals",
-      icon: Search,
+      title: "24/7 Compassionate Response",
+      description: "Answers calls with dignity and empathy at any hour, ensuring families never reach voicemail in their moment of need.",
+      icon: Heart,
+      iconColor: "text-eagle-gold"
+    },
+    {
+      title: "Immediate Need Handling",
+      description: "Gathers essential information, dispatches transport teams, and notifies on-call staff for urgent situations.",
+      icon: Clock,
       iconColor: "text-eagle-blue"
     },
     {
-      title: "Instant Deal Analyzer",
-      description: "Runs cap rates, ROI projections in seconds",
-      icon: BarChart3,
-      iconColor: "text-eagle-orange"
-    },
-    {
-      title: "Tour Scheduler",
-      description: "Books inspections, drone photographers, lender calls",
+      title: "Consultation Scheduling",
+      description: "Books appointments with the appropriate funeral director based on family needs and your staff's availability.",
       icon: Calendar,
-      iconColor: "text-eagle-blue"
+      iconColor: "text-eagle-gold"
     },
     {
-      title: "Client Nurture Bot",
-      description: "Sends quarterly updates to past clients (e.g., 'Your 2019 asset is now worth $X')",
-      icon: MessageSquare,
-      iconColor: "text-eagle-orange"
+      title: "Information Provision",
+      description: "Answers common questions about services, pricing, and pre-planning options with accuracy and sensitivity.",
+      icon: Info,
+      iconColor: "text-eagle-blue"
     }
   ];
 
@@ -70,61 +70,47 @@ const Solution = () => {
     <section
       ref={sectionRef}
       id="solution"
-      className="py-24 relative overflow-hidden bg-gradient-to-b from-eagle-dark/80 to-eagle-dark"
+      className="py-16 sm:py-24 relative overflow-hidden bg-gray-50"
     >
       <div className="section-container relative z-10">
-        <div className="text-center max-w-4xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            The CRE Industry's First End-to-End AI Deal System
+        <div className="text-center max-w-4xl mx-auto mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-eagle-dark">
+            The Funeral Industry's First AI Assistant Designed for Compassionate Response
           </h2>
+          <p className="text-lg text-eagle-gray">Give your staff the rest they deserve while ensuring families receive immediate care.</p>
         </div>
 
         <div className="max-w-5xl mx-auto">
-          {/* Interactive workflow diagram - removed the horizontal line */}
-          <div className="relative mb-16">
-            {/* Removed the gradient line */}
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {features.map((feature, index) => {
-                const Icon = feature.icon;
-                return (
-                  <div
-                    key={index}
-                    className={`relative flex flex-col items-center ${
-                      activeFeature === index ? "scale-110 z-10" : "scale-100 opacity-80"
-                    } transition-all duration-300`}
-                    onMouseEnter={() => setActiveFeature(index)}
-                  >
-                    <div className={`w-16 h-16 ${feature.iconColor} bg-white/10 rounded-full flex items-center justify-center mb-4 border-2 ${
-                      activeFeature === index ? "border-white" : "border-transparent"
-                    }`}>
-                      <Icon size={30} />
-                    </div>
-                    <h3 className="text-lg font-semibold text-center mb-2">{feature.title}</h3>
-                    <p className="text-sm text-center text-gray-300">{feature.description}</p>
-                    
-                    {index < features.length - 1 && (
-                      <div className="hidden md:block absolute top-8 -right-3 transform translate-x-1/2 z-0">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M10 0L20 10L10 20V0Z" fill="white" fillOpacity="0.3" />
-                        </svg>
-                      </div>
-                    )}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <div
+                  key={index}
+                  className={`relative flex flex-col items-center bg-white p-6 rounded-lg shadow-md ${
+                    activeFeature === index ? "scale-105 shadow-lg" : "scale-100"
+                  } transition-all duration-300`}
+                  onMouseEnter={() => setActiveFeature(index)}
+                >
+                  <div className={`w-16 h-16 ${feature.iconColor} bg-gray-50 rounded-full flex items-center justify-center mb-4 border-2 ${
+                    activeFeature === index ? "border-eagle-gold" : "border-gray-200"
+                  }`}>
+                    <Icon size={30} />
                   </div>
-                );
-              })}
-            </div>
+                  <h3 className="text-lg font-semibold text-center mb-2 text-eagle-dark">{feature.title}</h3>
+                  <p className="text-sm text-center text-eagle-gray">{feature.description}</p>
+                </div>
+              );
+            })}
           </div>
           
-          <div className="text-center bg-white/5 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto">
-            <MessageSquare className="mx-auto mb-4 text-eagle-blue" size={32} />
-            <p className="text-xl font-semibold mb-2">All managed via Telegram—no complex software to learn.</p>
-            <p className="text-gray-300">Control your entire brokerage from your phone with simple commands and buttons.</p>
+          <div className="text-center bg-eagle-dark text-white rounded-lg p-6 max-w-2xl mx-auto">
+            <Heart className="mx-auto mb-4 text-eagle-gold" size={32} />
+            <p className="text-xl font-semibold mb-2">All managed with dignity and professionalism—no complex software to learn.</p>
+            <p className="text-gray-300">Your families receive compassionate care at their most vulnerable moments.</p>
           </div>
         </div>
       </div>
-      
-      <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none"></div>
     </section>
   );
 };
