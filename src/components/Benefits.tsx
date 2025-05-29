@@ -1,4 +1,3 @@
-
 import React, { useState, useRef } from "react";
 import { Calculator, Phone, Clock, DollarSign } from "lucide-react";
 import { RainbowButton } from "./ui/rainbow-button";
@@ -55,57 +54,57 @@ const Benefits = () => {
     <section
       ref={sectionRef}
       id="benefits"
-      className="py-16 sm:py-24 relative overflow-hidden bg-white"
+      className="py-16 sm:py-24 relative overflow-hidden bg-black"
     >
       <div className="section-container relative z-10">
         <div className="text-center mb-10 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-eagle-dark">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-white">
             Funeral Home AI Receptionist ROI Calculator
           </h2>
-          <p className="text-lg sm:text-xl text-eagle-gray font-semibold">(Now Booking 3-5 Additional Families Per Month)</p>
-          <p className="text-base text-eagle-gray mt-2">See How Our AI Receptionist Pays for Itself & Boosts Your Revenue</p>
+          <p className="text-lg sm:text-xl text-eagle-gold font-semibold">(Now Booking 3-5 Additional Families Per Month)</p>
+          <p className="text-base text-gray-300 mt-2">See How Our AI Receptionist Pays for Itself & Boosts Your Revenue</p>
         </div>
 
         {/* Current Missed Opportunities */}
-        <div className="bg-red-50 border border-red-200 rounded-lg p-6 mb-8 max-w-4xl mx-auto">
-          <h3 className="text-xl font-semibold text-red-800 mb-4">Your Current Missed Opportunities</h3>
+        <div className="bg-red-900/30 border border-red-600 rounded-lg p-6 mb-8 max-w-4xl mx-auto">
+          <h3 className="text-xl font-semibold text-red-400 mb-4">Your Current Missed Opportunities</h3>
           <div className="grid md:grid-cols-3 gap-4">
             <div className="flex items-center">
-              <span className="text-red-600 mr-2">❌</span>
-              <span className="text-eagle-dark">Calls missed per month: <strong>15</strong> (industry average)</span>
+              <span className="text-red-400 mr-2">❌</span>
+              <span className="text-white">Calls missed per month: <strong>15</strong> (industry average)</span>
             </div>
             <div className="flex items-center">
-              <span className="text-red-600 mr-2">❌</span>
-              <span className="text-eagle-dark">Families lost to competitors: <strong>3-5</strong> (now recoverable with AI)</span>
+              <span className="text-red-400 mr-2">❌</span>
+              <span className="text-white">Families lost to competitors: <strong>3-5</strong> (now recoverable with AI)</span>
             </div>
             <div className="flex items-center">
-              <span className="text-red-600 mr-2">⏳</span>
-              <span className="text-eagle-dark">Hours wasted on phone tasks weekly: <strong>20+</strong></span>
+              <span className="text-red-400 mr-2">⏳</span>
+              <span className="text-white">Hours wasted on phone tasks weekly: <strong>20+</strong></span>
             </div>
           </div>
         </div>
 
         {/* AI Solution Impact */}
-        <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-8 max-w-4xl mx-auto">
-          <h3 className="text-xl font-semibold text-green-800 mb-4">Our AI Solution's Impact</h3>
+        <div className="bg-green-900/30 border border-green-600 rounded-lg p-6 mb-8 max-w-4xl mx-auto">
+          <h3 className="text-xl font-semibold text-green-400 mb-4">Our AI Solution's Impact</h3>
           <div className="grid md:grid-cols-3 gap-4">
             <div className="flex items-center">
-              <span className="text-green-600 mr-2">✅</span>
-              <span className="text-eagle-dark">Recovers <strong>3-5 additional families per month</strong></span>
+              <span className="text-green-400 mr-2">✅</span>
+              <span className="text-white">Recovers <strong>3-5 additional families per month</strong></span>
             </div>
             <div className="flex items-center">
-              <span className="text-green-600 mr-2">✅</span>
-              <span className="text-eagle-dark">Handles <strong>100% of calls, 24/7</strong></span>
+              <span className="text-green-400 mr-2">✅</span>
+              <span className="text-white">Handles <strong>100% of calls, 24/7</strong></span>
             </div>
             <div className="flex items-center">
-              <span className="text-green-600 mr-2">✅</span>
-              <span className="text-eagle-dark">Saves staff hours on repetitive tasks</span>
+              <span className="text-green-400 mr-2">✅</span>
+              <span className="text-white">Saves staff hours on repetitive tasks</span>
             </div>
           </div>
         </div>
 
         {/* ROI Calculator */}
-        <div className="max-w-4xl mx-auto bg-eagle-dark rounded-xl p-6 sm:p-8 shadow-xl">
+        <div className="max-w-4xl mx-auto bg-gray-900 rounded-xl p-6 sm:p-8 shadow-xl border border-gray-700">
           <div className="text-center mb-8">
             <div className="flex items-center justify-center mb-4">
               <Calculator size={28} className="text-eagle-gold mr-3" />
@@ -237,39 +236,39 @@ const Benefits = () => {
 
         {/* Why Choose Us */}
         <div className="mt-16 max-w-4xl mx-auto">
-          <h3 className="text-2xl font-bold text-center mb-8 text-eagle-dark">Why Choose Eagle Eye Response?</h3>
+          <h3 className="text-2xl font-bold text-center mb-8 text-white">Why Choose Eagle Eye Response?</h3>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="flex items-start">
-              <span className="text-green-600 mr-3 text-xl">✔</span>
-              <span className="text-eagle-dark">No more missed calls = no more lost families</span>
+              <span className="text-green-400 mr-3 text-xl">✔</span>
+              <span className="text-white">No more missed calls = no more lost families</span>
             </div>
             <div className="flex items-start">
-              <span className="text-green-600 mr-3 text-xl">✔</span>
-              <span className="text-eagle-dark">AI handles overflow, after-hours, and holidays</span>
+              <span className="text-green-400 mr-3 text-xl">✔</span>
+              <span className="text-white">AI handles overflow, after-hours, and holidays</span>
             </div>
             <div className="flex items-start">
-              <span className="text-green-600 mr-3 text-xl">✔</span>
-              <span className="text-eagle-dark">Compassionate, natural-sounding responses</span>
+              <span className="text-green-400 mr-3 text-xl">✔</span>
+              <span className="text-white">Compassionate, natural-sounding responses</span>
             </div>
             <div className="flex items-start">
-              <span className="text-green-600 mr-3 text-xl">✔</span>
-              <span className="text-eagle-dark">Seamless booking & scheduling</span>
+              <span className="text-green-400 mr-3 text-xl">✔</span>
+              <span className="text-white">Seamless booking & scheduling</span>
             </div>
             <div className="flex items-start">
-              <span className="text-green-600 mr-3 text-xl">✔</span>
-              <span className="text-eagle-dark">No long-term contracts – cancel anytime</span>
+              <span className="text-green-400 mr-3 text-xl">✔</span>
+              <span className="text-white">No long-term contracts – cancel anytime</span>
             </div>
             <div className="flex items-start">
-              <span className="text-green-600 mr-3 text-xl">✔</span>
-              <span className="text-eagle-dark">First 30 days risk-free</span>
+              <span className="text-green-400 mr-3 text-xl">✔</span>
+              <span className="text-white">First 30 days risk-free</span>
             </div>
           </div>
         </div>
 
         {/* Key Takeaway */}
-        <div className="mt-12 bg-eagle-blue/10 border-l-4 border-eagle-blue p-6 max-w-4xl mx-auto">
-          <h4 className="text-lg font-semibold text-eagle-blue mb-2">💡 Key Takeaway for Funeral Homes</h4>
-          <p className="text-eagle-dark italic">
+        <div className="mt-12 bg-eagle-gold/10 border-l-4 border-eagle-gold p-6 max-w-4xl mx-auto">
+          <h4 className="text-lg font-semibold text-eagle-gold mb-2">💡 Key Takeaway for Funeral Homes</h4>
+          <p className="text-white italic">
             "For less than $1,000/month, our AI books 3-5 extra families—generating $20K+ in new revenue. The system pays for itself in days."
           </p>
         </div>

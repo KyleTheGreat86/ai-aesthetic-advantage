@@ -12,45 +12,45 @@ const FAQ = () => {
     {
       question: "Do I need technical skills to use it?",
       answer:
-        "No. Everything runs via Telegram—just tap buttons to approve deals, schedule tours, etc. The interface is designed for busy brokers who need information and actions at their fingertips.",
+        "No. The AI system integrates seamlessly with your existing phone system. Once set up, it works automatically. You can monitor calls and customize responses through a simple dashboard that requires no technical expertise.",
     },
     {
       question: "What if our workflow is unique?",
       answer:
-        "We customize all 6 core workflows to your brokerage's exact process. Our onboarding process includes comprehensive discovery sessions to map your existing workflow and optimize it with AI.",
+        "We customize the AI responses and workflows to match your funeral home's specific processes, terminology, and services. Our onboarding includes detailed consultation to ensure the AI represents your funeral home accurately and compassionately.",
     },
     {
       question: "How secure is our data?",
       answer:
-        "Enterprise-grade encryption. We never store sensitive financials. All client data is protected with SOC 2 compliant security protocols and regular penetration testing.",
+        "Enterprise-grade encryption protects all call data and family information. We never store sensitive personal details beyond what's necessary for scheduling. All data is protected with HIPAA-compliant security protocols and regular security audits.",
     },
     {
       question: "How long does implementation take?",
       answer:
-        "The entire process takes 20 days from signing to full deployment. This includes all customizations, integrations with your existing systems, testing, and team training.",
+        "Implementation takes 5-7 business days from signing to full deployment. This includes phone system integration, AI training on your services and procedures, testing, and staff orientation on the system.",
     },
     {
-      question: "Does Eagle Eye replace existing software?",
+      question: "Does Eagle Eye replace our existing staff?",
       answer:
-        "No, it integrates with your existing CRM, email, calendar, and document systems. We enhance your current tech stack rather than replacing it.",
+        "No, it enhances your team's capabilities. The AI handles overflow calls, after-hours inquiries, and initial information gathering, allowing your staff to focus on providing personalized care to families during their most important moments.",
     },
     {
-      question: "What types of CRE deals work best with Eagle Eye?",
+      question: "What types of calls does the AI handle best?",
       answer:
-        "Eagle Eye is optimized for off-market and NNN deals in the $3M-$20M range, though it works across all commercial property types including retail, office, industrial, and multifamily.",
+        "The AI excels at initial family contact, information requests about services and pricing, scheduling consultations, after-hours urgent response, and general inquiries. Complex emotional support is always transferred to your compassionate staff.",
     },
     {
-      question: "Is there a limit to how many users can access the system?",
+      question: "Is there a limit to how many calls the AI can handle?",
       answer:
-        "No, your subscription includes unlimited users within your brokerage. We can configure different access levels for brokers, analysts, and administrative staff.",
+        "No, the AI can handle unlimited simultaneous calls 24/7. Whether you receive 10 calls or 100 calls in a day, every family will receive immediate, compassionate attention without any busy signals or voicemail.",
     },
   ];
 
   return (
-    <section id="faq" className="py-24 relative overflow-hidden">
+    <section id="faq" className="py-24 relative overflow-hidden bg-black">
       <div className="section-container relative z-10">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-white">
             Your Questions, Answered
           </h2>
 
@@ -59,9 +59,9 @@ const FAQ = () => {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-white/5 backdrop-blur-sm mb-4 rounded-lg border border-white/10"
+                className="bg-gray-900 backdrop-blur-sm mb-4 rounded-lg border border-gray-700"
               >
-                <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-white/10 rounded-t-lg transition-all font-medium text-lg">
+                <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-gray-800 rounded-t-lg transition-all font-medium text-lg text-white">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="px-6 py-4 text-gray-300">
@@ -78,7 +78,7 @@ const FAQ = () => {
             <p className="mt-2">
               <a
                 href="mailto:kyle@agencyeagleeye.com"
-                className="text-eagle-blue hover:underline"
+                className="text-eagle-gold hover:underline"
               >
                 kyle@agencyeagleeye.com
               </a>

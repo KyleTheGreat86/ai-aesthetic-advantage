@@ -9,9 +9,9 @@ const Hero = () => {
   const deviceType = useDeviceType();
 
   return (
-    <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-20">
       {/* Background with overlay */}
-      <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-eagle-dark via-eagle-dark/90 to-eagle-dark/80">
+      <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-black via-gray-900 to-black">
         {/* Subtle background pattern */}
         <div className="absolute inset-0 opacity-10 bg-grid"></div>
       </div>
@@ -19,14 +19,14 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-20 max-w-5xl mx-auto text-center px-4 py-16">
         <div className="mb-6">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight max-w-4xl mx-auto">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight max-w-4xl mx-auto">
             We Help Funeral Homes Provide Compassionate 24/7 Response to{" "}
             <span className="text-eagle-gold">Families in Need</span>{" "}
             Without Sacrificing Staff Wellbeing or Personal Touch
           </h1>
         </div>
         
-        <p className="text-base sm:text-lg md:text-xl mb-8 max-w-3xl mx-auto text-gray-300 leading-relaxed">
+        <p className="text-sm sm:text-base md:text-lg mb-8 max-w-3xl mx-auto text-gray-300 leading-relaxed">
           Our Eagle Eye Response AI Assistant ensures every family receives immediate, compassionate attention at any hour—handling calls with empathy, scheduling consultations, and providing information—so your staff can rest while families never reach voicemail.
         </p>
 
@@ -34,10 +34,10 @@ const Hero = () => {
         <div className="relative max-w-3xl mx-auto mb-8">
           <div className="relative aspect-video bg-black/30 rounded-xl overflow-hidden border border-eagle-gold/30 shadow-2xl">
             {!showVideo ? (
-              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-eagle-dark/80 to-black/80">
+              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-900/80 to-black/80">
                 <div className="text-center">
                   <div className="w-16 h-16 bg-eagle-gold rounded-full flex items-center justify-center mb-3 mx-auto cursor-pointer hover:bg-eagle-gold/90 transition-colors" onClick={() => setShowVideo(true)}>
-                    <Play className="w-6 h-6 text-eagle-dark ml-1" />
+                    <Play className="w-6 h-6 text-black ml-1" />
                   </div>
                   <h3 className="text-lg font-semibold text-white mb-2">See How Eagle Eye AI Response Works</h3>
                   <p className="text-gray-300 text-sm">Watch a 2-minute demonstration</p>
@@ -60,7 +60,7 @@ const Hero = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
           <RainbowButton 
             calendlyLink="https://calendly.com/weareagencyeagleeye/30min" 
-            className="font-bold text-sm w-auto px-6 py-3 bg-eagle-gold text-eagle-dark hover:bg-eagle-gold/90"
+            className="font-bold text-sm w-auto px-6 py-3 bg-eagle-gold text-black hover:bg-eagle-gold/90"
           >
             <span className="whitespace-nowrap">Schedule Your Free Demo</span>
             <ChevronRight className="ml-1 transition-transform group-hover:translate-x-1 flex-shrink-0" />

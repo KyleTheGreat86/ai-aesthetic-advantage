@@ -1,5 +1,5 @@
+
 import { Facebook, Linkedin, Youtube, ArrowUp } from "lucide-react";
-import { EagleButton } from "./ui/eagle-button";
 import eagleEyeLogo from "/lovable-uploads/33a6f5a7-7d2c-48db-89fa-7230cda0aeec.png";
 
 const Footer = () => {
@@ -11,32 +11,16 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-eagle-dark/90 border-t border-white/10 pt-12 pb-6 relative" id="contact">
+    <footer className="bg-black border-t border-gray-800 pt-12 pb-6 relative" id="contact">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Final CTA Section */}
-        <div className="mb-16 max-w-3xl mx-auto text-center bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-eagle-blue/30">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Transform Your Brokerage?</h2>
-          <p className="text-lg mb-6">Book a 30-minute strategy session to see Eagle Eye in action. Limited spots available.</p>
-          
-          <EagleButton
-            calendlyLink="https://calendly.com/weareagencyeagleeye/30min"
-            className="uppercase font-bold group text-white w-auto px-6"
-          >
-            Claim Your Free Demo
-            <span className="ml-2 group-hover:ml-3 transition-all">→</span>
-          </EagleButton>
-          
-          <p className="mt-4 text-sm text-red-400 font-medium">Only 3 implementations available this month!</p>
-        </div>
-        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <div className="col-span-1">
             <div className="flex items-center mb-4">
               <img src={eagleEyeLogo} alt="Eagle Eye Logo" className="h-10 mr-2" />
-              <h3 className="text-xl font-bold">Eagle Eye AI</h3>
+              <h3 className="text-xl font-bold text-white">Eagle Eye Response</h3>
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
-              AI infrastructure for CRE brokers handling $3M-$20M deals. We help you close more off-market deals with less admin work through intelligent automation and mobile-first design.
+              Compassionate AI assistance for funeral homes providing 24/7 response to families in need. We ensure no family goes unanswered while protecting your staff's wellbeing through intelligent automation and empathetic communication.
             </p>
             <div className="card bg-transparent flex space-x-4 p-0">
               <SocialIcon 
@@ -70,28 +54,29 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Sitemap</h4>
+            <h4 className="font-semibold mb-4 text-white">Sitemap</h4>
             <ul className="space-y-2">
               <FooterLink href="#home">Home</FooterLink>
-              <FooterLink href="#problem">The Problem</FooterLink>
+              <FooterLink href="#challenge">The Challenge</FooterLink>
               <FooterLink href="#solution">Our Solution</FooterLink>
               <FooterLink href="#benefits">Benefits</FooterLink>
               <FooterLink href="#how-it-works">How It Works</FooterLink>
-              <FooterLink href="#pricing">Pricing</FooterLink>
+              <FooterLink href="#testimonials">Testimonials</FooterLink>
+              <FooterLink href="#faq">FAQ</FooterLink>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-400">
-            © {new Date().getFullYear()} Eagle Eye AI. All rights reserved.
+            © {new Date().getFullYear()} Eagle Eye Response. All rights reserved.
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
             <FooterLink href="#privacy">Privacy</FooterLink>
             <FooterLink href="#terms">Terms</FooterLink>
             <button
               onClick={scrollToTop}
-              className="bg-white/5 hover:bg-white/10 p-2 rounded-full transition-colors"
+              className="bg-gray-800 hover:bg-gray-700 p-2 rounded-full transition-colors text-white"
               aria-label="Back to top"
             >
               <ArrowUp size={20} />
@@ -116,7 +101,7 @@ const SocialIcon = ({ href, containerClass, children, ariaLabel }: SocialIconPro
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`socialContainer ${containerClass} w-[52px] h-[52px] bg-[#2c2c2c] flex items-center justify-center overflow-hidden transition-all duration-300 hover:scale-100 active:scale-90`}
+      className={`socialContainer ${containerClass} w-[52px] h-[52px] bg-gray-800 flex items-center justify-center overflow-hidden transition-all duration-300 hover:scale-100 active:scale-90 hover:bg-gray-700`}
       aria-label={ariaLabel}
     >
       {children}
