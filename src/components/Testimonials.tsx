@@ -3,20 +3,20 @@ import { memo } from "react";
 
 const Testimonials = memo(() => {
   return (
-    <section id="testimonials" className="py-16 sm:py-24 bg-gray-50">
+    <section id="testimonials" className="py-16 sm:py-24 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-eagle-dark mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             What Funeral Directors Say
           </h2>
-          <p className="text-lg text-eagle-gray max-w-2xl mx-auto">
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Hear from funeral professionals who have transformed their after-hours response with Eagle Eye Response.
           </p>
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Testimonial 1 */}
-          <div className="bg-white p-6 rounded-lg shadow-md">
+          <div className="bg-gray-900 p-6 rounded-lg shadow-md border border-gray-700">
             <div className="flex items-center mb-4">
               <div className="flex text-eagle-gold">
                 {[...Array(5)].map((_, i) => (
@@ -26,17 +26,17 @@ const Testimonials = memo(() => {
                 ))}
               </div>
             </div>
-            <p className="text-eagle-gray mb-4 italic">
+            <p className="text-gray-300 mb-4 italic">
               "For the first time in 15 years, I can turn my phone off at night knowing families will still receive compassionate care when they call our funeral home."
             </p>
-            <div className="border-t pt-4">
-              <p className="font-semibold text-eagle-dark">Margaret Thompson</p>
-              <p className="text-sm text-eagle-gray">Director, Thompson Funeral Home</p>
+            <div className="border-t border-gray-700 pt-4">
+              <p className="font-semibold text-white">Margaret Thompson</p>
+              <p className="text-sm text-gray-400">Director, Thompson Funeral Home</p>
             </div>
           </div>
 
           {/* Testimonial 2 */}
-          <div className="bg-white p-6 rounded-lg shadow-md">
+          <div className="bg-gray-900 p-6 rounded-lg shadow-md border border-gray-700">
             <div className="flex items-center mb-4">
               <div className="flex text-eagle-gold">
                 {[...Array(5)].map((_, i) => (
@@ -46,17 +46,17 @@ const Testimonials = memo(() => {
                 ))}
               </div>
             </div>
-            <p className="text-eagle-gray mb-4 italic">
+            <p className="text-gray-300 mb-4 italic">
               "We've captured 6 additional families this month alone. The AI handles calls with such dignity that families often compliment our 'night receptionist.'"
             </p>
-            <div className="border-t pt-4">
-              <p className="font-semibold text-eagle-dark">Robert Chen</p>
-              <p className="text-sm text-eagle-gray">Owner, Chen Family Funeral Services</p>
+            <div className="border-t border-gray-700 pt-4">
+              <p className="font-semibold text-white">Robert Chen</p>
+              <p className="text-sm text-gray-400">Owner, Chen Family Funeral Services</p>
             </div>
           </div>
 
           {/* Testimonial 3 */}
-          <div className="bg-white p-6 rounded-lg shadow-md">
+          <div className="bg-gray-900 p-6 rounded-lg shadow-md border border-gray-700">
             <div className="flex items-center mb-4">
               <div className="flex text-eagle-gold">
                 {[...Array(5)].map((_, i) => (
@@ -66,26 +66,26 @@ const Testimonials = memo(() => {
                 ))}
               </div>
             </div>
-            <p className="text-eagle-gray mb-4 italic">
+            <p className="text-gray-300 mb-4 italic">
               "I was missing calls at 2 AM when families needed me most, but I couldn't keep sacrificing my health by being available 24/7. This solution changed everything."
             </p>
-            <div className="border-t pt-4">
-              <p className="font-semibold text-eagle-dark">Sarah Williams</p>
-              <p className="text-sm text-eagle-gray">Director, Williams Memorial Chapel</p>
+            <div className="border-t border-gray-700 pt-4">
+              <p className="font-semibold text-white">Sarah Williams</p>
+              <p className="text-sm text-gray-400">Director, Williams Memorial Chapel</p>
             </div>
           </div>
         </div>
 
         {/* CTA Section */}
         <div className="text-center mt-12">
-          <p className="text-lg text-eagle-gray mb-6">
+          <p className="text-lg text-gray-300 mb-6">
             Join funeral directors across the country who trust Eagle Eye Response
           </p>
           <a
             href="https://calendly.com/weareagencyeagleeye/30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-eagle-gold text-eagle-dark px-8 py-3 rounded-lg font-semibold hover:bg-eagle-gold/90 transition-colors"
+            className="inline-block bg-eagle-gold text-black px-8 py-3 rounded-lg font-semibold hover:bg-eagle-gold/90 transition-colors"
           >
             Schedule Your Free Demo
           </a>

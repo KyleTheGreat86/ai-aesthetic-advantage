@@ -59,14 +59,14 @@ const Challenge = () => {
     <section
       ref={sectionRef}
       id="challenge"
-      className="py-24 relative overflow-hidden bg-white"
+      className="py-24 relative overflow-hidden bg-black"
     >
       <div className="section-container relative z-10">
         <div className="max-w-5xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-eagle-dark">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
             The Challenge: After-Hours Response Is Costing Your Funeral Home $200K+ in Lost Revenue Minimum Yearly and Staff Wellbeing
           </h2>
-          <p className="text-xl text-eagle-gray max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Every missed call represents a family in need and potential revenue loss for your funeral home.
           </p>
         </div>
@@ -77,18 +77,18 @@ const Challenge = () => {
             return (
               <div
                 key={index}
-                className={`bg-white p-8 rounded-xl border border-gray-200 shadow-lg transform transition-all duration-500 hover:shadow-xl ${
+                className={`bg-gray-900 p-8 rounded-xl border border-gray-700 shadow-lg transform transition-all duration-500 hover:shadow-xl hover:border-gray-600 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
                 <div className="flex items-start mb-4">
-                  <div className={`p-3 rounded-full ${challenge.color} bg-gray-50`}>
+                  <div className={`p-3 rounded-full ${challenge.color} bg-gray-800`}>
                     <Icon size={24} />
                   </div>
                   <div className="ml-4 flex-1">
-                    <h3 className="text-xl font-semibold mb-3 text-eagle-dark">{challenge.title}</h3>
-                    <p className="text-eagle-gray leading-relaxed">{challenge.description}</p>
+                    <h3 className="text-xl font-semibold mb-3 text-white">{challenge.title}</h3>
+                    <p className="text-gray-300 leading-relaxed">{challenge.description}</p>
                   </div>
                 </div>
               </div>
@@ -97,8 +97,8 @@ const Challenge = () => {
         </div>
 
         {/* Statistics */}
-        <div className="bg-eagle-dark text-white p-8 rounded-xl text-center mb-8">
-          <p className="text-xl font-semibold mb-2">
+        <div className="bg-gray-900 text-white p-8 rounded-xl text-center mb-8 border border-gray-700">
+          <p className="text-xl font-semibold mb-2 text-white">
             The average funeral home loses 3-5 potential cases monthly due to after-hours call handling issues
           </p>
           <p className="text-2xl font-bold text-eagle-gold">
@@ -107,11 +107,11 @@ const Challenge = () => {
         </div>
 
         {/* Testimonial */}
-        <div className="max-w-3xl mx-auto bg-gray-50 p-8 rounded-xl border-l-4 border-eagle-gold">
-          <blockquote className="text-lg italic text-eagle-gray mb-4">
+        <div className="max-w-3xl mx-auto bg-gray-900 p-8 rounded-xl border border-gray-700">
+          <blockquote className="text-lg italic text-gray-300 mb-4">
             "I was missing calls at 2 AM when families needed me most, but I couldn't keep sacrificing my health by being available 24/7."
           </blockquote>
-          <cite className="text-eagle-dark font-semibold">
+          <cite className="text-white font-semibold">
             — Sarah Thompson, Thompson Family Funeral Home
           </cite>
         </div>
