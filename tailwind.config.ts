@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -57,11 +56,12 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Updated funeral home branding colors
 				eagle: {
-					dark: '#050A14',
-					blue: '#1A9BD7',
-					orange: '#FF8024',
-					gold: '#FFD700',
+					dark: '#1a2942', // Deep navy blue
+					blue: '#1a2942', // Same as dark for consistency
+					gold: '#d4af37', // Soft gold
+					gray: '#707070', // Muted gray
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',

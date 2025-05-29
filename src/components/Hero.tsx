@@ -1,121 +1,104 @@
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { RainbowButton } from "./ui/rainbow-button";
-import { ChevronRight, Play, Pause } from "lucide-react";
-import { TypewriterEffect } from "./ui/typewriter-effect";
+import { ChevronRight, Play } from "lucide-react";
 import { useDeviceType } from "../hooks/use-mobile";
-import eagleEyeLogo from "/lovable-uploads/33a6f5a7-7d2c-48db-89fa-7230cda0aeec.png";
-import { CSSProperties } from "react";
 
 const Hero = () => {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
-  const [showControls, setShowControls] = useState(false);
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-  const videoRef = useRef<HTMLIFrameElement>(null);
+  const [showVideo, setShowVideo] = useState(false);
   const deviceType = useDeviceType();
-
-  // Words for typewriter effect - updated with full headline
-  const words = [
-    { text: "We", className: "text-white" },
-    { text: "Help", className: "text-white" },
-    { text: "U.S.", className: "text-white" },
-    { text: "CRE", className: "text-white" },
-    { text: "Brokers", className: "text-white" },
-    { text: "Close", className: "text-white" },
-    { text: "More", className: "text-white" },
-    { text: "$3M–$20M", className: "text-eagle-orange" },
-    { text: "Off-Market", className: "text-white" },
-    { text: "&", className: "text-white" },
-    { text: "NNN", className: "text-eagle-blue" },
-    { text: "Deals", className: "text-white" },
-    { text: "Using", className: "text-white" },
-    { text: "Next-Gen", className: "text-eagle-orange" },
-    { text: "AI", className: "text-eagle-blue" },
-    { text: "—", className: "text-white" },
-    { text: "No", className: "text-white" },
-    { text: "Extra", className: "text-white" },
-    { text: "Staff,", className: "text-white" },
-    { text: "No", className: "text-white" },
-    { text: "Lead", className: "text-white" },
-    { text: "Leakage,", className: "text-white" },
-    { text: "No", className: "text-white" },
-    { text: "Busywork", className: "text-white" }
-  ];
-
-  // Determine optimal video sizing based on device type
-  const getVideoStyle = (): CSSProperties => {
-    // Base styles that work across all devices
-    const baseStyle: CSSProperties = {
-      position: 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover' as 'cover',
-    };
-
-    // Device-specific adjustments
-    if (deviceType === 'mobile') {
-      return baseStyle;
-    } else if (deviceType === 'tablet') {
-      return baseStyle;
-    } else {
-      // Desktop - maintain aspect ratio but ensure full coverage
-      return {
-        ...baseStyle,
-        minWidth: '100%',
-        minHeight: '100%',
-      };
-    }
-  };
 
   return (
     <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
-      {/* Background video */}
-      <div className="absolute inset-0 w-full h-full bg-black">
-        <div className={`absolute inset-0 bg-black z-10 transition-opacity duration-1000 ${isVideoLoaded ? 'opacity-0' : 'opacity-100'}`}></div>
-        
-        <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
-          <iframe 
-            ref={videoRef}
-            src="https://www.youtube.com/embed/MOL2f76XY-k?autoplay=1&mute=1&controls=0&loop=1&playlist=MOL2f76XY-k&modestbranding=1&showinfo=0&rel=0" 
-            frameBorder="0" 
-            allow="autoplay; fullscreen" 
-            allowFullScreen
-            className="w-full h-full"
-            onLoad={() => setIsVideoLoaded(true)}
-            style={getVideoStyle()}
-          ></iframe>
-        </div>
-        
-        <div className="absolute inset-0 bg-black/60 z-10"></div>
+      {/* Background with overlay */}
+      <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-eagle-dark via-eagle-dark/90 to-eagle-dark/80">
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0 opacity-10 bg-grid"></div>
       </div>
 
-      {/* Overlay content */}
-      <div className="relative z-20 max-w-5xl mx-auto text-center px-4 py-8">
-        <div className="mb-6">
-          <TypewriterEffect words={words} className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold" />
+      {/* Content */}
+      <div className="relative z-20 max-w-6xl mx-auto text-center px-4 py-8">
+        <div className="mb-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            We Help Funeral Homes Provide Compassionate 24/7 Response to{" "}
+            <span className="text-eagle-gold">Families in Need</span>{" "}
+            Without Sacrificing Staff Wellbeing or Personal Touch
+          </h1>
         </div>
         
-        <p className="text-base sm:text-lg md:text-xl mb-8 max-w-3xl mx-auto text-white">
-          Our Eagle Eye AI Autopilot eliminates <span className="text-eagle-orange font-semibold">90% of manual work</span>—scouring markets, analyzing deals, nurturing clients, and scheduling tours—so you close more <span className="text-eagle-blue font-semibold">$5M+ off-market deals</span> while competitors chase cold leads.
+        <p className="text-lg sm:text-xl md:text-2xl mb-12 max-w-4xl mx-auto text-gray-300 leading-relaxed">
+          Our Eagle Eye Response AI Assistant ensures every family receives immediate, compassionate attention at any hour—handling calls with empathy, scheduling consultations, and providing information—so your staff can rest while families never reach voicemail.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 sm:mb-16">
+        {/* Video Placeholder */}
+        <div className="relative max-w-4xl mx-auto mb-12">
+          <div className="relative aspect-video bg-black/30 rounded-xl overflow-hidden border border-eagle-gold/30 shadow-2xl">
+            {!showVideo ? (
+              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-eagle-dark/80 to-black/80">
+                <div className="text-center">
+                  <div className="w-20 h-20 bg-eagle-gold rounded-full flex items-center justify-center mb-4 mx-auto cursor-pointer hover:bg-eagle-gold/90 transition-colors" onClick={() => setShowVideo(true)}>
+                    <Play className="w-8 h-8 text-eagle-dark ml-1" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-2">See How Eagle Eye AI Response Works</h3>
+                  <p className="text-gray-300">Watch a 2-minute demonstration</p>
+                </div>
+              </div>
+            ) : (
+              <iframe 
+                className="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/MOL2f76XY-k?autoplay=1&rel=0" 
+                title="Eagle Eye AI Response Demo" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowFullScreen
+              ></iframe>
+            )}
+          </div>
+        </div>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <RainbowButton 
             calendlyLink="https://calendly.com/weareagencyeagleeye/30min" 
-            className="uppercase font-bold text-base w-auto px-6 group"
+            className="font-bold text-base w-auto px-8 py-4 bg-eagle-gold text-eagle-dark hover:bg-eagle-gold/90"
           >
-            <span className="whitespace-nowrap">Schedule Your Strategy Session</span>
+            <span className="whitespace-nowrap">Schedule Your Free Demo</span>
             <ChevronRight className="ml-1 transition-transform group-hover:translate-x-1 flex-shrink-0" />
           </RainbowButton>
           
-          <RainbowButton className="uppercase font-bold text-base w-auto px-6">
-            <a href="#how-it-works" className="w-full h-full flex items-center justify-center">
-              <span className="whitespace-nowrap">See How It Works</span>
-            </a>
-          </RainbowButton>
+          <button 
+            onClick={() => setShowVideo(true)}
+            className="font-bold text-base w-auto px-8 py-4 border-2 border-eagle-gold text-eagle-gold hover:bg-eagle-gold/10 transition-colors rounded-lg"
+          >
+            <span className="whitespace-nowrap">See How It Works</span>
+          </button>
+        </div>
+
+        {/* As Featured In Section */}
+        <div className="mt-16">
+          <p className="text-sm text-gray-400 mb-6 uppercase tracking-wider">As Featured In</p>
+          <div className="overflow-hidden">
+            <div className="flex animate-marquee space-x-12 text-gray-500">
+              <div className="flex items-center space-x-2 whitespace-nowrap">
+                <span className="text-lg font-semibold">NFDA</span>
+              </div>
+              <div className="flex items-center space-x-2 whitespace-nowrap">
+                <span className="text-lg font-semibold">American Funeral Director</span>
+              </div>
+              <div className="flex items-center space-x-2 whitespace-nowrap">
+                <span className="text-lg font-semibold">Connecting Directors</span>
+              </div>
+              <div className="flex items-center space-x-2 whitespace-nowrap">
+                <span className="text-lg font-semibold">NFDA</span>
+              </div>
+              <div className="flex items-center space-x-2 whitespace-nowrap">
+                <span className="text-lg font-semibold">American Funeral Director</span>
+              </div>
+              <div className="flex items-center space-x-2 whitespace-nowrap">
+                <span className="text-lg font-semibold">Connecting Directors</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -2,8 +2,7 @@
 import { useEffect, lazy, Suspense, useState, memo } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
-import VideoSection from "../components/VideoSection";
-import TransformationSection from "../components/TransformationSection";
+import Challenge from "../components/Challenge";
 import { useIsMobile, useDeviceType } from "../hooks/use-mobile";
 
 // Import the RainbowButton CSS styles
@@ -12,34 +11,13 @@ import "../rainbow-button-styles.css";
 // Simple loading component to avoid layout shift
 const SectionLoader = () => (
   <div className="py-12 flex justify-center items-center min-h-[200px] w-full">
-    <div className="w-6 h-6 border-2 border-eagle-blue border-t-transparent rounded-full animate-spin"></div>
+    <div className="w-6 h-6 border-2 border-eagle-gold border-t-transparent rounded-full animate-spin"></div>
   </div>
 );
 
-// Lazy load components with higher loading priority
-const LoadingScreen = lazy(() => 
-  import("../components/LoadingScreen")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const WorldMapHero = lazy(() => 
-  import("../components/WorldMapHero")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-// Load remaining components
-const ProblemStatement = lazy(() => 
-  import("../components/ProblemStatement")
-    .then(module => ({ default: memo(module.default) }))
-);
-
+// Lazy load components
 const Solution = lazy(() => 
   import("../components/Solution")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const CompetitorComparison = lazy(() => 
-  import("../components/CompetitorComparison")
     .then(module => ({ default: memo(module.default) }))
 );
 
@@ -53,18 +31,8 @@ const HowItWorks = lazy(() =>
     .then(module => ({ default: memo(module.default) }))
 );
 
-const Results = lazy(() => 
-  import("../components/Results")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const Pricing = lazy(() => 
-  import("../components/Pricing")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const About = lazy(() => 
-  import("../components/About")
+const Testimonials = lazy(() => 
+  import("../components/Testimonials")
     .then(module => ({ default: memo(module.default) }))
 );
 
@@ -78,30 +46,18 @@ const Footer = lazy(() =>
     .then(module => ({ default: memo(module.default) }))
 );
 
-const BackgroundGrid = lazy(() => 
-  import("../components/BackgroundGrid")
-    .then(module => ({ default: memo(module.default) }))
-);
-
 // Optimized Index component
 const Index = () => {
   const isMobile = useIsMobile();
   const deviceType = useDeviceType();
   const [hasLoaded, setHasLoaded] = useState(false);
   const [visibleSections, setVisibleSections] = useState({
-    videoSection: false,
-    worldMap: false,
-    problem: false,
+    challenge: false,
     solution: false,
-    comparison: false,
     benefits: false,
     howItWorks: false,
-    transformation: false,
-    results: false,
-    pricing: false,
-    about: false,
+    testimonials: false,
     faq: false,
-    footer: false
   });
   
   useEffect(() => {
@@ -109,9 +65,18 @@ const Index = () => {
     setHasLoaded(true);
     
     // Update page title
-    document.title = "Eagle Eye | AI Infrastructure for CRE Brokers";
+    document.title = "Eagle Eye Response | AI Assistant for Funeral Homes";
     
-    // Smooth scrolling with passive event listeners for performance
+    // Update meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.setAttribute('name', 'description');
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute('content', 'Eagle Eye Response provides compassionate 24/7 AI assistance for funeral homes, ensuring families receive immediate care while protecting staff wellbeing.');
+    
+    // Smooth scrolling
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (target.tagName === 'A' && target.getAttribute('href')?.startsWith('#')) {
@@ -131,10 +96,10 @@ const Index = () => {
     
     document.addEventListener('click', handleAnchorClick, { passive: false });
     
-    // Use IntersectionObserver to load sections as they become visible
+    // Setup intersection observer for lazy loading
     const setupIntersectionObserver = () => {
       const observerOptions = {
-        rootMargin: '200px 0px', // Load when within 200px of viewport
+        rootMargin: '200px 0px',
         threshold: 0.01
       };
       
@@ -150,7 +115,6 @@ const Index = () => {
         });
       }, observerOptions);
       
-      // Observe each section to load it only when needed
       const sections = document.querySelectorAll('section[id]');
       sections.forEach(section => {
         sectionObserver.observe(section);
@@ -163,7 +127,6 @@ const Index = () => {
       };
     };
     
-    // Setup after initial render
     const timer = setTimeout(setupIntersectionObserver, 500);
     
     return () => {
@@ -173,40 +136,16 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen w-full bg-eagle-dark text-white">
-      <Suspense fallback={<div className="fixed inset-0 bg-eagle-dark z-50"></div>}>
-        <LoadingScreen />
-      </Suspense>
-      
+    <div className="min-h-screen w-full bg-white text-eagle-dark">
       <Navbar />
-      
-      <Suspense fallback={null}>
-        <BackgroundGrid />
-      </Suspense>
       
       <Hero />
       
-      <section id="video-section">
-        <Suspense fallback={<SectionLoader />}>
-          <VideoSection />
-        </Suspense>
-      </section>
-      
-      <section id="problem">
-        <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.problem || deviceType === 'mobile') && <ProblemStatement />}
-        </Suspense>
-      </section>
+      <Challenge />
       
       <section id="solution">
         <Suspense fallback={<SectionLoader />}>
           {(visibleSections.solution || deviceType === 'mobile') && <Solution />}
-        </Suspense>
-      </section>
-      
-      <section id="comparison">
-        <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.comparison || deviceType === 'mobile') && <CompetitorComparison />}
         </Suspense>
       </section>
       
@@ -222,21 +161,9 @@ const Index = () => {
         </Suspense>
       </section>
       
-      <section id="transformation">
+      <section id="testimonials">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.transformation || deviceType === 'mobile') && <TransformationSection />}
-        </Suspense>
-      </section>
-      
-      <section id="results">
-        <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.results || deviceType === 'mobile') && <Results />}
-        </Suspense>
-      </section>
-      
-      <section id="pricing">
-        <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.pricing || deviceType === 'mobile') && <Pricing />}
+          {(visibleSections.testimonials || deviceType === 'mobile') && <Testimonials />}
         </Suspense>
       </section>
       
