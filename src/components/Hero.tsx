@@ -3,20 +3,10 @@ import React, { useState } from "react";
 import { RainbowButton } from "./ui/rainbow-button";
 import { ChevronRight, Play } from "lucide-react";
 import { useDeviceType } from "../hooks/use-mobile";
-import AnimatedTextCycle from "./ui/animated-text-cycle";
 
 const Hero = () => {
   const [showVideo, setShowVideo] = useState(false);
   const deviceType = useDeviceType();
-
-  const rotatingWords = [
-    "Professional Response Every Time",
-    "Instant Consultation Booking", 
-    "Zero Training Required",
-    "Never Calls in Sick",
-    "24/7 Perfect Coverage",
-    "Consistent Information Every Time"
-  ];
 
   return (
     <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-32 pb-16">
@@ -45,14 +35,9 @@ const Hero = () => {
         <div className="mb-8 animate-fade-in">
           <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight max-w-4xl mx-auto">
             You Just Heard What Your Competition Will Never Have:{" "}
-            <span className="relative inline-block">
-              <AnimatedTextCycle 
-                words={rotatingWords}
-                interval={3000}
-                className="text-eagle-gold bg-gradient-to-r from-eagle-gold to-yellow-300 bg-clip-text text-transparent font-bold"
-              />
-            </span>{" "}
-            A 24/7 AI Employee That Books More Consultations While You Sleep
+            <span className="text-eagle-gold bg-gradient-to-r from-eagle-gold to-yellow-300 bg-clip-text text-transparent font-bold">
+              A 24/7 AI Employee That Books More Consultations While You Sleep
+            </span>
           </h1>
         </div>
         
