@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -10,7 +9,7 @@ import {
     NavigationMenuList,
     NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { Menu, MoveRight, X, Heart } from "lucide-react";
+import { Menu, MoveRight, X } from "lucide-react";
 import { useState } from "react";
 
 function Header1() {
@@ -83,10 +82,7 @@ function Header1() {
                 </div>
                 
                 <div className="flex lg:justify-center">
-                    <div className="flex items-center group">
-                        <Heart className="h-8 w-8 text-eagle-gold mr-3 group-hover:scale-110 transition-transform duration-300" />
-                        <span className="text-xl font-bold text-white tracking-tight">Eagle Eye Response</span>
-                    </div>
+                    {/* Removed heart icon and brand text for better navigation readability */}
                 </div>
                 
                 <div className="flex justify-end w-full gap-3">
