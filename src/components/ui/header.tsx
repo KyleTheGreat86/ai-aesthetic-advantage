@@ -102,8 +102,7 @@ function Header1() {
                     </Button>
                     <div className="border-r hidden md:inline border-gray-600/50 mx-2"></div>
                     <Button 
-                        variant="outline" 
-                        className="border-eagle-gold/80 text-eagle-gold hover:bg-eagle-gold hover:text-black transition-all duration-300 font-semibold"
+                        className="bg-gradient-to-r from-eagle-gold to-yellow-400 text-black hover:from-yellow-400 hover:to-eagle-gold font-semibold shadow-lg hover:shadow-eagle-gold/30 transition-all duration-300"
                         onClick={() => window.open('mailto:kyle@agencyeagleeye.com', '_blank')}
                     >
                         Contact
