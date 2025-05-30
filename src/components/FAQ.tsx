@@ -10,39 +10,39 @@ import {
 const FAQ = () => {
   const faqItems = [
     {
-      question: "Do I need technical skills to use it?",
+      question: "This sounds too good to be true. What's the catch?",
       answer:
-        "No. The AI system integrates seamlessly with your existing phone system. Once set up, it works automatically. You can monitor calls and customize responses through a simple dashboard that requires no technical expertise.",
+        "No catch. I'm using proven AI technology and customizing it for aesthetic practices. The 'catch' is that I'm new, so you get founder-level attention and pricing that won't last forever and I'd love a testimonial, as you know reputation and quality for your brand is everything.",
     },
     {
-      question: "What if our workflow is unique?",
+      question: "How is this different from an answering service?",
       answer:
-        "We customize the AI responses and workflows to match your funeral home's specific processes, terminology, and services. Our onboarding includes detailed consultation to ensure the AI represents your funeral home accurately and compassionately.",
+        "Answering services use humans who know nothing about your practice. Your AI employee knows every treatment, price, and protocol. Plus it works 24/7 for less than you'd pay for 10 hours of human coverage.",
     },
     {
-      question: "How secure is our data?",
+      question: "What if prospects want to speak to a human?",
       answer:
-        "Enterprise-grade encryption protects all call data and family information. We never store sensitive personal details beyond what's necessary for scheduling. All data is protected with HIPAA-compliant security protocols and regular security audits.",
+        "The AI handles 90% of inquiries completely. For complex medical questions, it professionally captures information and routes to your team with detailed notes.",
+    },
+    {
+      question: "Will this work with my practice management software?",
+      answer:
+        "Yes - I personally handle integration with major systems like Nextech, AestheticsPro, and others. This is included in your setup.",
     },
     {
       question: "How long does implementation take?",
       answer:
-        "Implementation takes 5-7 business days from signing to full deployment. This includes phone system integration, AI training on your services and procedures, testing, and staff orientation on the system.",
+        "From demo to live in 48-72 hours. I personally handle the setup call (30 minutes), custom configuration (24-48 hours), and review & go live. Total time required from you: 45 minutes.",
     },
     {
-      question: "Does Eagle Eye replace our existing staff?",
+      question: "What's included in the founder's pricing?",
       answer:
-        "No, it enhances your team's capabilities. The AI handles overflow calls, after-hours inquiries, and initial information gathering, allowing your staff to focus on providing personalized care to families during their most important moments.",
+        "Custom AI setup for your specific treatments and pricing, integration with your practice management system, 24/7/365 call coverage, monthly optimization calls with me personally, all future features and improvements, and direct founder support line.",
     },
     {
-      question: "What types of calls does the AI handle best?",
+      question: "What's your guarantee?",
       answer:
-        "The AI excels at initial family contact, information requests about services and pricing, scheduling consultations, after-hours urgent response, and general inquiries. Complex emotional support is always transferred to your compassionate staff.",
-    },
-    {
-      question: "Is there a limit to how many calls the AI can handle?",
-      answer:
-        "No, the AI can handle unlimited simultaneous calls 24/7. Whether you receive 10 calls or 100 calls in a day, every family will receive immediate, compassionate attention without any busy signals or voicemail.",
+        "Triple guarantee: Results guarantee (capture at least 3 additional consultations in 30 days or get a full refund), Setup guarantee (live and working within 72 hours or your setup fee is waived), and Satisfaction guarantee (cancel anytime with 24 hours notice, no contracts, no penalties).",
     },
   ];
 
@@ -73,7 +73,7 @@ const FAQ = () => {
 
           <div className="mt-12 text-center">
             <p className="text-gray-300">
-              Have more questions? We're happy to help.
+              Have more questions? I'm happy to help.
             </p>
             <p className="mt-2">
               <a

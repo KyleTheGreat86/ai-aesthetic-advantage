@@ -9,29 +9,29 @@ const Challenge = () => {
 
   const challenges = [
     {
-      title: "Missed Family Calls",
-      description: "47% of funeral homes miss potential cases because calls come after hours when staff is unavailable or exhausted.",
+      title: "The After-Hours Revenue Leak",
+      description: "While you're closed, motivated prospects are calling competitors who answer. 38% of aesthetic consultations are booked outside business hours.",
       icon: PhoneOff,
       color: "text-red-400",
       bgColor: "from-red-500/10 to-red-600/5"
     },
     {
-      title: "Staff Burnout & Turnover",
-      description: "Funeral directors report sleep deprivation and 24/7 on-call status as leading causes of burnout, with 68% considering career changes.",
+      title: "The Consistency Crisis",
+      description: "Different staff members give different information about treatments and pricing. This confusion kills conversions and hurts your premium brand.",
       icon: Clock,
       color: "text-orange-400",
       bgColor: "from-orange-500/10 to-orange-600/5"
     },
     {
-      title: "Inconsistent Family Experience", 
-      description: "Families who call during business hours receive immediate compassion, while after-hours callers often reach voicemail during their most vulnerable moment.",
+      title: "The Coverage Gaps", 
+      description: "Staff sick days, lunch breaks, and busy periods mean missed calls. Each missed call is a lost consultation worth $200-500.",
       icon: Users,
       color: "text-yellow-400",
       bgColor: "from-yellow-500/10 to-yellow-600/5"
     },
     {
-      title: "Answering Service Limitations",
-      description: "Generic answering services lack funeral-specific training, often creating awkward interactions and delays in urgent situations.",
+      title: "The Training Drain",
+      description: "New reception staff need weeks to learn your treatments, pricing, and protocols. Meanwhile, they're giving incomplete or incorrect information to prospects.",
       icon: HelpCircle,
       color: "text-blue-400",
       bgColor: "from-blue-500/10 to-blue-600/5"
@@ -59,8 +59,8 @@ const Challenge = () => {
           };
 
           setTimeout(() => {
-            animateCounter(350000, 'revenue');
-            animateCounter(5, 'cases');
+            animateCounter(10000, 'revenue');
+            animateCounter(15, 'cases');
           }, 500);
           
           observer.unobserve(entry.target);
@@ -98,14 +98,13 @@ const Challenge = () => {
         <div className="max-w-5xl mx-auto text-center mb-16">
           <div className={`transform transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white leading-tight">
-              The Challenge: After-Hours Response Is Costing Your Funeral Home{" "}
+              Why Aesthetic Practices Are Losing{" "}
               <span className="text-eagle-gold bg-gradient-to-r from-eagle-gold to-yellow-300 bg-clip-text text-transparent">
-                $200K+ in Lost Revenue
-              </span>{" "}
-              Yearly and Staff Wellbeing
+                $10,000+ Monthly
+              </span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Every missed call represents a family in need and potential revenue loss for your funeral home.
+              Every missed call represents a lost consultation and potential revenue for your aesthetic practice.
             </p>
           </div>
         </div>
@@ -145,14 +144,11 @@ const Challenge = () => {
         {/* Enhanced Statistics with animated counters */}
         <div className={`bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-sm text-white p-8 rounded-xl text-center mb-8 border border-gray-700/50 shadow-2xl transform transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '600ms' }}>
           <p className="text-xl font-semibold mb-4 text-white">
-            The average funeral home loses{" "}
+            The average aesthetic practice loses{" "}
             <span className="text-eagle-gold font-bold text-2xl">
-              {counters.cases}
+              ${counters.revenue.toLocaleString()}+
             </span>{" "}
-            potential cases monthly due to after-hours call handling issues
-          </p>
-          <p className="text-3xl font-bold text-eagle-gold">
-            Representing ${counters.revenue.toLocaleString()}-$420,000 in annual revenue
+            monthly due to missed calls and inconsistent service
           </p>
         </div>
 
@@ -164,14 +160,14 @@ const Challenge = () => {
             <div className="absolute -bottom-8 -right-2 text-6xl text-eagle-gold/30 font-serif">"</div>
             
             <blockquote className="text-lg italic text-gray-300 mb-6 leading-relaxed pl-6">
-              I was missing calls at 2 AM when families needed me most, but I couldn't keep sacrificing my health by being available 24/7.
+              I was losing potential clients at 2 AM when they were researching procedures, but I couldn't keep my staff available 24/7.
             </blockquote>
             <div className="flex items-center pl-6">
               <div className="w-12 h-12 bg-gradient-to-r from-eagle-gold to-yellow-400 rounded-full mr-4 flex items-center justify-center">
-                <span className="text-black font-bold text-lg">ST</span>
+                <span className="text-black font-bold text-lg">DR</span>
               </div>
               <cite className="text-white font-semibold">
-                — Sarah Thompson, Thompson Family Funeral Home
+                — Dr. Rebecca Martinez, Elite Aesthetics
               </cite>
             </div>
           </div>

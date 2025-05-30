@@ -6,8 +6,8 @@ const Benefits = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeCalculator, setActiveCalculator] = useState(false);
   const [formData, setFormData] = useState({
-    averageServiceValue: 7000,
-    currentBookings: 20,
+    averageConsultationValue: 500,
+    currentConsultations: 40,
     staffHourlyCost: 25
   });
   const [results, setResults] = useState({
@@ -25,13 +25,13 @@ const Benefits = () => {
     {
       icon: Phone,
       title: "100% Call Coverage",
-      description: "Never miss another call. Our AI handles every call, 24/7/365, ensuring families always reach a compassionate voice.",
+      description: "Never miss another inquiry. Our AI handles every call, 24/7/365, ensuring prospects always reach a professional voice.",
       color: "text-green-400",
       bgGradient: "from-green-500/10 to-emerald-600/5"
     },
     {
       icon: DollarSign,
-      title: "3-5 Additional Families Monthly",
+      title: "8-15 Additional Consultations Monthly",
       description: "Recover lost revenue by capturing calls that would otherwise go to voicemail or competitors.",
       color: "text-eagle-gold",
       bgGradient: "from-yellow-500/10 to-eagle-gold/5"
@@ -39,21 +39,21 @@ const Benefits = () => {
     {
       icon: Clock,
       title: "80+ Hours Saved Monthly",
-      description: "Free up your staff from repetitive phone tasks to focus on what matters most—caring for families.",
+      description: "Free up your staff from repetitive phone tasks to focus on what matters most—caring for patients.",
       color: "text-blue-400",
       bgGradient: "from-blue-500/10 to-cyan-600/5"
     },
     {
       icon: Heart,
-      title: "Compassionate AI Responses",
-      description: "Specially trained to handle grief with empathy, respect, and the dignity every family deserves.",
+      title: "Professional AI Responses",
+      description: "Specially trained to handle aesthetic inquiries with expertise, professionalism, and the premium service your brand deserves.",
       color: "text-pink-400",
       bgGradient: "from-pink-500/10 to-rose-600/5"
     },
     {
       icon: TrendingUp,
-      title: "20X-34X ROI",
-      description: "For less than $1,000/month, generate $20K+ in additional monthly revenue.",
+      title: "30X-50X ROI",
+      description: "For just $247/month, generate $8K-15K+ in additional monthly revenue.",
       color: "text-purple-400",
       bgGradient: "from-purple-500/10 to-violet-600/5"
     },
@@ -89,10 +89,10 @@ const Benefits = () => {
   }, []);
 
   const calculateROI = () => {
-    const additionalFamilies = 4; // Conservative estimate (3-5 range)
-    const monthlyRevenue = additionalFamilies * formData.averageServiceValue;
+    const additionalConsultations = 10; // Conservative estimate (8-15 range)
+    const monthlyRevenue = additionalConsultations * formData.averageConsultationValue;
     const yearlyRevenue = monthlyRevenue * 12;
-    const monthlyCost = 995;
+    const monthlyCost = 247;
     const monthlySavings = 80 * formData.staffHourlyCost; // 80 hours saved
     const netProfit = monthlyRevenue + monthlySavings - monthlyCost;
     const roi = Math.round((netProfit / monthlyCost) * 100) / 10;
@@ -128,13 +128,13 @@ const Benefits = () => {
         <div className="text-center mb-16">
           <div className={`transform transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Why Funeral Homes Choose{" "}
+              Why Aesthetic Practices Choose{" "}
               <span className="bg-gradient-to-r from-eagle-gold to-yellow-300 bg-clip-text text-transparent">
                 Eagle Eye Response
               </span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              AI infrastructure designed specifically for funeral homes to serve families with dignity while growing your business.
+              AI infrastructure designed specifically for aesthetic practices to serve clients with professionalism while growing your business.
             </p>
           </div>
         </div>
@@ -175,13 +175,13 @@ const Benefits = () => {
           <div className="bg-gradient-to-br from-gray-900/80 to-gray-800/60 backdrop-blur-sm p-8 rounded-xl border border-gray-700/50 shadow-2xl">
             <div className="text-center mb-8">
               <h3 className="text-2xl font-bold text-white mb-2">
-                Funeral Home AI Receptionist ROI Calculator
+                Aesthetic Practice AI Employee ROI Calculator
               </h3>
               <p className="text-eagle-gold font-semibold">
-                *Now Booking 3-5 Additional Families Per Month*
+                *Now Booking 8-15 Additional Consultations Per Month*
               </p>
               <p className="text-gray-300 mt-2">
-                See How Our AI Receptionist Pays for Itself & Boosts Your Revenue
+                See How Our AI Employee Pays for Itself & Boosts Your Revenue
               </p>
             </div>
 
@@ -192,21 +192,21 @@ const Benefits = () => {
                 
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-gray-300 mb-2">Average service value ($):</label>
+                    <label className="block text-gray-300 mb-2">Average consultation value ($):</label>
                     <input
                       type="number"
-                      value={formData.averageServiceValue}
-                      onChange={(e) => setFormData({...formData, averageServiceValue: Number(e.target.value)})}
+                      value={formData.averageConsultationValue}
+                      onChange={(e) => setFormData({...formData, averageConsultationValue: Number(e.target.value)})}
                       className="w-full bg-gray-800/50 border border-gray-600 rounded-lg px-4 py-2 text-white focus:border-eagle-gold focus:outline-none transition-colors"
                     />
                   </div>
                   
                   <div>
-                    <label className="block text-gray-300 mb-2">Current bookings per month:</label>
+                    <label className="block text-gray-300 mb-2">Current consultations per month:</label>
                     <input
                       type="number"
-                      value={formData.currentBookings}
-                      onChange={(e) => setFormData({...formData, currentBookings: Number(e.target.value)})}
+                      value={formData.currentConsultations}
+                      onChange={(e) => setFormData({...formData, currentConsultations: Number(e.target.value)})}
                       className="w-full bg-gray-800/50 border border-gray-600 rounded-lg px-4 py-2 text-white focus:border-eagle-gold focus:outline-none transition-colors"
                     />
                   </div>
@@ -232,15 +232,15 @@ const Benefits = () => {
 
               {/* Results Section */}
               <div ref={calculatorRef}>
-                <h4 className="text-lg font-semibold text-white mb-4">Our Pricing</h4>
+                <h4 className="text-lg font-semibold text-white mb-4">Our Founder's Pricing</h4>
                 <div className="bg-gray-800/30 rounded-lg p-4 mb-6">
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-gray-300">Monthly AI cost:</span>
-                    <span className="text-white font-semibold">$995</span>
+                    <span className="text-white font-semibold">$247</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-300">One-time setup:</span>
-                    <span className="text-white font-semibold">$100</span>
+                    <span className="text-white font-semibold">$247</span>
                   </div>
                 </div>
 
@@ -250,7 +250,7 @@ const Benefits = () => {
                     
                     <div className="bg-gradient-to-r from-green-500/10 to-emerald-600/5 rounded-lg p-4 border border-green-500/30">
                       <h5 className="text-green-400 font-semibold mb-2">💰 Revenue Growth (Per Month)</h5>
-                      <p className="text-white">+4 extra families booked</p>
+                      <p className="text-white">+10 extra consultations booked</p>
                       <p className="text-white font-bold text-xl">+${results.monthlyRevenue.toLocaleString()} additional revenue</p>
                       <p className="text-gray-300 text-sm">Yearly revenue boost: ${results.yearlyRevenue.toLocaleString()}</p>
                     </div>
@@ -283,9 +283,9 @@ const Benefits = () => {
             {/* Call to Action */}
             <div className="text-center">
               <div className="bg-gradient-to-r from-gray-800/50 to-gray-700/30 rounded-lg p-6 mb-6">
-                <h4 className="text-white font-semibold mb-2">💡 Key Takeaway for Funeral Homes</h4>
+                <h4 className="text-white font-semibold mb-2">💡 Key Takeaway for Aesthetic Practices</h4>
                 <p className="text-gray-300">
-                  "For less than $1,000/month, our AI books 3-5 extra families—generating $20K+ in new revenue. The system pays for itself in days."
+                  "For just $247/month, our AI books 8-15 extra consultations—generating $8K-15K+ in new revenue. The system pays for itself in days."
                 </p>
               </div>
               
@@ -295,7 +295,7 @@ const Benefits = () => {
                 rel="noopener noreferrer"
                 className="inline-block bg-gradient-to-r from-eagle-gold to-yellow-400 text-black px-8 py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-eagle-gold/30 transform hover:scale-105 transition-all duration-300"
               >
-                Get Started Now – Recover $20K+ This Month
+                Get Started Now – Capture $10K+ This Month
               </a>
             </div>
           </div>

@@ -7,10 +7,10 @@ const Testimonials = memo(() => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            What Funeral Directors Say
+            What Aesthetic Practice Owners Say
           </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Hear from funeral professionals who have transformed their after-hours response with Eagle Eye Response.
+            Hear from aesthetic professionals who have transformed their practice response with Eagle Eye Response.
           </p>
         </div>
         
@@ -27,11 +27,11 @@ const Testimonials = memo(() => {
               </div>
             </div>
             <p className="text-gray-300 mb-4 italic">
-              "For the first time in 15 years, I can turn my phone off at night knowing families will still receive compassionate care when they call our funeral home."
+              "For the first time in my practice, I can disconnect after hours knowing prospects will still receive professional service when they call about our treatments."
             </p>
             <div className="border-t border-gray-700 pt-4">
-              <p className="font-semibold text-white">Margaret Thompson</p>
-              <p className="text-sm text-gray-400">Director, Thompson Funeral Home</p>
+              <p className="font-semibold text-white">Dr. Sarah Martinez</p>
+              <p className="text-sm text-gray-400">Director, Elite Aesthetic Center</p>
             </div>
           </div>
 
@@ -47,11 +47,11 @@ const Testimonials = memo(() => {
               </div>
             </div>
             <p className="text-gray-300 mb-4 italic">
-              "We've captured 6 additional families this month alone. The AI handles calls with such dignity that families often compliment our 'night receptionist.'"
+              "We've captured 12 additional consultations this month alone. The AI handles inquiries with such professionalism that prospects often compliment our 'evening receptionist.'"
             </p>
             <div className="border-t border-gray-700 pt-4">
-              <p className="font-semibold text-white">Robert Chen</p>
-              <p className="text-sm text-gray-400">Owner, Chen Family Funeral Services</p>
+              <p className="font-semibold text-white">Dr. Michael Chen</p>
+              <p className="text-sm text-gray-400">Owner, Premier Aesthetics</p>
             </div>
           </div>
 
@@ -67,11 +67,11 @@ const Testimonials = memo(() => {
               </div>
             </div>
             <p className="text-gray-300 mb-4 italic">
-              "I was missing calls at 2 AM when families needed me most, but I couldn't keep sacrificing my health by being available 24/7. This solution changed everything."
+              "I was losing potential clients at 2 AM when they were researching procedures, but I couldn't keep my staff available 24/7. This solution changed everything."
             </p>
             <div className="border-t border-gray-700 pt-4">
-              <p className="font-semibold text-white">Sarah Williams</p>
-              <p className="text-sm text-gray-400">Director, Williams Memorial Chapel</p>
+              <p className="font-semibold text-white">Dr. Rebecca Williams</p>
+              <p className="text-sm text-gray-400">Director, Luxury Aesthetics</p>
             </div>
           </div>
         </div>
@@ -79,7 +79,7 @@ const Testimonials = memo(() => {
         {/* CTA Section */}
         <div className="text-center mt-12">
           <p className="text-lg text-gray-300 mb-6">
-            Join funeral directors across the country who trust Eagle Eye Response
+            Join aesthetic practice owners across the country who trust Eagle Eye Response
           </p>
           <a
             href="https://calendly.com/weareagencyeagleeye/30min"

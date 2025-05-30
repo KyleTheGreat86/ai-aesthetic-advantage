@@ -9,26 +9,26 @@ const Solution = () => {
 
   const features = [
     {
-      title: "24/7 Compassionate Response",
-      description: "Answers calls with dignity and empathy at any hour, ensuring families never reach voicemail in their moment of need.",
+      title: "24/7 Perfect Coverage",
+      description: "Your AI employee answers every call instantly - no holds, no voicemail, no 'we're busy right now.'",
       icon: Heart,
       iconColor: "text-eagle-gold"
     },
     {
-      title: "Immediate Need Handling",
-      description: "Gathers essential information, dispatches transport teams, and notifies on-call staff for urgent situations.",
+      title: "Consistent Information Every Time",
+      description: "Every prospect gets identical, accurate information about treatments, pricing, and availability. No more mixed messages.",
       icon: Clock,
       iconColor: "text-white"
     },
     {
-      title: "Consultation Scheduling",
-      description: "Books appointments with the appropriate funeral director based on family needs and your staff's availability.",
+      title: "Immediate Booking Capability",
+      description: "Prospects book consultations while they're motivated instead of being told 'someone will call you back.'",
       icon: Calendar,
       iconColor: "text-eagle-gold"
     },
     {
-      title: "Information Provision",
-      description: "Answers common questions about services, pricing, and pre-planning options with accuracy and sensitivity.",
+      title: "Zero Overhead Costs",
+      description: "No salary, benefits, sick days, or training time. Just professional service that gets better every month.",
       icon: Info,
       iconColor: "text-white"
     }
@@ -75,9 +75,9 @@ const Solution = () => {
       <div className="section-container relative z-10">
         <div className="text-center max-w-4xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-            The Funeral Industry's First AI Assistant Designed for Compassionate Response
+            What You Just Heard Solves Everything
           </h2>
-          <p className="text-lg text-gray-300">Give your staff the rest they deserve while ensuring families receive immediate care.</p>
+          <p className="text-lg text-gray-300">The demo you experienced eliminates every problem that's costing your practice revenue.</p>
         </div>
 
         <div className="max-w-5xl mx-auto">
@@ -106,8 +106,8 @@ const Solution = () => {
           
           <div className="text-center bg-gray-900 text-white rounded-lg p-6 max-w-2xl mx-auto border border-gray-700">
             <Heart className="mx-auto mb-4 text-eagle-gold" size={32} />
-            <p className="text-xl font-semibold mb-2">All managed with dignity and professionalism—no complex software to learn.</p>
-            <p className="text-gray-300">Your families receive compassionate care at their most vulnerable moments.</p>
+            <p className="text-xl font-semibold mb-2">All managed with professionalism and expertise—no complex software to learn.</p>
+            <p className="text-gray-300">Your prospects receive premium service at their moment of interest.</p>
           </div>
         </div>
       </div>
