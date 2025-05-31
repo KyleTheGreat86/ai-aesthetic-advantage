@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { RainbowButton } from "./ui/rainbow-button";
 import { ChevronRight, Play } from "lucide-react";
@@ -10,11 +9,11 @@ const Hero = () => {
   const deviceType = useDeviceType();
 
   const dynamicTexts = [
-    "A 24/7 AI Employee That Books More Consultations While You Sleep.",
-    "A Virtual Team Member That Never Takes a Break, Booking Jobs 24/7.",
-    "An Always-On AI That Keeps Your Calendar Full, Even After Hours.",
-    "A Smart Assistant That Handles Every Call, Booking Jobs Automatically.",
-    "A Workforce That Works While You Rest, So You Can Enjoy Your Free Time."
+    "A 24/7 AI That Books While You Sleep.",
+    "A Virtual Team Member That Never Stops.",
+    "An Always-On AI That Fills Your Calendar.",
+    "A Smart Assistant That Books Automatically.",
+    "A Workforce That Works While You Rest."
   ];
 
   return (
