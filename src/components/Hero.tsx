@@ -48,13 +48,13 @@ const Hero = () => {
           </h1>
         </div>
 
-        {/* Dynamic animated text section - separate container */}
+        {/* Dynamic animated text section - separate container with smaller font */}
         <div className="mb-8 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-          <div className="min-h-[120px] flex items-center justify-center">
+          <div className="min-h-[80px] flex items-center justify-center">
             <AnimatedTextCycle
               words={dynamicTexts}
               interval={4000}
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl bg-gradient-to-r from-eagle-gold to-yellow-300 bg-clip-text text-transparent leading-tight max-w-4xl mx-auto"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl bg-gradient-to-r from-eagle-gold to-yellow-300 bg-clip-text text-transparent leading-tight max-w-4xl mx-auto"
             />
           </div>
         </div>
