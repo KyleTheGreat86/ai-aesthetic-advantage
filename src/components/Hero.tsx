@@ -3,23 +3,32 @@ import React, { useState } from "react";
 import { RainbowButton } from "./ui/rainbow-button";
 import { ChevronRight, Play } from "lucide-react";
 import { useDeviceType } from "../hooks/use-mobile";
+import AnimatedTextCycle from "./ui/animated-text-cycle";
 
 const Hero = () => {
   const [showVideo, setShowVideo] = useState(false);
   const deviceType = useDeviceType();
 
+  const dynamicTexts = [
+    "A 24/7 AI Employee That Books More Consultations While You Sleep.",
+    "A Virtual Team Member That Never Takes a Break, Booking Jobs 24/7.",
+    "An Always-On AI That Keeps Your Calendar Full, Even After Hours.",
+    "A Smart Assistant That Handles Every Call, Booking Jobs Automatically.",
+    "A Workforce That Works While You Rest, So You Can Enjoy Your Free Time."
+  ];
+
   return (
     <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-32 pb-16">
-      {/* Enhanced Background with overlay and animated grid */}
-      <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-black via-gray-900 to-black">
-        {/* Animated background pattern */}
-        <div className="absolute inset-0 opacity-20 bg-grid animate-pulse-slow"></div>
+      {/* Enhanced Background with black base and gold accents */}
+      <div className="absolute inset-0 w-full h-full bg-black">
+        {/* Animated background pattern with gold */}
+        <div className="absolute inset-0 opacity-15 bg-grid-gold animate-pulse-slow"></div>
         
-        {/* Floating shapes for premium feel */}
+        {/* Floating shapes for premium feel with gold accents */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-eagle-gold/10 rounded-full blur-xl animate-float"></div>
-          <div className="absolute top-3/4 right-1/4 w-24 h-24 bg-eagle-gold/5 rounded-full blur-2xl animate-float" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute top-1/2 right-1/3 w-16 h-16 bg-white/5 rounded-full blur-xl animate-float" style={{ animationDelay: '4s' }}></div>
+          <div className="absolute top-3/4 right-1/4 w-24 h-24 bg-eagle-gold/15 rounded-full blur-2xl animate-float" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 right-1/3 w-16 h-16 bg-eagle-gold/8 rounded-full blur-xl animate-float" style={{ animationDelay: '4s' }}></div>
         </div>
       </div>
 
@@ -32,23 +41,32 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="mb-8 animate-fade-in">
-          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight max-w-4xl mx-auto">
-            You Just Heard What Your Competition Will Never Have:{" "}
-            <span className="text-eagle-gold bg-gradient-to-r from-eagle-gold to-yellow-300 bg-clip-text text-transparent font-bold">
-              A 24/7 AI Employee That Books More Consultations While You Sleep
-            </span>
+        {/* Static heading text - centered */}
+        <div className="mb-6 animate-fade-in">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight max-w-4xl mx-auto">
+            You Just Heard What Your Competition Will Never Have:
           </h1>
         </div>
+
+        {/* Dynamic animated text section - separate container */}
+        <div className="mb-8 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+          <div className="min-h-[120px] flex items-center justify-center">
+            <AnimatedTextCycle
+              words={dynamicTexts}
+              interval={4000}
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl bg-gradient-to-r from-eagle-gold to-yellow-300 bg-clip-text text-transparent leading-tight max-w-4xl mx-auto"
+            />
+          </div>
+        </div>
         
-        <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
+        <div className="animate-fade-in" style={{ animationDelay: '0.6s' }}>
           <p className="text-sm sm:text-base md:text-lg mb-8 max-w-3xl mx-auto text-gray-300 leading-relaxed">
             That demo you just experienced? That's exactly how your AI receptionist will handle every call, consultation request, and pricing inquiry—perfectly, consistently, every single time.
           </p>
         </div>
 
         {/* Enhanced Video Placeholder with premium styling */}
-        <div className="relative max-w-3xl mx-auto mb-8 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+        <div className="relative max-w-3xl mx-auto mb-8 animate-fade-in" style={{ animationDelay: '0.9s' }}>
           <div className="relative aspect-video bg-black/30 rounded-xl overflow-hidden border border-eagle-gold/30 shadow-2xl backdrop-blur-sm">
             {/* Glow effect */}
             <div className="absolute -inset-1 bg-gradient-to-r from-eagle-gold/20 to-transparent rounded-xl blur opacity-60"></div>
@@ -80,7 +98,7 @@ const Hero = () => {
         </div>
 
         {/* Enhanced CTA Buttons with premium animations */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 animate-fade-in" style={{ animationDelay: '0.9s' }}>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 animate-fade-in" style={{ animationDelay: '1.2s' }}>
           <div className="group">
             <RainbowButton 
               calendlyLink="https://calendly.com/weareagencyeagleeye/30min" 
@@ -100,7 +118,7 @@ const Hero = () => {
         </div>
 
         {/* Enhanced Social Proof Stats Bar */}
-        <div className="mt-12 animate-fade-in" style={{ animationDelay: '1.2s' }}>
+        <div className="mt-12 animate-fade-in" style={{ animationDelay: '1.5s' }}>
           <p className="text-xs text-gray-400 mb-6 uppercase tracking-wider font-semibold">Live Stats</p>
           <div className="overflow-hidden rounded-lg bg-white/5 backdrop-blur-sm border border-white/10 py-4">
             <div className="flex animate-marquee space-x-12 text-gray-400">

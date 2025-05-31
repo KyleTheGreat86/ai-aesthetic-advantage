@@ -171,12 +171,19 @@
   animation: marquee var(--duration) linear infinite;
 }
 
-/* Background grid pattern */
+/* Background grid patterns */
 .bg-grid {
   background-image: 
     linear-gradient(rgba(255, 215, 0, 0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 215, 0, 0.1) 1px, transparent 1px);
   background-size: 50px 50px;
+}
+
+.bg-grid-gold {
+  background-image: 
+    linear-gradient(rgba(212, 175, 55, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 175, 55, 0.15) 1px, transparent 1px);
+  background-size: 60px 60px;
 }
 
 /* Utility classes */
