@@ -10,16 +10,16 @@ const Hero = () => {
   const deviceType = useDeviceType();
 
   const dynamicTexts = [
-    "Never Miss a Scottish Buyer - Catches Every Inquiry, Even After-Hours",
-    "Automatic Viewing Bookings - Syncs With Your Diary Instantly", 
-    "3-5 Extra Qualified Leads/Month - Or We Don't Charge a Penny",
-    "Ready by Tomorrow - Full Setup in 24 Hours, No IT Skills Needed"
+    "Never Miss a Scottish Buyer - Even After-Hours",
+    "Auto Viewing Bookings - Instant Diary Sync", 
+    "3-5 Extra Leads Monthly - Or No Charge",
+    "Ready Tomorrow - 24 Hour Setup"
   ];
 
   return (
-    <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-32 pb-16">
+    <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-32 pb-16 bg-black">
       {/* Enhanced Background with Scottish loch colors */}
-      <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-800">
+      <div className="absolute inset-0 w-full h-full">
         {/* Animated background pattern with gold accents */}
         <div className="absolute inset-0 opacity-10 bg-tartan-pattern animate-pulse-slow"></div>
         
@@ -37,7 +37,7 @@ const Hero = () => {
         <div className="mb-8 animate-fade-in">
           <div className="inline-flex items-center bg-gradient-to-r from-amber-400/20 to-yellow-500/20 border border-amber-400/30 rounded-full px-8 py-3 mb-6 backdrop-blur-sm">
             <img src="/lovable-uploads/b6f5fba6-d002-48b6-877f-161d0c1d76fe.png" alt="Agency Eagle Eye" className="w-8 h-8 mr-3" />
-            <span className="text-amber-400 font-bold text-sm tracking-wider">GLASGOW'S PREMIER AI VOICE SOLUTIONS</span>
+            <span className="text-amber-400 font-bold text-sm tracking-wider">SCOTLAND'S PREMIER AI VOICE SOLUTIONS</span>
           </div>
         </div>
 

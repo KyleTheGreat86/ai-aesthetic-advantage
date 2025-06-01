@@ -1,4 +1,3 @@
-
 import { useEffect, lazy, Suspense, useState, memo } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
@@ -42,6 +41,12 @@ const ScottishFAQ = lazy(() =>
 
 const Footer = lazy(() => 
   import("../components/Footer")
+    .then(module => ({ default: memo(module.default) }))
+);
+
+// Add new lazy import for ScottishHowLauraWorks
+const ScottishHowLauraWorks = lazy(() => 
+  import("../components/ScottishHowLauraWorks")
     .then(module => ({ default: memo(module.default) }))
 );
 
@@ -141,7 +146,7 @@ const Index = () => {
       
       <section id="how-laura-works">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.howLauraWorks || deviceType === 'mobile') && <HowLauraWorks />}
+          {(visibleSections.howLauraWorks || deviceType === 'mobile') && <ScottishHowLauraWorks />}
         </Suspense>
       </section>
       
