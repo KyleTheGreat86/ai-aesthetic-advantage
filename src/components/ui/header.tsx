@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -9,7 +10,7 @@ import {
     NavigationMenuList,
     NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { Menu, MoveRight, X } from "lucide-react";
+import { Menu, MoveRight, X, Phone } from "lucide-react";
 import { useState } from "react";
 
 function Header1() {
@@ -17,32 +18,32 @@ function Header1() {
         {
             title: "Home",
             href: "#home",
-            description: "",
+            description: "Meet Oor Laura",
         },
         {
-            title: "Solution",
-            href: "#solution",
-            description: "See how our AI transforms aesthetic practices",
+            title: "How Laura Works",
+            href: "#how-laura-works",
+            description: "See the magic in 3 simple steps",
         },
         {
-            title: "Benefits",
-            href: "#benefits", 
-            description: "Discover the advantages of 24/7 AI coverage",
-        },
-        {
-            title: "How It Works",
-            href: "#how-it-works",
-            description: "From setup to live in 48 hours",
-        },
-        {
-            title: "Testimonials",
+            title: "Testimonials", 
             href: "#testimonials",
-            description: "What practice owners are saying",
+            description: "What Scottish agents are saying",
+        },
+        {
+            title: "Pricing",
+            href: "#pricing",
+            description: "Transparent Scottish pricing",
+        },
+        {
+            title: "Oor Story",
+            href: "#about",
+            description: "Born in Glasgow, built for Scotland",
         },
         {
             title: "FAQ",
             href: "#faq",
-            description: "Get your questions answered",
+            description: "Your questions answered",
         },
     ];
 
@@ -59,7 +60,7 @@ function Header1() {
     };
 
     return (
-        <header className="w-full z-40 fixed top-0 left-0 bg-black/95 backdrop-blur-md border-b border-gray-800/50">
+        <header className="w-full z-50 fixed top-0 left-0 bg-slate-900/95 backdrop-blur-md border-b border-amber-400/20">
             <div className="container relative mx-auto min-h-20 flex gap-4 flex-row lg:grid lg:grid-cols-3 items-center">
                 <div className="justify-start items-center gap-4 lg:flex hidden flex-row">
                     <NavigationMenu className="flex justify-start items-start">
@@ -69,7 +70,7 @@ function Header1() {
                                     <NavigationMenuLink>
                                         <Button 
                                             variant="ghost" 
-                                            className="text-white hover:text-eagle-gold hover:bg-gray-800/50 transition-all duration-300 font-medium"
+                                            className="text-white hover:text-amber-400 hover:bg-slate-800/50 transition-all duration-300 font-medium"
                                             onClick={() => handleNavClick(item.href)}
                                         >
                                             {item.title}
@@ -82,33 +83,44 @@ function Header1() {
                 </div>
                 
                 <div className="flex lg:justify-center">
-                    {/* Removed heart icon and brand text for better navigation readability */}
+                    <div className="flex items-center space-x-3">
+                        <img 
+                            src="/lovable-uploads/b6f5fba6-d002-48b6-877f-161d0c1d76fe.png" 
+                            alt="Agency Eagle Eye" 
+                            className="w-10 h-10"
+                        />
+                        <span className="text-white font-bold text-lg hidden sm:inline">Agency Eagle Eye</span>
+                    </div>
                 </div>
                 
                 <div className="flex justify-end w-full gap-3">
                     <Button 
                         variant="ghost" 
-                        className="hidden md:inline text-white hover:text-eagle-gold hover:bg-gray-800/50 transition-all duration-300 font-medium"
-                        onClick={() => handleNavClick('#testimonials')}
+                        className="hidden md:inline text-white hover:text-amber-400 hover:bg-slate-800/50 transition-all duration-300 font-medium"
+                        onClick={() => handleNavClick('#about')}
                     >
-                        Testimonials
+                        Oor Story
                     </Button>
                     <Button 
                         variant="ghost" 
-                        className="hidden md:inline text-white hover:text-eagle-gold hover:bg-gray-800/50 transition-all duration-300 font-medium"
+                        className="hidden md:inline text-white hover:text-amber-400 hover:bg-slate-800/50 transition-all duration-300 font-medium"
                         onClick={() => handleNavClick('#faq')}
                     >
                         FAQ
                     </Button>
-                    <div className="border-r hidden md:inline border-gray-600/50 mx-2"></div>
+                    <div className="border-r hidden md:inline border-slate-600/50 mx-2"></div>
+                    
+                    {/* Call Laura button */}
                     <Button 
-                        className="bg-gradient-to-r from-eagle-gold to-yellow-400 text-black hover:from-yellow-400 hover:to-eagle-gold font-semibold shadow-lg hover:shadow-eagle-gold/30 transition-all duration-300"
-                        onClick={() => window.open('mailto:kyle@agencyeagleeye.com', '_blank')}
+                        className="bg-gradient-to-r from-amber-400 to-yellow-400 text-slate-900 hover:from-yellow-400 hover:to-amber-400 font-bold shadow-lg hover:shadow-amber-400/50 transition-all duration-300 hover:scale-105"
+                        onClick={() => window.open('tel:07883299579', '_self')}
                     >
-                        Contact
+                        <Phone className="w-4 h-4 mr-2" />
+                        Call Laura
                     </Button>
+                    
                     <Button 
-                        className="bg-gradient-to-r from-eagle-gold to-yellow-400 text-black hover:from-yellow-400 hover:to-eagle-gold font-semibold shadow-lg hover:shadow-eagle-gold/30 transition-all duration-300"
+                        className="bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:from-purple-700 hover:to-purple-800 font-bold shadow-lg hover:shadow-purple-500/30 transition-all duration-300"
                         onClick={() => window.open('https://calendly.com/weareagencyeagleeye/30min', '_blank')}
                     >
                         Get Started
@@ -116,11 +128,11 @@ function Header1() {
                 </div>
                 
                 <div className="flex w-12 shrink lg:hidden items-end justify-end">
-                    <Button variant="ghost" onClick={() => setOpen(!isOpen)} className="text-white hover:text-eagle-gold transition-colors">
+                    <Button variant="ghost" onClick={() => setOpen(!isOpen)} className="text-white hover:text-amber-400 transition-colors">
                         {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
                     </Button>
                     {isOpen && (
-                        <div className="absolute top-20 border-t border-gray-800/50 flex flex-col w-full right-0 bg-black/95 backdrop-blur-md shadow-xl py-6 container gap-6">
+                        <div className="absolute top-20 border-t border-slate-700/50 flex flex-col w-full right-0 bg-slate-900/95 backdrop-blur-md shadow-xl py-6 container gap-6 scottish-flag-unfold">
                             {navigationItems.map((item) => (
                                 <div key={item.title}>
                                     <div className="flex flex-col gap-2">
@@ -128,9 +140,10 @@ function Header1() {
                                             onClick={() => handleNavClick(item.href)}
                                             className="flex justify-between items-center text-left group"
                                         >
-                                            <span className="text-lg text-white hover:text-eagle-gold transition-colors font-medium group-hover:translate-x-1 transition-transform duration-300">{item.title}</span>
-                                            <MoveRight className="w-4 h-4 stroke-1 text-gray-400 group-hover:text-eagle-gold group-hover:translate-x-1 transition-all duration-300" />
+                                            <span className="text-lg text-white hover:text-amber-400 transition-colors font-medium group-hover:translate-x-1 transition-transform duration-300">{item.title}</span>
+                                            <MoveRight className="w-4 h-4 stroke-1 text-slate-400 group-hover:text-amber-400 group-hover:translate-x-1 transition-all duration-300" />
                                         </button>
+                                        <p className="text-sm text-slate-400">{item.description}</p>
                                     </div>
                                 </div>
                             ))}

@@ -2,42 +2,36 @@
 import { useEffect, lazy, Suspense, useState, memo } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
-import Challenge from "../components/Challenge";
 import { useIsMobile, useDeviceType } from "../hooks/use-mobile";
 
 // Import the RainbowButton CSS styles
 import "../rainbow-button-styles.css";
 
-// Simple loading component to avoid layout shift
+// Simple loading component with Scottish styling
 const SectionLoader = () => (
   <div className="py-12 flex justify-center items-center min-h-[200px] w-full">
-    <div className="w-6 h-6 border-2 border-eagle-gold border-t-transparent rounded-full animate-spin"></div>
+    <div className="w-6 h-6 border-2 border-amber-400 border-t-transparent rounded-full animate-spin"></div>
   </div>
 );
 
-// Lazy load components
-const Solution = lazy(() => 
-  import("../components/Solution")
+// Lazy load Scottish components
+const HowLauraWorks = lazy(() => 
+  import("../components/HowLauraWorks")
     .then(module => ({ default: memo(module.default) }))
 );
 
-const Benefits = lazy(() => 
-  import("../components/Benefits")
+const ScottishTestimonials = lazy(() => 
+  import("../components/ScottishTestimonials")
     .then(module => ({ default: memo(module.default) }))
 );
 
-const HowItWorks = lazy(() => 
-  import("../components/HowItWorks")
+const ScottishPricing = lazy(() => 
+  import("../components/ScottishPricing")
     .then(module => ({ default: memo(module.default) }))
 );
 
-const Testimonials = lazy(() => 
-  import("../components/Testimonials")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const FAQ = lazy(() => 
-  import("../components/FAQ")
+const ScottishFAQ = lazy(() => 
+  import("../components/ScottishFAQ")
     .then(module => ({ default: memo(module.default) }))
 );
 
@@ -46,17 +40,15 @@ const Footer = lazy(() =>
     .then(module => ({ default: memo(module.default) }))
 );
 
-// Optimized Index component
+// Optimized Index component with Scottish branding
 const Index = () => {
   const isMobile = useIsMobile();
   const deviceType = useDeviceType();
   const [hasLoaded, setHasLoaded] = useState(false);
   const [visibleSections, setVisibleSections] = useState({
-    challenge: false,
-    solution: false,
-    benefits: false,
-    howItWorks: false,
+    howLauraWorks: false,
     testimonials: false,
+    pricing: false,
     faq: false,
   });
   
@@ -64,8 +56,8 @@ const Index = () => {
     // Mark as loaded
     setHasLoaded(true);
     
-    // Update page title
-    document.title = "Eagle Eye Response | AI Assistant for Funeral Homes";
+    // Update page title with Scottish branding
+    document.title = "Agency Eagle Eye | Oor Laura - Scottish AI Voice Solutions for Estate Agents";
     
     // Update meta description
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -74,9 +66,9 @@ const Index = () => {
       metaDescription.setAttribute('name', 'description');
       document.head.appendChild(metaDescription);
     }
-    metaDescription.setAttribute('content', 'Eagle Eye Response provides compassionate 24/7 AI assistance for funeral homes, ensuring families receive immediate care while protecting staff wellbeing.');
+    metaDescription.setAttribute('content', 'Meet Oor Laura - the Scottish AI voice assistant that books viewings 24/7 for estate agents across Scotland. Add £9,600 to your bottom line with our Glasgow-born AI technology.');
     
-    // Smooth scrolling
+    // Smooth scrolling with Scottish charm
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (target.tagName === 'A' && target.getAttribute('href')?.startsWith('#')) {
@@ -96,7 +88,7 @@ const Index = () => {
     
     document.addEventListener('click', handleAnchorClick, { passive: false });
     
-    // Setup intersection observer for lazy loading
+    // Setup intersection observer for Highland mist lazy loading
     const setupIntersectionObserver = () => {
       const observerOptions = {
         rootMargin: '200px 0px',
@@ -136,40 +128,32 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen w-full bg-white text-eagle-dark">
+    <div className="min-h-screen w-full bg-slate-900 text-white">
       <Navbar />
       
       <Hero />
       
-      <Challenge />
-      
-      <section id="solution">
+      <section id="how-laura-works">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.solution || deviceType === 'mobile') && <Solution />}
-        </Suspense>
-      </section>
-      
-      <section id="benefits">
-        <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.benefits || deviceType === 'mobile') && <Benefits />}
-        </Suspense>
-      </section>
-      
-      <section id="how-it-works">
-        <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.howItWorks || deviceType === 'mobile') && <HowItWorks />}
+          {(visibleSections.howLauraWorks || deviceType === 'mobile') && <HowLauraWorks />}
         </Suspense>
       </section>
       
       <section id="testimonials">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.testimonials || deviceType === 'mobile') && <Testimonials />}
+          {(visibleSections.testimonials || deviceType === 'mobile') && <ScottishTestimonials />}
+        </Suspense>
+      </section>
+      
+      <section id="pricing">
+        <Suspense fallback={<SectionLoader />}>
+          {(visibleSections.pricing || deviceType === 'mobile') && <ScottishPricing />}
         </Suspense>
       </section>
       
       <section id="faq">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.faq || deviceType === 'mobile') && <FAQ />}
+          {(visibleSections.faq || deviceType === 'mobile') && <ScottishFAQ />}
         </Suspense>
       </section>
       

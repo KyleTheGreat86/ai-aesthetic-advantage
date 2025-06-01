@@ -1,6 +1,7 @@
+
 import React, { useState } from "react";
 import { RainbowButton } from "./ui/rainbow-button";
-import { ChevronRight, Play } from "lucide-react";
+import { ChevronRight, Play, Phone } from "lucide-react";
 import { useDeviceType } from "../hooks/use-mobile";
 import AnimatedTextCycle from "./ui/animated-text-cycle";
 
@@ -9,85 +10,101 @@ const Hero = () => {
   const deviceType = useDeviceType();
 
   const dynamicTexts = [
-    "A 24/7 AI That Books While You Sleep.",
-    "A Virtual Team Member That Never Stops.",
-    "An Always-On AI That Fills Your Calendar.",
-    "A Smart Assistant That Books Automatically.",
-    "A Workforce That Works While You Rest."
+    "Never Miss a Scottish Buyer - Catches Every Inquiry, Even After-Hours",
+    "Automatic Viewing Bookings - Syncs With Your Diary Instantly", 
+    "3-5 Extra Qualified Leads/Month - Or We Don't Charge a Penny",
+    "Ready by Tomorrow - Full Setup in 24 Hours, No IT Skills Needed"
   ];
 
   return (
     <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-32 pb-16">
-      {/* Enhanced Background with black base and gold accents */}
-      <div className="absolute inset-0 w-full h-full bg-black">
-        {/* Animated background pattern with gold */}
-        <div className="absolute inset-0 opacity-15 bg-grid-gold animate-pulse-slow"></div>
+      {/* Enhanced Background with Scottish loch colors */}
+      <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-800">
+        {/* Animated background pattern with gold accents */}
+        <div className="absolute inset-0 opacity-10 bg-tartan-pattern animate-pulse-slow"></div>
         
-        {/* Floating shapes for premium feel with gold accents */}
+        {/* Highland mist floating shapes */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-eagle-gold/10 rounded-full blur-xl animate-float"></div>
-          <div className="absolute top-3/4 right-1/4 w-24 h-24 bg-eagle-gold/15 rounded-full blur-2xl animate-float" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute top-1/2 right-1/3 w-16 h-16 bg-eagle-gold/8 rounded-full blur-xl animate-float" style={{ animationDelay: '4s' }}></div>
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-gradient-to-r from-amber-400/10 to-yellow-500/10 rounded-full blur-xl animate-float"></div>
+          <div className="absolute top-3/4 right-1/4 w-24 h-24 bg-gradient-to-r from-purple-400/15 to-indigo-400/15 rounded-full blur-2xl animate-float" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 right-1/3 w-16 h-16 bg-gradient-to-r from-amber-400/8 to-yellow-500/8 rounded-full blur-xl animate-float" style={{ animationDelay: '4s' }}></div>
         </div>
       </div>
 
-      {/* Content with enhanced animations */}
-      <div className="relative z-20 max-w-5xl mx-auto text-center px-4 py-16">
-        {/* Badge */}
+      {/* Content with Scottish luxury feel */}
+      <div className="relative z-20 max-w-6xl mx-auto text-center px-4 py-16">
+        {/* Scottish heritage badge */}
         <div className="mb-8 animate-fade-in">
-          <div className="inline-block bg-eagle-gold/20 border border-eagle-gold/30 rounded-full px-6 py-2 mb-6">
-            <span className="text-eagle-gold font-semibold text-sm">You Just Experienced Our AI Demo - Now See How It Transforms Your Practice</span>
+          <div className="inline-flex items-center bg-gradient-to-r from-amber-400/20 to-yellow-500/20 border border-amber-400/30 rounded-full px-8 py-3 mb-6 backdrop-blur-sm">
+            <img src="/lovable-uploads/b6f5fba6-d002-48b6-877f-161d0c1d76fe.png" alt="Agency Eagle Eye" className="w-8 h-8 mr-3" />
+            <span className="text-amber-400 font-bold text-sm tracking-wider">GLASGOW'S PREMIER AI VOICE SOLUTIONS</span>
           </div>
         </div>
 
-        {/* Static heading text - centered */}
-        <div className="mb-6 animate-fade-in">
-          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight max-w-4xl mx-auto">
-            You Just Heard What Your Competition Will Never Have:
+        {/* Main headline */}
+        <div className="mb-8 animate-fade-in">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight max-w-5xl mx-auto mb-6">
+            Scottish Estate Agents: Let <span className="text-transparent bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text">Oor AI Laura</span> Add £9,600 to Your Bottom Line This Month
           </h1>
+          <h2 className="text-xl sm:text-2xl md:text-3xl text-slate-300 leading-relaxed max-w-4xl mx-auto font-light">
+            Your 24/7 Digital Star Employee - Books Viewings, Qualifies Leads & Cuts Admin While You Focus On Revenue Generating Closings
+          </h2>
         </div>
 
-        {/* Dynamic animated text section - separate container with smaller font */}
-        <div className="mb-8 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-          <div className="min-h-[80px] flex items-center justify-center">
-            <AnimatedTextCycle
-              words={dynamicTexts}
-              interval={4000}
-              className="text-lg sm:text-xl md:text-2xl lg:text-3xl bg-gradient-to-r from-eagle-gold to-yellow-300 bg-clip-text text-transparent leading-tight max-w-4xl mx-auto"
-            />
+        {/* Dynamic bullet points with animation */}
+        <div className="mb-12 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+          <div className="min-h-[100px] flex items-center justify-center">
+            <div className="text-lg sm:text-xl md:text-2xl font-semibold">
+              <span className="text-amber-400 text-2xl mr-3">🏠</span>
+              <AnimatedTextCycle
+                words={dynamicTexts}
+                interval={4000}
+                className="text-white leading-tight max-w-4xl mx-auto"
+              />
+            </div>
           </div>
         </div>
-        
-        <div className="animate-fade-in" style={{ animationDelay: '0.6s' }}>
-          <p className="text-sm sm:text-base md:text-lg mb-8 max-w-3xl mx-auto text-gray-300 leading-relaxed">
-            That demo you just experienced? That's exactly how your AI receptionist will handle every call, consultation request, and pricing inquiry—perfectly, consistently, every single time.
-          </p>
+
+        {/* Trust indicator with Scottish phone number */}
+        <div className="mb-8 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          <div className="bg-gradient-to-r from-slate-800/50 to-purple-900/30 backdrop-blur-sm border border-amber-400/20 rounded-xl p-6 max-w-2xl mx-auto">
+            <p className="text-slate-300 mb-4 text-lg">
+              Don't Believe Us? Call Laura And Demo Now
+            </p>
+            <a 
+              href="tel:07883299579" 
+              className="inline-flex items-center text-2xl font-bold text-amber-400 hover:text-amber-300 transition-colors group"
+            >
+              <Phone className="mr-3 group-hover:animate-pulse" size={28} />
+              07883 299 579
+            </a>
+          </div>
         </div>
 
-        {/* Enhanced Video Placeholder with premium styling */}
-        <div className="relative max-w-3xl mx-auto mb-8 animate-fade-in" style={{ animationDelay: '0.9s' }}>
-          <div className="relative aspect-video bg-black/30 rounded-xl overflow-hidden border border-eagle-gold/30 shadow-2xl backdrop-blur-sm">
-            {/* Glow effect */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-eagle-gold/20 to-transparent rounded-xl blur opacity-60"></div>
+        {/* Enhanced Video with Scottish branding */}
+        <div className="relative max-w-4xl mx-auto mb-12 animate-fade-in" style={{ animationDelay: '0.9s' }}>
+          <div className="relative aspect-video bg-slate-900/50 rounded-xl overflow-hidden border-2 border-amber-400/30 shadow-2xl backdrop-blur-sm">
+            {/* Tartan glow effect */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-amber-400/20 via-purple-500/10 to-amber-400/20 rounded-xl blur opacity-60"></div>
             
             {!showVideo ? (
-              <div className="relative flex items-center justify-center bg-gradient-to-br from-gray-900/80 to-black/80 h-full">
+              <div className="relative flex items-center justify-center bg-gradient-to-br from-slate-900/90 to-purple-900/50 h-full">
                 <div className="text-center transform hover:scale-105 transition-transform duration-300">
                   <div 
-                    className="w-16 h-16 bg-gradient-to-r from-eagle-gold to-yellow-400 rounded-full flex items-center justify-center mb-3 mx-auto cursor-pointer hover:shadow-lg hover:shadow-eagle-gold/30 transition-all duration-300 group" 
+                    className="w-20 h-20 bg-gradient-to-r from-amber-400 to-yellow-400 rounded-full flex items-center justify-center mb-4 mx-auto cursor-pointer hover:shadow-lg hover:shadow-amber-400/50 transition-all duration-300 group" 
                     onClick={() => setShowVideo(true)}
                   >
-                    <Play className="w-6 h-6 text-black ml-1 group-hover:scale-110 transition-transform" />
+                    <Play className="w-8 h-8 text-slate-900 ml-1 group-hover:scale-110 transition-transform" />
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-eagle-gold transition-colors">See Your AI Employee in Action</h3>
-                  <p className="text-gray-300 text-sm">Watch a 2-minute demonstration</p>
+                  <h3 className="text-xl font-bold text-white mb-3">Hear Oor Laura In Action</h3>
+                  <p className="text-slate-300">Watch how she charms Scottish buyers into bookings</p>
                 </div>
               </div>
             ) : (
               <iframe 
                 className="absolute inset-0 w-full h-full rounded-xl"
                 src="https://www.youtube.com/embed/MOL2f76XY-k?autoplay=1&rel=0" 
-                title="Aesthetic Practice AI Employee Demo" 
+                title="Oor Laura AI Voice Demo" 
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowFullScreen
@@ -96,48 +113,48 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Enhanced CTA Buttons with premium animations */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 animate-fade-in" style={{ animationDelay: '1.2s' }}>
+        {/* Scottish CTA with premium styling */}
+        <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12 animate-fade-in" style={{ animationDelay: '1.2s' }}>
           <div className="group">
             <RainbowButton 
               calendlyLink="https://calendly.com/weareagencyeagleeye/30min" 
-              className="font-bold text-sm w-auto px-8 py-4 bg-gradient-to-r from-eagle-gold to-yellow-400 text-black hover:shadow-lg hover:shadow-eagle-gold/30 transform hover:scale-105 transition-all duration-300"
+              className="font-bold text-lg px-12 py-6 bg-gradient-to-r from-amber-400 to-yellow-400 text-slate-900 hover:shadow-lg hover:shadow-amber-400/50 transform hover:scale-105 transition-all duration-300 border-2 border-amber-300"
             >
-              <span className="whitespace-nowrap">Get My AI Employee - Founder's Rate: $247/Month</span>
-              <ChevronRight className="ml-1 transition-transform group-hover:translate-x-1 flex-shrink-0" />
+              <span className="whitespace-nowrap">Aye Told You She Was Braw - Get Your 30 Day Free Trial</span>
+              <ChevronRight className="ml-2 transition-transform group-hover:translate-x-1 flex-shrink-0" />
             </RainbowButton>
           </div>
           
           <button 
             onClick={() => setShowVideo(true)}
-            className="font-bold text-sm w-auto px-8 py-4 border-2 border-eagle-gold text-eagle-gold hover:bg-eagle-gold/10 transition-all duration-300 rounded-lg backdrop-blur-sm hover:shadow-lg hover:shadow-eagle-gold/20 transform hover:scale-105"
+            className="font-bold text-lg px-12 py-6 border-2 border-amber-400 text-amber-400 hover:bg-amber-400/10 transition-all duration-300 rounded-lg backdrop-blur-sm hover:shadow-lg hover:shadow-amber-400/30 transform hover:scale-105"
           >
-            <span className="whitespace-nowrap">See How It Works</span>
+            <span className="whitespace-nowrap">See Laura Work Her Magic</span>
           </button>
         </div>
 
-        {/* Enhanced Social Proof Stats Bar */}
-        <div className="mt-12 animate-fade-in" style={{ animationDelay: '1.5s' }}>
-          <p className="text-xs text-gray-400 mb-6 uppercase tracking-wider font-semibold">Live Stats</p>
-          <div className="overflow-hidden rounded-lg bg-white/5 backdrop-blur-sm border border-white/10 py-4">
-            <div className="flex animate-marquee space-x-12 text-gray-400">
+        {/* Scottish heritage stats with tartan accents */}
+        <div className="mt-16 animate-fade-in" style={{ animationDelay: '1.5s' }}>
+          <p className="text-xs text-slate-400 mb-6 uppercase tracking-wider font-semibold">Trusted by Scottish Estate Agents</p>
+          <div className="overflow-hidden rounded-lg bg-slate-800/30 backdrop-blur-sm border border-amber-400/20 py-6">
+            <div className="flex animate-marquee space-x-16 text-slate-300">
               {[...Array(2)].map((_, i) => (
                 <React.Fragment key={i}>
-                  <div className="flex items-center space-x-2 whitespace-nowrap">
-                    <span className="text-eagle-gold font-bold">38%</span>
-                    <span className="text-sm font-semibold hover:text-eagle-gold transition-colors">Aesthetic inquiries happen after hours</span>
+                  <div className="flex items-center space-x-3 whitespace-nowrap">
+                    <span className="text-amber-400 font-bold text-lg">47%</span>
+                    <span className="text-sm font-medium hover:text-amber-400 transition-colors">Of Scottish property inquiries happen after 6pm</span>
                   </div>
-                  <div className="flex items-center space-x-2 whitespace-nowrap">
-                    <span className="text-eagle-gold font-bold">$127K</span>
-                    <span className="text-sm font-semibold hover:text-eagle-gold transition-colors">Average additional revenue captured annually</span>
+                  <div className="flex items-center space-x-3 whitespace-nowrap">
+                    <span className="text-amber-400 font-bold text-lg">£9,600</span>
+                    <span className="text-sm font-medium hover:text-amber-400 transition-colors">Average monthly revenue increase with Laura</span>
                   </div>
-                  <div className="flex items-center space-x-2 whitespace-nowrap">
-                    <span className="text-eagle-gold font-bold">24/7</span>
-                    <span className="text-sm font-semibold hover:text-eagle-gold transition-colors">Never miss another consultation again</span>
+                  <div className="flex items-center space-x-3 whitespace-nowrap">
+                    <span className="text-amber-400 font-bold text-lg">24/7</span>
+                    <span className="text-sm font-medium hover:text-amber-400 transition-colors">Never miss a viewing booking again</span>
                   </div>
-                  <div className="flex items-center space-x-2 whitespace-nowrap">
-                    <span className="text-eagle-gold font-bold">72 Hours</span>
-                    <span className="text-sm font-semibold hover:text-eagle-gold transition-colors">From setup to live operation</span>
+                  <div className="flex items-center space-x-3 whitespace-nowrap">
+                    <span className="text-amber-400 font-bold text-lg">24 Hours</span>
+                    <span className="text-sm font-medium hover:text-amber-400 transition-colors">From setup to answering calls</span>
                   </div>
                 </React.Fragment>
               ))}
@@ -146,10 +163,10 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scottish scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-eagle-gold/50 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-eagle-gold rounded-full mt-2 animate-pulse"></div>
+        <div className="w-6 h-10 border-2 border-amber-400/50 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-amber-400 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>
