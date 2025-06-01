@@ -25,6 +25,11 @@ const ScottishTestimonials = lazy(() =>
     .then(module => ({ default: memo(module.default) }))
 );
 
+const ScottishCTA = lazy(() => 
+  import("../components/ScottishCTA")
+    .then(module => ({ default: memo(module.default) }))
+);
+
 const ScottishPricing = lazy(() => 
   import("../components/ScottishPricing")
     .then(module => ({ default: memo(module.default) }))
@@ -48,6 +53,7 @@ const Index = () => {
   const [visibleSections, setVisibleSections] = useState({
     howLauraWorks: false,
     testimonials: false,
+    cta: false,
     pricing: false,
     faq: false,
   });
@@ -142,6 +148,12 @@ const Index = () => {
       <section id="testimonials">
         <Suspense fallback={<SectionLoader />}>
           {(visibleSections.testimonials || deviceType === 'mobile') && <ScottishTestimonials />}
+        </Suspense>
+      </section>
+      
+      <section id="cta">
+        <Suspense fallback={<SectionLoader />}>
+          {(visibleSections.cta || deviceType === 'mobile') && <ScottishCTA />}
         </Suspense>
       </section>
       

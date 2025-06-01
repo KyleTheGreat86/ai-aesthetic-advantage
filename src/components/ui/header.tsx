@@ -60,7 +60,7 @@ function Header1() {
     };
 
     return (
-        <header className="w-full z-50 fixed top-0 left-0 bg-slate-900/95 backdrop-blur-md border-b border-amber-400/20">
+        <header className="w-full z-50 fixed top-0 left-0 bg-black/95 backdrop-blur-md border-b border-amber-400/20">
             <div className="container relative mx-auto min-h-20 flex gap-4 flex-row lg:grid lg:grid-cols-3 items-center">
                 <div className="justify-start items-center gap-4 lg:flex hidden flex-row">
                     <NavigationMenu className="flex justify-start items-start">
@@ -83,13 +83,12 @@ function Header1() {
                 </div>
                 
                 <div className="flex lg:justify-center">
-                    <div className="flex items-center space-x-3">
+                    <div className="flex items-center justify-center">
                         <img 
-                            src="/lovable-uploads/b6f5fba6-d002-48b6-877f-161d0c1d76fe.png" 
+                            src="/lovable-uploads/31a5098f-1f41-453e-aec3-42264b2b0322.png" 
                             alt="Agency Eagle Eye" 
-                            className="w-10 h-10"
+                            className="h-12 w-auto"
                         />
-                        <span className="text-white font-bold text-lg hidden sm:inline">Agency Eagle Eye</span>
                     </div>
                 </div>
                 
@@ -132,7 +131,7 @@ function Header1() {
                         {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
                     </Button>
                     {isOpen && (
-                        <div className="absolute top-20 border-t border-slate-700/50 flex flex-col w-full right-0 bg-slate-900/95 backdrop-blur-md shadow-xl py-6 container gap-6 scottish-flag-unfold">
+                        <div className="absolute top-20 border-t border-slate-700/50 flex flex-col w-full right-0 bg-black/95 backdrop-blur-md shadow-xl py-6 container gap-6 scottish-flag-unfold">
                             {navigationItems.map((item) => (
                                 <div key={item.title}>
                                     <div className="flex flex-col gap-2">

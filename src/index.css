@@ -69,13 +69,18 @@
 @layer base {
   * {
     @apply border-border;
+    cursor: url('/lovable-uploads/97856b8d-a49a-477f-8665-351b6010f5e6.png'), auto;
   }
   body {
     @apply bg-background text-foreground;
     font-family: "Inter", sans-serif;
+    cursor: url('/lovable-uploads/97856b8d-a49a-477f-8665-351b6010f5e6.png'), auto;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: "Montserrat", sans-serif;
+  }
+  button, a {
+    cursor: url('/lovable-uploads/97856b8d-a49a-477f-8665-351b6010f5e6.png'), pointer;
   }
 }
 
