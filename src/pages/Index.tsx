@@ -55,14 +55,6 @@ const Index = () => {
   const isMobile = useIsMobile();
   const deviceType = useDeviceType();
   const [hasLoaded, setHasLoaded] = useState(false);
-  const [visibleSections, setVisibleSections] = useState({
-    howLauraWorks: false,
-    aboutFounder: false,
-    testimonials: false,
-    cta: false,
-    pricing: false,
-    faq: false,
-  });
   
   useEffect(() => {
     // Mark as loaded
@@ -100,42 +92,8 @@ const Index = () => {
     
     document.addEventListener('click', handleAnchorClick, { passive: false });
     
-    // Setup intersection observer for Highland mist lazy loading
-    const setupIntersectionObserver = () => {
-      const observerOptions = {
-        rootMargin: '200px 0px',
-        threshold: 0.01
-      };
-      
-      const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.id;
-            if (id) {
-              setVisibleSections(prev => ({ ...prev, [id]: true }));
-            }
-            sectionObserver.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-      
-      const sections = document.querySelectorAll('section[id]');
-      sections.forEach(section => {
-        sectionObserver.observe(section);
-      });
-      
-      return () => {
-        sections.forEach(section => {
-          sectionObserver.unobserve(section);
-        });
-      };
-    };
-    
-    const timer = setTimeout(setupIntersectionObserver, 500);
-    
     return () => {
       document.removeEventListener('click', handleAnchorClick);
-      clearTimeout(timer);
     };
   }, []);
 
@@ -147,37 +105,37 @@ const Index = () => {
       
       <section id="how-laura-works">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.howLauraWorks || deviceType === 'mobile') && <ScottishHowLauraWorks />}
+          <ScottishHowLauraWorks />
         </Suspense>
       </section>
       
-      <section id="about-founder">
+      <section id="oor-story">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.aboutFounder || deviceType === 'mobile') && <AboutFounder />}
+          <AboutFounder />
         </Suspense>
       </section>
       
       <section id="testimonials">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.testimonials || deviceType === 'mobile') && <ScottishTestimonials />}
+          <ScottishTestimonials />
         </Suspense>
       </section>
       
       <section id="cta">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.cta || deviceType === 'mobile') && <ScottishCTA />}
+          <ScottishCTA />
         </Suspense>
       </section>
       
       <section id="pricing">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.pricing || deviceType === 'mobile') && <ScottishPricing />}
+          <ScottishPricing />
         </Suspense>
       </section>
       
       <section id="faq">
         <Suspense fallback={<SectionLoader />}>
-          {(visibleSections.faq || deviceType === 'mobile') && <ScottishFAQ />}
+          <ScottishFAQ />
         </Suspense>
       </section>
       
