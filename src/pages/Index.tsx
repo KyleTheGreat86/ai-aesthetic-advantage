@@ -1,3 +1,4 @@
+
 import { useEffect, lazy, Suspense, useState, memo } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
@@ -14,8 +15,13 @@ const SectionLoader = () => (
 );
 
 // Lazy load Scottish components
-const HowLauraWorks = lazy(() => 
-  import("../components/HowLauraWorks")
+const ScottishHowLauraWorks = lazy(() => 
+  import("../components/ScottishHowLauraWorks")
+    .then(module => ({ default: memo(module.default) }))
+);
+
+const AboutFounder = lazy(() => 
+  import("../components/AboutFounder")
     .then(module => ({ default: memo(module.default) }))
 );
 
@@ -41,18 +47,6 @@ const ScottishFAQ = lazy(() =>
 
 const Footer = lazy(() => 
   import("../components/Footer")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-// Add new lazy import for ScottishHowLauraWorks
-const ScottishHowLauraWorks = lazy(() => 
-  import("../components/ScottishHowLauraWorks")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-// Add new lazy import for AboutFounder
-const AboutFounder = lazy(() => 
-  import("../components/AboutFounder")
     .then(module => ({ default: memo(module.default) }))
 );
 
