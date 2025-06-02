@@ -50,6 +50,12 @@ const ScottishHowLauraWorks = lazy(() =>
     .then(module => ({ default: memo(module.default) }))
 );
 
+// Add new lazy import for AboutFounder
+const AboutFounder = lazy(() => 
+  import("../components/AboutFounder")
+    .then(module => ({ default: memo(module.default) }))
+);
+
 // Optimized Index component with Scottish branding
 const Index = () => {
   const isMobile = useIsMobile();
@@ -57,6 +63,7 @@ const Index = () => {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [visibleSections, setVisibleSections] = useState({
     howLauraWorks: false,
+    aboutFounder: false,
     testimonials: false,
     cta: false,
     pricing: false,
@@ -147,6 +154,12 @@ const Index = () => {
       <section id="how-laura-works">
         <Suspense fallback={<SectionLoader />}>
           {(visibleSections.howLauraWorks || deviceType === 'mobile') && <ScottishHowLauraWorks />}
+        </Suspense>
+      </section>
+      
+      <section id="about-founder">
+        <Suspense fallback={<SectionLoader />}>
+          {(visibleSections.aboutFounder || deviceType === 'mobile') && <AboutFounder />}
         </Suspense>
       </section>
       

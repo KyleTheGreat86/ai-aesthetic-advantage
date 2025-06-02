@@ -96,15 +96,16 @@ const ScottishHowLauraWorks = () => {
             <div className="text-center lg:text-left">
               <div className="relative inline-block">
                 <img 
-                  src="/lovable-uploads/a8197afc-83ea-4265-b0c0-271b29331a8b.png" 
-                  alt="Oor Laura - AI Voice Assistant" 
+                  src="/lovable-uploads/ed0de23b-796a-4120-8707-78e404934d12.png" 
+                  alt="Laura - Your AI Voice Assistant" 
                   className="w-full max-w-md mx-auto rounded-xl shadow-2xl"
                 />
                 <div className="absolute -inset-1 bg-gradient-to-r from-amber-400/20 via-purple-500/10 to-amber-400/20 rounded-xl blur opacity-60"></div>
               </div>
               <div className="mt-6 text-center">
-                <h3 className="text-2xl font-bold text-amber-400 mb-2">Meet Oor Laura</h3>
+                <h3 className="text-2xl font-bold text-amber-400 mb-2">Meet Laura</h3>
                 <p className="text-slate-300">Your 24/7 Scottish AI Voice Assistant</p>
+                <p className="text-slate-400 text-sm mt-2">Professional, warm, and always ready to help your clients</p>
               </div>
             </div>
 
@@ -141,7 +142,7 @@ const ScottishHowLauraWorks = () => {
           <div className="mb-16">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-                Why Top Scottish Estate Agencies Choose <span className="text-transparent bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text">Oor Solution</span>
+                Why Top Scottish Estate Agencies Choose <span className="text-transparent bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text">Our Solution</span>
               </h2>
               <p className="text-xl text-slate-300 max-w-4xl mx-auto">
                 Our AI assistant has been meticulously developed with real Glasgow and Edinburgh property professionals to deliver measurable results for discerning Scottish agencies
