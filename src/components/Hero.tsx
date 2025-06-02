@@ -41,13 +41,13 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Main headline */}
+        {/* Premium positioning headline */}
         <div className="mb-8 animate-fade-in">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight max-w-5xl mx-auto mb-6">
-            Scottish Estate Agents: Let <span className="text-transparent bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text">Oor AI Laura</span> Add £9,600 to Your Bottom Line This Month
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight max-w-5xl mx-auto mb-4">
+            The Elite AI Property Assistant <span className="text-transparent bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text">Oor Laura</span> That Delivers £2,000-£3,500 Monthly Impact to Leading Scottish Agencies
           </h1>
-          <h2 className="text-xl sm:text-2xl md:text-3xl text-slate-300 leading-relaxed max-w-4xl mx-auto font-light">
-            Your 24/7 Digital Star Employee - Books Viewings, Qualifies Leads & Cuts Admin While You Focus On Revenue Generating Closings
+          <h2 className="text-xl sm:text-2xl md:text-3xl text-slate-300 leading-relaxed max-w-4xl mx-auto font-light mb-6">
+            Never Miss a Viewing Opportunity - Even When Your Competition Has Gone Home
           </h2>
         </div>
 
@@ -125,16 +125,52 @@ const Hero = () => {
             </RainbowButton>
           </div>
           
-          <button 
-            onClick={() => setShowVideo(true)}
-            className="font-bold text-lg px-12 py-6 border-2 border-amber-400 text-amber-400 hover:bg-amber-400/10 transition-all duration-300 rounded-lg backdrop-blur-sm hover:shadow-lg hover:shadow-amber-400/30 transform hover:scale-105"
+          <a 
+            href="tel:07883299579"
+            className="font-bold text-lg px-12 py-6 border-2 border-amber-400 text-amber-400 hover:bg-amber-400/10 transition-all duration-300 rounded-lg backdrop-blur-sm hover:shadow-lg hover:shadow-amber-400/30 transform hover:scale-105 inline-flex items-center justify-center"
           >
-            <span className="whitespace-nowrap">See Laura Work Her Magic</span>
-          </button>
+            <Phone className="mr-2" size={20} />
+            <span className="whitespace-nowrap">Call Laura Now</span>
+          </a>
+        </div>
+
+        {/* Limited Availability Section */}
+        <div className="mt-16 animate-fade-in" style={{ animationDelay: '1.5s' }}>
+          <div className="bg-gradient-to-r from-slate-800/50 to-purple-900/30 backdrop-blur-sm border border-amber-400/20 rounded-xl p-8 max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold text-amber-400 mb-4">Limited Availability for Premium Agencies</h3>
+            <p className="text-slate-300 text-lg mb-6 leading-relaxed">
+              We maintain a limited client roster to ensure exceptional service quality. Currently accepting applications from established Scottish agencies with:
+            </p>
+            <div className="grid md:grid-cols-3 gap-4 mb-6">
+              <div className="text-center">
+                <div className="text-amber-400 font-bold text-xl">5+</div>
+                <div className="text-slate-300 text-sm">Property Professionals</div>
+              </div>
+              <div className="text-center">
+                <div className="text-amber-400 font-bold text-xl">Premium</div>
+                <div className="text-slate-300 text-sm">Market Segments</div>
+              </div>
+              <div className="text-center">
+                <div className="text-amber-400 font-bold text-xl">Tech</div>
+                <div className="text-slate-300 text-sm">Advancement Focus</div>
+              </div>
+            </div>
+            <div className="border-t border-amber-400/20 pt-6">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white mb-2">Investment: £497/month</div>
+                <p className="text-slate-300 text-sm mb-4">
+                  Includes full implementation, training, and ongoing optimization support
+                </p>
+                <p className="text-amber-400 font-semibold">
+                  Backed by our Scottish Performance Guarantee: Deliver measurable results within 90 days or we'll refund your investment
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Scottish heritage stats with tartan accents */}
-        <div className="mt-16 animate-fade-in" style={{ animationDelay: '1.5s' }}>
+        <div className="mt-16 animate-fade-in" style={{ animationDelay: '1.8s' }}>
           <p className="text-xs text-slate-400 mb-6 uppercase tracking-wider font-semibold">Trusted by Scottish Estate Agents</p>
           <div className="overflow-hidden rounded-lg bg-slate-800/30 backdrop-blur-sm border border-amber-400/20 py-6">
             <div className="flex animate-marquee space-x-16 text-slate-300">
@@ -145,8 +181,8 @@ const Hero = () => {
                     <span className="text-sm font-medium hover:text-amber-400 transition-colors">Of Scottish property inquiries happen after 6pm</span>
                   </div>
                   <div className="flex items-center space-x-3 whitespace-nowrap">
-                    <span className="text-amber-400 font-bold text-lg">£9,600</span>
-                    <span className="text-sm font-medium hover:text-amber-400 transition-colors">Average monthly revenue increase with Laura</span>
+                    <span className="text-amber-400 font-bold text-lg">£2,000-£3,500</span>
+                    <span className="text-sm font-medium hover:text-amber-400 transition-colors">Monthly economic impact for premium agencies</span>
                   </div>
                   <div className="flex items-center space-x-3 whitespace-nowrap">
                     <span className="text-amber-400 font-bold text-lg">24/7</span>
