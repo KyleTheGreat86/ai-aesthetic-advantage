@@ -92,14 +92,21 @@ const ScottishHowLauraWorks = () => {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-            {/* Laura Image */}
+            {/* Laura Video */}
             <div className="text-center lg:text-left">
               <div className="relative inline-block">
-                <img 
-                  src="/lovable-uploads/ed0de23b-796a-4120-8707-78e404934d12.png" 
-                  alt="Laura - Your AI Voice Assistant" 
-                  className="w-full max-w-md mx-auto rounded-xl shadow-2xl"
-                />
+                <div className="w-full max-w-md mx-auto rounded-xl overflow-hidden shadow-2xl">
+                  <iframe
+                    width="100%"
+                    height="400"
+                    src="https://www.youtube.com/embed/up9fkN3jcMQ?autoplay=1&mute=1&loop=1&playlist=up9fkN3jcMQ&controls=0&showinfo=0&rel=0&modestbranding=1"
+                    title="Laura - Your AI Voice Assistant"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="rounded-xl"
+                  ></iframe>
+                </div>
                 <div className="absolute -inset-1 bg-gradient-to-r from-amber-400/20 via-purple-500/10 to-amber-400/20 rounded-xl blur opacity-60"></div>
               </div>
               <div className="mt-6 text-center">
