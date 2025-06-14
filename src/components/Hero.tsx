@@ -22,25 +22,7 @@ const Hero = () => {
     { text: "or", className: "text-white" },
     { text: "New", className: "text-white" },
     { text: "Training", className: "text-white" },
-    { text: "Needed", className: "text-white" },
-    { text: "—", className: "text-white" },
-    { text: "Medical", className: "text-eagle-blue" },
-    { text: "Billing", className: "text-eagle-blue" },
-    { text: "Companies", className: "text-white" },
-    { text: "Save", className: "text-eagle-orange" },
-    { text: "$5,000+", className: "text-eagle-orange" },
-    { text: "Per", className: "text-white" },
-    { text: "Month", className: "text-white" },
-    { text: "While", className: "text-white" },
-    { text: "Cutting", className: "text-white" },
-    { text: "CMS-1500", className: "text-eagle-blue" },
-    { text: "Time", className: "text-white" },
-    { text: "from", className: "text-white" },
-    { text: "8", className: "text-eagle-orange" },
-    { text: "Minutes", className: "text-white" },
-    { text: "to", className: "text-white" },
-    { text: "90", className: "text-eagle-orange" },
-    { text: "Seconds", className: "text-white" }
+    { text: "Needed", className: "text-white" }
   ];
 
   // Determine optimal video sizing based on device type
@@ -72,7 +54,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-16 md:pt-20">
       {/* Background video */}
       <div className="absolute inset-0 w-full h-full bg-black">
         <div className={`absolute inset-0 bg-black z-10 transition-opacity duration-1000 ${isVideoLoaded ? 'opacity-0' : 'opacity-100'}`}></div>
@@ -94,36 +76,56 @@ const Hero = () => {
       </div>
 
       {/* Overlay content */}
-      <div className="relative z-20 max-w-5xl mx-auto text-center px-4 py-8">
+      <div className="relative z-20 max-w-6xl mx-auto text-center px-4 py-8 sm:py-12">
         <div className="mb-6">
-          <TypewriterEffect words={words} className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold" />
+          <TypewriterEffect words={words} className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4" />
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
+            Medical Billing Companies Save <span className="text-eagle-orange">$5,000+</span> Per Month
+          </h1>
+          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white mt-4">
+            While Cutting CMS-1500 Time from <span className="text-eagle-blue">8 Minutes</span> to <span className="text-eagle-orange">90 Seconds</span>
+          </p>
         </div>
         
-        <p className="text-base sm:text-lg md:text-xl mb-8 max-w-3xl mx-auto text-white">
+        <p className="text-base sm:text-lg md:text-xl mb-8 max-w-4xl mx-auto text-white/90 leading-relaxed">
           Stop losing <span className="text-eagle-orange font-semibold">$3.50 per claim</span> on manual data entry. Our AI processes CMS-1500s into your existing PM system for <span className="text-eagle-blue font-semibold">$0.50/claim</span>—with zero setup and same-day onboarding.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 text-sm md:text-base">
-          <div className="text-eagle-orange font-semibold">• $5,000+ Monthly Savings – Slash labor costs by 85% immediately</div>
-          <div className="text-eagle-blue font-semibold">• 90-Second Claims – Process 100+/hour vs. 4-7 manually</div>
-          <div className="text-white">• Works in Your Current Software – Medisoft, AdvancedMD, NextGen, etc.</div>
-          <div className="text-eagle-orange font-semibold">• Fewer Denials – 99.9% accuracy eliminates $25 rework costs</div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 text-sm md:text-base max-w-4xl mx-auto">
+          <div className="bg-eagle-orange/20 p-4 rounded-lg border border-eagle-orange/30">
+            <div className="text-eagle-orange font-semibold">• $5,000+ Monthly Savings</div>
+            <div className="text-white/80">Slash labor costs by 85% immediately</div>
+          </div>
+          <div className="bg-eagle-blue/20 p-4 rounded-lg border border-eagle-blue/30">
+            <div className="text-eagle-blue font-semibold">• 90-Second Claims</div>
+            <div className="text-white/80">Process 100+/hour vs. 4-7 manually</div>
+          </div>
+          <div className="bg-white/10 p-4 rounded-lg border border-white/20">
+            <div className="text-white font-semibold">• Works in Your Current Software</div>
+            <div className="text-white/80">Medisoft, AdvancedMD, NextGen, etc.</div>
+          </div>
+          <div className="bg-eagle-orange/20 p-4 rounded-lg border border-eagle-orange/30">
+            <div className="text-eagle-orange font-semibold">• Fewer Denials</div>
+            <div className="text-white/80">99.9% accuracy eliminates $25 rework costs</div>
+          </div>
         </div>
 
-        <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 mb-8 max-w-2xl mx-auto border border-eagle-orange/30">
-          <p className="text-lg font-bold text-eagle-orange">"Processing 3,000 claims/month? You're spending $10,500. We'll do it for $1,500."</p>
+        <div className="bg-gradient-to-r from-eagle-orange/20 to-eagle-blue/20 backdrop-blur-sm rounded-lg p-6 mb-8 max-w-3xl mx-auto border border-eagle-orange/30">
+          <p className="text-lg md:text-xl font-bold text-white">
+            "Processing 3,000 claims/month? You're spending <span className="text-eagle-orange">$10,500</span>. We'll do it for <span className="text-eagle-blue">$1,500</span>."
+          </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 sm:mb-16">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
           <RainbowButton 
             calendlyLink="https://calendly.com/weareagencyeagleeye/30min" 
-            className="uppercase font-bold text-base w-auto px-6 group"
+            className="uppercase font-bold text-sm md:text-base px-6 py-3 group min-w-[250px]"
           >
             <span className="whitespace-nowrap">Start FREE 100-Claim Trial</span>
-            <ChevronRight className="ml-1 transition-transform group-hover:translate-x-1 flex-shrink-0" />
+            <ChevronRight className="ml-2 transition-transform group-hover:translate-x-1 flex-shrink-0" />
           </RainbowButton>
           
-          <RainbowButton className="uppercase font-bold text-base w-auto px-6">
+          <RainbowButton className="uppercase font-bold text-sm md:text-base px-6 py-3 min-w-[250px]">
             <a href="#how-it-works" className="w-full h-full flex items-center justify-center">
               <span className="whitespace-nowrap">See Exact Savings for My Company</span>
             </a>

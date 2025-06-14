@@ -56,16 +56,19 @@ const ProblemStatement = () => {
     <section
       ref={sectionRef}
       id="problem"
-      className="py-24 relative overflow-hidden bg-gradient-to-b from-eagle-dark to-eagle-dark/90"
+      className="py-16 sm:py-20 md:py-24 relative overflow-hidden bg-gradient-to-b from-eagle-dark to-eagle-dark/90"
     >
-      <div className="section-container relative z-10">
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
-            Every Manual CMS-1500 Costs You $3.50 in Wasted Biller Time
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-4xl mx-auto text-center mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-8 leading-tight">
+            Every Manual CMS-1500 Costs You <span className="text-eagle-orange">$3.50</span> in Wasted Biller Time
           </h2>
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            While you're manually processing claims, your competitors are automating their way to higher profits and faster turnaround times.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
           {problems.map((problem, index) => {
             const Icon = problem.icon;
             return (
@@ -80,13 +83,13 @@ const ProblemStatement = () => {
                   transitionDelay: `${index * 200}ms`,
                 }}
               >
-                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-white/10 hover:border-white/20 transition-all duration-300 h-full">
-                  <Icon size={48} className={`${problem.iconColor} mb-6 mx-auto`} />
-                  <h3 className="text-xl font-bold mb-4 text-center">{problem.title}</h3>
-                  <p className="text-lg font-semibold text-center mb-3 text-eagle-orange">
+                <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300 h-full group">
+                  <Icon size={48} className={`${problem.iconColor} mb-6 mx-auto group-hover:scale-110 transition-transform duration-300`} />
+                  <h3 className="text-lg md:text-xl font-bold mb-4 text-center text-white">{problem.title}</h3>
+                  <p className="text-base md:text-lg font-semibold text-center mb-3 text-eagle-orange">
                     {problem.description}
                   </p>
-                  <p className="text-gray-300 text-center">
+                  <p className="text-sm md:text-base text-gray-300 text-center leading-relaxed">
                     {problem.subtext}
                   </p>
                 </div>
