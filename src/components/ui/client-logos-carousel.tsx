@@ -15,82 +15,42 @@ interface ClientLogo {
   image: string;
 }
 
-// Define all client logos
+// Define medical billing company logos
 const clientLogos: ClientLogo[] = [
   {
-    id: "husky-tree",
-    name: "Husky Tree Services",
-    image: "/lovable-uploads/e29dbb51-c2ca-4964-a446-ba587209e5ce.png"
+    id: "24-medical",
+    name: "24 Medical Billing Services",
+    image: "/lovable-uploads/b21091f3-4ba3-4b63-872e-bf8ba5308fd3.png"
   },
   {
-    id: "30a-blaze",
-    name: "30A Blaze",
-    image: "/lovable-uploads/8c7ece58-de76-4119-b7f2-2f0173d7fd9c.png"
+    id: "corecloud",
+    name: "CoreCloud",
+    image: "/lovable-uploads/db7f7b26-9006-4c41-96bc-c308de0c56de.png"
   },
   {
-    id: "beabstrakt",
-    name: "@BEABSTRAKT",
-    image: "/lovable-uploads/0adbfe37-a563-4829-9b27-c4f6c0dfac70.png"
+    id: "primecare",
+    name: "PrimeCare Medical Billing Services",
+    image: "/lovable-uploads/38e4aec1-271e-446a-8da2-0429d93d9fdc.png"
   },
   {
-    id: "unique-auto",
-    name: "Unique Auto",
-    image: "/lovable-uploads/5127203e-a625-4f68-9136-6183b4f8fdb0.png"
+    id: "lakeshore",
+    name: "Lakeshore Medical Billing LLC",
+    image: "/lovable-uploads/55b0cf31-c397-44eb-b3a2-65d1c9ee0db4.png"
   },
   {
-    id: "hoosier",
-    name: "Hoosier Stump Remover",
-    image: "/lovable-uploads/1facb81d-d264-42b0-937e-7160567db9d6.png"
+    id: "claimcare",
+    name: "ClaimCare - The Medical Billing Professionals",
+    image: "/lovable-uploads/a0dd443e-5d6a-497e-acea-9cfbcbe8ecfa.png"
   },
   {
-    id: "atomic-air",
-    name: "Atomic Air",
-    image: "/lovable-uploads/b10c244b-38d5-4ab0-9ea6-5576226f3897.png"
+    id: "ppm",
+    name: "Precision Practice Management",
+    image: "/lovable-uploads/37682424-4d32-40b9-a158-52cae6ce21f9.png"
   },
   {
-    id: "peaks-pontoons",
-    name: "Peak's Pontoons",
-    image: "/lovable-uploads/2e9a41eb-a8c6-470a-b03f-0cb121f7f7dc.png"
-  },
-  {
-    id: "30a-pontoon",
-    name: "30A Pontoon Rental",
-    image: "/lovable-uploads/2b26e41f-f846-4857-b9a7-17badb42116c.png"
-  },
-  {
-    id: "tortoise-clinic",
-    name: "Tortoise Clinic",
-    image: "/lovable-uploads/a6672e0a-e35a-4f8d-8d7d-f034a0ce031b.png"
-  },
-  {
-    id: "dryer-vent",
-    name: "Dryer Vent Superheroes",
-    image: "/lovable-uploads/f008ca35-70b7-470d-b143-fdccbccb42ec.png"
-  },
-  {
-    id: "monster-steamer",
-    name: "Monster Steamer",
-    image: "/lovable-uploads/a9f5be26-0720-4d15-840d-043a09efa8e9.png"
-  },
-  {
-    id: "golden-days",
-    name: "Golden Days Photo Co",
-    image: "/lovable-uploads/06fc3f77-c015-4fc3-8572-be8ba5f48823.png"
-  },
-  {
-    id: "premier-edge",
-    name: "Premier Edge",
-    image: "/lovable-uploads/832b58cc-33bc-448c-9f70-00ae0255ce21.png"
-  },
-  {
-    id: "volta",
-    name: "Volta Electrical Company",
-    image: "/lovable-uploads/f1f54ace-dc90-45aa-ac7c-8dc24b1e61e7.png"
-  },
-  {
-    id: "unique-auto-2",
-    name: "Unique Auto II",
-    image: "/lovable-uploads/1591292a-df57-4163-9687-2b7027904b8f.png"
+    id: "portiva",
+    name: "Portiva",
+    image: "/lovable-uploads/00052d1d-f500-4c69-acc3-d58bee59ccde.png"
   }
 ];
 
