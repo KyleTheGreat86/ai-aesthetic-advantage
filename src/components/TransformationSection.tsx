@@ -12,10 +12,10 @@ const TransformationSection = () => {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Transform Your Career?
+            Ready to Transform Your Medical Billing Business?
           </h2>
           <p className="text-xl text-eagle-orange font-semibold">
-            Proven ROI Within 60 Days
+            Proven ROI Within 24 Hours
           </p>
         </div>
         
@@ -27,7 +27,7 @@ const TransformationSection = () => {
           <RainbowButton 
             calendlyLink={calendlyUrl}
             className="uppercase font-bold text-base px-8 py-3">
-            Free Consultation
+            Start Free 100-Claim Trial
           </RainbowButton>
         </div>
       </div>

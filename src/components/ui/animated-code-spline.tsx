@@ -103,15 +103,17 @@ const AnimatedCodeSpline: React.FC = () => {
     <div className="relative py-10 overflow-hidden">
       <div className="absolute inset-0 -z-10 bg-grid opacity-10"></div>
       
-      {/* Left code block */}
+      {/* Left code block - Medical billing processing */}
       <CodeBlock 
         delay={0.1}
         position="left"
         color="blue"
         content={[
-          "function generateLeads() {",
-          "  const markets = ['Miami', 'Orlando', 'Tampa'];",
-          "  return ai.scan(markets, { minPrice: 3000000 });"
+          "function processCMS1500() {",
+          "  const claims = extractFromPDF(emailInbox);",
+          "  validateData(claims, {",
+          "    patientInfo: true,",
+          "    icd10Codes: true"
         ]}
       />
       
@@ -120,16 +122,16 @@ const AnimatedCodeSpline: React.FC = () => {
         <CodeLine width={80} delay={0.7} color="#1A9BD7" />
       </div>
       
-      {/* Right code block */}
+      {/* Right code block - Validation and processing */}
       <CodeBlock 
         delay={1.0}
         position="right"
         color="orange"
         content={[
-          "function analyzeProperty(deal) {",
-          "  return {",
-          "    capRate: deal.income / deal.price",
-          "  };",
+          "    cptCodes: true",
+          "  });",
+          "  populateMedisoft(claims);",
+          "  generateROIReport();",
           "}"
         ]}
       />
@@ -139,15 +141,16 @@ const AnimatedCodeSpline: React.FC = () => {
         <CodeLine width={60} delay={1.7} color="#FF8024" />
       </div>
       
-      {/* Left code block */}
+      {/* Left code block - Automation workflow */}
       <CodeBlock 
         delay={2.0}
         position="left"
         color="blue"
         content={[
-          "async function scheduleTour(property, client) {",
-          "  const times = await client.availability();",
-          "  return bookCalendar(property, times[0]);",
+          "async function autoProcess() {",
+          "  const batch = await scanInbox();",
+          "  const processed = await AI.process(batch);",
+          "  return uploadToMedisoft(processed);",
           "}"
         ]}
       />
