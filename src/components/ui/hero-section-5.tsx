@@ -6,6 +6,7 @@ import { Case } from '@/components/ui/cases-with-infinite-scroll'
 import { cn } from '@/lib/utils'
 import { Menu, X, ChevronRight } from 'lucide-react'
 import { useScroll, motion } from 'framer-motion'
+import { GlowingCard } from '@/components/ui/glowing-card'
 import eagleEyeLogo from "/lovable-uploads/33a6f5a7-7d2c-48db-89fa-7230cda0aeec.png";
 
 export function HeroSection() {
@@ -129,32 +130,42 @@ export function HeroSection() {
                         <div className="absolute inset-0 bg-gradient-to-br from-eagle-blue/20 via-transparent to-eagle-orange/20"></div>
                     </div>
                     
-                    {/* Benefits Grid */}
+                    {/* Benefits Grid with Glowing Effects */}
                     <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12 mt-16">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 text-sm md:text-base max-w-4xl mx-auto">
-                            <div className="bg-eagle-orange/20 p-4 rounded-lg border border-eagle-orange/30">
-                                <div className="text-eagle-orange font-semibold">✅ $5,000+ Monthly Savings</div>
-                                <div className="text-white/80">Slash labor costs from $3.50 to $0.50 per claim</div>
-                            </div>
-                            <div className="bg-eagle-blue/20 p-4 rounded-lg border border-eagle-blue/30">
-                                <div className="text-eagle-blue font-semibold">✅ Process 100+ Claims/Hour</div>
-                                <div className="text-white/80">vs. 4-7 manually per biller</div>
-                            </div>
-                            <div className="bg-white/10 p-4 rounded-lg border border-white/20">
-                                <div className="text-white font-semibold">✅ Zero Software Changes</div>
-                                <div className="text-white/80">Works with your current PM system</div>
-                            </div>
-                            <div className="bg-eagle-orange/20 p-4 rounded-lg border border-eagle-orange/30">
-                                <div className="text-eagle-orange font-semibold">✅ 99.9% Accuracy</div>
-                                <div className="text-white/80">Eliminates $25 denial costs from keying errors</div>
-                            </div>
+                            <GlowingCard intensity="medium">
+                                <div className="bg-eagle-orange/20 p-4 rounded-lg border border-eagle-orange/30">
+                                    <div className="text-eagle-orange font-semibold">✅ $5,000+ Monthly Savings</div>
+                                    <div className="text-white/80">Slash labor costs from $3.50 to $0.50 per claim</div>
+                                </div>
+                            </GlowingCard>
+                            <GlowingCard intensity="medium">
+                                <div className="bg-eagle-blue/20 p-4 rounded-lg border border-eagle-blue/30">
+                                    <div className="text-eagle-blue font-semibold">✅ Process 100+ Claims/Hour</div>
+                                    <div className="text-white/80">vs. 4-7 manually per biller</div>
+                                </div>
+                            </GlowingCard>
+                            <GlowingCard intensity="medium">
+                                <div className="bg-white/10 p-4 rounded-lg border border-white/20">
+                                    <div className="text-white font-semibold">✅ Zero Software Changes</div>
+                                    <div className="text-white/80">Works with your current PM system</div>
+                                </div>
+                            </GlowingCard>
+                            <GlowingCard intensity="medium">
+                                <div className="bg-eagle-orange/20 p-4 rounded-lg border border-eagle-orange/30">
+                                    <div className="text-eagle-orange font-semibold">✅ 99.9% Accuracy</div>
+                                    <div className="text-white/80">Eliminates $25 denial costs from keying errors</div>
+                                </div>
+                            </GlowingCard>
                         </div>
 
-                        <div className="bg-gradient-to-r from-eagle-orange/20 to-eagle-blue/20 backdrop-blur-sm rounded-lg p-6 mb-8 max-w-3xl mx-auto border border-eagle-orange/30">
-                            <p className="text-lg md:text-xl font-bold text-white text-center">
-                                "Processing 3,000 claims/month? You're spending <span className="text-eagle-orange">$10,500</span>. We'll do it for <span className="text-eagle-blue">$1,500</span>."
-                            </p>
-                        </div>
+                        <GlowingCard intensity="strong">
+                            <div className="bg-gradient-to-r from-eagle-orange/20 to-eagle-blue/20 backdrop-blur-sm rounded-lg p-6 mb-8 max-w-3xl mx-auto border border-eagle-orange/30">
+                                <p className="text-lg md:text-xl font-bold text-white text-center">
+                                    "Processing 3,000 claims/month? You're spending <span className="text-eagle-orange">$10,500</span>. We'll do it for <span className="text-eagle-blue">$1,500</span>."
+                                </p>
+                            </div>
+                        </GlowingCard>
                     </div>
                 </div>
             </section>
