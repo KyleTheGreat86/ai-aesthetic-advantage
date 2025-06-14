@@ -96,7 +96,7 @@ const Logos3 = memo(({
   return (
     <section className="py-16">
       <div className="container flex flex-col items-center text-center">
-        <h1 className="my-6 text-pretty text-2xl font-bold lg:text-4xl">
+        <h1 className="my-6 text-pretty text-2xl font-bold lg:text-4xl text-white">
           {heading}
         </h1>
       </div>
@@ -122,8 +122,8 @@ const Logos3 = memo(({
               ))}
             </CarouselContent>
           </Carousel>
-          <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-eagle-dark to-transparent"></div>
-          <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-eagle-dark to-transparent"></div>
+          <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-black to-transparent"></div>
+          <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-black to-transparent"></div>
         </div>
       </div>
     </section>
