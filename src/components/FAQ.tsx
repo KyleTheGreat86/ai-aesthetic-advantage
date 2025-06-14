@@ -10,39 +10,39 @@ import {
 const FAQ = () => {
   const faqItems = [
     {
-      question: "Do I need technical skills to use it?",
+      question: "What software do you integrate with?",
       answer:
-        "No. Everything runs via Telegram—just tap buttons to approve deals, schedule tours, etc. The interface is designed for busy brokers who need information and actions at their fingertips.",
+        "We integrate with all major PM systems including Medisoft, AdvancedMD, NextGen, Epic, Cerner, athenahealth, and more. No software changes needed on your end.",
     },
     {
-      question: "What if our workflow is unique?",
+      question: "How accurate is the AI processing?",
       answer:
-        "We customize all 6 core workflows to your brokerage's exact process. Our onboarding process includes comprehensive discovery sessions to map your existing workflow and optimize it with AI.",
+        "Our AI achieves 99.9% accuracy on CMS-1500 data extraction, significantly reducing denials and rework costs compared to manual entry which typically has 15-20% error rates.",
     },
     {
-      question: "How secure is our data?",
+      question: "Is this HIPAA compliant?",
       answer:
-        "Enterprise-grade encryption. We never store sensitive financials. All client data is protected with SOC 2 compliant security protocols and regular penetration testing.",
+        "Absolutely. We maintain full HIPAA compliance with encrypted data transmission, secure processing, and comprehensive audit trails. All staff sign BAAs and undergo HIPAA training.",
     },
     {
       question: "How long does implementation take?",
       answer:
-        "The entire process takes 20 days from signing to full deployment. This includes all customizations, integrations with your existing systems, testing, and team training.",
+        "Same-day onboarding. We set up your secure inbox, configure your PM system integration, and you can start processing claims within hours.",
     },
     {
-      question: "Does Eagle Eye replace existing software?",
+      question: "What's the minimum volume requirement?",
       answer:
-        "No, it integrates with your existing CRM, email, calendar, and document systems. We enhance your current tech stack rather than replacing it.",
+        "No minimum volume required. Whether you process 100 claims/month or 10,000+, our pricing scales with your needs at $0.50/claim.",
     },
     {
-      question: "What types of CRE deals work best with Eagle Eye?",
+      question: "Do you handle rejected or denied claims?",
       answer:
-        "Eagle Eye is optimized for off-market and NNN deals in the $3M-$20M range, though it works across all commercial property types including retail, office, industrial, and multifamily.",
+        "Yes, we process all claim types including initial submissions, resubmissions, and appeals. Our AI learns from your specific payer requirements to reduce future denials.",
     },
     {
-      question: "Is there a limit to how many users can access the system?",
+      question: "Can I try it risk-free?",
       answer:
-        "No, your subscription includes unlimited users within your brokerage. We can configure different access levels for brokers, analysts, and administrative staff.",
+        "Yes! Start with our FREE 100-claim trial. Process your claims at no cost and see the time savings firsthand. Pay only if you decide to continue.",
     },
   ];
 
@@ -51,7 +51,7 @@ const FAQ = () => {
       <div className="section-container relative z-10">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            Your Questions, Answered
+            Frequently Asked Questions
           </h2>
 
           <Accordion type="single" collapsible className="w-full">

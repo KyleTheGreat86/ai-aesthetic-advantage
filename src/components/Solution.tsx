@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from "react";
-import { Search, BarChart3, Calendar, MessageSquare } from "lucide-react";
+import { Mail, Cpu, CheckSquare, BarChart3 } from "lucide-react";
 
 const Solution = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -9,27 +9,27 @@ const Solution = () => {
 
   const features = [
     {
-      title: "Lead Generation Engine",
-      description: "Scrapes LoopNet/CoStar, IDs off-market deals",
-      icon: Search,
+      title: "Email PDFs",
+      description: "Secure HIPAA-compliant inbox",
+      icon: Mail,
       iconColor: "text-eagle-blue"
     },
     {
-      title: "Instant Deal Analyzer",
-      description: "Runs cap rates, ROI projections in seconds",
-      icon: BarChart3,
+      title: "Overnight AI Processing",
+      description: "90 sec/claim into your PM system",
+      icon: Cpu,
       iconColor: "text-eagle-orange"
     },
     {
-      title: "Tour Scheduler",
-      description: "Books inspections, drone photographers, lender calls",
-      icon: Calendar,
+      title: "Review & Submit",
+      description: "Clean claims ready by 8 AM",
+      icon: CheckSquare,
       iconColor: "text-eagle-blue"
     },
     {
-      title: "Client Nurture Bot",
-      description: "Sends quarterly updates to past clients (e.g., 'Your 2019 asset is now worth $X')",
-      icon: MessageSquare,
+      title: "Track Savings",
+      description: "Daily reports show $5,000+ monthly ROI",
+      icon: BarChart3,
       iconColor: "text-eagle-orange"
     }
   ];
@@ -75,15 +75,13 @@ const Solution = () => {
       <div className="section-container relative z-10">
         <div className="text-center max-w-4xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            The CRE Industry's First End-to-End AI Deal System
+            AI-Powered CMS-1500 Processing That Fits Your Existing Workflow
           </h2>
+          <h3 className="text-2xl font-semibold text-eagle-blue mb-8">How It Works</h3>
         </div>
 
         <div className="max-w-5xl mx-auto">
-          {/* Interactive workflow diagram - removed the horizontal line */}
           <div className="relative mb-16">
-            {/* Removed the gradient line */}
-            
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {features.map((feature, index) => {
                 const Icon = feature.icon;
@@ -95,13 +93,16 @@ const Solution = () => {
                     } transition-all duration-300`}
                     onMouseEnter={() => setActiveFeature(index)}
                   >
-                    <div className={`w-16 h-16 ${feature.iconColor} bg-white/10 rounded-full flex items-center justify-center mb-4 border-2 ${
-                      activeFeature === index ? "border-white" : "border-transparent"
-                    }`}>
-                      <Icon size={30} />
+                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/10 mb-4 w-full text-center">
+                      <div className="text-3xl font-bold text-eagle-orange mb-2">{index + 1}</div>
+                      <div className={`w-16 h-16 ${feature.iconColor} bg-white/10 rounded-full flex items-center justify-center mb-4 mx-auto border-2 ${
+                        activeFeature === index ? "border-white" : "border-transparent"
+                      }`}>
+                        <Icon size={30} />
+                      </div>
+                      <h3 className="text-lg font-semibold text-center mb-2">{feature.title}</h3>
+                      <p className="text-sm text-center text-gray-300">{feature.description}</p>
                     </div>
-                    <h3 className="text-lg font-semibold text-center mb-2">{feature.title}</h3>
-                    <p className="text-sm text-center text-gray-300">{feature.description}</p>
                     
                     {index < features.length - 1 && (
                       <div className="hidden md:block absolute top-8 -right-3 transform translate-x-1/2 z-0">
@@ -117,9 +118,13 @@ const Solution = () => {
           </div>
           
           <div className="text-center bg-white/5 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto">
-            <MessageSquare className="mx-auto mb-4 text-eagle-blue" size={32} />
-            <p className="text-xl font-semibold mb-2">All managed via Telegram—no complex software to learn.</p>
-            <p className="text-gray-300">Control your entire brokerage from your phone with simple commands and buttons.</p>
+            <h4 className="text-xl font-semibold mb-4 text-eagle-blue">Results You'll See</h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+              <div className="text-eagle-orange font-semibold">• Same-Day Submission → Faster reimbursements</div>
+              <div className="text-eagle-blue font-semibold">• 85% Fewer Labor Hours → Redeploy staff to high-value work</div>
+              <div className="text-white">• 99.9% Accuracy → Slash denials by 40%+</div>
+              <div className="text-eagle-orange font-semibold">• Trusted by Medical Billing Leaders</div>
+            </div>
           </div>
         </div>
       </div>

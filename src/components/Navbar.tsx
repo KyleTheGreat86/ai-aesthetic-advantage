@@ -12,11 +12,11 @@ const Navbar = () => {
     { name: "Home", href: "#home" },
     { name: "The Problem", href: "#problem" },
     { name: "Solution", href: "#solution" },
-    { name: "Benefits", href: "#benefits" },
     { name: "How It Works", href: "#how-it-works" },
     { name: "Results", href: "#results" },
     { name: "Pricing", href: "#pricing" },
-    { name: "FAQ", href: "#faq" }
+    { name: "FAQ", href: "#faq" },
+    { name: "Contact", href: "#contact" }
   ];
 
   useEffect(() => {
@@ -51,7 +51,8 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center">
             <a href="#home" className="flex items-center text-white">
-              <img src={eagleEyeLogo} alt="Eagle Eye Logo" className="h-8 sm:h-10" />
+              <img src={eagleEyeLogo} alt="Agency Eagle Eye Logo" className="h-8 sm:h-10" />
+              <span className="ml-2 text-lg font-bold">Agency Eagle Eye</span>
             </a>
           </div>
 
