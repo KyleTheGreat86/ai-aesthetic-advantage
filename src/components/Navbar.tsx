@@ -10,13 +10,11 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", href: "#home" },
-    { name: "The Problem", href: "#problem" },
     { name: "Solution", href: "#solution" },
     { name: "How It Works", href: "#how-it-works" },
     { name: "Results", href: "#results" },
     { name: "Pricing", href: "#pricing" },
-    { name: "FAQ", href: "#faq" },
-    { name: "Contact", href: "#contact" }
+    { name: "FAQ", href: "#faq" }
   ];
 
   useEffect(() => {
@@ -61,7 +59,7 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex space-x-6">
+          <nav className="hidden lg:flex space-x-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -75,7 +73,7 @@ const Navbar = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer">
+            <a href="https://calendly.com/agencyeagleeye/profit-blueprint" target="_blank" rel="noopener noreferrer">
               <EagleButton size="sm" className="text-xs lg:text-sm px-3 py-2 whitespace-nowrap">Schedule Demo</EagleButton>
             </a>
           </div>
@@ -111,7 +109,7 @@ const Navbar = () => {
             </a>
           ))}
           <div className="pt-4 border-t border-white/10 mt-4">
-            <a href="https://calendly.com/weareagencyeagleeye/30min" target="_blank" rel="noopener noreferrer" className="w-full block">
+            <a href="https://calendly.com/agencyeagleeye/profit-blueprint" target="_blank" rel="noopener noreferrer" className="w-full block">
               <EagleButton size="sm" className="w-full text-center">Schedule Demo</EagleButton>
             </a>
           </div>
