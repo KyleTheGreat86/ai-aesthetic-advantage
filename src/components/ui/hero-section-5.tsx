@@ -10,6 +10,13 @@ import { useScroll, motion } from 'framer-motion'
 import eagleEyeLogo from "/lovable-uploads/33a6f5a7-7d2c-48db-89fa-7230cda0aeec.png";
 
 export function HeroSection() {
+    const handleCalculatorClick = () => {
+        const calculatorSection = document.getElementById('roi-calculator');
+        if (calculatorSection) {
+            calculatorSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <main className="overflow-x-hidden bg-black min-h-screen">
             <section className="relative">
@@ -35,13 +42,11 @@ export function HeroSection() {
                                 </Button>
                                 <Button
                                     key={2}
-                                    asChild
                                     size="lg"
-                                    variant="ghost"
-                                    className="h-12 rounded-full px-5 text-base hover:bg-white/10 text-white">
-                                    <a href="#how-it-works">
-                                        <span className="text-nowrap">Calculate My Exact Savings</span>
-                                    </a>
+                                    onClick={handleCalculatorClick}
+                                    className="h-12 rounded-full px-5 pr-3 text-base bg-eagle-blue hover:bg-eagle-blue/90 text-white">
+                                    <span className="text-nowrap">Calculate My Exact Savings</span>
+                                    <ChevronRight className="ml-1" />
                                 </Button>
                             </div>
                         </div>
