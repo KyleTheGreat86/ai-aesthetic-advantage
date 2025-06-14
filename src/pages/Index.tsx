@@ -2,46 +2,74 @@
 import { useEffect, lazy, Suspense, useState, memo } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import VideoSection from "../components/VideoSection";
+import TransformationSection from "../components/TransformationSection";
 import { useIsMobile, useDeviceType } from "../hooks/use-mobile";
 
 // Import the RainbowButton CSS styles
 import "../rainbow-button-styles.css";
 
-// Simple loading component with Scottish styling
+// Simple loading component to avoid layout shift
 const SectionLoader = () => (
   <div className="py-12 flex justify-center items-center min-h-[200px] w-full">
-    <div className="w-6 h-6 border-2 border-amber-400 border-t-transparent rounded-full animate-spin"></div>
+    <div className="w-6 h-6 border-2 border-eagle-blue border-t-transparent rounded-full animate-spin"></div>
   </div>
 );
 
-// Lazy load Scottish components
-const ScottishHowLauraWorks = lazy(() => 
-  import("../components/ScottishHowLauraWorks")
+// Lazy load components with higher loading priority
+const LoadingScreen = lazy(() => 
+  import("../components/LoadingScreen")
     .then(module => ({ default: memo(module.default) }))
 );
 
-const AboutFounder = lazy(() => 
-  import("../components/AboutFounder")
+const WorldMapHero = lazy(() => 
+  import("../components/WorldMapHero")
     .then(module => ({ default: memo(module.default) }))
 );
 
-const ScottishTestimonials = lazy(() => 
-  import("../components/ScottishTestimonials")
+// Load remaining components
+const ProblemStatement = lazy(() => 
+  import("../components/ProblemStatement")
     .then(module => ({ default: memo(module.default) }))
 );
 
-const ScottishCTA = lazy(() => 
-  import("../components/ScottishCTA")
+const Solution = lazy(() => 
+  import("../components/Solution")
     .then(module => ({ default: memo(module.default) }))
 );
 
-const ScottishPricing = lazy(() => 
-  import("../components/ScottishPricing")
+const CompetitorComparison = lazy(() => 
+  import("../components/CompetitorComparison")
     .then(module => ({ default: memo(module.default) }))
 );
 
-const ScottishFAQ = lazy(() => 
-  import("../components/ScottishFAQ")
+const Benefits = lazy(() => 
+  import("../components/Benefits")
+    .then(module => ({ default: memo(module.default) }))
+);
+
+const HowItWorks = lazy(() => 
+  import("../components/HowItWorks")
+    .then(module => ({ default: memo(module.default) }))
+);
+
+const Results = lazy(() => 
+  import("../components/Results")
+    .then(module => ({ default: memo(module.default) }))
+);
+
+const Pricing = lazy(() => 
+  import("../components/Pricing")
+    .then(module => ({ default: memo(module.default) }))
+);
+
+const About = lazy(() => 
+  import("../components/About")
+    .then(module => ({ default: memo(module.default) }))
+);
+
+const FAQ = lazy(() => 
+  import("../components/FAQ")
     .then(module => ({ default: memo(module.default) }))
 );
 
@@ -50,29 +78,40 @@ const Footer = lazy(() =>
     .then(module => ({ default: memo(module.default) }))
 );
 
-// Optimized Index component with Scottish branding
+const BackgroundGrid = lazy(() => 
+  import("../components/BackgroundGrid")
+    .then(module => ({ default: memo(module.default) }))
+);
+
+// Optimized Index component
 const Index = () => {
   const isMobile = useIsMobile();
   const deviceType = useDeviceType();
   const [hasLoaded, setHasLoaded] = useState(false);
+  const [visibleSections, setVisibleSections] = useState({
+    videoSection: false,
+    worldMap: false,
+    problem: false,
+    solution: false,
+    comparison: false,
+    benefits: false,
+    howItWorks: false,
+    transformation: false,
+    results: false,
+    pricing: false,
+    about: false,
+    faq: false,
+    footer: false
+  });
   
   useEffect(() => {
     // Mark as loaded
     setHasLoaded(true);
     
-    // Update page title with Scottish branding
-    document.title = "Agency Eagle Eye | Oor Laura - Scottish AI Voice Solutions for Estate Agents";
+    // Update page title
+    document.title = "Eagle Eye | AI Infrastructure for CRE Brokers";
     
-    // Update meta description
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.setAttribute('content', 'Meet Oor Laura - the Scottish AI voice assistant that books viewings 24/7 for estate agents across Scotland. Add £9,600 to your bottom line with our Glasgow-born AI technology.');
-    
-    // Smooth scrolling with Scottish charm
+    // Smooth scrolling with passive event listeners for performance
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (target.tagName === 'A' && target.getAttribute('href')?.startsWith('#')) {
@@ -92,50 +131,118 @@ const Index = () => {
     
     document.addEventListener('click', handleAnchorClick, { passive: false });
     
+    // Use IntersectionObserver to load sections as they become visible
+    const setupIntersectionObserver = () => {
+      const observerOptions = {
+        rootMargin: '200px 0px', // Load when within 200px of viewport
+        threshold: 0.01
+      };
+      
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            if (id) {
+              setVisibleSections(prev => ({ ...prev, [id]: true }));
+            }
+            sectionObserver.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+      
+      // Observe each section to load it only when needed
+      const sections = document.querySelectorAll('section[id]');
+      sections.forEach(section => {
+        sectionObserver.observe(section);
+      });
+      
+      return () => {
+        sections.forEach(section => {
+          sectionObserver.unobserve(section);
+        });
+      };
+    };
+    
+    // Setup after initial render
+    const timer = setTimeout(setupIntersectionObserver, 500);
+    
     return () => {
       document.removeEventListener('click', handleAnchorClick);
+      clearTimeout(timer);
     };
   }, []);
 
   return (
-    <div className="min-h-screen w-full bg-slate-900 text-white">
+    <div className="min-h-screen w-full bg-eagle-dark text-white">
+      <Suspense fallback={<div className="fixed inset-0 bg-eagle-dark z-50"></div>}>
+        <LoadingScreen />
+      </Suspense>
+      
       <Navbar />
+      
+      <Suspense fallback={null}>
+        <BackgroundGrid />
+      </Suspense>
       
       <Hero />
       
-      <section id="how-laura-works">
+      <section id="video-section">
         <Suspense fallback={<SectionLoader />}>
-          <ScottishHowLauraWorks />
+          <VideoSection />
         </Suspense>
       </section>
       
-      <section id="oor-story">
+      <section id="problem">
         <Suspense fallback={<SectionLoader />}>
-          <AboutFounder />
+          {(visibleSections.problem || deviceType === 'mobile') && <ProblemStatement />}
         </Suspense>
       </section>
       
-      <section id="testimonials">
+      <section id="solution">
         <Suspense fallback={<SectionLoader />}>
-          <ScottishTestimonials />
+          {(visibleSections.solution || deviceType === 'mobile') && <Solution />}
         </Suspense>
       </section>
       
-      <section id="cta">
+      <section id="comparison">
         <Suspense fallback={<SectionLoader />}>
-          <ScottishCTA />
+          {(visibleSections.comparison || deviceType === 'mobile') && <CompetitorComparison />}
+        </Suspense>
+      </section>
+      
+      <section id="benefits">
+        <Suspense fallback={<SectionLoader />}>
+          {(visibleSections.benefits || deviceType === 'mobile') && <Benefits />}
+        </Suspense>
+      </section>
+      
+      <section id="how-it-works">
+        <Suspense fallback={<SectionLoader />}>
+          {(visibleSections.howItWorks || deviceType === 'mobile') && <HowItWorks />}
+        </Suspense>
+      </section>
+      
+      <section id="transformation">
+        <Suspense fallback={<SectionLoader />}>
+          {(visibleSections.transformation || deviceType === 'mobile') && <TransformationSection />}
+        </Suspense>
+      </section>
+      
+      <section id="results">
+        <Suspense fallback={<SectionLoader />}>
+          {(visibleSections.results || deviceType === 'mobile') && <Results />}
         </Suspense>
       </section>
       
       <section id="pricing">
         <Suspense fallback={<SectionLoader />}>
-          <ScottishPricing />
+          {(visibleSections.pricing || deviceType === 'mobile') && <Pricing />}
         </Suspense>
       </section>
       
       <section id="faq">
         <Suspense fallback={<SectionLoader />}>
-          <ScottishFAQ />
+          {(visibleSections.faq || deviceType === 'mobile') && <FAQ />}
         </Suspense>
       </section>
       

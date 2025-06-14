@@ -10,47 +10,47 @@ import {
 const FAQ = () => {
   const faqItems = [
     {
-      question: "This sounds too good to be true. What's the catch?",
+      question: "Do I need technical skills to use it?",
       answer:
-        "No catch. I'm using proven AI technology and customizing it for aesthetic practices. The 'catch' is that I'm new, so you get founder-level attention and pricing that won't last forever and I'd love a testimonial, as you know reputation and quality for your brand is everything.",
+        "No. Everything runs via Telegram—just tap buttons to approve deals, schedule tours, etc. The interface is designed for busy brokers who need information and actions at their fingertips.",
     },
     {
-      question: "How is this different from an answering service?",
+      question: "What if our workflow is unique?",
       answer:
-        "Answering services use humans who know nothing about your practice. Your AI employee knows every treatment, price, and protocol. Plus it works 24/7 for less than you'd pay for 10 hours of human coverage.",
+        "We customize all 6 core workflows to your brokerage's exact process. Our onboarding process includes comprehensive discovery sessions to map your existing workflow and optimize it with AI.",
     },
     {
-      question: "What if prospects want to speak to a human?",
+      question: "How secure is our data?",
       answer:
-        "The AI handles 90% of inquiries completely. For complex medical questions, it professionally captures information and routes to your team with detailed notes.",
-    },
-    {
-      question: "Will this work with my practice management software?",
-      answer:
-        "Yes - I personally handle integration with major systems like Nextech, AestheticsPro, and others. This is included in your setup.",
+        "Enterprise-grade encryption. We never store sensitive financials. All client data is protected with SOC 2 compliant security protocols and regular penetration testing.",
     },
     {
       question: "How long does implementation take?",
       answer:
-        "From demo to live in 48-72 hours. I personally handle the setup call (30 minutes), custom configuration (24-48 hours), and review & go live. Total time required from you: 45 minutes.",
+        "The entire process takes 20 days from signing to full deployment. This includes all customizations, integrations with your existing systems, testing, and team training.",
     },
     {
-      question: "What's included in the founder's pricing?",
+      question: "Does Eagle Eye replace existing software?",
       answer:
-        "Custom AI setup for your specific treatments and pricing, integration with your practice management system, 24/7/365 call coverage, monthly optimization calls with me personally, all future features and improvements, and direct founder support line.",
+        "No, it integrates with your existing CRM, email, calendar, and document systems. We enhance your current tech stack rather than replacing it.",
     },
     {
-      question: "What's your guarantee?",
+      question: "What types of CRE deals work best with Eagle Eye?",
       answer:
-        "Triple guarantee: Results guarantee (capture at least 3 additional consultations in 30 days or get a full refund), Setup guarantee (live and working within 72 hours or your setup fee is waived), and Satisfaction guarantee (cancel anytime with 24 hours notice, no contracts, no penalties).",
+        "Eagle Eye is optimized for off-market and NNN deals in the $3M-$20M range, though it works across all commercial property types including retail, office, industrial, and multifamily.",
+    },
+    {
+      question: "Is there a limit to how many users can access the system?",
+      answer:
+        "No, your subscription includes unlimited users within your brokerage. We can configure different access levels for brokers, analysts, and administrative staff.",
     },
   ];
 
   return (
-    <section id="faq" className="py-24 relative overflow-hidden bg-black">
+    <section id="faq" className="py-24 relative overflow-hidden">
       <div className="section-container relative z-10">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
             Your Questions, Answered
           </h2>
 
@@ -59,9 +59,9 @@ const FAQ = () => {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-gray-900 backdrop-blur-sm mb-4 rounded-lg border border-gray-700"
+                className="bg-white/5 backdrop-blur-sm mb-4 rounded-lg border border-white/10"
               >
-                <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-gray-800 rounded-t-lg transition-all font-medium text-lg text-white">
+                <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-white/10 rounded-t-lg transition-all font-medium text-lg">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="px-6 py-4 text-gray-300">
@@ -73,12 +73,12 @@ const FAQ = () => {
 
           <div className="mt-12 text-center">
             <p className="text-gray-300">
-              Have more questions? I'm happy to help.
+              Have more questions? We're happy to help.
             </p>
             <p className="mt-2">
               <a
                 href="mailto:kyle@agencyeagleeye.com"
-                className="text-eagle-gold hover:underline"
+                className="text-eagle-blue hover:underline"
               >
                 kyle@agencyeagleeye.com
               </a>
