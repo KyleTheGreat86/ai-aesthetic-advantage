@@ -20,37 +20,37 @@ const clientLogos: ClientLogo[] = [
   {
     id: "24-medical",
     name: "24 Medical Billing Services",
-    image: "/lovable-uploads/b21091f3-4ba3-4b63-872e-bf8ba5308fd3.png"
+    image: "/lovable-uploads/efbedd82-c0c7-4bac-bccf-94abe56cdd50.png"
   },
   {
     id: "corecloud",
     name: "CoreCloud",
-    image: "/lovable-uploads/db7f7b26-9006-4c41-96bc-c308de0c56de.png"
+    image: "/lovable-uploads/8280c490-cf0b-47d6-a2bf-5d44715892ab.png"
   },
   {
     id: "primecare",
     name: "PrimeCare Medical Billing Services",
-    image: "/lovable-uploads/38e4aec1-271e-446a-8da2-0429d93d9fdc.png"
+    image: "/lovable-uploads/db0fee9a-6a6f-4583-a573-9d9b76685f81.png"
   },
   {
     id: "lakeshore",
     name: "Lakeshore Medical Billing LLC",
-    image: "/lovable-uploads/55b0cf31-c397-44eb-b3a2-65d1c9ee0db4.png"
+    image: "/lovable-uploads/f8000bb6-b875-4476-8dd0-1c8adf4bb370.png"
   },
   {
     id: "claimcare",
     name: "ClaimCare - The Medical Billing Professionals",
-    image: "/lovable-uploads/a0dd443e-5d6a-497e-acea-9cfbcbe8ecfa.png"
+    image: "/lovable-uploads/cbaee609-1583-438c-b302-3931b7a383b5.png"
   },
   {
     id: "ppm",
     name: "Precision Practice Management",
-    image: "/lovable-uploads/37682424-4d32-40b9-a158-52cae6ce21f9.png"
+    image: "/lovable-uploads/aea334e3-f153-4250-a4d6-dee1c4723f01.png"
   },
   {
     id: "portiva",
     name: "Portiva",
-    image: "/lovable-uploads/00052d1d-f500-4c69-acc3-d58bee59ccde.png"
+    image: "/lovable-uploads/d7146a0d-98ad-431a-bb34-db6548f53005.png"
   }
 ];
 
