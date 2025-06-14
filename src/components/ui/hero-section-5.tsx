@@ -47,6 +47,20 @@ export function HeroSection() {
                         </div>
                     </div>
                     
+                    {/* DNA Style Video Background Animation */}
+                    <div className="aspect-[2/3] absolute inset-1 overflow-hidden rounded-3xl border border-white/10 sm:aspect-video lg:rounded-[3rem]">
+                        <video
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="size-full object-cover opacity-30 dark:opacity-20"
+                            src="https://ik.imagekit.io/lrigu76hy/tailark/dna-video.mp4?updatedAt=1745736251477">
+                        </video>
+                        {/* Overlay to blend with medical theme */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-eagle-blue/20 via-transparent to-eagle-orange/20"></div>
+                    </div>
+                    
                     {/* Benefits Grid */}
                     <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12 mt-16">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 text-sm md:text-base max-w-4xl mx-auto">
