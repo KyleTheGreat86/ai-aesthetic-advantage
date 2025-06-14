@@ -2,8 +2,7 @@
 'use client'
 import React from 'react'
 import { Button } from '@/components/ui/button'
-import { InfiniteSlider } from '@/components/ui/infinite-slider'
-import { ProgressiveBlur } from '@/components/ui/progressive-blur'
+import { Logos3 } from '@/components/ui/logos3'
 import { cn } from '@/lib/utils'
 import { Menu, X, ChevronRight } from 'lucide-react'
 import { useScroll, motion } from 'framer-motion'
@@ -16,6 +15,45 @@ export function HeroSection() {
             calculatorSection.scrollIntoView({ behavior: 'smooth' });
         }
     };
+
+    const medicalBillingLogos = [
+        {
+            id: "medisoft",
+            description: "Medisoft",
+            image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=200&h=80&fit=crop&auto=format",
+            className: "h-8 w-auto opacity-60"
+        },
+        {
+            id: "athenahealth",
+            description: "athenahealth",
+            image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=200&h=80&fit=crop&auto=format",
+            className: "h-8 w-auto opacity-60"
+        },
+        {
+            id: "epic",
+            description: "Epic",
+            image: "https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=200&h=80&fit=crop&auto=format",
+            className: "h-8 w-auto opacity-60"
+        },
+        {
+            id: "cerner",
+            description: "Cerner",
+            image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=80&fit=crop&auto=format",
+            className: "h-8 w-auto opacity-60"
+        },
+        {
+            id: "nextgen",
+            description: "NextGen",
+            image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=200&h=80&fit=crop&auto=format",
+            className: "h-8 w-auto opacity-60"
+        },
+        {
+            id: "allscripts",
+            description: "Allscripts",
+            image: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=200&h=80&fit=crop&auto=format",
+            className: "h-8 w-auto opacity-60"
+        }
+    ];
 
     return (
         <main className="overflow-x-hidden bg-black min-h-screen">
@@ -96,67 +134,12 @@ export function HeroSection() {
                 </div>
             </section>
             
-            <section className="bg-background pb-2">
-                <div className="group relative m-auto max-w-7xl px-6">
-                    <div className="flex flex-col items-center md:flex-row">
-                        <div className="md:max-w-44 md:border-r md:pr-6">
-                            <p className="text-end text-sm text-white/70">Trusted by medical billing companies</p>
-                        </div>
-                        <div className="relative py-6 md:w-[calc(100%-11rem)]">
-                            <InfiniteSlider
-                                gap={112}
-                                duration={40}>
-                                <div className="flex">
-                                    <img
-                                        className="mx-auto h-5 w-fit dark:invert opacity-60"
-                                        src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=40&fit=crop&auto=format"
-                                        alt="Medical Company 1"
-                                        height="20"
-                                        width="auto"
-                                    />
-                                </div>
-                                <div className="flex">
-                                    <img
-                                        className="mx-auto h-4 w-fit dark:invert opacity-60"
-                                        src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=200&h=32&fit=crop&auto=format"
-                                        alt="Medical Company 2"
-                                        height="16"
-                                        width="auto"
-                                    />
-                                </div>
-                                <div className="flex">
-                                    <img
-                                        className="mx-auto h-4 w-fit dark:invert opacity-60"
-                                        src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=200&h=32&fit=crop&auto=format"
-                                        alt="Medical Company 3"
-                                        height="16"
-                                        width="auto"
-                                    />
-                                </div>
-                                <div className="flex">
-                                    <img
-                                        className="mx-auto h-5 w-fit dark:invert opacity-60"
-                                        src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=200&h=40&fit=crop&auto=format"
-                                        alt="Medical Company 4"
-                                        height="20"
-                                        width="auto"
-                                    />
-                                </div>
-                            </InfiniteSlider>
-
-                            <ProgressiveBlur
-                                className="pointer-events-none absolute left-0 top-0 h-full w-20"
-                                direction="left"
-                                blurIntensity={1}
-                            />
-                            <ProgressiveBlur
-                                className="pointer-events-none absolute right-0 top-0 h-full w-20"
-                                direction="right"
-                                blurIntensity={1}
-                            />
-                        </div>
-                    </div>
-                </div>
+            <section className="bg-eagle-dark pb-2">
+                <Logos3 
+                    heading="Works with your existing Practice Management System"
+                    logos={medicalBillingLogos}
+                    className="py-8"
+                />
             </section>
         </main>
     )
