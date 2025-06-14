@@ -54,8 +54,8 @@ function Case() {
     <div className="w-full py-8 lg:py-12">
       <div className="container mx-auto">
         <div className="flex flex-col gap-6">
-          <h2 className="text-xl md:text-2xl lg:text-3xl tracking-tighter font-regular text-center text-white">
-            Trusted by medical billing companies nationwide
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-white mb-4">
+            Proven Results with Leading Healthcare Companies
           </h2>
           <Carousel setApi={setApi} className="w-full">
             <CarouselContent>
