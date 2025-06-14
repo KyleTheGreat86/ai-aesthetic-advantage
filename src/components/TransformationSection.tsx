@@ -2,6 +2,7 @@
 import React from "react";
 import { RainbowButton } from "./ui/rainbow-button";
 import AnimatedCodeSpline from "./ui/animated-code-spline";
+import { GlowingCard } from "./ui/glowing-card";
 
 const TransformationSection = () => {
   // Updated Calendly booking URL
@@ -20,7 +21,9 @@ const TransformationSection = () => {
         </div>
         
         {/* Code Spline Animation */}
-        <AnimatedCodeSpline />
+        <GlowingCard intensity="medium" className="mb-12">
+          <AnimatedCodeSpline />
+        </GlowingCard>
         
         {/* Button has been moved to the end of the component */}
         <div className="text-center mt-12">

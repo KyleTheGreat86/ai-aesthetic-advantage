@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { Mail, Cpu, CheckSquare, BarChart3 } from "lucide-react";
+import { GlowingCard } from "./ui/glowing-card";
 
 const Solution = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -93,16 +94,18 @@ const Solution = () => {
                     } transition-all duration-300`}
                     onMouseEnter={() => setActiveFeature(index)}
                   >
-                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/10 mb-4 w-full text-center">
-                      <div className="text-3xl font-bold text-eagle-orange mb-2">{index + 1}</div>
-                      <div className={`w-16 h-16 ${feature.iconColor} bg-white/10 rounded-full flex items-center justify-center mb-4 mx-auto border-2 ${
-                        activeFeature === index ? "border-white" : "border-transparent"
-                      }`}>
-                        <Icon size={30} />
+                    <GlowingCard intensity={activeFeature === index ? "strong" : "medium"}>
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/10 mb-4 w-full text-center">
+                        <div className="text-3xl font-bold text-eagle-orange mb-2">{index + 1}</div>
+                        <div className={`w-16 h-16 ${feature.iconColor} bg-white/10 rounded-full flex items-center justify-center mb-4 mx-auto border-2 ${
+                          activeFeature === index ? "border-white" : "border-transparent"
+                        }`}>
+                          <Icon size={30} />
+                        </div>
+                        <h3 className="text-lg font-semibold text-center mb-2">{feature.title}</h3>
+                        <p className="text-sm text-center text-gray-300">{feature.description}</p>
                       </div>
-                      <h3 className="text-lg font-semibold text-center mb-2">{feature.title}</h3>
-                      <p className="text-sm text-center text-gray-300">{feature.description}</p>
-                    </div>
+                    </GlowingCard>
                     
                     {index < features.length - 1 && (
                       <div className="hidden md:block absolute top-8 -right-3 transform translate-x-1/2 z-0">
@@ -117,15 +120,17 @@ const Solution = () => {
             </div>
           </div>
           
-          <div className="text-center bg-white/5 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto">
-            <h4 className="text-xl font-semibold mb-4 text-eagle-blue">Results You'll See</h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-              <div className="text-eagle-orange font-semibold">• Same-Day Submission → Faster reimbursements</div>
-              <div className="text-eagle-blue font-semibold">• 85% Fewer Labor Hours → Redeploy staff to high-value work</div>
-              <div className="text-white">• 99.9% Accuracy → Slash denials by 40%+</div>
-              <div className="text-eagle-orange font-semibold">• Trusted by Medical Billing Leaders</div>
+          <GlowingCard intensity="medium" className="max-w-2xl mx-auto">
+            <div className="text-center bg-white/5 backdrop-blur-sm rounded-lg p-6">
+              <h4 className="text-xl font-semibold mb-4 text-eagle-blue">Results You'll See</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div className="text-eagle-orange font-semibold">• Same-Day Submission → Faster reimbursements</div>
+                <div className="text-eagle-blue font-semibold">• 85% Fewer Labor Hours → Redeploy staff to high-value work</div>
+                <div className="text-white">• 99.9% Accuracy → Slash denials by 40%+</div>
+                <div className="text-eagle-orange font-semibold">• Trusted by Medical Billing Leaders</div>
+              </div>
             </div>
-          </div>
+          </GlowingCard>
         </div>
       </div>
       

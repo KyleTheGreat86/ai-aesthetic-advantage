@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { Clock, TrendingDown, AlertTriangle } from "lucide-react";
+import { GlowingCard } from "./ui/glowing-card";
 
 const ProblemStatement = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -83,16 +84,18 @@ const ProblemStatement = () => {
                   transitionDelay: `${index * 200}ms`,
                 }}
               >
-                <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300 h-full group">
-                  <Icon size={48} className={`${problem.iconColor} mb-6 mx-auto group-hover:scale-110 transition-transform duration-300`} />
-                  <h3 className="text-lg md:text-xl font-bold mb-4 text-center text-white">{problem.title}</h3>
-                  <p className="text-base md:text-lg font-semibold text-center mb-3 text-eagle-orange">
-                    {problem.description}
-                  </p>
-                  <p className="text-sm md:text-base text-gray-300 text-center leading-relaxed">
-                    {problem.subtext}
-                  </p>
-                </div>
+                <GlowingCard intensity="medium" className="h-full">
+                  <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300 h-full group">
+                    <Icon size={48} className={`${problem.iconColor} mb-6 mx-auto group-hover:scale-110 transition-transform duration-300`} />
+                    <h3 className="text-lg md:text-xl font-bold mb-4 text-center text-white">{problem.title}</h3>
+                    <p className="text-base md:text-lg font-semibold text-center mb-3 text-eagle-orange">
+                      {problem.description}
+                    </p>
+                    <p className="text-sm md:text-base text-gray-300 text-center leading-relaxed">
+                      {problem.subtext}
+                    </p>
+                  </div>
+                </GlowingCard>
               </div>
             );
           })}

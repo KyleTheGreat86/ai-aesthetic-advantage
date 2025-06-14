@@ -3,6 +3,7 @@ import React from "react";
 import { RainbowButton } from "./ui/rainbow-button";
 import { EagleSecondaryButton } from "./ui/eagle-button";
 import { ChevronRight } from "lucide-react";
+import { GlowingCard } from "./ui/glowing-card";
 
 const VideoSection = () => {
   return (
@@ -15,16 +16,18 @@ const VideoSection = () => {
           </p>
         </div>
         
-        <div className="relative aspect-video w-full max-w-4xl mx-auto mb-10 rounded-xl overflow-hidden shadow-[0_0_30px_rgba(213,70,239,0.3)]">
-          <iframe 
-            className="absolute inset-0 w-full h-full"
-            src="https://www.youtube.com/embed/MOL2f76XY-k?rel=0" 
-            title="Eagle Eye AI System Overview" 
-            frameBorder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowFullScreen
-          ></iframe>
-        </div>
+        <GlowingCard intensity="medium" className="max-w-4xl mx-auto">
+          <div className="relative aspect-video w-full rounded-xl overflow-hidden shadow-[0_0_30px_rgba(213,70,239,0.3)]">
+            <iframe 
+              className="absolute inset-0 w-full h-full"
+              src="https://www.youtube.com/embed/MOL2f76XY-k?rel=0" 
+              title="Eagle Eye AI System Overview" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen
+            ></iframe>
+          </div>
+        </GlowingCard>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
           <RainbowButton 

@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { Quote, User } from "lucide-react";
+import { GlowingCard } from "./ui/glowing-card";
 
 const Results = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -61,34 +62,36 @@ const Results = () => {
           </div>
 
           {/* Video Demo Section */}
-          <div className="text-center mb-16">
-            <div className="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-white/10 max-w-3xl mx-auto">
-              <h3 className="text-2xl font-bold mb-4 text-eagle-blue">
-                3-min demo showing CMS-1500 PDF → Auto-populated Medisoft fields in 90 sec
-              </h3>
-              <p className="text-lg text-gray-300 mb-6">
-                Watch our AI extract patient data, ICD-10s, and CPT codes overnight—no manual entry, no errors.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="https://calendly.com/weareagencyeagleeye/30min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-eagle-blue hover:bg-eagle-blue/80 text-white font-bold py-3 px-6 rounded-lg transition-colors"
-                >
-                  Book 15-Min Demo
-                </a>
-                <a
-                  href="https://calendly.com/weareagencyeagleeye/30min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-eagle-orange hover:bg-eagle-orange/80 text-white font-bold py-3 px-6 rounded-lg transition-colors"
-                >
-                  See Live Accuracy Test
-                </a>
+          <GlowingCard intensity="medium" className="mb-16">
+            <div className="text-center">
+              <div className="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-white/10 max-w-3xl mx-auto">
+                <h3 className="text-2xl font-bold mb-4 text-eagle-blue">
+                  3-min demo showing CMS-1500 PDF → Auto-populated Medisoft fields in 90 sec
+                </h3>
+                <p className="text-lg text-gray-300 mb-6">
+                  Watch our AI extract patient data, ICD-10s, and CPT codes overnight—no manual entry, no errors.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a
+                    href="https://calendly.com/weareagencyeagleeye/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-eagle-blue hover:bg-eagle-blue/80 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+                  >
+                    Book 15-Min Demo
+                  </a>
+                  <a
+                    href="https://calendly.com/weareagencyeagleeye/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-eagle-orange hover:bg-eagle-orange/80 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+                  >
+                    See Live Accuracy Test
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
+          </GlowingCard>
 
           {/* Testimonials */}
           <div className="grid md:grid-cols-2 gap-8">
@@ -104,19 +107,21 @@ const Results = () => {
                   transitionDelay: `${testimonial.delay}ms`,
                 }}
               >
-                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-white/10 hover:border-white/20 transition-all duration-300 h-full">
-                  <Quote className="text-eagle-orange mb-4" size={32} />
-                  <p className="text-lg mb-6 text-white leading-relaxed">
-                    "{testimonial.quote}"
-                  </p>
-                  <div className="flex items-center">
-                    <User className="text-eagle-blue mr-3" size={20} />
-                    <div>
-                      <div className="font-semibold text-white">{testimonial.author}</div>
-                      <div className="text-gray-300 text-sm">{testimonial.company}</div>
+                <GlowingCard intensity="medium" className="h-full">
+                  <div className="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-white/10 hover:border-white/20 transition-all duration-300 h-full">
+                    <Quote className="text-eagle-orange mb-4" size={32} />
+                    <p className="text-lg mb-6 text-white leading-relaxed">
+                      "{testimonial.quote}"
+                    </p>
+                    <div className="flex items-center">
+                      <User className="text-eagle-blue mr-3" size={20} />
+                      <div>
+                        <div className="font-semibold text-white">{testimonial.author}</div>
+                        <div className="text-gray-300 text-sm">{testimonial.company}</div>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </GlowingCard>
               </div>
             ))}
           </div>
