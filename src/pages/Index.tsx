@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import VideoSection from "../components/VideoSection";
 import TransformationSection from "../components/TransformationSection";
+import RoiCalculator from "../components/RoiCalculator";
 import { useIsMobile, useDeviceType } from "../hooks/use-mobile";
 
 // Import the RainbowButton CSS styles
@@ -97,6 +98,7 @@ const Index = () => {
     benefits: false,
     howItWorks: false,
     transformation: false,
+    roiCalculator: false,
     results: false,
     pricing: false,
     about: false,
@@ -190,6 +192,10 @@ const Index = () => {
         <Suspense fallback={<SectionLoader />}>
           <VideoSection />
         </Suspense>
+      </section>
+      
+      <section id="roi-calculator">
+        <RoiCalculator />
       </section>
       
       <section id="problem">
