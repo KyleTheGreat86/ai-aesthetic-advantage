@@ -1,5 +1,5 @@
+
 import { Facebook, Linkedin, Youtube, ArrowUp } from "lucide-react";
-import { EagleButton } from "./ui/eagle-button";
 import eagleEyeLogo from "/lovable-uploads/33a6f5a7-7d2c-48db-89fa-7230cda0aeec.png";
 
 const Footer = () => {
@@ -13,22 +13,6 @@ const Footer = () => {
   return (
     <footer className="bg-eagle-dark/90 border-t border-white/10 pt-12 pb-6 relative" id="contact">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Final CTA Section */}
-        <div className="mb-16 max-w-3xl mx-auto text-center bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-eagle-blue/30">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Transform Your Brokerage?</h2>
-          <p className="text-lg mb-6">Book a 30-minute strategy session to see Eagle Eye in action. Limited spots available.</p>
-          
-          <EagleButton
-            calendlyLink="https://calendly.com/weareagencyeagleeye/30min"
-            className="uppercase font-bold group text-white w-auto px-6"
-          >
-            Claim Your Free Demo
-            <span className="ml-2 group-hover:ml-3 transition-all">→</span>
-          </EagleButton>
-          
-          <p className="mt-4 text-sm text-red-400 font-medium">Only 3 implementations available this month!</p>
-        </div>
-        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <div className="col-span-1">
             <div className="flex items-center mb-4">

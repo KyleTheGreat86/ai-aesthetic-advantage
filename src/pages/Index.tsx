@@ -5,6 +5,7 @@ import Hero from "../components/Hero";
 import VideoSection from "../components/VideoSection";
 import TransformationSection from "../components/TransformationSection";
 import { useIsMobile, useDeviceType } from "../hooks/use-mobile";
+import { BeamsBackground } from "../components/ui/beams-background";
 
 // Import the RainbowButton CSS styles
 import "../rainbow-button-styles.css";
@@ -75,11 +76,6 @@ const FAQ = lazy(() =>
 
 const Footer = lazy(() => 
   import("../components/Footer")
-    .then(module => ({ default: memo(module.default) }))
-);
-
-const BackgroundGrid = lazy(() => 
-  import("../components/BackgroundGrid")
     .then(module => ({ default: memo(module.default) }))
 );
 
@@ -178,11 +174,9 @@ const Index = () => {
         <LoadingScreen />
       </Suspense>
       
-      <Navbar />
+      <BeamsBackground intensity="subtle" />
       
-      <Suspense fallback={null}>
-        <BackgroundGrid />
-      </Suspense>
+      <Navbar />
       
       <Hero />
       
