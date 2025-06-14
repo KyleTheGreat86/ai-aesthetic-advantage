@@ -2,7 +2,7 @@
 'use client'
 import React from 'react'
 import { Button } from '@/components/ui/button'
-import { Logos3 } from '@/components/ui/logos3'
+import { Case } from '@/components/ui/cases-with-infinite-scroll'
 import { cn } from '@/lib/utils'
 import { Menu, X, ChevronRight } from 'lucide-react'
 import { useScroll, motion } from 'framer-motion'
@@ -15,45 +15,6 @@ export function HeroSection() {
             calculatorSection.scrollIntoView({ behavior: 'smooth' });
         }
     };
-
-    const medicalBillingLogos = [
-        {
-            id: "medisoft",
-            description: "Medisoft",
-            image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=200&h=80&fit=crop&auto=format",
-            className: "h-10 w-auto opacity-80 brightness-0 invert"
-        },
-        {
-            id: "athenahealth",
-            description: "athenahealth",
-            image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=200&h=80&fit=crop&auto=format",
-            className: "h-10 w-auto opacity-80 brightness-0 invert"
-        },
-        {
-            id: "epic",
-            description: "Epic",
-            image: "https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=200&h=80&fit=crop&auto=format",
-            className: "h-10 w-auto opacity-80 brightness-0 invert"
-        },
-        {
-            id: "cerner",
-            description: "Cerner",
-            image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=80&fit=crop&auto=format",
-            className: "h-10 w-auto opacity-80 brightness-0 invert"
-        },
-        {
-            id: "nextgen",
-            description: "NextGen",
-            image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=200&h=80&fit=crop&auto=format",
-            className: "h-10 w-auto opacity-80 brightness-0 invert"
-        },
-        {
-            id: "allscripts",
-            description: "Allscripts",
-            image: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=200&h=80&fit=crop&auto=format",
-            className: "h-10 w-auto opacity-80 brightness-0 invert"
-        }
-    ];
 
     return (
         <main className="overflow-x-hidden bg-black min-h-screen">
@@ -135,11 +96,7 @@ export function HeroSection() {
             </section>
             
             <section className="bg-black pb-2">
-                <Logos3 
-                    heading="Trusted by medical billing companies nationwide"
-                    logos={medicalBillingLogos}
-                    className="py-8"
-                />
+                <Case />
             </section>
         </main>
     )
