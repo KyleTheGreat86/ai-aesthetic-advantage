@@ -1,6 +1,6 @@
 
 'use client'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Case } from '@/components/ui/cases-with-infinite-scroll'
 import { cn } from '@/lib/utils'
@@ -9,6 +9,62 @@ import { useScroll, motion } from 'framer-motion'
 import eagleEyeLogo from "/lovable-uploads/33a6f5a7-7d2c-48db-89fa-7230cda0aeec.png";
 
 export function HeroSection() {
+    const [displayedText, setDisplayedText] = useState('');
+    const [currentAmount, setCurrentAmount] = useState(0);
+    const [showCursor, setShowCursor] = useState(true);
+    
+    const fullText = "Medical Billing Companies Save ";
+    const targetAmount = 5000;
+
+    // Typewriter effect
+    useEffect(() => {
+        let currentIndex = 0;
+        const typeTimer = setInterval(() => {
+            if (currentIndex < fullText.length) {
+                setDisplayedText(fullText.slice(0, currentIndex + 1));
+                currentIndex++;
+            } else {
+                clearInterval(typeTimer);
+                // Start counter animation after text is complete
+                startCounterAnimation();
+            }
+        }, 80); // Adjust speed as needed
+
+        return () => clearInterval(typeTimer);
+    }, []);
+
+    // Counter animation
+    const startCounterAnimation = () => {
+        let startTime: number;
+        const duration = 3000; // 3 seconds
+
+        const animate = (timestamp: number) => {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            
+            // Ease out animation
+            const easeProgress = 1 - Math.pow(1 - progress, 3);
+            const currentValue = Math.floor(easeProgress * targetAmount);
+            
+            setCurrentAmount(currentValue);
+            
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            }
+        };
+        
+        requestAnimationFrame(animate);
+    };
+
+    // Cursor blinking effect
+    useEffect(() => {
+        const cursorTimer = setInterval(() => {
+            setShowCursor(prev => !prev);
+        }, 500);
+
+        return () => clearInterval(cursorTimer);
+    }, []);
+
     const handleCalculatorClick = () => {
         const calculatorSection = document.getElementById('roi-calculator');
         if (calculatorSection) {
@@ -23,7 +79,15 @@ export function HeroSection() {
                     <div className="relative z-10 mx-auto flex max-w-7xl flex-col px-6 lg:block lg:px-12">
                         <div className="mx-auto max-w-lg text-center lg:ml-0 lg:max-w-full lg:text-left">
                             <h1 className="mt-8 max-w-2xl text-balance text-5xl md:text-6xl lg:mt-16 xl:text-7xl text-white">
-                                Medical Billing Companies Save <span className="text-eagle-orange">$5,000+</span> Per Month
+                                {displayedText}
+                                <span className="text-eagle-orange">
+                                    ${currentAmount.toLocaleString()}+
+                                </span>
+                                {displayedText.length < fullText.length && showCursor && (
+                                    <span className="text-eagle-blue animate-pulse">|</span>
+                                )}
+                                <br />
+                                Per Month
                             </h1>
                             <p className="mt-8 max-w-2xl text-balance text-lg text-white/90">
                                 While Cutting CMS-1500 Time from <span className="text-eagle-blue">8 Minutes</span> to <span className="text-eagle-orange">90 Seconds</span>
