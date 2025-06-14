@@ -16,11 +16,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <div className="col-span-1">
             <div className="flex items-center mb-4">
-              <img src={eagleEyeLogo} alt="Eagle Eye Logo" className="h-10 mr-2" />
-              <h3 className="text-xl font-bold">Eagle Eye AI</h3>
+              <img src={eagleEyeLogo} alt="Agency Eagle Eye Logo" className="h-10 mr-2" />
+              <h3 className="text-xl font-bold">Agency Eagle Eye</h3>
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
-              AI infrastructure for CRE brokers handling $3M-$20M deals. We help you close more off-market deals with less admin work through intelligent automation and mobile-first design.
+              AI-powered CMS-1500 processing for medical billing companies. We help you reduce claim processing from 8 minutes to 90 seconds with 99.9% accuracy, saving $5,000+ monthly through intelligent automation.
             </p>
             <div className="card bg-transparent flex space-x-4 p-0">
               <SocialIcon 
@@ -68,7 +68,7 @@ const Footer = () => {
 
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-400">
-            © {new Date().getFullYear()} Eagle Eye AI. All rights reserved.
+            © {new Date().getFullYear()} Agency Eagle Eye. All rights reserved.
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
             <FooterLink href="#privacy">Privacy</FooterLink>
