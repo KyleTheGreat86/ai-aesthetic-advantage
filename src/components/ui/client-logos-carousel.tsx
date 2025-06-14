@@ -15,7 +15,7 @@ interface ClientLogo {
   image: string;
 }
 
-// Define medical billing company logos
+// Define medical billing company logos - only the new uploads
 const clientLogos: ClientLogo[] = [
   {
     id: "24-medical",
